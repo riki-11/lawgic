@@ -213,6 +213,7 @@ __marimo__/
 datasets/
 
 chroma_db/
+collections/
 
 .vscode/
 .cursor/
