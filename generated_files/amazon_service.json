@@ -4,337 +4,6 @@
   "service_url": "amazon.com,amazon.com.au,amazon.de,amazon.co.uk,amazon.nl,amazon.pl,amazon.sa,amazon.sg,amazon.se,amazon.com.tr,amazon.ae,amazon.co.jp,amazon.es,amazon.in,amazon.ca,amazon.fr,amazon.it,amazon.com.br,amazon.cn,amazon.com.mx,amzn.to",
   "cases": [
     {
-      "case_id": 235,
-      "case_classification": "neutral",
-      "case_score": 0,
-      "case_title": "none",
-      "case_description": "Do not select this case, because points with this case will not show up on tosdr.org",
-      "case_privacy_related": null,
-      "case_topic": "Unclassified",
-      "points": [
-        {
-          "point_id": 746,
-          "point_title": "[Good] Amazon has a good refund policy",
-          "point_source": "https://groups.google.com/forum/#!topic/tosdr/DI--Onpg6Ww",
-          "point_analysis": "[Good] Amazon has a good refund policy",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 750,
-          "point_title": "Amazon's \"Conditions of Use\"",
-          "point_source": "https://groups.google.com/forum/#!topic/tosdr/7swJjL_IoAk",
-          "point_analysis": "Amazon's \"Conditions of Use\"",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 824,
-          "point_title": "[Bad] You indemnify Amazon from any claim related to your content",
-          "point_source": "https://groups.google.com/forum/#!topic/tosdr/8y_mME65xZs",
-          "point_analysis": "[Bad] You indemnify Amazon from any claim related to your content",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 1032,
-          "point_title": "[Bad] Amazon allows ad services cookies and group filtering on personal information",
-          "point_source": "https://groups.google.com/forum/#!topic/tosdr/Y36bjTvMOLs",
-          "point_analysis": "[Bad] Amazon allows ad services cookies and group filtering on personal information",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 1031,
-          "point_title": "[Info] Amazon requires claims to be resolved by binding arbitration rather than in court",
-          "point_source": "https://groups.google.com/forum/#!topic/tosdr/TGwFKDGaD7Y",
-          "point_analysis": "[Info] Amazon requires claims to be resolved by binding arbitration rather than in court",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 1017,
-          "point_title": "[Bad] Amazon can change ToS any time, without notice",
-          "point_source": "https://groups.google.com/forum/#!topic/tosdr/P0515xPg3vg",
-          "point_analysis": "[Bad] Amazon can change ToS any time, without notice",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 961,
-          "point_title": "[Info] Amazon Choice of law: Federal Arbitration Act, federal laws and state of Washington",
-          "point_source": "https://groups.google.com/forum/#!topic/tosdr/PCOLAHJZrok",
-          "point_analysis": "[Info] Amazon Choice of law: Federal Arbitration Act, federal laws and state of Washington",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 1979,
-          "point_title": "Amazon.com equate posting notices with sending communication",
-          "point_source": "https://groups.google.com/d/topic/tosdr/gegDc8u7Bp8/discussion",
-          "point_analysis": "Amazon.com equate posting notices with sending communication",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 1636,
-          "point_title": "Amazon damage waiver",
-          "point_source": "https://groups.google.com/d/topic/tosdr/3CqRSDKgqUM/discussion",
-          "point_analysis": "Amazon damage waiver",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 1403,
-          "point_title": "Amazon Music may scan other music on your device",
-          "point_source": "Imported from ToS;DR before phoenix",
-          "point_analysis": "The words are: \"The Music Library Service and the Software may scan Music Content on your device and collect other information that may be used to identify Music Content on your device, such as the names of songs, artists, and associated metadata. \".   I find it not clear whether \"Music Content\" refers *only* to music purchased from Amazon, but in any case this seems to give them the right to scan other music files on your device to determine whether they did come from Amazon.",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 1495,
-          "point_title": "Amazon",
-          "point_source": "https://groups.google.com/forum#!topic/tosdr/f2PZFoVFw9Q",
-          "point_analysis": "Amazon",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 1895,
-          "point_title": "cookies",
-          "point_source": "Imported from ToS;DR before phoenix",
-          "point_analysis": "let the machine think for you",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 1273,
-          "point_title": "If you are under 18, you may use the Amazon Services only with involvement of a parent or guardian.",
-          "point_source": "https://groups.google.com/d/topic/tosdr/SnRbqgGaPx4/discussion",
-          "point_analysis": "If you are under 18, you may use the Amazon Services only with involvement of a parent or guardian.",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 1619,
-          "point_title": "Amazon cookies you on other websites",
-          "point_source": "https://groups.google.com/d/topic/tosdr/CzvpQJo3bFo/discussion",
-          "point_analysis": "Amazon cookies you on other websites",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 2443,
-          "point_title": "you agree not to reverse-engineer Amazon&#39;s software",
-          "point_source": "https://groups.google.com/d/topic/tosdr/jN2Ult8EVsg/discussion",
-          "point_analysis": "you agree not to reverse-engineer Amazon&#39;s software",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 4061,
-          "point_title": "&#39;additional software terms&#39; is a broken link in Amazon ToS",
-          "point_source": "https://groups.google.com/d/topic/tosdr/CfLqsN7CV0c/discussion",
-          "point_analysis": "&#39;additional software terms&#39; is a broken link in Amazon ToS",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 2376,
-          "point_title": "Amazon gives contact info to answer your questions about privacy",
-          "point_source": "https://groups.google.com/d/topic/tosdr/GZoIOfbvPtM/discussion",
-          "point_analysis": "Amazon gives contact info to answer your questions about privacy",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 2534,
-          "point_title": "Amazon Kindle Content is licensed, not sold, to you by the Content Provider",
-          "point_source": "https://groups.google.com/d/topic/tosdr/zgyWUnmMuE4/discussion",
-          "point_analysis": "Amazon Kindle Content is licensed, not sold, to you by the Content Provider",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 1684,
-          "point_title": "Amazon shares you personal information with numerous other businesses",
-          "point_source": "Imported from ToS;DR before phoenix",
-          "point_analysis": "Amazon shares your information with a number of businesses with which it affiliates, including Starbucks, OfficeMax, Verizon Wireless, Sprint, T-Mobile, AT&T, J&R Electronics, Eddie Bauer and Northern Tool + Equipment. ",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 1719,
-          "point_title": "Amazon smartphone app will track your movements, and fake &quot;opt-out&quot; suggested",
-          "point_source": "https://groups.google.com/d/topic/tosdr/RGBT-IFdHvg/discussion",
-          "point_analysis": "Amazon smartphone app will track your movements, and fake &quot;opt-out&quot; suggested",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 1757,
-          "point_title": "Amazon forbids political campaigning in e-cards",
-          "point_source": "https://groups.google.com/d/topic/tosdr/FqR9ltDcfYE/discussion",
-          "point_analysis": "Amazon forbids political campaigning in e-cards",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 1791,
-          "point_title": "Amazon class action waiver",
-          "point_source": "https://groups.google.com/d/topic/tosdr/mkqBmEOBVww/discussion",
-          "point_analysis": "Amazon class action waiver",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 1769,
-          "point_title": "Amazon reviews copyright license",
-          "point_source": "https://groups.google.com/d/topic/tosdr/HK3vEB1A85Y/discussion",
-          "point_analysis": "Amazon reviews copyright license",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 1835,
-          "point_title": "Amazon does not sell your data",
-          "point_source": "https://groups.google.com/d/topic/tosdr/FWkBBXmTaxg/discussion",
-          "point_analysis": "Amazon does not sell your data",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 1001,
-          "point_title": "[Good] Amazon allows you to leave the service",
-          "point_source": "https://groups.google.com/forum/#!topic/tosdr/bFPN_2rqQ5c",
-          "point_analysis": "[Good] Amazon allows you to leave the service",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 1928,
-          "point_title": "Amazon will fingerprint your browser",
-          "point_source": "https://groups.google.com/d/topic/tosdr/1FYkOxYtvQQ/discussion",
-          "point_analysis": "Amazon will fingerprint your browser",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 2039,
-          "point_title": "Amazon reserves the right to [...] terminate accounts [...] in its sole discretion.",
-          "point_source": "https://groups.google.com/d/topic/tosdr/Iq4jWVYvcnk/discussion",
-          "point_analysis": "Amazon reserves the right to [...] terminate accounts [...] in its sole discretion.",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 2240,
-          "point_title": "Amazon emphasizes you can always choose not to provide information",
-          "point_source": "https://groups.google.com/d/topic/tosdr/felgwj6VIkk/discussion",
-          "point_analysis": "Amazon emphasizes you can always choose not to provide information",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 3824,
-          "point_title": "Differences between the services/*.json files and the tosback2/rules/*.xml files",
-          "point_source": "https://groups.google.com/forum#!topic/tosdr/sMXuuVO3IH4",
-          "point_analysis": "Differences between the services/*.json files and the tosback2/rules/*.xml files",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 3856,
-          "point_title": "self-regulatory program for online behavioral advertising - opinions?",
-          "point_source": "https://groups.google.com/d/topic/tosdr/5jKaANuyYRg/discussion",
-          "point_analysis": "self-regulatory program for online behavioral advertising - opinions?",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 2178,
-          "point_title": "you will indemnify Amazon for all claims resulting from content you supply",
-          "point_source": "https://groups.google.com/d/topic/tosdr/XT18NSNLGtQ/discussion",
-          "point_analysis": "you will indemnify Amazon for all claims resulting from content you supply",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        },
-        {
-          "point_id": 1054,
-          "point_title": "Amazon",
-          "point_source": "https://groups.google.com/forum/#!topic/tosdr/3I3Ox4X4bnU",
-          "point_analysis": "Amazon",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        }
-      ]
-    },
-    {
       "case_id": 188,
       "case_classification": "bad",
       "case_score": 35,
@@ -383,37 +52,6 @@
           "point_quote_start": 525.0,
           "point_quote_end": 643.0,
           "point_document_id": 39.0
-        },
-        {
-          "point_id": 705,
-          "point_title": "The service uses your personal data is used for advertising",
-          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=468496",
-          "point_analysis": "\" You provide most such information when you search, buy, post, participate in a contest or questionnaire, or communicate with customer service. For example, you provide information when you search for a product\r\n\r\n    During some visits we may use software tools such as JavaScript to measure and collect session information, including page response times, download errors, length of visits to certain pages, page interaction information (such as scrolling, clicks, and mouse-overs), and methods used to browse away from the page.\"\r\n\r\n\r\n",
-          "point_quote_text": "You provide most such information when you search, buy, post, participate in a contest or questionnaire, or communicate with customer service.\r\nFor example, you provide information when you search for a product.\r\nplace an order through Amazon.com or one of our third-party sellers.",
-          "point_quote_start": 12900.0,
-          "point_quote_end": 13179.0,
-          "point_document_id": 38.0
-        }
-      ]
-    },
-    {
-      "case_id": 213,
-      "case_classification": "neutral",
-      "case_score": 10,
-      "case_title": "You are not allowed to use pseudonyms, as trust and transparency between users regarding their identities is relevant to the service.",
-      "case_description": "You must provide your legal name and pseudonyms aren't allowed, but it makes sense for the purposes of this service.",
-      "case_privacy_related": null,
-      "case_topic": "Anonymity",
-      "points": [
-        {
-          "point_id": 5921,
-          "point_title": "Users are not allowed to use pseudonyms, as trust and transparency between users regarding their identities is relevant to the service.",
-          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=508088",
-          "point_analysis": "Generated through the annotate view",
-          "point_quote_text": "You may not use a false e-mail address, impersonate any person or entity, or otherwise mislead as to the origin of a card or other content",
-          "point_quote_start": 7055.0,
-          "point_quote_end": 7193.0,
-          "point_document_id": 37.0
         }
       ]
     },
@@ -481,79 +119,6 @@
       ]
     },
     {
-      "case_id": 375,
-      "case_classification": "neutral",
-      "case_score": 50,
-      "case_title": "Blocking first party cookies may limit your ability to use the service",
-      "case_description": "Most browsers allow users to set preferences related to cookies storage. You may choose to block all cookies (including first-party cookies), but it may impact your use of this service and you may not be able to access some or any of the features provided.",
-      "case_privacy_related": null,
-      "case_topic": "Trackers",
-      "points": [
-        {
-          "point_id": 5927,
-          "point_title": "Blocking cookies may limit your ability to use the service",
-          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=468496",
-          "point_analysis": "Generated through the annotate view",
-          "point_quote_text": "For instance, if you block or otherwise reject our cookies, you will not be able to add items to your Shopping Cart, proceed to Checkout, or use any Amazon.com products and services that require you to Sign in",
-          "point_quote_start": 4311.0,
-          "point_quote_end": 4520.0,
-          "point_document_id": 38.0
-        },
-        {
-          "point_id": 1101,
-          "point_title": "Amazon requires cookies to function",
-          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=468496",
-          "point_analysis": "If a user were to block Amazon's cookies, it would impair even the most basic user functions on Amazon.",
-          "point_quote_text": "Because cookies allow you to take advantage of some of Amazon.com's essential features, we recommend that you leave them turned on.\r\nFor instance, if you block or otherwise reject our cookies, you will not be able to add items to your Shopping Cart, proceed to Checkout, or use any Amazon.com products and services that require you to Sign in.",
-          "point_quote_start": 4179.0,
-          "point_quote_end": 4521.0,
-          "point_document_id": 38.0
-        }
-      ]
-    },
-    {
-      "case_id": 329,
-      "case_classification": "neutral",
-      "case_score": 50,
-      "case_title": "You should revisit the terms periodically, although in case of material changes, the service will notify",
-      "case_description": "The service may update the Terms without notice, but if they significantly change the agreements in a manner that importantly and/or negatively affects the way the service is used, users will be notified.",
-      "case_privacy_related": null,
-      "case_topic": "Notice of Changing Terms",
-      "points": [
-        {
-          "point_id": 5928,
-          "point_title": "Users should revisit the terms periodically, although in case of material changes, the service will notify",
-          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=468496",
-          "point_analysis": "Generated through the annotate view",
-          "point_quote_text": "We may e-mail periodic reminders of our notices and conditions, but you should check our Web site frequently to see recent changes.\r\nUnless stated otherwise, our current Privacy Notice applies to all information that we have about you and your account.\r\nWe stand behind the promises we make, however, and will never materially change our policies and practices to make them less protective of customer information collected in the past without the consent of affected customers.",
-          "point_quote_start": 12084.0,
-          "point_quote_end": 12560.0,
-          "point_document_id": 38.0
-        }
-      ]
-    },
-    {
-      "case_id": 163,
-      "case_classification": "neutral",
-      "case_score": 0,
-      "case_title": "The court of law governing the terms is in location X",
-      "case_description": "The Terms are governed by the applicable laws of a jurisdiction (specified in the title of each point by replacing the \"X\").",
-      "case_privacy_related": null,
-      "case_topic": "Jurisdiction and governing laws",
-      "points": [
-        {
-          "point_id": 5924,
-          "point_title": "The court of law governing the terms is in location X",
-          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=508088",
-          "point_analysis": "Generated through the annotate view",
-          "point_quote_text": "By using any Amazon Service, you agree that the Federal Arbitration Act, applicable federal law, and the laws of the state of Washington, without regard to principles of conflict of laws, will govern these Conditions of Use and any dispute of any sort that might arise between you and Amazon.",
-          "point_quote_start": 15939.0,
-          "point_quote_end": 16231.0,
-          "point_document_id": 37.0
-        }
-      ]
-    },
-    {
       "case_id": 121,
       "case_classification": "bad",
       "case_score": 70,
@@ -571,16 +136,6 @@
           "point_quote_start": 16443.0,
           "point_quote_end": 16557.0,
           "point_document_id": 37.0
-        },
-        {
-          "point_id": 944,
-          "point_title": "Terms may be changed any time at their discretion, without notice to the user",
-          "point_source": "https://groups.google.com/d/msg/tosdr/lb50aLuegoQ/Vko5nZqx4M8J",
-          "point_analysis": "They can change the terms of service any time they see fit, even without notification to the user. Your use of the service supposedly constitutes acceptance of the changes in the terms.",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
         }
       ]
     },
@@ -623,58 +178,6 @@
           "point_quote_start": 16559.0,
           "point_quote_end": 16771.0,
           "point_document_id": 37.0
-        }
-      ]
-    },
-    {
-      "case_id": 337,
-      "case_classification": "good",
-      "case_score": 50,
-      "case_title": "You can opt out of providing personal information to third parties",
-      "case_description": "The Service provides opt-out instructions to the share of (some) personal information with third parties.",
-      "case_privacy_related": true,
-      "case_topic": "User Choice",
-      "points": [
-        {
-          "point_id": 829,
-          "point_title": "The service allows you to opt out of providing personal information to third parties",
-          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=468496",
-          "point_analysis": "See excerpt.",
-          "point_quote_text": "Other than as set out above, you will receive notice when information about you might go to third parties, and you will have an opportunity to choose not to share the information.",
-          "point_quote_start": 7682.0,
-          "point_quote_end": 7861.0,
-          "point_document_id": 38.0
-        }
-      ]
-    },
-    {
-      "case_id": 228,
-      "case_classification": "good",
-      "case_score": 30,
-      "case_title": "Information is provided about what kind of information they collect",
-      "case_description": "The Privacy Policy describes in detail the data collected through the website and through the services provided.",
-      "case_privacy_related": null,
-      "case_topic": "Transparency",
-      "points": [
-        {
-          "point_id": 902,
-          "point_title": "Amazon allows users to have some control over the information that they give to the service",
-          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=468496",
-          "point_analysis": "While Amazon grants users some control over their personal information, the service also warns that users may sacrifice quality of experience on the website if they limit the information that they give.",
-          "point_quote_text": "You can choose not to provide certain information, but then you might not be able to take advantage of many of our features.\r\nWe use the information that you provide for such purposes as responding to your requests, customizing future shopping for you, improving our stores, and communicating with you.\r\n</li>",
-          "point_quote_start": 1436.0,
-          "point_quote_end": 1743.0,
-          "point_document_id": 38.0
-        },
-        {
-          "point_id": 20755,
-          "point_title": "Details are provided about what kind of information they collect",
-          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=468496",
-          "point_analysis": "Generated through the annotate view",
-          "point_quote_text": "</p> What Personal Information About Customers Does Amazon Collect?",
-          "point_quote_start": 1402.0,
-          "point_quote_end": 1470.0,
-          "point_document_id": 38.0
         }
       ]
     },
@@ -805,6 +308,27 @@
       ]
     },
     {
+      "case_id": 228,
+      "case_classification": "good",
+      "case_score": 30,
+      "case_title": "Information is provided about what kind of information they collect",
+      "case_description": "The Privacy Policy describes in detail the data collected through the website and through the services provided.",
+      "case_privacy_related": null,
+      "case_topic": "Transparency",
+      "points": [
+        {
+          "point_id": 20755,
+          "point_title": "Details are provided about what kind of information they collect",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=468496",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "</p> What Personal Information About Customers Does Amazon Collect?",
+          "point_quote_start": 1402.0,
+          "point_quote_end": 1470.0,
+          "point_document_id": 38.0
+        }
+      ]
+    },
+    {
       "case_id": 223,
       "case_classification": "good",
       "case_score": 10,
@@ -843,48 +367,6 @@
           "point_quote_start": 3848.0,
           "point_quote_end": 4123.0,
           "point_document_id": 38.0
-        }
-      ]
-    },
-    {
-      "case_id": 154,
-      "case_classification": "neutral",
-      "case_score": 0,
-      "case_title": "This service cannot be held responsible for disputes that you may have with other users",
-      "case_description": "You are responsible for the interactions and the disputes that may occur with other users of the Service. In the event of a dispute, you release the Service from all claims resulting from it.",
-      "case_privacy_related": null,
-      "case_topic": "Governance",
-      "points": [
-        {
-          "point_id": 20821,
-          "point_title": "This service cannot be held responsible for disputes that you may have with other users",
-          "point_source": "On tv",
-          "point_analysis": "I'm not understanding none of this .I'm the one who is trying to figure out what is going on.and I'm on a mobile phone.im not a developer.. Im a law abiding citizen. follow my data maybe you can figure it out",
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
-        }
-      ]
-    },
-    {
-      "case_id": 171,
-      "case_classification": "good",
-      "case_score": 90,
-      "case_title": "Features of the website are made available under a free software license",
-      "case_description": "This case applies to services under licenses that are free as in \"freedom\". According to the Free Software Foundation, \"free software is the software that grants the user the freedom to share, study, and modify it\". Furthermore, the code is entirely open source and may be used without any restriction, including for commercial purposes.",
-      "case_privacy_related": null,
-      "case_topic": "Transparency",
-      "points": [
-        {
-          "point_id": 26353,
-          "point_title": "Features of the website are made available under a free software license",
-          "point_source": "On their website ",
-          "point_analysis": null,
-          "point_quote_text": null,
-          "point_quote_start": null,
-          "point_quote_end": null,
-          "point_document_id": null
         }
       ]
     },
@@ -1011,69 +493,6 @@
           "point_quote_start": 6286.0,
           "point_quote_end": 6461.0,
           "point_document_id": 37.0
-        }
-      ]
-    },
-    {
-      "case_id": 220,
-      "case_classification": "bad",
-      "case_score": 40,
-      "case_title": "Your personal data is used to employ targeted third-party advertising",
-      "case_description": "Your Personal Information is traded and shared with advertising companies to target ads on you, either on the website you were visiting or in third party websites. Your interaction with the service and data you have shared with them may be gathered to create an advertising ID or profile.",
-      "case_privacy_related": true,
-      "case_topic": "Advertising",
-      "points": [
-        {
-          "point_id": 701,
-          "point_title": "Amazon enables third-party advertisers to target you by default",
-          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=202075050",
-          "point_analysis": "Although Amazon does not share your personal informaton to advertiers and other third-parties that display Amazon's ads, by default they enable third-party advertises to target you (IP, cookies or “other features”). However, you <a href=\"http://www.amazon.com/gp/dra/info\">can opt-out</a>.",
-          "point_quote_text": "Advertisers or ad companies working on their behalf sometimes use technology to serve the ads that appear on our sites directly to your browser.\r\nThey automatically receive your IP address when this happens.\r\nThey may also use cookies to measure the effectiveness of their ads and to personalize ad content.\r\nWe do not have access to or control over cookies or other features that advertisers and third party sites may use, and the information practices of these advertisers and third party websites are not covered by our Privacy Notice or this Interest-Based Ads page.\r\nPlease contact them directly for more information about their privacy practices.",
-          "point_quote_start": 2173.0,
-          "point_quote_end": 2821.0,
-          "point_document_id": 39.0
-        }
-      ]
-    },
-    {
-      "case_id": 197,
-      "case_classification": "good",
-      "case_score": 50,
-      "case_title": "Archives of their agreements are provided so that changes can be viewed over time",
-      "case_description": "This case applies to Services whose agreements provide previous versions, so that users can compare them and understand how the Service seems to evolve regarding user rights.",
-      "case_privacy_related": null,
-      "case_topic": "Transparency",
-      "points": [
-        {
-          "point_id": 1484,
-          "point_title": "This service provides archives of their terms of service so that changes can be viewed over time",
-          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=468496",
-          "point_analysis": "Amazon.com provides change logs of privacy policy",
-          "point_quote_text": "To see what has changed, click here .",
-          "point_quote_start": 84.0,
-          "point_quote_end": 121.0,
-          "point_document_id": 38.0
-        }
-      ]
-    },
-    {
-      "case_id": 210,
-      "case_classification": "good",
-      "case_score": 20,
-      "case_title": "Third parties used by the service are bound by confidentiality obligations",
-      "case_description": "The Third Parties accessing your personal information must keep it confidential and only use it for limited purposes.",
-      "case_privacy_related": null,
-      "case_topic": "Third Parties",
-      "points": [
-        {
-          "point_id": 1591,
-          "point_title": "Third parties used by the service are bound by confidentiality obligations",
-          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=468496",
-          "point_analysis": "Amazon&#39;s providers may not use your data for other purposes",
-          "point_quote_text": "They have access to personal information needed to perform their functions, but may not use it for other purposes.",
-          "point_quote_start": 5983.0,
-          "point_quote_end": 6097.0,
-          "point_document_id": 38.0
         }
       ]
     }
