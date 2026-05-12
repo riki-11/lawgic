@@ -1,0 +1,795 @@
+{
+  "service_id": 1448,
+  "service_name": "TikTok",
+  "service_url": "tiktok.com",
+  "cases": [
+    {
+      "case_id": 202,
+      "case_classification": "blocker",
+      "case_score": 50,
+      "case_title": "Specific content can be deleted without reason and may be removed without prior notice",
+      "case_description": " This service can delete specific content. Usually they will claim they reserve the right to do it at their sole discretion, which is legalese for saying they won't give a specific reason. If the terms say they will not notify you, it shall be included in the quote but if it does not explicitly say they will give you a notice, it can be reasonably inferred that they can do it without telling you.",
+      "case_privacy_related": null,
+      "case_topic": "Suspension and Censorship",
+      "points": [
+        {
+          "point_id": 6087,
+          "point_title": "The service can delete specific content without prior notice and without a reason",
+          "point_source": "https://www.tiktok.com/en-uk/terms-of-use",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "We reserve the right, at any time and without prior notice, to remove or disable access to content at our discretion for any reason or no reason.",
+          "point_quote_start": 11244.0,
+          "point_quote_end": 11389.0,
+          "point_document_id": 1090.0
+        }
+      ]
+    },
+    {
+      "case_id": 339,
+      "case_classification": "bad",
+      "case_score": 50,
+      "case_title": "You are forced into binding arbitration in case of disputes",
+      "case_description": "This service forces users to use their own contracted arbitrator and forces users to waive their rights to jury trial.",
+      "case_privacy_related": null,
+      "case_topic": "Dispute Resolution",
+      "points": [
+        {
+          "point_id": 11637,
+          "point_title": "This service forces users into binding arbitration in the case of disputes",
+          "point_source": "https://www.tiktok.com/en/terms-of-use",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "EXCEPT FOR CERTAIN TYPES OF DISPUTES MENTIONED IN THAT ARBITRATION CLAUSE, YOU AND TIKTOK AGREE THAT DISPUTES BETWEEN US WILL BE RESOLVED BY MANDATORY BINDING ARBITRATION,",
+          "point_quote_start": 2427.0,
+          "point_quote_end": 2598.0,
+          "point_document_id": 1084.0
+        }
+      ]
+    },
+    {
+      "case_id": 216,
+      "case_classification": "bad",
+      "case_score": 30,
+      "case_title": "Your personal data is used for advertising",
+      "case_description": "Your interaction with the service and data you have shared with them may be gathered to create an advertising ID or profile to target ads on you, either on the website you were visiting or in third party websites.",
+      "case_privacy_related": true,
+      "case_topic": "Advertising",
+      "points": [
+        {
+          "point_id": 6089,
+          "point_title": "The service uses your personal data for advertising",
+          "point_source": "https://www.tiktok.com/en-uk/privacy-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "serve you targeted advertising",
+          "point_quote_start": 28023.0,
+          "point_quote_end": 28053.0,
+          "point_document_id": 1086.0
+        }
+      ]
+    },
+    {
+      "case_id": 377,
+      "case_classification": "neutral",
+      "case_score": 50,
+      "case_title": "Your content can be deleted if you violate the terms",
+      "case_description": "Content infringing the Terms of Service (or the Acceptable Use Policy or equivalent)  may be removed, with or without notice.",
+      "case_privacy_related": null,
+      "case_topic": "Suspension and Censorship",
+      "points": [
+        {
+          "point_id": 9133,
+          "point_title": "This service can delete your content if you violate the terms",
+          "point_source": "https://www.tiktok.com/community-guidelines",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "We remove content including video, audio, image, and text that violates our Community Guidelines",
+          "point_quote_start": 1398.0,
+          "point_quote_end": 1494.0,
+          "point_document_id": 2467.0
+        }
+      ]
+    },
+    {
+      "case_id": 331,
+      "case_classification": "neutral",
+      "case_score": 50,
+      "case_title": "There is a date of the last update of the agreements",
+      "case_description": "The given text has a date that allows to know when it was last updated.",
+      "case_privacy_related": null,
+      "case_topic": "Changes",
+      "points": [
+        {
+          "point_id": 9136,
+          "point_title": "There is a date of the last update of the terms",
+          "point_source": "https://www.tiktok.com/legal/terms-of-use",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Last updated: February 2019</em>",
+          "point_quote_start": 974.0,
+          "point_quote_end": 1006.0,
+          "point_document_id": 2466.0
+        }
+      ]
+    },
+    {
+      "case_id": 243,
+      "case_classification": "bad",
+      "case_score": 50,
+      "case_title": "Your personal data may be sold or otherwise transferred as part of a bankruptcy proceeding or other type of financial transaction",
+      "case_description": "If the service gets acquired or is involved in a merger, bankruptcy, reorganisation or sale, your personal data may be transferred or sold.",
+      "case_privacy_related": null,
+      "case_topic": "Business Transfers",
+      "points": [
+        {
+          "point_id": 22060,
+          "point_title": "Your personal data may be sold or otherwise transferred as part of a bankruptcy proceeding or other type of financial transaction",
+          "point_source": "https://www.tiktok.com/en/privacy-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "<p>We may share all of the information we collect in connection with a substantial corporate transaction, such as the sale of a website, a merger, consolidation, asset sales, or in the unlikely event of bankruptcy.</p>",
+          "point_quote_start": 16836.0,
+          "point_quote_end": 17055.0,
+          "point_document_id": 1085.0
+        }
+      ]
+    },
+    {
+      "case_id": 399,
+      "case_classification": "neutral",
+      "case_score": 0,
+      "case_title": "Your IP address is collected, which can be used to view your approximate location",
+      "case_description": null,
+      "case_privacy_related": true,
+      "case_topic": "Types of Information Collected",
+      "points": [
+        {
+          "point_id": 22065,
+          "point_title": "Your IP address is collected, which can be used to view your approximate location",
+          "point_source": "https://www.tiktok.com/en/privacy-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "We automatically collect certain information from you when you use the Platform, including internet or other network activity information such as your IP address",
+          "point_quote_start": 6047.0,
+          "point_quote_end": 6208.0,
+          "point_document_id": 1085.0
+        },
+        {
+          "point_id": 27821,
+          "point_title": "Your IP address is collected, which can be used to view your approximate location",
+          "point_source": "https://www.tiktok.com/en-uk/privacy-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "We collect information about your approximate location, including location information based on your SIM card and/or IP address.",
+          "point_quote_start": 7397.0,
+          "point_quote_end": 7526.0,
+          "point_document_id": 1086.0
+        }
+      ]
+    },
+    {
+      "case_id": 287,
+      "case_classification": "neutral",
+      "case_score": 30,
+      "case_title": "The service provider makes no warranty regarding uninterrupted, timely, secure or error-free service",
+      "case_description": "The service provider expressly does not claim to provide uninterrupted, timely, secure or error-free service.",
+      "case_privacy_related": null,
+      "case_topic": "Guarantee",
+      "points": [
+        {
+          "point_id": 22057,
+          "point_title": "The service provider makes no warranty regarding uninterrupted, timely, secure or error-free service",
+          "point_source": "https://www.tiktok.com/en-uk/terms-of-use",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "YOUR USE OF THE SERVICES WILL BE UNINTERRUPTED, TIMELY, SECURE OR FREE FROM ERROR;",
+          "point_quote_start": 28519.0,
+          "point_quote_end": 28601.0,
+          "point_document_id": 1090.0
+        }
+      ]
+    },
+    {
+      "case_id": 325,
+      "case_classification": "bad",
+      "case_score": 10,
+      "case_title": "Third-party cookies are used for statistics",
+      "case_description": "For instance, Google Analytics, rather than self-hosted (first-party) statistics software.",
+      "case_privacy_related": true,
+      "case_topic": "Trackers",
+      "points": [
+        {
+          "point_id": 22058,
+          "point_title": "Third-party cookies are used for statistics",
+          "point_source": "https://www.tiktok.com/legal/cookie-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Our third party analytics tool is Google Analytics provided by Google, Inc (1600 Amphitheatre Parkway Mountain View, CA 94043, USA).\r\nGoogle Analytics uses cookies, small text files containing a string of alphanumeric characters and which are stored on your computer to provide us with statistics on the use of our Service and Platform.",
+          "point_quote_start": 5330.0,
+          "point_quote_end": 5666.0,
+          "point_document_id": 2462.0
+        }
+      ]
+    },
+    {
+      "case_id": 187,
+      "case_classification": "bad",
+      "case_score": 25,
+      "case_title": "Your data may be processed and stored anywhere in the world",
+      "case_description": "Your data is stored all over the world, including in countries where data protection rules may differ from the ones of the service's jurisdiction or those of your country jurisdiction.",
+      "case_privacy_related": null,
+      "case_topic": "Personal Data",
+      "points": [
+        {
+          "point_id": 11631,
+          "point_title": "Your data may be processed and stored anywhere in the world",
+          "point_source": "https://www.tiktok.com/en-uk/privacy-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "The personal data that we collect from you will be transferred to, and stored at, a destination outside of the European Economic Area (\"EEA\").</p>",
+          "point_quote_start": 49278.0,
+          "point_quote_end": 49424.0,
+          "point_document_id": 1086.0
+        }
+      ]
+    },
+    {
+      "case_id": 382,
+      "case_classification": "bad",
+      "case_score": 50,
+      "case_title": "Information is gathered about you through third parties",
+      "case_description": "This Service may employ, either identifiable or non-identifiable, data collection from third party sources about you.",
+      "case_privacy_related": true,
+      "case_topic": "Third Parties",
+      "points": [
+        {
+          "point_id": 22064,
+          "point_title": "Information is gathered about you through third parties",
+          "point_source": "https://www.tiktok.com/en/privacy-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "We may collect information about you from third-party services, such as advertising partners, data providers, and analytics providers",
+          "point_quote_start": 5559.0,
+          "point_quote_end": 5692.0,
+          "point_document_id": 1085.0
+        }
+      ]
+    },
+    {
+      "case_id": 220,
+      "case_classification": "bad",
+      "case_score": 40,
+      "case_title": "Your personal data is used to employ targeted third-party advertising",
+      "case_description": "Your Personal Information is traded and shared with advertising companies to target ads on you, either on the website you were visiting or in third party websites. Your interaction with the service and data you have shared with them may be gathered to create an advertising ID or profile.",
+      "case_privacy_related": true,
+      "case_topic": "Advertising",
+      "points": [
+        {
+          "point_id": 22069,
+          "point_title": "Your personal data is used to employ targeted third-party advertising",
+          "point_source": "https://www.tiktok.com/en/privacy-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Our service providers and business partners may use this information to display advertisements on our Platform and elsewhere online and across your devices tailored to your interests, preferences, and characteristics.",
+          "point_quote_start": 10973.0,
+          "point_quote_end": 11191.0,
+          "point_document_id": 1085.0
+        }
+      ]
+    },
+    {
+      "case_id": 326,
+      "case_classification": "bad",
+      "case_score": 50,
+      "case_title": "Your profile is combined across various products",
+      "case_description": "When using multiple services from one same company, they can combine these (unrelated) information sources about you to build up a single richer user profile about you.",
+      "case_privacy_related": true,
+      "case_topic": "Anonymity",
+      "points": [
+        {
+          "point_id": 22068,
+          "point_title": "Your profile is combined across various products",
+          "point_source": "https://www.tiktok.com/en/privacy-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "We and our service providers and business partners may link your contact or account information with your activity on and off our Platform across all your devices, using your email or other log-in or device information.",
+          "point_quote_start": 10753.0,
+          "point_quote_end": 10972.0,
+          "point_document_id": 1085.0
+        }
+      ]
+    },
+    {
+      "case_id": 228,
+      "case_classification": "good",
+      "case_score": 30,
+      "case_title": "Information is provided about what kind of information they collect",
+      "case_description": "The Privacy Policy describes in detail the data collected through the website and through the services provided.",
+      "case_privacy_related": null,
+      "case_topic": "Transparency",
+      "points": [
+        {
+          "point_id": 22062,
+          "point_title": "Details are provided about what kind of information they collect",
+          "point_source": "https://www.tiktok.com/en/privacy-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "<strong>What information do we collect?</strong>",
+          "point_quote_start": 2015.0,
+          "point_quote_end": 2065.0,
+          "point_document_id": 1085.0
+        }
+      ]
+    },
+    {
+      "case_id": 239,
+      "case_classification": "blocker",
+      "case_score": 70,
+      "case_title": "Private messages can be read",
+      "case_description": "The Service is able to access, scan, review or read all user communications, including private messages, which may contain personal or sensitive data.",
+      "case_privacy_related": true,
+      "case_topic": "Personal Data",
+      "points": [
+        {
+          "point_id": 22067,
+          "point_title": "Private messages can be read",
+          "point_source": "https://www.tiktok.com/en/privacy-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "<p>\r\n<strong>Messages</strong>\r\n</p>\r\n<p>We collect and process, which includes scanning and analyzing, information you provide when you compose, send, or receive&nbsp.\r\nmessages through the Platform’s messaging functionality.\r\nThat information includes the content of the message and information about when the message has been sent, received and/or read, as well as the participants of the communication.",
+          "point_quote_start": 8420.0,
+          "point_quote_end": 8821.0,
+          "point_document_id": 1085.0
+        }
+      ]
+    },
+    {
+      "case_id": 128,
+      "case_classification": "bad",
+      "case_score": 70,
+      "case_title": "Third-party cookies are used for advertising",
+      "case_description": "The service's website sets third-party cookies (cookies that do not belong to their domain) for purposes not including statistics and analytics.",
+      "case_privacy_related": true,
+      "case_topic": "Trackers",
+      "points": [
+        {
+          "point_id": 22061,
+          "point_title": "Third-party cookies are used for advertising",
+          "point_source": "https://www.tiktok.com/legal/cookie-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Marketing</strong>: We may also contract with third-party advertising networks that collect IP addresses and other information from our Platform, from emails and third party websites and apps.\r\nAd networks follow your online activities and collect information through automated means (such as through the use of cookies).\r\nAd networks use this information, mainly to serve adverts about products and services that are likely to interest you.\r\nWe may also partner with third parties to provide certain features on our Platforms or display advertising based on your web browsing activity.",
+          "point_quote_start": 7336.0,
+          "point_quote_end": 7920.0,
+          "point_document_id": 2462.0
+        }
+      ]
+    },
+    {
+      "case_id": 373,
+      "case_classification": "bad",
+      "case_score": 75,
+      "case_title": "This service may collect, use, and share location data",
+      "case_description": "Location-based information is collected and may be used and/or shared with third parties for purposes not directly related to the services provided (i.e. the Service doesn't rely on the use or share of location data to function properly).",
+      "case_privacy_related": true,
+      "case_topic": "Personal Data",
+      "points": [
+        {
+          "point_id": 22072,
+          "point_title": "This service may collect, use, and share location data",
+          "point_source": "https://www.tiktok.com/en/privacy-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "to provide you with location-based services, such as advertising and other personalized content</li>",
+          "point_quote_start": 14075.0,
+          "point_quote_end": 14175.0,
+          "point_document_id": 1085.0
+        }
+      ]
+    },
+    {
+      "case_id": 227,
+      "case_classification": "good",
+      "case_score": 30,
+      "case_title": "Information is provided about how your personal data is used",
+      "case_description": "The Privacy Policy explains the purposes for which data is collected and the way it is processed, used and shared.",
+      "case_privacy_related": null,
+      "case_topic": "Transparency",
+      "points": [
+        {
+          "point_id": 22070,
+          "point_title": "Information is provided about how your personal data is used",
+          "point_source": "https://www.tiktok.com/en/privacy-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "How we use your information</strong>",
+          "point_quote_start": 11565.0,
+          "point_quote_end": 11601.0,
+          "point_document_id": 1085.0
+        }
+      ]
+    },
+    {
+      "case_id": 166,
+      "case_classification": "bad",
+      "case_score": 70,
+      "case_title": "This service shares your personal data with third parties that are not essential to its operation",
+      "case_description": "Your personal data is or may be given to third parties nonessential to the service’s operation. This could be a business partner that receives your data to provide targeted advertisements.",
+      "case_privacy_related": true,
+      "case_topic": "Third Parties",
+      "points": [
+        {
+          "point_id": 22075,
+          "point_title": "This service shares your personal data with third parties that are not involved in its operation",
+          "point_source": "https://www.tiktok.com/en/privacy-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "and for business purposes, including research, payment processing and transaction fulfillment, database maintenance, administering contests and special offers, technology services, deliveries, sending communications, advertising, analytics",
+          "point_quote_start": 15026.0,
+          "point_quote_end": 15265.0,
+          "point_document_id": 1085.0
+        }
+      ]
+    },
+    {
+      "case_id": 188,
+      "case_classification": "bad",
+      "case_score": 35,
+      "case_title": "This service gives your personal data to third parties involved in its operation",
+      "case_description": "Your personal data is or may be given to third parties essential to the service’s operation. This could be an external spam detection service for an internet forum.",
+      "case_privacy_related": true,
+      "case_topic": "Third Parties",
+      "points": [
+        {
+          "point_id": 22074,
+          "point_title": "This service gives your personal data to third parties involved in its operation",
+          "point_source": "https://www.tiktok.com/en/privacy-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "<p>We share the categories of personal information listed above with service providers and business partners to help us perform business operations",
+          "point_quote_start": 14878.0,
+          "point_quote_end": 15025.0,
+          "point_document_id": 1085.0
+        }
+      ]
+    },
+    {
+      "case_id": 193,
+      "case_classification": "good",
+      "case_score": 25,
+      "case_title": "Your personal data is not sold",
+      "case_description": "This service makes an explicit promise not to sell \"personal data\" of users.",
+      "case_privacy_related": true,
+      "case_topic": "Personal Data",
+      "points": [
+        {
+          "point_id": 22073,
+          "point_title": "Your personal data is not sold",
+          "point_source": "https://www.tiktok.com/en/privacy-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "TikTok does not sell personal information to third parties",
+          "point_quote_start": 14649.0,
+          "point_quote_end": 14707.0,
+          "point_document_id": 1085.0
+        }
+      ]
+    },
+    {
+      "case_id": 323,
+      "case_classification": "bad",
+      "case_score": 50,
+      "case_title": "You are tracked via web beacons, tracking pixels, browser fingerprinting, and/or device fingerprinting",
+      "case_description": "Tracking technologies (such as web beacons, tracking pixels...) are employed on users and/or the service assigns a unique ID to a browser or device to track its behaviour.",
+      "case_privacy_related": true,
+      "case_topic": "Trackers",
+      "points": [
+        {
+          "point_id": 22066,
+          "point_title": "You are tracked via web beacons, tracking pixels and device fingerprinting",
+          "point_source": "https://www.tiktok.com/en/privacy-policy",
+          "point_analysis": "Also \"device identifiers\"",
+          "point_quote_text": "We and our service providers and business partners use cookies and other similar technologies (e.g.\r\nweb beacons, flash cookies, etc.) (“Cookies”) to automatically collect information",
+          "point_quote_start": 9826.0,
+          "point_quote_end": 10008.0,
+          "point_document_id": 1085.0
+        }
+      ]
+    },
+    {
+      "case_id": 233,
+      "case_classification": "bad",
+      "case_score": 60,
+      "case_title": "Do Not Track (DNT) headers are ignored and you are tracked anyway even if you set this header.",
+      "case_description": "Even though the Do Not Track (DNT) header was not implemented perfectly, services should not track users whose browsers send a DNT header.",
+      "case_privacy_related": true,
+      "case_topic": "Trackers",
+      "points": [
+        {
+          "point_id": 11629,
+          "point_title": "This service ignores the Do Not Track (DNT) header and tracks users anyway even if they set this header.",
+          "point_source": "https://www.tiktok.com/en/privacy-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Some browsers transmit “do-not-track” signals to websites.\r\nBecause of differences in how browsers incorporate and activate this feature, we currently do not take action in response to these signals.</li>",
+          "point_quote_start": 22084.0,
+          "point_quote_end": 22287.0,
+          "point_document_id": 1085.0
+        }
+      ]
+    },
+    {
+      "case_id": 397,
+      "case_classification": "bad",
+      "case_score": 30,
+      "case_title": "Your biometric data is collected",
+      "case_description": "This service can collect or use your biometric data. This includes but is not limited to facial recognition, fingerprints, and iris scans. Although this feature can sometimes be convenient to the user, providing this type of information to the service could open your personal data to being sold or stolen.",
+      "case_privacy_related": true,
+      "case_topic": "Types of Information Collected",
+      "points": [
+        {
+          "point_id": 34068,
+          "point_title": "Your biometric data is collected",
+          "point_source": "https://www.tiktok.com/en-uk/privacy-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "We may collect biometric identifiers and biometric information as defined under US laws, such as faceprints and voiceprints, from your User Content.",
+          "point_quote_start": 8190.0,
+          "point_quote_end": 8338.0,
+          "point_document_id": 1086.0
+        }
+      ]
+    },
+    {
+      "case_id": 400,
+      "case_classification": "bad",
+      "case_score": 45,
+      "case_title": "This service receives your precise location through GPS coordinates",
+      "case_description": "Unless the service relies on Geo Location, this case is to be assigned to points that don't need your GPS coordinates to function properly.",
+      "case_privacy_related": true,
+      "case_topic": "Types of Information Collected",
+      "points": [
+        {
+          "point_id": 34207,
+          "point_title": "This service receives your precise location through GPS coordinates",
+          "point_source": "https://www.tiktok.com/en-uk/privacy-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "With your permission, we may also collect precise location data (such as GPS).</p>",
+          "point_quote_start": null,
+          "point_quote_end": null,
+          "point_document_id": 1086.0
+        }
+      ]
+    },
+    {
+      "case_id": 307,
+      "case_classification": "bad",
+      "case_score": 50,
+      "case_title": " You are being tracked via social media cookies/pixels",
+      "case_description": "These types of cookies/pixels send information to social media sites when you interact with the service.",
+      "case_privacy_related": true,
+      "case_topic": "Trackers",
+      "points": [
+        {
+          "point_id": 22059,
+          "point_title": " You are being tracked via social media cookies/pixels",
+          "point_source": "https://www.tiktok.com/legal/cookie-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "<u>Social Media Cookies</u>\r\n</strong>\r\n</p>\r\n<p>On some pages of our Platform, third parties that provide applications through our Platform will set their own cookies in order to track the success of their applications or customize applications for you.\r\nBecause of how cookies work, we cannot access these cookies, nor can the third parties access the data in cookies used by us.\r\nIf you are logged in to your account with the third party, the third party will be able to link information about you with your actions via cookies.</p>\r\n<p>\r\n<strong>\r\n<u>",
+          "point_quote_start": 8035.0,
+          "point_quote_end": 8583.0,
+          "point_document_id": 2462.0
+        }
+      ]
+    },
+    {
+      "case_id": 376,
+      "case_classification": "bad",
+      "case_score": 70,
+      "case_title": "Many different types of personal data are collected",
+      "case_description": "The service collects different kinds of personal data, such as name, demographic information, postal address, biometric data, device information, IDs, contacts, call logs...",
+      "case_privacy_related": true,
+      "case_topic": "Personal Data",
+      "points": [
+        {
+          "point_id": 22063,
+          "point_title": "Many different types of personal data are collected",
+          "point_source": "https://www.tiktok.com/en/privacy-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Registration information, such as age, username and password, language, and email or phone number</li>\r\n<li>Profile information, such as name, social media account information, and profile image</li>\r\n<li>User-generated content, including comments, photographs, livestreams, audio recordings, videos, and virtual item videos that you choose to create with or upload to the Platform (“User Content”).\r\nWe collect User Content through pre-loading at the time of creation, import, or upload, regardless of whether you choose to save or upload that User Content, in order to recommend audio options and provide other personalized recommendations.\r\nIf you apply an effect to your User Content, we may collect a version of your User Content that does not include the effect.</li>\r\n<li>Content, including text, images, and video, found in your device’s clipboard, with your permission.\r\nFor example, if you choose to initiate content sharing with a third-party platform, or choose to paste content from the clipboard into the TikTok App, we access this information stored in your clipboard in order to fulfill your request.</li>\r\n<li>Payment information, including payment card numbers or other third-party payment information (such as PayPal) where required for the purpose of payment</li>\r\n<li>Your phone and social network contacts, with your permission.\r\nIf you choose to find other users through your phone contacts, we will access and collect the names and phone numbers and match that information against existing users of the Platform.\r\nIf you choose to find other users through your social network contacts, we will collect your public profile information as well as names and profiles of your social network contacts</li>",
+          "point_quote_start": 2790.0,
+          "point_quote_end": 4504.0,
+          "point_document_id": 1085.0
+        }
+      ]
+    },
+    {
+      "case_id": 185,
+      "case_classification": "bad",
+      "case_score": 40,
+      "case_title": "Your personal information is used for many different purposes",
+      "case_description": "Personal Data can be processed for many reasons, including non essential processing such as for advertising, marketing and analytics purposes.",
+      "case_privacy_related": null,
+      "case_topic": "Personal Data",
+      "points": [
+        {
+          "point_id": 22071,
+          "point_title": "Your personal information is used for many different purposes",
+          "point_source": "https://www.tiktok.com/en/privacy-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "We generally use the information we collect:</p>\r\n<ul>\r\n<li>To fulfill requests for products, services, Platform functionality, support and information for internal operations, including troubleshooting, data analysis, testing, research, statistical, and survey purposes and to solicit your feedback</li>\r\n<li>To customize the content you see when you use the Platform.\r\nFor example, we may provide you with services based on the country settings you have chosen or show you content that is similar to content that you like or interacted with</li>\r\n<li>To send promotional materials from us or on behalf of our affiliates and trusted third parties</li>\r\n<li>To improve and develop our Platform and conduct product development</li>\r\n<li>To measure and understand the effectiveness of the advertising we serve to you and others and to deliver advertising</li>\r\n<li>To make suggestions and provide a customized ad experience</li>\r\n<li>To support the social functions of the Platform, including to permit you and other users to connect with each other through the Platform and for you and other users to share, download, and otherwise interact with User Content posted through the Platform</li>\r\n<li>To use User Content as part of our advertising and marketing campaigns",
+          "point_quote_start": 11930.0,
+          "point_quote_end": 13186.0,
+          "point_document_id": 1085.0
+        }
+      ]
+    },
+    {
+      "case_id": 201,
+      "case_classification": "bad",
+      "case_score": 60,
+      "case_title": "Your account can be deleted without prior notice and without a reason",
+      "case_description": "At any time, your account can be terminated without explanation and without warning by the service. ",
+      "case_privacy_related": null,
+      "case_topic": "Suspension and Censorship",
+      "points": [
+        {
+          "point_id": 6084,
+          "point_title": "The service can delete your account without prior notice and without a reason",
+          "point_source": "https://www.tiktok.com/en-uk/terms-of-use",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "We reserve the right to disable your user account at any time",
+          "point_quote_start": 5835.0,
+          "point_quote_end": 5896.0,
+          "point_document_id": 1090.0
+        }
+      ]
+    },
+    {
+      "case_id": 290,
+      "case_classification": "neutral",
+      "case_score": 0,
+      "case_title": "This service does not guarantee that it or the products obtained through it meet your expectations or requirements",
+      "case_description": "This service provider informs its users that the services, information, products, or other materials provided on its website may not meet the users' expectations or requirements.",
+      "case_privacy_related": null,
+      "case_topic": "Guarantee",
+      "points": [
+        {
+          "point_id": 11638,
+          "point_title": "This service does not guarantee that it or the products obtained through it meet the users' expectations or requirements",
+          "point_source": "https://www.tiktok.com/en/terms-of-use-row",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": null,
+          "point_quote_start": 28384.0,
+          "point_quote_end": 28515.0,
+          "point_document_id": 1093.0
+        }
+      ]
+    },
+    {
+      "case_id": 146,
+      "case_classification": "neutral",
+      "case_score": 60,
+      "case_title": "You agree to defend, indemnify, and hold the service harmless in case of a claim related to your use of the service",
+      "case_description": null,
+      "case_privacy_related": null,
+      "case_topic": "Governance",
+      "points": [
+        {
+          "point_id": 9134,
+          "point_title": "You agree to defend, indemnify, and hold the service harmless in case of a claim related to your use of the service",
+          "point_source": "https://www.tiktok.com/legal/terms-of-use",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "You agree to defend, indemnify, and hold harmless TikTok, its parents, subsidiaries, and affiliates, and each of their respective officers, directors, employees, agents and advisors from any and all claims, liabilities, costs, and expenses, including, but not limited to, attorneys’ fees and expenses, arising out of a breach by you or any user of your account of these Terms or arising out of a breach of your obligations, representation and warranties under these Terms.</p>",
+          "point_quote_start": 27588.0,
+          "point_quote_end": 28064.0,
+          "point_document_id": 2466.0
+        }
+      ]
+    },
+    {
+      "case_id": 117,
+      "case_classification": "bad",
+      "case_score": 50,
+      "case_title": "You waive your right to a class action.",
+      "case_description": "The right to be represented in a class action (or representative action) exists in the US and some European countries. It allows people who have been similarly injured by the same accused to take legal action by a single lawsuit instead of individually. Some Terms of Service try to limit that right. By agreeing to them, you could waive (= renounce to) your right to a class action, which might reduce your chances to be successful in a case.",
+      "case_privacy_related": null,
+      "case_topic": "Dispute Resolution",
+      "points": [
+        {
+          "point_id": 9130,
+          "point_title": "You waive your right to a class action.",
+          "point_source": "https://www.tiktok.com/legal/terms-of-use",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "ARBITRATION NOTICE FOR USERS IN THE UNITED STATES: THESE TERMS CONTAIN AN ARBITRATION CLAUSE AND A WAIVER OF RIGHTS TO BRING A CLASS ACTION AGAINST US.\r\nEXCEPT FOR CERTAIN TYPES OF DISPUTES MENTIONED IN THAT ARBITRATION CLAUSE, YOU AND TIKTOK AGREE THAT DISPUTES BETWEEN US WILL BE RESOLVED BY MANDATORY BINDING ARBITRATION, AND YOU AND TIKTOK WAIVE ANY RIGHT TO PARTICIPATE IN A CLASS-ACTION LAWSUIT OR CLASS-WIDE ARBITRATION.</p>",
+          "point_quote_start": 2275.0,
+          "point_quote_end": 2705.0,
+          "point_document_id": 2466.0
+        }
+      ]
+    },
+    {
+      "case_id": 122,
+      "case_classification": "neutral",
+      "case_score": 0,
+      "case_title": "The terms may be changed at any time, but you will receive notification of the changes",
+      "case_description": "The Terms may be updated without prior notice, but users will be notified of the changes at the moment they will start applying.",
+      "case_privacy_related": null,
+      "case_topic": "Notice of Changing Terms",
+      "points": [
+        {
+          "point_id": 9129,
+          "point_title": "The service may change its terms at any time, but the user will receive notification of the changes.",
+          "point_source": "https://www.tiktok.com/legal/terms-of-use",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Changes to the Terms</strong>\r\n<p>We amend these Terms from time to time, for instance when we update the functionality of our Services, when we combine multiple apps or services operated by us or our affiliates into a single combined service or app, or when there are regulatory changes.\r\nWe will use commercially reasonable efforts to generally notify all users of any material changes to these Terms, such as through a notice on our Platform, however, you should look at the Terms regularly to check for such changes.\r\nWe will also update the “Last Updated” date at the top of these Terms, which reflect the effective date of such Terms.\r\nYour continued access or use of the Services after the date of the new Terms constitutes your acceptance of the new Terms.\r\nIf you do not agree to the new Terms, you must stop accessing or using the Services.</p>",
+          "point_quote_start": 4192.0,
+          "point_quote_end": 5041.0,
+          "point_document_id": 2466.0
+        }
+      ]
+    },
+    {
+      "case_id": 390,
+      "case_classification": "good",
+      "case_score": 50,
+      "case_title": "If you offer suggestions to the service, they may use that without your approval or compensation, but they do not become the owner",
+      "case_description": "The service may employ a broad copyright license over feedback, proposals, ideas and suggestions submitted, including the right to use them without restriction, compensation or obligation to the user, but they do not claim ownership on them.",
+      "case_privacy_related": null,
+      "case_topic": "Ownership",
+      "points": [
+        {
+          "point_id": 9132,
+          "point_title": "If you offer suggestions to the service, they may use that without your approval or compensation, but they do not become the owner",
+          "point_source": "https://www.tiktok.com/legal/terms-of-use",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "While our own staff is continually working to develop and evaluate our own product ideas and features, we pride ourselves on paying close attention to the interests, feedback, comments, and suggestions we receive from the user community.\r\nIf you choose to contribute by sending us or our employees any ideas for products, services, features, modifications, enhancements, content, refinements, technologies, content offerings (such as audio, visual, games, or other types of content), promotions, strategies, or product/feature names, or any related documentation, artwork, computer code, diagrams, or other materials (collectively “Feedback”), then regardless of what your accompanying communication may say, the following terms will apply, so that future misunderstandings can be avoided.\r\nAccordingly, by sending Feedback to us, you agree that:</p>\r\n<p>TikTok has no obligation to review, consider, or implement your Feedback, or to return to you all or part of any Feedback for any reason;</p>\r\n<p>Feedback is provided on a non-confidential basis, and we are not under any obligation to keep any Feedback you send confidential or to refrain from using or disclosing it in any way.\r\nand</p>\r\n<p>You irrevocably grant us perpetual and unlimited permission to reproduce, distribute, create derivative works of, modify, publicly perform (including on a through-to-the-audience basis), communicate to the public, make available, publicly display, and otherwise use and exploit the Feedback and derivatives thereof for any purpose and without restriction, free of charge and without attribution of any kind, including by making, using, selling, offering for sale, importing, and promoting commercial products and services that incorporate or embody Feedback, whether in whole or in part, and whether as provided or as modified.",
+          "point_quote_start": 25732.0,
+          "point_quote_end": 27550.0,
+          "point_document_id": 2466.0
+        }
+      ]
+    },
+    {
+      "case_id": 183,
+      "case_classification": "good",
+      "case_score": 50,
+      "case_title": "You maintain ownership of your content",
+      "case_description": "This service does not claim ownership over user-generated content or materials, and the user doesn't need to waive any moral rights by posting owned content.",
+      "case_privacy_related": null,
+      "case_topic": "Ownership",
+      "points": [
+        {
+          "point_id": 6088,
+          "point_title": "You maintain ownership of your data",
+          "point_source": "https://www.tiktok.com/en-uk/terms-of-use",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "You or the owner of your User Content still own the copyright in User Content sent to us",
+          "point_quote_start": 19476.0,
+          "point_quote_end": 19564.0,
+          "point_document_id": 1090.0
+        }
+      ]
+    },
+    {
+      "case_id": 329,
+      "case_classification": "neutral",
+      "case_score": 50,
+      "case_title": "You should revisit the terms periodically, although in case of material changes, the service will notify",
+      "case_description": "The service may update the Terms without notice, but if they significantly change the agreements in a manner that importantly and/or negatively affects the way the service is used, users will be notified.",
+      "case_privacy_related": null,
+      "case_topic": "Notice of Changing Terms",
+      "points": [
+        {
+          "point_id": 6091,
+          "point_title": "Users should revisit the terms periodically, although in case of material changes, the service will notify",
+          "point_source": "https://www.tiktok.com/en-uk/privacy-policy",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "p>We will generally notify all users of any material changes to this policy through a notice on our Platform.\r\nHowever, you should look at this policy regularly to check for any changes",
+          "point_quote_start": 59498.0,
+          "point_quote_end": 59682.0,
+          "point_document_id": 1086.0
+        }
+      ]
+    },
+    {
+      "case_id": 205,
+      "case_classification": "neutral",
+      "case_score": 15,
+      "case_title": "Your account can be suspended for several reasons",
+      "case_description": null,
+      "case_privacy_related": null,
+      "case_topic": "Suspension and Censorship",
+      "points": [
+        {
+          "point_id": 6085,
+          "point_title": "The service can suspend your account for several reasons",
+          "point_source": "https://www.tiktok.com/en-uk/terms-of-use",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "In such case, we reserve the right to refuse service",
+          "point_quote_start": 8143.0,
+          "point_quote_end": 8196.0,
+          "point_document_id": 1090.0
+        }
+      ]
+    }
+  ],
+  "service_related": []
+}

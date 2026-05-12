@@ -1,0 +1,1193 @@
+{
+  "service_id": 230,
+  "service_name": "PayPal",
+  "service_url": "paypal.com,paypal-corp.com,paypal.me,paypalobjects.com,paypal-gifts.com,paypal-communication.com,epl.paypal-communication.com",
+  "cases": [
+    {
+      "case_id": 140,
+      "case_classification": "good",
+      "case_score": 40,
+      "case_title": "You can retrieve an archive of your data",
+      "case_description": "Users can request a copy of the data collected through the services and infer from it the amount of personal information that is processed and stored by the Service. This usually applies to Services GDPR compliants.",
+      "case_privacy_related": null,
+      "case_topic": "User Choice",
+      "points": [
+        {
+          "point_id": 12608,
+          "point_title": "This service allows you to retrieve an archive of your data",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "<p>You have the right to request a copy of the personal data we’ve collected about you in the past 12 months.",
+          "point_quote_start": 1752.0,
+          "point_quote_end": 1861.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 233,
+      "case_classification": "bad",
+      "case_score": 60,
+      "case_title": "Do Not Track (DNT) headers are ignored and you are tracked anyway even if you set this header.",
+      "case_description": "Even though the Do Not Track (DNT) header was not implemented perfectly, services should not track users whose browsers send a DNT header.",
+      "case_privacy_related": true,
+      "case_topic": "Trackers",
+      "points": [
+        {
+          "point_id": 6546,
+          "point_title": "This service ignores the Do Not Track (DNT) header and tracks users anyway even if they set this header.",
+          "point_source": "https://www.paypal.com/sg/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "</p>\r\n<p>Do Not Track (DNT) is an optional browser setting that allows you to express your preferences regarding tracking by advertisers and other third-parties.\r\n&nbsp;We do not respond to DNT signals.</p>",
+          "point_quote_start": 19862.0,
+          "point_quote_end": 20066.0,
+          "point_document_id": 1284.0
+        },
+        {
+          "point_id": 21960,
+          "point_title": "Do Not Track (DNT) headers are ignored and you are tracked anyway even if you set this header.",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Because many of our services won’t function without tracking data, we do not respond to DNT settings.",
+          "point_quote_start": 10617.0,
+          "point_quote_end": 10719.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 323,
+      "case_classification": "bad",
+      "case_score": 50,
+      "case_title": "You are tracked via web beacons, tracking pixels, browser fingerprinting, and/or device fingerprinting",
+      "case_description": "Tracking technologies (such as web beacons, tracking pixels...) are employed on users and/or the service assigns a unique ID to a browser or device to track its behaviour.",
+      "case_privacy_related": true,
+      "case_topic": "Trackers",
+      "points": [
+        {
+          "point_id": 11249,
+          "point_title": "The service may use tracking pixels, web beacons, browser fingerprinting, and/or device fingerprinting on users.",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/cookie-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "we or our authorized service providers may use cookies, web beacons, and other similar technologies for storing information to help provide you with a better, faster, and safer experience and for advertising purposes.</p>",
+          "point_quote_start": 278.0,
+          "point_quote_end": 499.0,
+          "point_document_id": 3089.0
+        }
+      ]
+    },
+    {
+      "case_id": 122,
+      "case_classification": "neutral",
+      "case_score": 0,
+      "case_title": "The terms may be changed at any time, but you will receive notification of the changes",
+      "case_description": "The Terms may be updated without prior notice, but users will be notified of the changes at the moment they will start applying.",
+      "case_privacy_related": null,
+      "case_topic": "Notice of Changing Terms",
+      "points": [
+        {
+          "point_id": 10586,
+          "point_title": "The service may change its terms at any time, but the user will receive notification of the changes.",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/useragreement-full",
+          "point_analysis": "PayPal has a dedicated Policy Updates page and will update personal account 21 days in advance, and business accounts 5 days in advance.",
+          "point_quote_text": "If our changes reduce your rights or increase your responsibilities we will post a notice on the Policy Updates page of our website and provide you at least 21 days advance notice for personal accounts and at least 5 days advance notice for business accounts.",
+          "point_quote_start": 3139.0,
+          "point_quote_end": 3398.0,
+          "point_document_id": 2913.0
+        }
+      ]
+    },
+    {
+      "case_id": 174,
+      "case_classification": "blocker",
+      "case_score": 30,
+      "case_title": "This service holds onto content that you've deleted",
+      "case_description": "Content may remain in backup servers and be retained after deletion, and thus never be completely deleted. This case doesn't apply to contributions that can't be removed due to the nature of the service.",
+      "case_privacy_related": null,
+      "case_topic": "Right to Leave The Service",
+      "points": [
+        {
+          "point_id": 12646,
+          "point_title": "This service holds onto content that you've deleted",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "When you are no longer our customer, we continue to share your information as described in this notice.</p>",
+          "point_quote_start": 18070.0,
+          "point_quote_end": 18177.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 299,
+      "case_classification": "neutral",
+      "case_score": 10,
+      "case_title": "The service informs you that its privacy policy does not apply to third party websites",
+      "case_description": "The service states that whenever it links to third party websites or applications, its privacy policy does not apply. Those third party websites or applications hosted or operated by other organizations may have their own privacy policies.",
+      "case_privacy_related": null,
+      "case_topic": "Transparency",
+      "points": [
+        {
+          "point_id": 12605,
+          "point_title": "The service informs users that its privacy policy does not apply to third party websites",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/cookie-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Third party cookies are covered by the third-parties’ privacy policy.</p>",
+          "point_quote_start": 9537.0,
+          "point_quote_end": 9610.0,
+          "point_document_id": 3089.0
+        }
+      ]
+    },
+    {
+      "case_id": 126,
+      "case_classification": "neutral",
+      "case_score": 10,
+      "case_title": "First-party cookies are used",
+      "case_description": "First-party cookies only belong to the domain of the service and not a third party.",
+      "case_privacy_related": null,
+      "case_topic": "Trackers",
+      "points": [
+        {
+          "point_id": 12596,
+          "point_title": "This service requires first-party cookies",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/cookie-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "First-party cookies are set by the site you are visiting.</li>",
+          "point_quote_start": 3540.0,
+          "point_quote_end": 3602.0,
+          "point_document_id": 3089.0
+        }
+      ]
+    },
+    {
+      "case_id": 210,
+      "case_classification": "good",
+      "case_score": 20,
+      "case_title": "Third parties used by the service are bound by confidentiality obligations",
+      "case_description": "The Third Parties accessing your personal information must keep it confidential and only use it for limited purposes.",
+      "case_privacy_related": null,
+      "case_topic": "Third Parties",
+      "points": [
+        {
+          "point_id": 12604,
+          "point_title": "Third parties used by the service are bound by confidentiality obligations",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/cookie-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "We do not permit any of these service providers to collect any of your personal information on our sites or in our services, applications, or tools for their own purposes.\r\nThese service providers are subject to confidentiality agreements with us and other legal restrictions on their use or collection of any personal information.",
+          "point_quote_start": 9206.0,
+          "point_quote_end": 9536.0,
+          "point_document_id": 3089.0
+        }
+      ]
+    },
+    {
+      "case_id": 338,
+      "case_classification": "good",
+      "case_score": 50,
+      "case_title": "You can limit how your information is used by third-parties and the service",
+      "case_description": "Usually it's related to the right to object to data processing or restrict it under the GDPR. Users may be able to refuse the use of their data for marketing purposes for instance.",
+      "case_privacy_related": true,
+      "case_topic": "User Choice",
+      "points": [
+        {
+          "point_id": 12611,
+          "point_title": "You can limit how your information is used by third-parties and the service",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Understanding your choices</strong>\r\n<p>You can control how personal data is collected or shared, as well as how we communicate with you.\r\nHere are some of the ways you can customize your choices.</p>\r\n<p>\r\n<strong>Choose how we collect personal data</strong>\r\n</p>\r\n<p>You may choose to limit the personal data you provide when our apps or services request it.",
+          "point_quote_start": 3804.0,
+          "point_quote_end": 4159.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 307,
+      "case_classification": "bad",
+      "case_score": 50,
+      "case_title": " You are being tracked via social media cookies/pixels",
+      "case_description": "These types of cookies/pixels send information to social media sites when you interact with the service.",
+      "case_privacy_related": true,
+      "case_topic": "Trackers",
+      "points": [
+        {
+          "point_id": 12628,
+          "point_title": "The service uses social media cookies/pixels",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "<li>Third parties that you asked us to connect with, such as other financial or social media apps.",
+          "point_quote_start": 14257.0,
+          "point_quote_end": 14355.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 375,
+      "case_classification": "neutral",
+      "case_score": 50,
+      "case_title": "Blocking first party cookies may limit your ability to use the service",
+      "case_description": "Most browsers allow users to set preferences related to cookies storage. You may choose to block all cookies (including first-party cookies), but it may impact your use of this service and you may not be able to access some or any of the features provided.",
+      "case_privacy_related": null,
+      "case_topic": "Trackers",
+      "points": [
+        {
+          "point_id": 12623,
+          "point_title": "Blocking first party cookies may limit your ability to use the service",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "You can disable or decline some cookies for our sites and services.\r\nBut, since some parts of our service rely on cookies to work, those services could become difficult or impossible to use",
+          "point_quote_start": 10272.0,
+          "point_quote_end": 10460.0,
+          "point_document_id": 158.0
+        },
+        {
+          "point_id": 6543,
+          "point_title": "Blocking cookies may limit your ability to use the service",
+          "point_source": "https://www.paypal.com/sg/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Certain aspects and features of our Services and Sites are only available through the use of Cookies, so if you choose to disable or decline Cookies, your use of the Sites and Services may be limited or not possible.",
+          "point_quote_start": 19646.0,
+          "point_quote_end": 19862.0,
+          "point_document_id": 1284.0
+        }
+      ]
+    },
+    {
+      "case_id": 227,
+      "case_classification": "good",
+      "case_score": 30,
+      "case_title": "Information is provided about how your personal data is used",
+      "case_description": "The Privacy Policy explains the purposes for which data is collected and the way it is processed, used and shared.",
+      "case_privacy_related": null,
+      "case_topic": "Transparency",
+      "points": [
+        {
+          "point_id": 12645,
+          "point_title": "The service provides information about how they intend to use your personal data",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "WHAT DOES PAYPAL DO WITH YOUR PERSONAL INFORMATION?</strong>\r\n</p>\r\n<p>\r\n<strong>Why?",
+          "point_quote_start": 17330.0,
+          "point_quote_end": 17412.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 399,
+      "case_classification": "neutral",
+      "case_score": 0,
+      "case_title": "Your IP address is collected, which can be used to view your approximate location",
+      "case_description": null,
+      "case_privacy_related": true,
+      "case_topic": "Types of Information Collected",
+      "points": [
+        {
+          "point_id": 12616,
+          "point_title": "This service collects your IP address for location use",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "IP address</li>\r\n<li>Information collected from cookies or other tracking technologies",
+          "point_quote_start": 7397.0,
+          "point_quote_end": 7482.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 223,
+      "case_classification": "good",
+      "case_score": 10,
+      "case_title": "You can opt out of promotional communications",
+      "case_description": "You can update your account preferences and/or easily unsubscribe of email/sms lists to stop receiving promotional communications.",
+      "case_privacy_related": null,
+      "case_topic": "User Choice",
+      "points": [
+        {
+          "point_id": 12613,
+          "point_title": "You can opt out of promotional communications",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "<p>You can click the unsubscribe link in a marketing email, opt out of a text message by replying “STOP,” or turn off notifications on your device.\r\nYou can also change your account’s notification settings or the notification preferences on your device.",
+          "point_quote_start": 5862.0,
+          "point_quote_end": 6114.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 166,
+      "case_classification": "bad",
+      "case_score": 70,
+      "case_title": "This service shares your personal data with third parties that are not essential to its operation",
+      "case_description": "Your personal data is or may be given to third parties nonessential to the service’s operation. This could be a business partner that receives your data to provide targeted advertisements.",
+      "case_privacy_related": true,
+      "case_topic": "Third Parties",
+      "points": [
+        {
+          "point_id": 12625,
+          "point_title": "This service can share your personal information to third parties ",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "However, we may share personal data across our services and with other members of the PayPal corporate family.\r\nSometimes we share the personal data we collect with third parties to help us provide services, protect our customers from risk and fraud, market our products, and comply with legal obligations.</p>",
+          "point_quote_start": 12977.0,
+          "point_quote_end": 13286.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 297,
+      "case_classification": "good",
+      "case_score": 50,
+      "case_title": "Information is provided about how they collect personal data",
+      "case_description": "The service details situations in which they collect personal information or means by which they do.",
+      "case_privacy_related": true,
+      "case_topic": "Transparency",
+      "points": [
+        {
+          "point_id": 12653,
+          "point_title": "The service provides information about how they collect personal data",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "How does PayPal collect my personal information?</strong>\r\n</p>\r\n<p>We collect your personal information, for example, when you</p>\r\n<ul>\r\n<li>open an account or provide account information</li>\r\n<li>use your credit or debit card or give us your contact information</li>\r\n<li>use your PayPal and/or Xoom account to send or receive funds</li>\r\n</ul>\r\n<p>We also collect your personal information from others, such as credit bureaus, affiliates, or other companies.</p>",
+          "point_quote_start": 20293.0,
+          "point_quote_end": 20752.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 301,
+      "case_classification": "good",
+      "case_score": 30,
+      "case_title": "The service reviews its privacy policy on a regular basis",
+      "case_description": "Users know the date the privacy policy was last updated and can thus infer the next time it will be reviewed. This gives users more certainty about how long they can trust the current policy to apply.",
+      "case_privacy_related": true,
+      "case_topic": "Notice of Changing Terms",
+      "points": [
+        {
+          "point_id": 12643,
+          "point_title": "The service reviews its privacy policy on a regular basis",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "We’ll make changes to this privacy statement from time to time.\r\nThis helps us stay up to date with changes to our business and the most current laws.",
+          "point_quote_start": 15968.0,
+          "point_quote_end": 16117.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 393,
+      "case_classification": "good",
+      "case_score": 30,
+      "case_title": "The service will only respond to government requests that are reasonable",
+      "case_description": " The Agreement explains they will disclose personal data about you if it is reasonably necessary to comply with applicable law and government requests.",
+      "case_privacy_related": true,
+      "case_topic": "Law and Government Requests",
+      "points": [
+        {
+          "point_id": 12627,
+          "point_title": "The service will only respond to government requests that are reasonable",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Courts, governments, regulators and law enforcement when accompanied by a subpoena or other legal documentation that requires PayPal or members of our corporate family to respond</li>\r\n<li>People involved in a transaction, such as other users or merchants and their service providers.</li>",
+          "point_quote_start": 13968.0,
+          "point_quote_end": 14256.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 400,
+      "case_classification": "bad",
+      "case_score": 45,
+      "case_title": "This service receives your precise location through GPS coordinates",
+      "case_description": "Unless the service relies on Geo Location, this case is to be assigned to points that don't need your GPS coordinates to function properly.",
+      "case_privacy_related": true,
+      "case_topic": "Types of Information Collected",
+      "points": [
+        {
+          "point_id": 12618,
+          "point_title": "This service receives your location through GPS coordinates",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "6.\r\nGeolocation data, for example:</p>\r\n<ul>\r\n<li>Global Positioning System (GPS) information when you give us permission through your device settings</li>\r\n<li>IP-based geolocation</li>",
+          "point_quote_start": 8185.0,
+          "point_quote_end": 8367.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 326,
+      "case_classification": "bad",
+      "case_score": 50,
+      "case_title": "Your profile is combined across various products",
+      "case_description": "When using multiple services from one same company, they can combine these (unrelated) information sources about you to build up a single richer user profile about you.",
+      "case_privacy_related": true,
+      "case_topic": "Anonymity",
+      "points": [
+        {
+          "point_id": 12615,
+          "point_title": "Your profile is combined across various products",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "If you use our services without creating or logging into an account, we’ll still collect personal data, which may include your payment information, device information, and location.\r\nWhen you use our services without creating or logging into an account, we will use this information to process transactions, prevent fraud and comply with the law.\r\nWe may connect this information with your account, if you have one or if you create an account at a later date.</p>",
+          "point_quote_start": 6676.0,
+          "point_quote_end": 7137.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 228,
+      "case_classification": "good",
+      "case_score": 30,
+      "case_title": "Information is provided about what kind of information they collect",
+      "case_description": "The Privacy Policy describes in detail the data collected through the website and through the services provided.",
+      "case_privacy_related": null,
+      "case_topic": "Transparency",
+      "points": [
+        {
+          "point_id": 12614,
+          "point_title": "The service provides details about what kinds of personal information they collect",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "The personal data we collect",
+          "point_quote_start": 389.0,
+          "point_quote_end": 417.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 200,
+      "case_classification": "neutral",
+      "case_score": 0,
+      "case_title": "Separate policies are employed for different parts of the service",
+      "case_description": "The user may need to read additional product-specific agreements depending on the way the service is used.",
+      "case_privacy_related": null,
+      "case_topic": "Transparency",
+      "points": [
+        {
+          "point_id": 12607,
+          "point_title": "This service employs separate policies for different parts of the service",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "This privacy statement only applies to the PayPal and Xoom services offered by PayPal.\r\nTo learn about our privacy practices for our other products or services, like Venmo or Braintree, visit the website and review the privacy statement for that product or service.</p>",
+          "point_quote_start": 1292.0,
+          "point_quote_end": 1560.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 336,
+      "case_classification": "bad",
+      "case_score": 50,
+      "case_title": "Your personal data may be used for marketing purposes",
+      "case_description": "The service may use your personal data for marketing, such as sending you personalised offerings.",
+      "case_privacy_related": true,
+      "case_topic": "Advertising",
+      "points": [
+        {
+          "point_id": 11248,
+          "point_title": "This service may use your personal information for marketing purposes",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "<li>Send you marketing information about our products and services.\r\nWe may use personal data to market about our partners, such as merchants.",
+          "point_quote_start": 11753.0,
+          "point_quote_end": 11894.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 152,
+      "case_classification": "neutral",
+      "case_score": 15,
+      "case_title": "This service is only available to users over a certain age",
+      "case_description": "The Services are intended for users who are at least a certain age. If you are younger than the age required then you are prohibited from using the Service.",
+      "case_privacy_related": null,
+      "case_topic": "Governance",
+      "points": [
+        {
+          "point_id": 16982,
+          "point_title": "This service is only available to users over a certain age",
+          "point_source": "https://www.paypal.com/sg/webapps/mpp/ua/useragreement-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "f you are an individual, you must be a resident of one of the countries/regions listed on the <strong>PayPal Worldwide</strong> page and at least 18 years old, or the age of majority in your country/region of residence to open a PayPal account and use the PayPal services.",
+          "point_quote_start": 1765.0,
+          "point_quote_end": 2037.0,
+          "point_document_id": 1283.0
+        }
+      ]
+    },
+    {
+      "case_id": 280,
+      "case_classification": "neutral",
+      "case_score": 10,
+      "case_title": "You agree not to use the service for illegal purposes",
+      "case_description": "The user agrees not to commit any unlawful acts through the use of the website, including the posting of illegal content or messaging.",
+      "case_privacy_related": null,
+      "case_topic": "Content",
+      "points": [
+        {
+          "point_id": 16640,
+          "point_title": "Users agree not to use the service for illegal purposes",
+          "point_source": "https://www.paypal.com/sg/webapps/mpp/ua/acceptableuse-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "You may not use the PayPal service for activities that:</p>\r\n<ol>\r\n<li>violate any law, statute, ordinance or regulation.</li>",
+          "point_quote_start": 458.0,
+          "point_quote_end": 582.0,
+          "point_document_id": 1282.0
+        }
+      ]
+    },
+    {
+      "case_id": 403,
+      "case_classification": "bad",
+      "case_score": 50,
+      "case_title": "Instead of asking directly, this Service will assume your consent merely from your usage.",
+      "case_description": "The Service infers your acceptance from your continued usage, instead of prompting you to read the Terms and asking for direct consent.",
+      "case_privacy_related": true,
+      "case_topic": "Notice of Changing Terms",
+      "points": [
+        {
+          "point_id": 16638,
+          "point_title": "Instead of asking directly, this Service will assume your consent merely from your usage.",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/useragreement-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "By continuing to use our services after any changes to this user agreement, you agree to abide and be bound by those changes.\r\nIf you do not agree with any changes to this user agreement, you may close your account.",
+          "point_quote_start": 3399.0,
+          "point_quote_end": 3613.0,
+          "point_document_id": 2913.0
+        }
+      ]
+    },
+    {
+      "case_id": 335,
+      "case_classification": "good",
+      "case_score": 50,
+      "case_title": "You aren’t forced into binding arbitration in case of disputes",
+      "case_description": "Binding Arbitration is a dispute resolution method involving a neutral third party which will render a decision instead of going to court. Since the arbitrator can decide the outgoing of a dispute without evidences or a legal basis, it is preferable that users decide whether they want or not their dispute to be resolved this way.",
+      "case_privacy_related": null,
+      "case_topic": "Dispute Resolution",
+      "points": [
+        {
+          "point_id": 14331,
+          "point_title": "This service does not force users into binding arbitration",
+          "point_source": "https://www.paypal.com/sg/webapps/mpp/ua/useragreement-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "you may elect to resolve the dispute in a cost effective manner through binding non-appearance-based arbitration.",
+          "point_quote_start": 121096.0,
+          "point_quote_end": 121209.0,
+          "point_document_id": 1283.0
+        }
+      ]
+    },
+    {
+      "case_id": 149,
+      "case_classification": "bad",
+      "case_score": 10,
+      "case_title": "Any liability on behalf of the service is only limited to the fees you paid as a user",
+      "case_description": null,
+      "case_privacy_related": null,
+      "case_topic": "Governance",
+      "points": [
+        {
+          "point_id": 14332,
+          "point_title": "Any liability on behalf of the service is limited to $10 000",
+          "point_source": "https://www.paypal.com/sg/webapps/mpp/ua/useragreement-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "<p>For any claim (excluding claims for injunctive or other equitable relief) where the total amount of the award sought is less than $10,000 USD (or other currency equivalents),",
+          "point_quote_start": 120917.0,
+          "point_quote_end": 121095.0,
+          "point_document_id": 1283.0
+        }
+      ]
+    },
+    {
+      "case_id": 117,
+      "case_classification": "bad",
+      "case_score": 50,
+      "case_title": "You waive your right to a class action.",
+      "case_description": "The right to be represented in a class action (or representative action) exists in the US and some European countries. It allows people who have been similarly injured by the same accused to take legal action by a single lawsuit instead of individually. Some Terms of Service try to limit that right. By agreeing to them, you could waive (= renounce to) your right to a class action, which might reduce your chances to be successful in a case.",
+      "case_privacy_related": null,
+      "case_topic": "Dispute Resolution",
+      "points": [
+        {
+          "point_id": 14333,
+          "point_title": "You waive your right to a class action.",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/useragreement-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Includes a Prohibition of Class and Representative Actions and Non-Individualized Relief pursuant to which you agree to waive your right to participate in a class action lawsuit against us.</li>",
+          "point_quote_start": 139214.0,
+          "point_quote_end": 139408.0,
+          "point_document_id": 2913.0
+        }
+      ]
+    },
+    {
+      "case_id": 180,
+      "case_classification": "neutral",
+      "case_score": 50,
+      "case_title": "This service can use your content for all their existing and future services",
+      "case_description": null,
+      "case_privacy_related": null,
+      "case_topic": "Ownership",
+      "points": [
+        {
+          "point_id": 21258,
+          "point_title": "This service can use your content for all their existing and future services",
+          "point_source": "https://www.paypal.com/nl/webapps/mpp/ua/useragreement-full?locale.x=en_NL",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Subject to the&nbsp;next paragraph, when you provide content to the PayPal companies or post content using PayPal services, you grant PayPal (and parties that we work with) a non-exclusive, irrevocable, royalty-free, transferable, and worldwide license to use your content and associated intellectual property and publicity rights to help us improve, operate and promote our current services and develop new ones.",
+          "point_quote_start": 135645.0,
+          "point_quote_end": 136058.0,
+          "point_document_id": 368.0
+        }
+      ]
+    },
+    {
+      "case_id": 183,
+      "case_classification": "good",
+      "case_score": 50,
+      "case_title": "You maintain ownership of your content",
+      "case_description": "This service does not claim ownership over user-generated content or materials, and the user doesn't need to waive any moral rights by posting owned content.",
+      "case_privacy_related": null,
+      "case_topic": "Ownership",
+      "points": [
+        {
+          "point_id": 21257,
+          "point_title": "You maintain ownership of your content",
+          "point_source": "https://www.paypal.com/nl/webapps/mpp/ua/useragreement-full?locale.x=en_NL",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "PayPal does not claim ownership of the content that you provide, upload, submit or send to PayPal.\r\n&nbsp;Nor does PayPal claim ownership of the content you host on third-party websites or applications that use PayPal services to provide payments services related to your content.",
+          "point_quote_start": 135359.0,
+          "point_quote_end": 135638.0,
+          "point_document_id": 368.0
+        }
+      ]
+    },
+    {
+      "case_id": 118,
+      "case_classification": "blocker",
+      "case_score": 50,
+      "case_title": "You waive your moral rights",
+      "case_description": "Moral rights are rights to creators of literary, dramatic, musical and artistic works, as well as directors of films.\r\n\r\n\"The moral rights include the right of attribution, the right to have a work published anonymously or pseudonymously, and the right to the integrity of the work. The preserving of the integrity of the work allows the author to object to alteration, distortion, or mutilation of the work that is \"prejudicial to the author's honor or reputation\". Anything else that may detract from the artist's relationship with the work even after it leaves the artist's possession or ownership may bring these moral rights into play. Moral rights are distinct from any economic rights tied to copyrights. Even if an artist has assigned his or her copyright rights to a work to a third party, he or she still maintains the moral rights to the work.\" -Wikipedia\r\n\r\nIn general, any terms that use the exact words \"moral rights\" as rights that are waived will fall under this Case.",
+      "case_privacy_related": null,
+      "case_topic": "Ownership",
+      "points": [
+        {
+          "point_id": 21259,
+          "point_title": "You waive your moral rights",
+          "point_source": "https://www.paypal.com/nl/webapps/mpp/ua/useragreement-full?locale.x=en_NL",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Further, you acknowledge and warrant that you own or otherwise control all of the rights of the content you provide, and you agree to waive your moral rights and promise not to assert such rights against PayPal.</p>",
+          "point_quote_start": 136248.0,
+          "point_quote_end": 136463.0,
+          "point_document_id": 368.0
+        }
+      ]
+    },
+    {
+      "case_id": 128,
+      "case_classification": "bad",
+      "case_score": 70,
+      "case_title": "Third-party cookies are used for advertising",
+      "case_description": "The service's website sets third-party cookies (cookies that do not belong to their domain) for purposes not including statistics and analytics.",
+      "case_privacy_related": true,
+      "case_topic": "Trackers",
+      "points": [
+        {
+          "point_id": 21959,
+          "point_title": "Third-party cookies are used for advertising",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "We or our authorized service providers may use cookies and similar tracking technologies to collect personal data whenever you use our services, visit our sites, or visit websites that offer our services.\r\nThe information collected with these technologies helps us personalize your experience, measure the effect of our ads, prevent fraud and enhance the security of our sites and service.</p>\r\n<p>",
+          "point_quote_start": 9876.0,
+          "point_quote_end": 10272.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 230,
+      "case_classification": "neutral",
+      "case_score": 25,
+      "case_title": "You must create an account to use this service",
+      "case_description": "You must provide the service with your information in order to use it",
+      "case_privacy_related": true,
+      "case_topic": "Transparency",
+      "points": [
+        {
+          "point_id": 24968,
+          "point_title": "You must create an account to use this service",
+          "point_source": "https://www.paypal.com/nl/webapps/mpp/ua/useragreement-full?locale.x=en_NL",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "To use the PayPal services you need to open a PayPal account.",
+          "point_quote_start": 2385.0,
+          "point_quote_end": 2446.0,
+          "point_document_id": 368.0
+        }
+      ]
+    },
+    {
+      "case_id": 144,
+      "case_classification": "neutral",
+      "case_score": 0,
+      "case_title": "Other applicable rules, terms, conditions or guidelines",
+      "case_description": "Use of the service is subject also to an exhaustive list of other documents containing rules, guidelines, terms or policies (in addition to the obvious Terms of Service/Terms of Use and Privacy Policy/Data Use Policy)",
+      "case_privacy_related": null,
+      "case_topic": "Governance",
+      "points": [
+        {
+          "point_id": 24972,
+          "point_title": "Certain features maybe unavailable, depending on when you opened an account",
+          "point_source": "https://www.paypal.com/nl/webapps/mpp/ua/useragreement-full?locale.x=en_NL",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "<p>Holders of certain existing personal accounts may be required to upgrade their accounts (which may include providing further information to PayPal) in order to be able to use all of the current functionality available in a personal account.",
+          "point_quote_start": 4709.0,
+          "point_quote_end": 4952.0,
+          "point_document_id": 368.0
+        }
+      ]
+    },
+    {
+      "case_id": 296,
+      "case_classification": "good",
+      "case_score": 80,
+      "case_title": "Your information is only shared with third parties when given specific consent",
+      "case_description": "The service does not share user information with any third parties unless users specifically give it permission to do so.",
+      "case_privacy_related": true,
+      "case_topic": "Third Parties",
+      "points": [
+        {
+          "point_id": 24977,
+          "point_title": "Your information is only shared with third parties when given specific consent",
+          "point_source": "https://www.paypal.com/nl/webapps/mpp/ua/useragreement-full?locale.x=en_NL",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "You acknowledge that if you grant permission for a third party to take actions on your behalf, we may disclose certain information about your Account to this third party.",
+          "point_quote_start": 7371.0,
+          "point_quote_end": 7541.0,
+          "point_document_id": 368.0
+        }
+      ]
+    },
+    {
+      "case_id": 205,
+      "case_classification": "neutral",
+      "case_score": 15,
+      "case_title": "Your account can be suspended for several reasons",
+      "case_description": null,
+      "case_privacy_related": null,
+      "case_topic": "Suspension and Censorship",
+      "points": [
+        {
+          "point_id": 24982,
+          "point_title": "Your account can be closed for several reasons",
+          "point_source": "https://www.paypal.com/nl/webapps/mpp/ua/useragreement-full?locale.x=en_NL",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "We may also close your account at any time if:</p>\r\n<ol>\r\n<li>you are in breach of this user agreement and/or we are otherwise entitled to close your account under this user agreement;</li>\r\n<li>you do not access your account for three years.\r\nor</li>\r\n<li>we suspect that your account has been accessed without your authorisation.</li>",
+          "point_quote_start": 8692.0,
+          "point_quote_end": 9024.0,
+          "point_document_id": 368.0
+        }
+      ]
+    },
+    {
+      "case_id": 159,
+      "case_classification": "good",
+      "case_score": 30,
+      "case_title": "You will be notified about website maintenance",
+      "case_description": "Users will be notified before their experience is impacted due to website maintenance.",
+      "case_privacy_related": null,
+      "case_topic": "Guarantee",
+      "points": [
+        {
+          "point_id": 24985,
+          "point_title": "You will be notified about discontinuation of service(s), unless not possible",
+          "point_source": "https://www.paypal.com/nl/webapps/mpp/ua/useragreement-full?locale.x=en_NL",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "<p>In the event that we decide to discontinue any of our services or any portion or feature of our services for any reason, we will give you at least two months prior notice before discontinuing the service or feature, unless we determine in good faith that: </p>\r\n<ul>\r\n<li>the service or feature must be discontinued sooner as required by law or a third-party relationship.\r\nor </li>\r\n<li>doing so could create a security risk or substantial economic or material technical burden.</li>",
+          "point_quote_start": 10745.0,
+          "point_quote_end": 11228.0,
+          "point_document_id": 368.0
+        }
+      ]
+    },
+    {
+      "case_id": 206,
+      "case_classification": "good",
+      "case_score": 15,
+      "case_title": "30 days of notice are given before closing your account",
+      "case_description": "The Terms explain they will notify users at least 30 days before closing their accounts, which allows users to limit the losses and damages caused by this termination.",
+      "case_privacy_related": null,
+      "case_topic": "Suspension and Censorship",
+      "points": [
+        {
+          "point_id": 24981,
+          "point_title": "Two months of notice are given before closing your account",
+          "point_source": "https://www.paypal.com/nl/webapps/mpp/ua/useragreement-full?locale.x=en_NL",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "We may close your account at our convenience by providing you with two months’ prior notice.",
+          "point_quote_start": 8599.0,
+          "point_quote_end": 8692.0,
+          "point_document_id": 368.0
+        }
+      ]
+    },
+    {
+      "case_id": 170,
+      "case_classification": "good",
+      "case_score": 15,
+      "case_title": "You have the right to leave this service at any time",
+      "case_description": "You can stop using the service and/or cancel or delete your account at any time for any reason. Moreover, the termination is reasonably fast and simple.",
+      "case_privacy_related": null,
+      "case_topic": "Right to Leave The Service",
+      "points": [
+        {
+          "point_id": 24980,
+          "point_title": "You have the right to leave this service at any time",
+          "point_source": "https://www.paypal.com/nl/webapps/mpp/ua/useragreement-full?locale.x=en_NL",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "You can close your account at any time.</strong> See the PayPal Help Centre for how to do this.</p>",
+          "point_quote_start": 8496.0,
+          "point_quote_end": 8596.0,
+          "point_document_id": 368.0
+        }
+      ]
+    },
+    {
+      "case_id": 187,
+      "case_classification": "bad",
+      "case_score": 25,
+      "case_title": "Your data may be processed and stored anywhere in the world",
+      "case_description": "Your data is stored all over the world, including in countries where data protection rules may differ from the ones of the service's jurisdiction or those of your country jurisdiction.",
+      "case_privacy_related": null,
+      "case_topic": "Personal Data",
+      "points": [
+        {
+          "point_id": 26354,
+          "point_title": "Your data may be processed and stored anywhere in the world",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "<p>Financial companies choose how they share your personal information.\r\nFederal law gives consumers the right to limit some but not all sharing.",
+          "point_quote_start": 17426.0,
+          "point_quote_end": 17571.0,
+          "point_document_id": 158.0
+        },
+        {
+          "point_id": 6544,
+          "point_title": "Your data may be processed and stored anywhere in the world",
+          "point_source": "https://www.paypal.com/sg/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Our operations are supported by a network of computers, cloud-based servers, and other infrastructure and information technology, including, but not limited to, third-party service providers.\r\n&nbsp;We and our third-party service providers store and Process your Personal Data in the United States of America and elsewhere in the world.",
+          "point_quote_start": 27083.0,
+          "point_quote_end": 27419.0,
+          "point_document_id": 1284.0
+        }
+      ]
+    },
+    {
+      "case_id": 409,
+      "case_classification": "bad",
+      "case_score": 80,
+      "case_title": "You must provide your identifiable information",
+      "case_description": "The Service requires users to provide their identifiable information, including phone number, iD number or other information, even though this data collection isn’t essential for the purposes of the service. They may still allow pseudonyms in the foreground.",
+      "case_privacy_related": true,
+      "case_topic": "Anonymity",
+      "points": [
+        {
+          "point_id": 26433,
+          "point_title": "You must provide your identifiable information",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Also, some personal data is required for our services to function at all.</p>",
+          "point_quote_start": 4318.0,
+          "point_quote_end": 4395.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 124,
+      "case_classification": "good",
+      "case_score": 40,
+      "case_title": "When the service wants to make a material change to its terms, you are notified at least 30 days in advance",
+      "case_description": "The service may update the Terms without notice, but if they significantly change the agreements in a manner that importantly and/or negatively affects the way the service is used, users will be notified at least 30 days in advance.",
+      "case_privacy_related": null,
+      "case_topic": "Notice of Changing Terms",
+      "points": [
+        {
+          "point_id": 21260,
+          "point_title": "When the service wants to make a material change to its terms, you are notified at least 30 days in advance",
+          "point_source": "https://www.paypal.com/nl/webapps/mpp/ua/useragreement-full?locale.x=en_NL",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "We may revise this user agreement and any of the documents listed above from time to time.\r\nThe revised version will be effective at the time we post it, unless otherwise noted.\r\nIf our changes reduce your rights or increase your responsibilities we will post a notice on the Policy Updates page of our website and provide notice to you of at least two months.",
+          "point_quote_start": 3050.0,
+          "point_quote_end": 3408.0,
+          "point_document_id": 368.0
+        }
+      ]
+    },
+    {
+      "case_id": 331,
+      "case_classification": "neutral",
+      "case_score": 50,
+      "case_title": "There is a date of the last update of the agreements",
+      "case_description": "The given text has a date that allows to know when it was last updated.",
+      "case_privacy_related": null,
+      "case_topic": "Changes",
+      "points": [
+        {
+          "point_id": 24974,
+          "point_title": "There is a date of the last update of the agreements",
+          "point_source": "https://www.paypal.com/nl/webapps/mpp/ua/useragreement-full?locale.x=en_NL",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "This user agreement will be effective for all users as of September 14, 2020.",
+          "point_quote_start": 1752.0,
+          "point_quote_end": 1829.0,
+          "point_document_id": 368.0
+        }
+      ]
+    },
+    {
+      "case_id": 148,
+      "case_classification": "neutral",
+      "case_score": 10,
+      "case_title": "You are responsible for maintaining the security of your account and for the activities on your account",
+      "case_description": "You are responsible for protecting the confidentiality of your password and for maintaining the security of your account. Any activity occurring under your account is your responsibility, whether authorized by you or not. ",
+      "case_privacy_related": null,
+      "case_topic": "Security",
+      "points": [
+        {
+          "point_id": 24976,
+          "point_title": "You are responsible for maintaining the security of your account and for the activities on your account",
+          "point_source": "https://www.paypal.com/nl/webapps/mpp/ua/useragreement-full?locale.x=en_NL",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "You should take reasonable steps to stop your PayPal account being misused.\r\nYou must maintain adequate security and control of any and all devices, items, IDs, passwords and personal identification numbers / codes that you use to access your PayPal account and the PayPal services.\r\nPlease see our Key Payment and Service Information for guidelines.",
+          "point_quote_start": 6145.0,
+          "point_quote_end": 6494.0,
+          "point_document_id": 368.0
+        }
+      ]
+    },
+    {
+      "case_id": 207,
+      "case_classification": "neutral",
+      "case_score": 0,
+      "case_title": "Third parties are involved in operating the service",
+      "case_description": null,
+      "case_privacy_related": null,
+      "case_topic": "Third Parties",
+      "points": [
+        {
+          "point_id": 12601,
+          "point_title": "Third parties may be involved in operating the service",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/cookie-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Use of these technologies by authorized third-party service providers</strong>",
+          "point_quote_start": 8598.0,
+          "point_quote_end": 8676.0,
+          "point_document_id": 3089.0
+        }
+      ]
+    },
+    {
+      "case_id": 397,
+      "case_classification": "bad",
+      "case_score": 30,
+      "case_title": "Your biometric data is collected",
+      "case_description": "This service can collect or use your biometric data. This includes but is not limited to facial recognition, fingerprints, and iris scans. Although this feature can sometimes be convenient to the user, providing this type of information to the service could open your personal data to being sold or stolen.",
+      "case_privacy_related": true,
+      "case_topic": "Types of Information Collected",
+      "points": [
+        {
+          "point_id": 12619,
+          "point_title": "Your biometric data is collected",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Audio, electronic, visual, biometric, or similar information, for example:</p>\r\n<ul>\r\n<li>Call recordings when you talk to customer service</li>\r\n<li>Voice identification, when you consent to this biometric method of authentication</li>\r\n<li>Photo IDs and profile pictures you provide</li>",
+          "point_quote_start": 8380.0,
+          "point_quote_end": 8665.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 220,
+      "case_classification": "bad",
+      "case_score": 40,
+      "case_title": "Your personal data is used to employ targeted third-party advertising",
+      "case_description": "Your Personal Information is traded and shared with advertising companies to target ads on you, either on the website you were visiting or in third party websites. Your interaction with the service and data you have shared with them may be gathered to create an advertising ID or profile.",
+      "case_privacy_related": true,
+      "case_topic": "Advertising",
+      "points": [
+        {
+          "point_id": 12606,
+          "point_title": "The service uses your personal data to employ targeted third-party advertising",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/cookie-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Ad networks and exchanges operated by authorized third parties for interest-based advertising</strong>\r\n<p>We may use third parties, such as advertising networks and exchanges, to allow us to serve you advertisements.\r\nThese third-party ad networks and exchange providers may use third-party cookies, web beacons, or similar technologies to collect information about your visit to our site and elsewhere on the Internet.",
+          "point_quote_start": 10244.0,
+          "point_quote_end": 10662.0,
+          "point_document_id": 3089.0
+        }
+      ]
+    },
+    {
+      "case_id": 195,
+      "case_classification": "good",
+      "case_score": 50,
+      "case_title": "You can request access, correction and/or deletion of your data",
+      "case_description": "Users have the right to access personal data hold by the Service, correct it and/or permanently delete it. This usually applies to Services GDPR compliants. ",
+      "case_privacy_related": true,
+      "case_topic": "User Choice",
+      "points": [
+        {
+          "point_id": 12609,
+          "point_title": "You can request access and deletion of personal data",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "You also have the right to ask us to delete your personal data we have collected about you.\r\nIf you want to see or delete your personal data, contact us.\r\nWe will not deny you services, charge you different prices, or provide you with a different level of service solely for exercising your privacy rights.</p>\r\n<p>If you request to see or delete your personal data, we’ll first need to verify who you are before we can respond to your request.",
+          "point_quote_start": 1862.0,
+          "point_quote_end": 2303.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 325,
+      "case_classification": "bad",
+      "case_score": 10,
+      "case_title": "Third-party cookies are used for statistics",
+      "case_description": "For instance, Google Analytics, rather than self-hosted (first-party) statistics software.",
+      "case_privacy_related": true,
+      "case_topic": "Trackers",
+      "points": [
+        {
+          "point_id": 12603,
+          "point_title": "This service uses third-party cookies for statistics",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/cookie-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "These service providers may use these technologies to help us deliver our own content and advertising, and compile anonymous site metrics and analytics.",
+          "point_quote_start": 9053.0,
+          "point_quote_end": 9205.0,
+          "point_document_id": 3089.0
+        }
+      ]
+    },
+    {
+      "case_id": 382,
+      "case_classification": "bad",
+      "case_score": 50,
+      "case_title": "Information is gathered about you through third parties",
+      "case_description": "This Service may employ, either identifiable or non-identifiable, data collection from third party sources about you.",
+      "case_privacy_related": true,
+      "case_topic": "Third Parties",
+      "points": [
+        {
+          "point_id": 12621,
+          "point_title": "This service gathers information about you through third parties",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "We may collect personal information about you from various sources, for example from:</p>\r\n<ul>\r\n<li>You</li>\r\n<li>Merchants</li>\r\n<li>Our payment partners, such as card networks and payment processors</li>\r\n<li>Financial institutions, such as banks</li>\r\n<li>Credit bureaus</li>\r\n<li>Service providers, such as companies that help us manage risk and fraud, deliver services to you, and market our services",
+          "point_quote_start": 9046.0,
+          "point_quote_end": 9445.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 376,
+      "case_classification": "bad",
+      "case_score": 70,
+      "case_title": "Many different types of personal data are collected",
+      "case_description": "The service collects different kinds of personal data, such as name, demographic information, postal address, biometric data, device information, IDs, contacts, call logs...",
+      "case_privacy_related": true,
+      "case_topic": "Personal Data",
+      "points": [
+        {
+          "point_id": 12620,
+          "point_title": "The service collects many different types of personal data",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Types of data according to the Privacy Policy (general overview):\r\n\"1. Information that identifies you\r\n2. Records and financial information\r\n3. Personal characteristics\r\n4. Commercial information\r\n5. Internet or network activity\r\n6. Geolocation data\r\n7. Audio, electronic, visual, or similar information\r\n8. Professional or employment information\r\n9. Information we infer based on your personal data\"",
+          "point_quote_text": "1.\r\nInformation that identifies you, for example:",
+          "point_quote_start": 7252.0,
+          "point_quote_end": 7300.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 333,
+      "case_classification": "bad",
+      "case_score": 70,
+      "case_title": "Some personal data may be kept for business interests or legal obligations",
+      "case_description": "After the end of the data retention period and/or if you request the deletion of your data, they may still keep it for business interests (fraud detection, transactions...) or legal obligations (tax, legal reporting...)",
+      "case_privacy_related": true,
+      "case_topic": "Right to Leave The Service",
+      "points": [
+        {
+          "point_id": 12610,
+          "point_title": "This service may keep personal data after a request for erasure for business interests or legal obligations",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/privacy-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "If you close your account or request that we delete personal data, we still need to keep some personal data so we can:</p>\r\n<ul>\r\n<li>Complete a transaction, provide goods or services you requested, or comply with our promises to you in the User Agreement or other contract you have with us</li>\r\n<li>Detect and prevent malicious, fraudulent, or illegal activity</li>\r\n<li>Protect your (or another person’s) legal rights, including the right to free speech</li>\r\n<li>Manage our internal business processes that are reasonably related to your expectations when using our services</li>\r\n<li>Comply with laws</li>\r\n</ul>\r\n<p>Depending on where you live and what type of account you use, you may have different rights and choices for managing your personal data.",
+          "point_quote_start": 2730.0,
+          "point_quote_end": 3480.0,
+          "point_document_id": 158.0
+        }
+      ]
+    },
+    {
+      "case_id": 146,
+      "case_classification": "neutral",
+      "case_score": 60,
+      "case_title": "You agree to defend, indemnify, and hold the service harmless in case of a claim related to your use of the service",
+      "case_description": null,
+      "case_privacy_related": null,
+      "case_topic": "Governance",
+      "points": [
+        {
+          "point_id": 14334,
+          "point_title": "You agree to defend, indemnify, and hold the service harmless in case of a claim related to your use of the service",
+          "point_source": "https://www.paypal.com/nl/webapps/mpp/ua/useragreement-full?locale.x=en_NL",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "You agree to defend, indemnify and hold PayPal harmless from any claim or demand (including reasonable legal fees) made or incurred by any third party due to or arising out of:</p>\r\n<ul>\r\n<li>your breach of this user agreement;</li>\r\n<li>your improper use of the PayPal services;</li>\r\n<li>your violation of any law or the rights of a third party.",
+          "point_quote_start": 125203.0,
+          "point_quote_end": 125547.0,
+          "point_document_id": 368.0
+        }
+      ]
+    },
+    {
+      "case_id": 478,
+      "case_classification": "blocker",
+      "case_score": 30,
+      "case_title": "This service still tracks you even if you opted out from tracking",
+      "case_description": "Users can’t fully opt out of tracking technologies used for non essential purposes such as advertising, marketing or analytics. The user may be asked for consent for installing some tracking technologies on the device, and even if all are rejected the service will still track its visitors and ignore the choice.This case doesn’t apply to functional cookies that are necessary to provide the services.",
+      "case_privacy_related": true,
+      "case_topic": "Trackers",
+      "points": [
+        {
+          "point_id": 17274,
+          "point_title": "This service still tracks you even if you opted out from tracking",
+          "point_source": "https://www.paypal.com/us/webapps/mpp/ua/cookie-full",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Technologies that store information in your browser or device utilizing local shared objects or local storage, such as flash cookies, HTML 5 cookies, and other web application software methods.\r\nThese technologies can operate across all of your browsers, and in some instances may not be fully managed by your browser and may require management directly through your installed applications or device.",
+          "point_quote_start": 4270.0,
+          "point_quote_end": 4670.0,
+          "point_document_id": 3089.0
+        }
+      ]
+    }
+  ],
+  "service_related": []
+}
