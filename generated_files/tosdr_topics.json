@@ -1,0 +1,170 @@
+[
+    {
+        "id": 27,
+        "title": "Ownership",
+        "subtitle": "What happens with the content you generate on the service?",
+        "description": "The content and the data you generate on services online is usually subject to copyright law. When your data are collected by services, they can be considered personal data.  It means that it is <strong>your content, your data</strong>: you can decide."
+    },
+    {
+        "id": 31,
+        "title": "Governance",
+        "subtitle": "Your relationship with the service and the community",
+        "description": "description"
+    },
+    {
+        "id": 32,
+        "title": "Guarantee",
+        "subtitle": "Some services will guarantee you certain features, or explicitly reject any guarantee.",
+        "description": "description"
+    },
+    {
+        "id": 35,
+        "title": "User Involvement in Changing Terms",
+        "subtitle": "Are changes proposed as a request for feedback, or imposed unilaterally as a take-it-or-leave-it deal?",
+        "description": "The terms are a contract between two parties, and it should not be changed unilaterally without consultation of the other party. Services should listen to what their users say and care about, and give them a vote in each substantial change."
+    },
+    {
+        "id": 38,
+        "title": "Changes",
+        "subtitle": "Changes to the Terms",
+        "description": "description"
+    },
+    {
+        "id": 53,
+        "title": "Unclassified",
+        "subtitle": "Points with case marked as \"none\"",
+        "description": "This is where we'll dump the points with case \"none.\""
+    },
+    {
+        "id": 44,
+        "title": "Jurisdiction and governing laws",
+        "subtitle": "Where can you sue, or be sued, for breaching of the rules?",
+        "description": "What is the jurisdiction, what laws govern the terms?"
+    },
+    {
+        "id": 46,
+        "title": "Notice of Changing Terms",
+        "subtitle": "Are users notified when terms change? Are they given enough time to find out what changed and discuss this with each other before deciding whether to continue to use the service under the new terms?",
+        "description": "Services need to evolve. But it is important that updating the service does not break the consentment with the user. Updates and changes to terms of service and privacy policy need to be properly noticed to users and to sollicit their agreement again."
+    },
+    {
+        "id": 47,
+        "title": "Suspension and Censorship",
+        "subtitle": "Can they end your use of the service at any time?",
+        "description": "Your account and your data are on their servers, so they control them. Which guarantee do you have that lawful content and lawful activity will not be censored or suspended?"
+    },
+    {
+        "id": 39,
+        "title": "Business Transfers",
+        "subtitle": "Is your data a business asset?",
+        "description": "When you give your data to a company, you need to keep in mind that this company can get acquired by another company, with different policies. What happens in that case?"
+    },
+    {
+        "id": 40,
+        "title": "Logs",
+        "subtitle": "How long do they keep them?",
+        "description": "description"
+    },
+    {
+        "id": 50,
+        "title": "Security",
+        "subtitle": "Protecting your account",
+        "description": "This topic contains all cases which describe the effort of the service to protect your account from unauthorized access."
+    },
+    {
+        "id": 54,
+        "title": "Payments",
+        "subtitle": "What kind of payment arrangements you will commit to?",
+        "description": "When you accept the ToS, will you commit to re-occurring payments or automatic credit card charges, does the service require your credit card number, and what kind of privacy implications the payments terms have?"
+    },
+    {
+        "id": 52,
+        "title": "Content",
+        "subtitle": "What (not) to post.",
+        "description": "This topic contains all the cases which define what an user is allowed or disallowed to post, publish and discuss."
+    },
+    {
+        "id": 30,
+        "title": "Copyright License",
+        "subtitle": "How many rights do you have over your content?",
+        "description": "Copyright law gives you control over how your content (texts, photos, videos, etc.) can be used, by whom they can be distributed, modified, etc. Sometimes, online services need your permission to perform certain tasks with your content. That's why they ask you to grant them a copyright license. But sometimes, the copyright license is so broad, that your content can be exploited by others without asking you."
+    },
+    {
+        "id": 25,
+        "title": "Trackers",
+        "subtitle": "How are you tracked?",
+        "description": "Covers any technology that allows services to track (identify over time, place, and between devices) a user. These technologies include but are not limited to:\r\n\r\n- HTTP Cookies\r\n- IP geolocation\r\n- Browser Session Storage\r\n- iOS Advertising IDs\r\n- Device Fingerprinting\r\n- Data de-anonymization/Data re-identification\r\n- Tracking pixels"
+    },
+    {
+        "id": 41,
+        "title": "Personal Data",
+        "subtitle": "Can you control your privacy? Once a service has your personal data, how much control do you have over how it will be used and how long?",
+        "description": "."
+    },
+    {
+        "id": 55,
+        "title": "[Deprecated]",
+        "subtitle": "Vague/ill-defined or otherwise deprecated cases",
+        "description": "These cases have unclear scope or are vague. Rather than deleting them, they are added to this topic."
+    },
+    {
+        "id": 26,
+        "title": "Anonymity",
+        "subtitle": "Can you use the service anonymously?",
+        "description": "The terms sometimes describe the level of logging and the level of data collection and which kinds of data the service is processing. Anonymity or the right to use a pseudonym can be very important for freedom of expression (e.g. for people exercising a certain profession, or people living in authoritarian regimes)."
+    },
+    {
+        "id": 56,
+        "title": "Types of Information Collected",
+        "subtitle": "Information the service receives from you",
+        "description": "What kind of information, whether voluntary or automatically, does this service collect from you? "
+    },
+    {
+        "id": 34,
+        "title": "User Choice",
+        "subtitle": "How much can YOU decide?",
+        "description": "The level of choice that is left to the user."
+    },
+    {
+        "id": 48,
+        "title": "Third Parties",
+        "subtitle": "\"Data Processors\", \"Social Media Services\", \"Ad Services\"...",
+        "description": "How much data is processed by external companies? What do these third parties do with a Service? How intrusively is your data handled? This topic summarizes it."
+    },
+    {
+        "id": 45,
+        "title": "Right to Leave The Service",
+        "subtitle": "To avoid lock-in and stay in control.",
+        "description": "Once you subscribe to the service, will you have the right to leave it and remove your data?"
+    },
+    {
+        "id": 28,
+        "title": "Law and Government Requests",
+        "subtitle": "How do services deal with government requests?",
+        "description": "no text here"
+    },
+    {
+        "id": 57,
+        "title": "Advertising",
+        "subtitle": "The ads you see everywhere.",
+        "description": "How does the service manage your data regarding advertising? How strongly are third parties involved regarding advertising? How much choice do you have on advertising? This topic specifies those kinds of disclosures."
+    },
+    {
+        "id": 36,
+        "title": "Transparency",
+        "subtitle": "Transparency and Education",
+        "description": "The level of information provided by the ‪service that is beneficial (or otherwise) to the user."
+    },
+    {
+        "id": 37,
+        "title": "Waivers",
+        "subtitle": "The Rights You Give Up",
+        "description": "These are generally rights for the consumer that you have under law, but which your agreement with the service takes away from you."
+    },
+    {
+        "id": 42,
+        "title": "Dispute Resolution",
+        "subtitle": "How can be resolved the disputes between you and the service you're using?",
+        "description": "If a party does something illegal or harms either on a physical or financial way another party, they may start a dispute. The terms of most services set some rules related to dispute resolution, which may negatively affect your rights. Therefore, it is essential to understand what they imply."
+    }
+]
