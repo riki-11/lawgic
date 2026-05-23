@@ -1,0 +1,501 @@
+{
+  "service_id": 190,
+  "service_name": "Amazon",
+  "service_url": "amazon.com,amazon.com.au,amazon.de,amazon.co.uk,amazon.nl,amazon.pl,amazon.sa,amazon.sg,amazon.se,amazon.com.tr,amazon.ae,amazon.co.jp,amazon.es,amazon.in,amazon.ca,amazon.fr,amazon.it,amazon.com.br,amazon.cn,amazon.com.mx,amzn.to",
+  "cases": [
+    {
+      "case_id": 188,
+      "case_classification": "bad",
+      "case_score": 35,
+      "case_title": "This service gives your personal data to third parties involved in its operation",
+      "case_description": "Your personal data is or may be given to third parties essential to the service’s operation. This could be an external spam detection service for an internet forum.",
+      "case_privacy_related": true,
+      "case_topic": "Third Parties",
+      "points": [
+        {
+          "point_id": 1582,
+          "point_title": "personal data is given to third parties",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=468496",
+          "point_analysis": "Amazon may release your data when they believe it appropriate",
+          "point_quote_text": "This includes exchanging information with other companies and organizations for fraud protection and credit risk reduction.",
+          "point_quote_start": 8238.0,
+          "point_quote_end": 8361.0,
+          "point_document_id": 38.0
+        },
+        {
+          "point_id": 5929,
+          "point_title": "This service can share your personal information to third parties ",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html/ref=hp_left_v4_sib?ie=UTF8&nodeId=202135380",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "The Amazon Group Companies are subject to the investigatory and enforcement powers of the Federal Trade Commission (FTC).\r\nWe may be required to disclose personal information that we handle under the Privacy Shield in response to lawful requests by public authorities, including to meet national security or law enforcement requirements.",
+          "point_quote_start": 4616.0,
+          "point_quote_end": 4952.0,
+          "point_document_id": 1051.0
+        }
+      ]
+    },
+    {
+      "case_id": 216,
+      "case_classification": "bad",
+      "case_score": 30,
+      "case_title": "Your personal data is used for advertising",
+      "case_description": "Your interaction with the service and data you have shared with them may be gathered to create an advertising ID or profile to target ads on you, either on the website you were visiting or in third party websites.",
+      "case_privacy_related": true,
+      "case_topic": "Advertising",
+      "points": [
+        {
+          "point_id": 1122,
+          "point_title": "The service uses your personal data for advertising",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=202075050",
+          "point_analysis": "Amazon uses your personal data and your behavior data for advertisement.",
+          "point_quote_text": "To serve you interest-based ads, we use information such as your interactions with Amazon sites, content, or services.",
+          "point_quote_start": 525.0,
+          "point_quote_end": 643.0,
+          "point_document_id": 39.0
+        }
+      ]
+    },
+    {
+      "case_id": 200,
+      "case_classification": "neutral",
+      "case_score": 0,
+      "case_title": "Separate policies are employed for different parts of the service",
+      "case_description": "The user may need to read additional product-specific agreements depending on the way the service is used.",
+      "case_privacy_related": null,
+      "case_topic": "Transparency",
+      "points": [
+        {
+          "point_id": 5925,
+          "point_title": "This service employs separate policies for different parts of the service",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=508088",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Please review our other policies, such as our pricing policy, posted on this site.\r\nThese policies also govern your use of Amazon Services",
+          "point_quote_start": 16304.0,
+          "point_quote_end": 16441.0,
+          "point_document_id": 37.0
+        }
+      ]
+    },
+    {
+      "case_id": 339,
+      "case_classification": "bad",
+      "case_score": 50,
+      "case_title": "You are forced into binding arbitration in case of disputes",
+      "case_description": "This service forces users to use their own contracted arbitrator and forces users to waive their rights to jury trial.",
+      "case_privacy_related": null,
+      "case_topic": "Dispute Resolution",
+      "points": [
+        {
+          "point_id": 5923,
+          "point_title": "This service forces users into binding arbitration in the case of disputes",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=508088",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Any dispute or claim relating in any way to your use of any Amazon Service, or to any products or services sold or distributed by Amazon or through Amazon.com will be resolved by binding arbitration, rather than in court</strong>, except that you may assert claims in small claims court if your claims qualify.",
+          "point_quote_start": 13750.0,
+          "point_quote_end": 14060.0,
+          "point_document_id": 37.0
+        }
+      ]
+    },
+    {
+      "case_id": 286,
+      "case_classification": "neutral",
+      "case_score": 20,
+      "case_title": "The service is provided 'as is' and to be used at your sole risk",
+      "case_description": "This service does not provide any guarantees as to its usability or fitness for the users' purposes. Users agree to use it at their own risk, accepting any possible bugs, malfunctions or harm to their devices.",
+      "case_privacy_related": null,
+      "case_topic": "Guarantee",
+      "points": [
+        {
+          "point_id": 5922,
+          "point_title": "The service is provided 'as is' and to be used at the users' sole risk",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=508088",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "THE AMAZON SERVICES AND ALL INFORMATION, CONTENT, MATERIALS, PRODUCTS (INCLUDING SOFTWARE) AND OTHER SERVICES INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH THE AMAZON SERVICES ARE PROVIDED BY AMAZON ON AN \"AS IS\" AND \"AS AVAILABLE\" BASIS, UNLESS OTHERWISE SPECIFIED IN WRITING.\r\nAMAZON MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, AS TO THE OPERATION OF THE AMAZON SERVICES, OR THE INFORMATION, CONTENT, MATERIALS, PRODUCTS (INCLUDING SOFTWARE) OR OTHER SERVICES INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH THE AMAZON SERVICES, UNLESS OTHERWISE SPECIFIED IN WRITING.\r\nYOU EXPRESSLY AGREE THAT YOUR USE OF THE AMAZON SERVICES IS AT YOUR SOLE RISK",
+          "point_quote_start": 12067.0,
+          "point_quote_end": 12757.0,
+          "point_document_id": 37.0
+        }
+      ]
+    },
+    {
+      "case_id": 121,
+      "case_classification": "bad",
+      "case_score": 70,
+      "case_title": " Terms may be changed any time at their discretion, without notice to you ",
+      "case_description": "The Agreements can be updated at any time, including in a way that negatively affects user rights, without notifying before or after the changes.",
+      "case_privacy_related": null,
+      "case_topic": "Notice of Changing Terms",
+      "points": [
+        {
+          "point_id": 5926,
+          "point_title": " Terms may be changed any time at their discretion, without notice to the user ",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=508088",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "We reserve the right to make changes to our site, policies, Service Terms, and these Conditions of Use at any time",
+          "point_quote_start": 16443.0,
+          "point_quote_end": 16557.0,
+          "point_document_id": 37.0
+        }
+      ]
+    },
+    {
+      "case_id": 201,
+      "case_classification": "bad",
+      "case_score": 60,
+      "case_title": "Your account can be deleted without prior notice and without a reason",
+      "case_description": "At any time, your account can be terminated without explanation and without warning by the service. ",
+      "case_privacy_related": null,
+      "case_topic": "Suspension and Censorship",
+      "points": [
+        {
+          "point_id": 5930,
+          "point_title": "The service can delete your account without prior notice and without a reason",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=201544030",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "We may terminate the Agreement or restrict, suspend or terminate your use of the Service at our discretion at any time without notice.</p>",
+          "point_quote_start": 4363.0,
+          "point_quote_end": 4501.0,
+          "point_document_id": 58.0
+        }
+      ]
+    },
+    {
+      "case_id": 294,
+      "case_classification": "neutral",
+      "case_score": 10,
+      "case_title": "Invalidity of any portion of the Terms of Service does not entail invalidity of its remainder",
+      "case_description": "Should any portion of the Terms of Service be unenforceable or invalid, that portion will be enforced to the fullest extent permitted by applicable law and the remainder of the TOS will remain valid and enforceable.",
+      "case_privacy_related": null,
+      "case_topic": "Governance",
+      "points": [
+        {
+          "point_id": 10790,
+          "point_title": "Invalidity of any portion of the Terms of Service does not entail invalidity of its remainder",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=508088",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "If any of these conditions shall be deemed invalid, void, or for any reason unenforceable, that condition shall be deemed severable and shall not affect the validity and enforceability of any remaining condition.",
+          "point_quote_start": 16559.0,
+          "point_quote_end": 16771.0,
+          "point_document_id": 37.0
+        }
+      ]
+    },
+    {
+      "case_id": 281,
+      "case_classification": "neutral",
+      "case_score": 25,
+      "case_title": "You are prohibited from sending chain letters, junk mail, spam or any unsolicited messages",
+      "case_description": "Users are not allowed to use the service for chain letters, junk mail, spamming or any other distribution of content to people who have not agreed to receiving it.",
+      "case_privacy_related": null,
+      "case_topic": "Content",
+      "points": [
+        {
+          "point_id": 10791,
+          "point_title": "This service prohibits users sending chain letters, junk mail, spam or any unsolicited messages",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=508088",
+          "point_analysis": "Full Quote: \"You may post reviews, comments, photos, videos, and other content. send e-cards and other communications. and submit suggestions, ideas, comments, questions, or other information, so long as the content is not illegal, obscene, threatening, defamatory, invasive of privacy, infringing of intellectual property rights (including publicity rights), or otherwise injurious to third parties or objectionable, and does not consist of or contain software viruses, political campaigning, commercial solicitation, chain letters, mass mailings, or any form of \"spam\" or unsolicited commercial electronic messages.\"",
+          "point_quote_text": "commercial solicitation, chain letters, mass mailings, or any form of \"spam\" or unsolicited commercial electronic messages.",
+          "point_quote_start": 7003.0,
+          "point_quote_end": 7127.0,
+          "point_document_id": 37.0
+        }
+      ]
+    },
+    {
+      "case_id": 134,
+      "case_classification": "bad",
+      "case_score": 50,
+      "case_title": "Your content can be licensed to third parties",
+      "case_description": "By posting content through the Services, users grant them a transferable and/or sublicensable right, which allows user content to be licensed to third parties.",
+      "case_privacy_related": true,
+      "case_topic": "Copyright License",
+      "points": [
+        {
+          "point_id": 622,
+          "point_title": "This service can license user content to third parties",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=508088",
+          "point_analysis": "[Bad] Amazon holds unlimited copyright license on your content",
+          "point_quote_text": "If you do post content or submit material, and unless we indicate otherwise, you grant Amazon a nonexclusive, royalty-free, perpetual, irrevocable, and fully sublicensable right to use, reproduce, modify, adapt, publish, perform, translate, create derivative works from, distribute, and display such content throughout the world in any media.\r\nYou grant Amazon and sublicensees the right to use the name that you submit in connection with such content, if they choose.",
+          "point_quote_start": 7403.0,
+          "point_quote_end": 7870.0,
+          "point_document_id": 37.0
+        }
+      ]
+    },
+    {
+      "case_id": 129,
+      "case_classification": "bad",
+      "case_score": 60,
+      "case_title": "This service tracks you on other websites",
+      "case_description": "The service may use tracking technologies in third-party websites to track your online activity while you aren't visiting their Site.\r\n",
+      "case_privacy_related": true,
+      "case_topic": "Trackers",
+      "points": [
+        {
+          "point_id": 793,
+          "point_title": "This service tracks you on other websites",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=468496",
+          "point_analysis": "This service uses cookies to track you even if you are not interacting with them directly. Amazon for instance, use <a href=\"http://www.amazon.com/gp/help/customer/display.html/ref=hp_468496_cookies?nodeId=468496&amp;#cookies\">cookies</a> to track your device and serve targeted advertisements on other websites (Amazon associates, websites using Amazon Checkout). They “obtain certain types of information when your Web browser accesses Amazon.com or advertisements and other content served by or on behalf of Amazon.com on other Web sites”.",
+          "point_quote_text": "Like many websites, we use \"cookies\" and other unique identifiers, and we obtain certain types of information when your web browser or device accesses Amazon Services and other content served by or on behalf of Amazon on other websites.",
+          "point_quote_start": 2214.0,
+          "point_quote_end": 2451.0,
+          "point_document_id": 38.0
+        }
+      ]
+    },
+    {
+      "case_id": 117,
+      "case_classification": "bad",
+      "case_score": 50,
+      "case_title": "You waive your right to a class action.",
+      "case_description": "The right to be represented in a class action (or representative action) exists in the US and some European countries. It allows people who have been similarly injured by the same accused to take legal action by a single lawsuit instead of individually. Some Terms of Service try to limit that right. By agreeing to them, you could waive (= renounce to) your right to a class action, which might reduce your chances to be successful in a case.",
+      "case_privacy_related": null,
+      "case_topic": "Dispute Resolution",
+      "points": [
+        {
+          "point_id": 14306,
+          "point_title": "You waive your right to a class action.",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=201380010",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Any dispute or claim arising from or relating to the Agreement or the Services is subject to the governing law, disclaimer of warranties and limitation of liability, binding arbitration and class action waiver (if applicable), and all other terms in the Conditions of Use applicable to you (noted here).",
+          "point_quote_start": 18594.0,
+          "point_quote_end": 18897.0,
+          "point_document_id": 53.0
+        }
+      ]
+    },
+    {
+      "case_id": 128,
+      "case_classification": "bad",
+      "case_score": 70,
+      "case_title": "Third-party cookies are used for advertising",
+      "case_description": "The service's website sets third-party cookies (cookies that do not belong to their domain) for purposes not including statistics and analytics.",
+      "case_privacy_related": true,
+      "case_topic": "Trackers",
+      "points": [
+        {
+          "point_id": 20756,
+          "point_title": "Third-party cookies are used for advertising",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=468496",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Use of Third-Party Advertising Services:</strong> We provide ad companies with information that allows them to serve you with more useful and relevant Amazon ads and to measure their effectiveness.\r\nWe never share your name or other information that directly identifies you when we do this.\r\nInstead, we use an advertising identifier like a cookie or other device identifier.",
+          "point_quote_start": 10321.0,
+          "point_quote_end": 10695.0,
+          "point_document_id": 38.0
+        }
+      ]
+    },
+    {
+      "case_id": 207,
+      "case_classification": "neutral",
+      "case_score": 0,
+      "case_title": "Third parties are involved in operating the service",
+      "case_description": null,
+      "case_privacy_related": null,
+      "case_topic": "Third Parties",
+      "points": [
+        {
+          "point_id": 20753,
+          "point_title": "Third parties are involved in operating the service",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=468496",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "We employ other companies and individuals to perform functions on our behalf.",
+          "point_quote_start": 6764.0,
+          "point_quote_end": 6842.0,
+          "point_document_id": 38.0
+        }
+      ]
+    },
+    {
+      "case_id": 228,
+      "case_classification": "good",
+      "case_score": 30,
+      "case_title": "Information is provided about what kind of information they collect",
+      "case_description": "The Privacy Policy describes in detail the data collected through the website and through the services provided.",
+      "case_privacy_related": null,
+      "case_topic": "Transparency",
+      "points": [
+        {
+          "point_id": 20755,
+          "point_title": "Details are provided about what kind of information they collect",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=468496",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "</p> What Personal Information About Customers Does Amazon Collect?",
+          "point_quote_start": 1402.0,
+          "point_quote_end": 1470.0,
+          "point_document_id": 38.0
+        }
+      ]
+    },
+    {
+      "case_id": 223,
+      "case_classification": "good",
+      "case_score": 10,
+      "case_title": "You can opt out of promotional communications",
+      "case_description": "You can update your account preferences and/or easily unsubscribe of email/sms lists to stop receiving promotional communications.",
+      "case_privacy_related": null,
+      "case_topic": "User Choice",
+      "points": [
+        {
+          "point_id": 20758,
+          "point_title": "You can opt out of promotional communications",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=468496",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "If you do not want to receive email or other communications from us, please adjust your Customer Communication Preferences",
+          "point_quote_start": 12066.0,
+          "point_quote_end": 12189.0,
+          "point_document_id": 38.0
+        }
+      ]
+    },
+    {
+      "case_id": 489,
+      "case_classification": "bad",
+      "case_score": 50,
+      "case_title": "Voice data is collected and shared with third-parties",
+      "case_description": "The service collects data and recordings of your voice when you communicate with a service verbally and may use and share them with third parties, that may use this data for marketing or advertising.",
+      "case_privacy_related": true,
+      "case_topic": "Types of Information Collected",
+      "points": [
+        {
+          "point_id": 20752,
+          "point_title": "Voice data is collected and shared with third-parties",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=468496",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "<strong>Provide voice, image and camera services.</strong> When you use our voice, image and camera services, we use your voice input, images, videos, and other personal information to respond to your requests, provide the requested service to you, and improve our services.",
+          "point_quote_start": 3848.0,
+          "point_quote_end": 4123.0,
+          "point_document_id": 38.0
+        }
+      ]
+    },
+    {
+      "case_id": 336,
+      "case_classification": "bad",
+      "case_score": 50,
+      "case_title": "Your personal data may be used for marketing purposes",
+      "case_description": "The service may use your personal data for marketing, such as sending you personalised offerings.",
+      "case_privacy_related": true,
+      "case_topic": "Advertising",
+      "points": [
+        {
+          "point_id": 20754,
+          "point_title": "Your personal data may be used for marketing purposes",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=468496",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "Examples include fulfilling orders for products or services, delivering packages, sending postal mail and email, removing repetitive information from customer lists, analyzing data, providing marketing assistance, providing search results and links (including paid listings and links), processing payments, transmitting content, scoring, assessing and managing credit risk, and providing customer service.\r\nThese third-party service providers have access to personal information needed to perform their functions",
+          "point_quote_start": 6842.0,
+          "point_quote_end": 7353.0,
+          "point_document_id": 38.0
+        }
+      ]
+    },
+    {
+      "case_id": 149,
+      "case_classification": "bad",
+      "case_score": 10,
+      "case_title": "Any liability on behalf of the service is only limited to the fees you paid as a user",
+      "case_description": null,
+      "case_privacy_related": null,
+      "case_topic": "Governance",
+      "points": [
+        {
+          "point_id": 20757,
+          "point_title": "Any liability on behalf of the service is only limited to the fees you paid as a user",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=13819201",
+          "point_analysis": "Generated through the annotate view",
+          "point_quote_text": "<p>IN ADDITION TO OTHER LIMITATIONS AND EXCLUSIONS IN AMAZON.COM'S CONDITIONS OF USE, OUR TOTAL LIABILITY, WHETHER IN CONTRACT, WARRANTY, TORT (INCLUDING NEGLIGENCE) OR OTHERWISE, WILL NOT EXCEED THE LAST MEMBERSHIP FEE YOU PAID.",
+          "point_quote_start": 8023.0,
+          "point_quote_end": 8252.0,
+          "point_document_id": 47.0
+        }
+      ]
+    },
+    {
+      "case_id": 316,
+      "case_classification": "neutral",
+      "case_score": 30,
+      "case_title": "Political discussions or campaining are prohibited",
+      "case_description": "Political content in the form or pictures, discussions, or campaigning isn't allowed.",
+      "case_privacy_related": null,
+      "case_topic": "Content",
+      "points": [
+        {
+          "point_id": 10792,
+          "point_title": "Prohibits political discussions or campaigning",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=508088",
+          "point_analysis": "Full Quote: \"You may post reviews, comments, photos, videos, and other content. send e-cards and other communications. and submit suggestions, ideas, comments, questions, or other information, so long as the content is not illegal, obscene, threatening, defamatory, invasive of privacy, infringing of intellectual property rights (including publicity rights), or otherwise injurious to third parties or objectionable, and does not consist of or contain software viruses, political campaigning, commercial solicitation, chain letters, mass mailings, or any form of \"spam\" or unsolicited commercial electronic messages.\"",
+          "point_quote_text": "political campaigning,",
+          "point_quote_start": 6980.0,
+          "point_quote_end": 7002.0,
+          "point_document_id": 37.0
+        }
+      ]
+    },
+    {
+      "case_id": 243,
+      "case_classification": "bad",
+      "case_score": 50,
+      "case_title": "Your personal data may be sold or otherwise transferred as part of a bankruptcy proceeding or other type of financial transaction",
+      "case_description": "If the service gets acquired or is involved in a merger, bankruptcy, reorganisation or sale, your personal data may be transferred or sold.",
+      "case_privacy_related": null,
+      "case_topic": "Business Transfers",
+      "points": [
+        {
+          "point_id": 645,
+          "point_title": "The service can sell or otherwise transfer your personal data as part of a bankruptcy proceeding or other type of financial transaction.",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=468496",
+          "point_analysis": "Amazon may sell user data as part of a business transfer",
+          "point_quote_text": "</strong>As we continue to develop our business, we might sell or buy other businesses or services.\r\nIn such transactions, customer information generally is one of the transferred business assets but remains subject to the promises made in any pre-existing Privacy Notice (unless, of course, the customer consents otherwise).\r\nAlso, in the unlikely event that Amazon.com, Inc.\r\nor substantially all of its assets are acquired, customer information will of course be one of the transferred assets.",
+          "point_quote_start": 7432.0,
+          "point_quote_end": 7926.0,
+          "point_document_id": 38.0
+        }
+      ]
+    },
+    {
+      "case_id": 148,
+      "case_classification": "neutral",
+      "case_score": 10,
+      "case_title": "You are responsible for maintaining the security of your account and for the activities on your account",
+      "case_description": "You are responsible for protecting the confidentiality of your password and for maintaining the security of your account. Any activity occurring under your account is your responsibility, whether authorized by you or not. ",
+      "case_privacy_related": null,
+      "case_topic": "Security",
+      "points": [
+        {
+          "point_id": 1370,
+          "point_title": "Users are responsible for maintaining the security of their Amazon account and for the activities on their account",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=508088",
+          "point_analysis": null,
+          "point_quote_text": "You are responsible for maintaining the confidentiality of your account and password and for restricting access to your account, and you agree to accept responsibility for all activities that occur under your account or password.",
+          "point_quote_start": 5573.0,
+          "point_quote_end": 5803.0,
+          "point_document_id": 37.0
+        }
+      ]
+    },
+    {
+      "case_id": 203,
+      "case_classification": "neutral",
+      "case_score": 40,
+      "case_title": "They may stop providing the service at any time",
+      "case_description": "They may discontinue the services without prior notice, at any time, for any or no reason. They usually assume no liability for losses and damages resulting from this suspension.",
+      "case_privacy_related": null,
+      "case_topic": "Suspension and Censorship",
+      "points": [
+        {
+          "point_id": 706,
+          "point_title": "They may stop providing the service at any time",
+          "point_source": "https://www.amazon.com/gp/help/customer/display.html?nodeId=508088",
+          "point_analysis": "Amazon can cancel your account and remove content at any time.",
+          "point_quote_text": "Amazon reserves the right to refuse service, terminate accounts, terminate your rights to use Amazon Services, remove or edit content, or cancel orders in its sole discretion.",
+          "point_quote_start": 6286.0,
+          "point_quote_end": 6461.0,
+          "point_document_id": 37.0
+        }
+      ]
+    }
+  ],
+  "service_related": []
+}
