@@ -1,0 +1,482 @@
+[
+    {
+        "variable": "Limitation of company's liability",
+        "code": "ltd",
+        "general_category": "Limitation of remedy clauses",
+        "legal_ground": "Annex 1(a) Directive 93/13",
+        "scores": [
+            {
+                "score": -1,
+                "description": "Unlawful limitation of liablility for damages connected with the use of service, when the company limits its liability for at least one of the following: (a) personal injury or (b) non-performance against consumers or (c) intentionally caused damage"
+            },
+            {
+                "score": 0,
+                "description": "Lawful limitation - any other than unlawful limitation, for example \"Provided that we have acted with professional diligence, we do not accept responsibility for losses not caused by our breach of these Terms\""
+            },
+            {
+                "score": 1,
+                "description": "Lack of limitation"
+            }
+        ]
+    },
+    {
+        "variable": "Maximal threshold of company's liability",
+        "code": "ltd_cap",
+        "general_category": "Limitation of remedy clauses",
+        "legal_ground": "Annex 1(a) Directive 93/13",
+        "scores": [
+            {
+                "score": -1,
+                "description": "Everyone entitled to the damages connected with using the service may claim them only to a certain amount"
+            },
+            {
+                "score": 0,
+                "description": "Only Businesses entitled to the damages connected with using the service may claim them only to a certain amount"
+            },
+            {
+                "score": 1,
+                "description": "There is no max amount of the damages possible to be claimed"
+            }
+        ]
+    },
+    {
+        "variable": "Limitation period",
+        "code": "period",
+        "general_category": "Limitation of remedy clauses",
+        "legal_ground": "art. 119 KC*****",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The ToS contains a clause setting the time limit for bringing the action to court, without such ability after this period."
+            },
+            {
+                "score": 0,
+                "description": "The ToS does not contain a clause described above"
+            },
+            {
+                "score": 1,
+                "description": "-"
+            }
+        ]
+    },
+    {
+        "variable": "No promises",
+        "code": "as_is",
+        "general_category": "Limitation of remedy clauses",
+        "legal_ground": "Article 8 Directive 2019/770",
+        "scores": [
+            {
+                "score": -1,
+                "description": "Presence of as-is clause. An \"as-is clause\" is a contractual provision that states that the work or product being provided by the developer or service provider is provided in its current condition, without any additional warranties or guarantees, except for those explicitly stated in the agreement. It serves to limit the developer's liability and makes it clear that the client accepts the work as it is."
+            },
+            {
+                "score": 0,
+                "description": "-"
+            },
+            {
+                "score": 1,
+                "description": "Lack of as-is clause"
+            }
+        ]
+    },
+    {
+        "variable": "Indemnification clause",
+        "code": "indemn",
+        "general_category": "Limitation of remedy clauses",
+        "legal_ground": "-",
+        "scores": [
+            {
+                "score": -1,
+                "description": "-"
+            },
+            {
+                "score": 0,
+                "description": "Indemnification clause is present in ToS. An indemnification clause establishes obligation for one party (the indemnifying party) to compensate the other party (the indemnified party) for specific costs and expenses arising from third-party claims or direct claims."
+            },
+            {
+                "score": 1,
+                "description": "Lack of indemnification obligation in ToS."
+            }
+        ]
+    },
+    {
+        "variable": "Choice of law other than user's domicile",
+        "code": "c_law",
+        "general_category": "Dispute resolution clauses",
+        "legal_ground": "Article 6 Rome I****",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The ToS provides that a law other than the law of the user's habitual residence will apply to disputes arising in connection with the contract"
+            },
+            {
+                "score": 0,
+                "description": "The ToS provides that a law other than the law of the user's habitual residence will apply to disputes arising in connection with the contract, but only in relation to businesses"
+            },
+            {
+                "score": 1,
+                "description": "Lack of choice of law"
+            }
+        ]
+    },
+    {
+        "variable": "Choice of forum other than user's domicile",
+        "code": "c_forum",
+        "general_category": "Dispute resolution clauses",
+        "legal_ground": "Annex 1(q) Directive 93/13",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The ToS provides that disputes arising in connection with the contract shall be resolved in a court of a different jurisdiction from that of the user's permanent residence"
+            },
+            {
+                "score": 0,
+                "description": "The ToS provides that disputes arising in connection with the contract shall be resolved in a court of a different jurisdiction from that of the user's permanent residence, but only in relation tu businesses"
+            },
+            {
+                "score": 1,
+                "description": "Lack of choice of forum/\"you can bring claims in your place of domicile\""
+            }
+        ]
+    },
+    {
+        "variable": "Mandatory arbitration",
+        "code": "arb",
+        "general_category": "Dispute resolution clauses",
+        "legal_ground": "Annex 1(q) Directive 93/13 + art. 385[3] pkt 23 KC",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The user is obliged to file a case before an arbitration court specified in the ToS, instead of suing the company with a traditional lawsuit."
+            },
+            {
+                "score": 0,
+                "description": "The user is obliged to file a case before an arbitration court specified in the ToS, instead of suing the company with a traditional lawsuit, but only for the US citizens and businesses."
+            },
+            {
+                "score": 1,
+                "description": "Lack of mandatory arbitration"
+            }
+        ]
+    },
+    {
+        "variable": "Class action waiver",
+        "code": "class",
+        "general_category": "Dispute resolution clauses",
+        "legal_ground": "-",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The ToS forbids the user to be in a group of people collectively filing a lawsuit as one party in civil proceedings."
+            },
+            {
+                "score": 0,
+                "description": "The ToS forbids the user, who is a citizen of the US, to be in a group of people collectively filing a lawsuit as one party in civil proceedings."
+            },
+            {
+                "score": 1,
+                "description": "Lack of class action waiver"
+            }
+        ]
+    },
+    {
+        "variable": "Unilateral change of contract",
+        "code": "contr_chg",
+        "general_category": "Unilateral alteration clauses",
+        "legal_ground": "Annex 1(j) Directive 93/13",
+        "scores": [
+            {
+                "score": -1,
+                "description": "When the company reserves the right to change the contract without a valid reason (the ToS state the company can always change the contract)"
+            },
+            {
+                "score": 0,
+                "description": "When the company reserves the right to change the contract for a reason specified in the contract, but the reasons are vague or were not all stated in a contract"
+            },
+            {
+                "score": 1,
+                "description": "When the company reserves the right to change the contract with a valid reason specified in the contract or does not reserve a right to change it at all"
+            }
+        ]
+    },
+    {
+        "variable": "Unilateral change of future prices",
+        "code": "price_chg",
+        "general_category": "Unilateral alteration clauses",
+        "legal_ground": "partially Annex 1(j) Directive 93/13",
+        "scores": [
+            {
+                "score": -1,
+                "description": "-"
+            },
+            {
+                "score": 0,
+                "description": "When the company reserves the right to change the future price of services that were not yet supplied or enabled"
+            },
+            {
+                "score": 1,
+                "description": "When the company does not reserve the right to change the future price of services that were not yet supplied or enabled"
+            }
+        ]
+    },
+    {
+        "variable": "Unilateral change of service by the company",
+        "code": "serv_chg",
+        "general_category": "Unilateral alteration clauses",
+        "legal_ground": "Article 19 Directive 2019/770",
+        "scores": [
+            {
+                "score": -1,
+                "description": "When the company reserves the right to change the service without a valid reason (when the ToS state, that the company can always change the service or does not state any requriements at all). A service change is a situation, where a company unilaterally modifies the service, by changing existing design, adding or removing features, modyfing purpose of the service, etc."
+            },
+            {
+                "score": 0,
+                "description": "When the company reserves the right to change the service without a valid reason specified in the contract (the company reserves the right to change the service in a vague way, by using non-precise, general reasons that are hard to interpret by the consumer and give the company freedom to understand them broader than necessary)"
+            },
+            {
+                "score": 1,
+                "description": "When the company reserves the right to change the service with a valid reason specified in the contract or does not reserve a right to unilaterally change it at all"
+            }
+        ]
+    },
+    {
+        "variable": "Account deletion and unilateral termination of contract by the company",
+        "code": "acc_del",
+        "general_category": "Unilateral alteration clauses",
+        "legal_ground": "Annex 1(g) Directive 93/13***",
+        "scores": [
+            {
+                "score": -1,
+                "description": "When the company reserves the right to delete a user\u2019s account without serious grounds or a notice period. By serious grounds we understood situations, where activity of the user was clearly illegal or violated crucial provisions of ToS. The notice period should be reasonably long, to allow the user preparation for termination of contract."
+            },
+            {
+                "score": 0,
+                "description": "When the company reserves the right to delete a user\u2019s account without serious grounds but with a notice period or with serious grounds but without a notice period. "
+            },
+            {
+                "score": 1,
+                "description": "When the company reserves the right to delete a user\u2019s account only with serious grounds and a notice period or does not reserve a right to delete it at all"
+            }
+        ]
+    },
+    {
+        "variable": "Transfer of contractual rights to another subject",
+        "code": "transfer",
+        "general_category": "Unilateral alteration clauses",
+        "legal_ground": "Annex 1(p) Directive 93/13",
+        "scores": [
+            {
+                "score": -1,
+                "description": "When the ToS allows for contractual rights\u2019 transfer to another subject without user\u2019s consent"
+            },
+            {
+                "score": 0,
+                "description": "When the ToS allows for contractual rights\u2019 transfer to another subject with user\u2019s consent but only for the company"
+            },
+            {
+                "score": 1,
+                "description": "When the ToS allows for contractual rights\u2019 transfer with user\u2019s consent and while the consumer is also granted the ability to transfer contractual rights' or the ToS does not contain any provision allowing for the transfer of rights."
+            }
+        ]
+    },
+    {
+        "variable": "User content deletion",
+        "code": "cnt_del",
+        "general_category": "Right to police the behaviour of users",
+        "legal_ground": "partially inferred from Article 6 Directive 2019/770** & Article 17 DSA",
+        "scores": [
+            {
+                "score": -1,
+                "description": "When a company reserves a right to delete all content put in the service by the user without restrictions"
+            },
+            {
+                "score": 0,
+                "description": "When a company reserves a right to delete only the content put in the service by the user that is illegal or violates Terms of Service "
+            },
+            {
+                "score": 1,
+                "description": "When a company does not reserve a right to delete content put in the service by the user"
+            }
+        ]
+    },
+    {
+        "variable": "Account suspension",
+        "code": "acc_sus",
+        "general_category": "Right to police the behaviour of users",
+        "legal_ground": "partially inferred from Article 6 Directive 2019/770 & Article 17 DSA",
+        "scores": [
+            {
+                "score": -1,
+                "description": "When the company reserves the right to suspend a user\u2019s account without serious grounds or a notice period"
+            },
+            {
+                "score": 0,
+                "description": "When the company reserves the right to suspend a user\u2019s account without serious grounds but with a notice period or with serious grounds but without a notice period"
+            },
+            {
+                "score": 1,
+                "description": "When the company reserves the right to suspend a user\u2019s account only with serious grounds and a notice period or does not reserve a right to suspend it at all"
+            }
+        ]
+    },
+    {
+        "variable": "Main parameters used in recommender systems",
+        "code": "recom",
+        "general_category": "Regulatory requirements",
+        "legal_ground": "Article 29 DSA*",
+        "scores": [
+            {
+                "score": -1,
+                "description": "Not setting out in the ToS the main parameters used in the fully or partially automated systems used by online platforms to suggest or prioritize information to recipients of the service (recommender system)."
+            },
+            {
+                "score": 0,
+                "description": "Setting out in the ToS the main parameters used in the recommender system but not in a clear, accessible and easily comprehensible manner"
+            },
+            {
+                "score": 1,
+                "description": "Setting out in the ToS the main parameters used in the recommender system in compliance with the DSA, which is in a clear, accessible and easily comprehensible manner, as well as any options for the recipients of the service to modify or influence those main parameters that the company may have made available, including at least one option which is not based on profiling"
+            }
+        ]
+    },
+    {
+        "variable": "Internal complaint-handling system",
+        "code": "com_sys",
+        "general_category": "Regulatory requirements",
+        "legal_ground": "Article 17 DSA",
+        "scores": [
+            {
+                "score": -1,
+                "description": "Lack of internal complaint-handling system that allow the user to file a complain on a decision made by the company concerning user's rights under the contract, before going to court or other institution. Information about a right to present the case to the court or other institution does not count."
+            },
+            {
+                "score": 0,
+                "description": "Presence of internal complaint-handling system that does not meet all of the requirements stated in article 17 DSA"
+            },
+            {
+                "score": 1,
+                "description": "Presence of internal complaint-handling system that meets all of the requirements stated in article 17 DSA (available to the user at least 6 months after making the contested decision by the company, electronic, free of charge, easy to access, user-friendly and enabling and facilitating the submission of sufficiently precise and adequately substantiated complaints)"
+            }
+        ]
+    },
+    {
+        "variable": "Retrieval of digital content by the user",
+        "code": "cnt_retr",
+        "general_category": "Regulatory requirements",
+        "legal_ground": "Article 16(4) Directive 2019/770",
+        "scores": [
+            {
+                "score": -1,
+                "description": "Lack of clause ensuring the right to retrieve the digital content belonging to the the user after contract's termination."
+            },
+            {
+                "score": 0,
+                "description": "Clause ensuring the right to retrieve some of the digital content belonging to the user after contract's termination"
+            },
+            {
+                "score": 1,
+                "description": "Clause ensuring the right to retrieve all of the digital content belonging to the user after contract's termination"
+            }
+        ]
+    },
+    {
+        "variable": "Excessive user content IP license ",
+        "code": "IP",
+        "general_category": "Various",
+        "legal_ground": "-",
+        "scores": [
+            {
+                "score": -1,
+                "description": "ToS contains an IP license to the content put in the service by the user that neither states explicitly that it is needed to perform the service nor explains other purposes for using user's content"
+            },
+            {
+                "score": 0,
+                "description": "ToS contains an IP license to the content put in the service by the user that does not state explicitly that it\u2019s needed to perform the service, but the purposes are listed and explained; or when there is a doubt as to these purposes are necessary"
+            },
+            {
+                "score": 1,
+                "description": "ToS contains an IP license to the content put in the service by the user that it states it is needed solely to perform the service or ToS lacks any IP license requirements"
+            }
+        ]
+    },
+    {
+        "variable": "Discretional power to interpret the ToS",
+        "code": "discret",
+        "general_category": "Various",
+        "legal_ground": "Annex 1(m) Directive 93/13",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The company reserves the exclusive right to interpret any term of the contract only by itself"
+            },
+            {
+                "score": 0,
+                "description": "Lack of discretional power clauses"
+            },
+            {
+                "score": 1,
+                "description": "-"
+            }
+        ]
+    },
+    {
+        "variable": "General interpretation clause",
+        "code": "interpret",
+        "general_category": "Various",
+        "legal_ground": "Article 5 Directive 93/13",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The ToS contains clauses stating that contract must be interpreted in favor of the company's intent"
+            },
+            {
+                "score": 0,
+                "description": "The ToS contains clauses stating that contract must be interpreted in in favor of both parties' intent"
+            },
+            {
+                "score": 1,
+                "description": "The ToS contains clauses stating that contract must be interpreted in favor of the consumer "
+            }
+        ]
+    },
+    {
+        "variable": "Severability clauses ",
+        "code": "sever",
+        "general_category": "Various",
+        "legal_ground": "-",
+        "scores": [
+            {
+                "score": -1,
+                "description": "-"
+            },
+            {
+                "score": 0,
+                "description": "The ToS contains provisions that keep the remaining part of the contract in force in case a court declare one or more of its provisions unconstitutional, void, or unenforceable (severability clauses)"
+            },
+            {
+                "score": 1,
+                "description": "Lack of severability clauses "
+            }
+        ]
+    },
+    {
+        "variable": "Right to incorporate user's feedback or suggestions without compensation",
+        "code": "suggest",
+        "general_category": "Various",
+        "legal_ground": "-",
+        "scores": [
+            {
+                "score": -1,
+                "description": "-"
+            },
+            {
+                "score": 0,
+                "description": "According to ToS, the company has a right to incorporate into the service user feedback or suggestions without compensation"
+            },
+            {
+                "score": 1,
+                "description": "According to ToS, the company does not have a right to incorporate into the service user feedback or suggestions without compensation"
+            }
+        ]
+    }
+]

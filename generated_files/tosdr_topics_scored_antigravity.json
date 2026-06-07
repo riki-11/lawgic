@@ -1,0 +1,562 @@
+[
+    {
+        "id": 27,
+        "title": "Ownership",
+        "subtitle": "What happens with the content you generate on the service?",
+        "description": "The content and the data you generate on services online is usually subject to copyright law. When your data are collected by services, they can be considered personal data.  It means that it is <strong>your content, your data</strong>: you can decide.",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The service claims full ownership, exclusive rights, or broad irrevocable, sub-licensable rights over user-generated content, allowing them to exploit it commercially without the user's explicit permission or compensation."
+            },
+            {
+                "score": 0,
+                "description": "The service requires a broad license to operate the service and provide features, but does not claim full ownership. Users retain some rights, but the granted permissions might extend beyond strictly necessary operations."
+            },
+            {
+                "score": 1,
+                "description": "Users retain full ownership and copyright of their content. The service only requests the minimum necessary, non-exclusive licenses to display the content on the platform as requested by the user."
+            }
+        ]
+    },
+    {
+        "id": 31,
+        "title": "Governance",
+        "subtitle": "Your relationship with the service and the community",
+        "description": "description",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The service employs opaque governance structures, making decisions arbitrarily without community input, clear guidelines, or transparency in enforcement of rules."
+            },
+            {
+                "score": 0,
+                "description": "The service has established community guidelines, but enforcement may be inconsistent or lacking full transparency. Avenues for user feedback exist but have limited impact on actual policy."
+            },
+            {
+                "score": 1,
+                "description": "Transparent governance model with clear, consistently enforced rules. The service actively involves the community in policy discussions and provides clear explanations for enforcement actions."
+            }
+        ]
+    },
+    {
+        "id": 32,
+        "title": "Guarantee",
+        "subtitle": "Some services will guarantee you certain features, or explicitly reject any guarantee.",
+        "description": "description",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The service explicitly disclaims all warranties and guarantees, offering the service entirely 'as is' and 'as available' without any commitment to uptime, reliability, or specific features."
+            },
+            {
+                "score": 0,
+                "description": "The service provides limited guarantees or service level agreements (SLAs), but includes broad exceptions for downtime, maintenance, or force majeure events."
+            },
+            {
+                "score": 1,
+                "description": "The service provides strong, explicit guarantees regarding uptime, reliability, and data integrity, potentially offering compensation or refunds for failure to meet these standards."
+            }
+        ]
+    },
+    {
+        "id": 35,
+        "title": "User Involvement in Changing Terms",
+        "subtitle": "Are changes proposed as a request for feedback, or imposed unilaterally as a take-it-or-leave-it deal?",
+        "description": "The terms are a contract between two parties, and it should not be changed unilaterally without consultation of the other party. Services should listen to what their users say and care about, and give them a vote in each substantial change.",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The service reserves the right to change the terms unilaterally at any time without prior notice or user consent, imposing them as a take-it-or-leave-it deal."
+            },
+            {
+                "score": 0,
+                "description": "The service provides notice of changes, but does not offer meaningful ways for users to provide feedback or influence the changes before they take effect."
+            },
+            {
+                "score": 1,
+                "description": "The service actively requests feedback on proposed changes to the terms, provides a substantial review period, and meaningfully considers user input before finalizing changes."
+            }
+        ]
+    },
+    {
+        "id": 38,
+        "title": "Changes",
+        "subtitle": "Changes to the Terms",
+        "description": "description",
+        "scores": [
+            {
+                "score": -1,
+                "description": "Changes to terms, policies, or the service itself can be made abruptly, without a valid reason, and without preserving previous functionality or user rights."
+            },
+            {
+                "score": 0,
+                "description": "Changes are made with some notice, but may occasionally reduce user rights or remove features without clear, compelling justification."
+            },
+            {
+                "score": 1,
+                "description": "Changes are clearly documented, justified, and implemented with ample notice. The service ensures that changes do not materially degrade the user experience or retroactively diminish user rights."
+            }
+        ]
+    },
+    {
+        "id": 53,
+        "title": "Unclassified",
+        "subtitle": "Points with case marked as \"none\"",
+        "description": "This is where we'll dump the points with case \"none.\"",
+        "scores": [
+            {
+                "score": -1,
+                "description": "Contains terms that negatively impact the user's rights, privacy, or legal standing, but do not fit neatly into other predefined categories."
+            },
+            {
+                "score": 0,
+                "description": "Contains neutral or ambiguous terms that require further legal interpretation to determine their actual impact on the user."
+            },
+            {
+                "score": 1,
+                "description": "Contains terms that generally protect user rights or clarify obligations in a fair manner, but do not align with standard classification categories."
+            }
+        ]
+    },
+    {
+        "id": 44,
+        "title": "Jurisdiction and governing laws",
+        "subtitle": "Where can you sue, or be sued, for breaching of the rules?",
+        "description": "What is the jurisdiction, what laws govern the terms?",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The terms force users to submit to a jurisdiction and governing law that is foreign, highly inconvenient, or unfavorable to consumers, regardless of the user's domicile."
+            },
+            {
+                "score": 0,
+                "description": "The governing law is a standard commercial jurisdiction. It is legal but may pose some inconvenience for international users seeking to resolve disputes."
+            },
+            {
+                "score": 1,
+                "description": "The terms allow disputes to be resolved under the laws and in the courts of the user's habitual residence or domicile, ensuring accessibility to local consumer protection laws."
+            }
+        ]
+    },
+    {
+        "id": 46,
+        "title": "Notice of Changing Terms",
+        "subtitle": "Are users notified when terms change? Are they given enough time to find out what changed and discuss this with each other before deciding whether to continue to use the service under the new terms?",
+        "description": "Services need to evolve. But it is important that updating the service does not break the consentment with the user. Updates and changes to terms of service and privacy policy need to be properly noticed to users and to sollicit their agreement again.",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The service may change terms without notifying users, placing the burden entirely on the user to check the terms regularly for updates."
+            },
+            {
+                "score": 0,
+                "description": "The service notifies users of changes, but the notice period is short, or the notification method is not prominent (e.g., only a small banner or a hard-to-find email)."
+            },
+            {
+                "score": 1,
+                "description": "Users are given ample advance notice (e.g., 30 days) of any material changes via prominent notifications and must explicitly agree to the new terms to continue use."
+            }
+        ]
+    },
+    {
+        "id": 47,
+        "title": "Suspension and Censorship",
+        "subtitle": "Can they end your use of the service at any time?",
+        "description": "Your account and your data are on their servers, so they control them. Which guarantee do you have that lawful content and lawful activity will not be censored or suspended?",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The service reserves the right to suspend accounts or remove content at its sole discretion, without providing a reason, notice, or an opportunity to appeal."
+            },
+            {
+                "score": 0,
+                "description": "Account suspension and content removal are tied to specific violations of terms, but the process may lack full transparency or a robust, timely appeal mechanism."
+            },
+            {
+                "score": 1,
+                "description": "The service clearly defines grounds for suspension or censorship, provides prior notice when possible, and offers a fair, transparent, and accessible appeal process."
+            }
+        ]
+    },
+    {
+        "id": 39,
+        "title": "Business Transfers",
+        "subtitle": "Is your data a business asset?",
+        "description": "When you give your data to a company, you need to keep in mind that this company can get acquired by another company, with different policies. What happens in that case?",
+        "scores": [
+            {
+                "score": -1,
+                "description": "User data can be transferred to an acquiring entity without user consent, and the new entity is not obligated to honor the previous privacy policy or terms of service."
+            },
+            {
+                "score": 0,
+                "description": "Data may be transferred during a merger or acquisition, and the acquiring entity is generally expected to uphold existing privacy commitments, though users may not have an explicit opt-out."
+            },
+            {
+                "score": 1,
+                "description": "In the event of a business transfer, users are notified beforehand, the new entity must adhere to the same or stronger privacy protections, and users are given the option to delete their data before transfer."
+            }
+        ]
+    },
+    {
+        "id": 40,
+        "title": "Logs",
+        "subtitle": "How long do they keep them?",
+        "description": "description",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The service retains extensive activity, connection, or personal data logs indefinitely or for unnecessarily long periods without a clear legal or operational justification."
+            },
+            {
+                "score": 0,
+                "description": "Logs are kept for a defined period necessary for operational purposes, troubleshooting, or legal compliance, but the retention duration may still be longer than strictly needed."
+            },
+            {
+                "score": 1,
+                "description": "The service strictly limits logging to the absolute minimum required for functionality, and logs are automatically deleted or fully anonymized after a very short, specified timeframe."
+            }
+        ]
+    },
+    {
+        "id": 50,
+        "title": "Security",
+        "subtitle": "Protecting your account",
+        "description": "This topic contains all cases which describe the effort of the service to protect your account from unauthorized access.",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The terms disclaim any responsibility for security breaches or fail to commit to reasonable security practices, placing the burden of security entirely on the user."
+            },
+            {
+                "score": 0,
+                "description": "The service commits to industry-standard security measures but limits its liability significantly in the event of a breach, or lacks specific details on data protection practices."
+            },
+            {
+                "score": 1,
+                "description": "The terms explicitly commit to robust, state-of-the-art security measures (e.g., end-to-end encryption) and assume a fair degree of responsibility for protecting user data from unauthorized access."
+            }
+        ]
+    },
+    {
+        "id": 54,
+        "title": "Payments",
+        "subtitle": "What kind of payment arrangements you will commit to?",
+        "description": "When you accept the ToS, will you commit to re-occurring payments or automatic credit card charges, does the service require your credit card number, and what kind of privacy implications the payments terms have?",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The terms allow for hidden fees, difficult cancellation processes for recurring subscriptions, or automatic renewals without clear prior notification to the user."
+            },
+            {
+                "score": 0,
+                "description": "Payment terms are relatively standard, with automatic renewals explicitly stated, but cancellation processes could be more streamlined or transparent."
+            },
+            {
+                "score": 1,
+                "description": "Transparent pricing with no hidden fees, easy and immediate cancellation of recurring payments, clear notice before any automatic charges, and strong privacy protections for financial data."
+            }
+        ]
+    },
+    {
+        "id": 52,
+        "title": "Content",
+        "subtitle": "What (not) to post.",
+        "description": "This topic contains all the cases which define what an user is allowed or disallowed to post, publish and discuss.",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The service imposes overly broad or ambiguous restrictions on user content, effectively stifling free expression or allowing arbitrary removal of lawful content that the service simply dislikes."
+            },
+            {
+                "score": 0,
+                "description": "Content guidelines are generally reasonable but may include some subjective rules that could be inconsistently enforced or lead to the removal of controversial but lawful content."
+            },
+            {
+                "score": 1,
+                "description": "Content rules are clear, specific, and narrowly tailored to prevent illegal activity, severe harm, or abuse, strongly protecting users' freedom of expression and providing clear examples."
+            }
+        ]
+    },
+    {
+        "id": 30,
+        "title": "Copyright License",
+        "subtitle": "How many rights do you have over your content?",
+        "description": "Copyright law gives you control over how your content (texts, photos, videos, etc.) can be used, by whom they can be distributed, modified, etc. Sometimes, online services need your permission to perform certain tasks with your content. That's why they ask you to grant them a copyright license. But sometimes, the copyright license is so broad, that your content can be exploited by others without asking you.",
+        "scores": [
+            {
+                "score": -1,
+                "description": "Users are required to grant the service a broad, worldwide, royalty-free, irrevocable, sub-licensable license to use, modify, distribute, and commercially exploit their content for any purpose."
+            },
+            {
+                "score": 0,
+                "description": "The license is broad but limited to purposes related to operating, promoting, or improving the service, though it may still allow for some unexpected uses of user content."
+            },
+            {
+                "score": 1,
+                "description": "The license granted is strictly limited to what is technically necessary to operate the service and display the content as intended by the user, with no rights for commercial exploitation."
+            }
+        ]
+    },
+    {
+        "id": 25,
+        "title": "Trackers",
+        "subtitle": "How are you tracked?",
+        "description": "Covers any technology that allows services to track (identify over time, place, and between devices) a user. These technologies include but are not limited to:\r\n\r\n- HTTP Cookies\r\n- IP geolocation\r\n- Browser Session Storage\r\n- iOS Advertising IDs\r\n- Device Fingerprinting\r\n- Data de-anonymization/Data re-identification\r\n- Tracking pixels",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The service uses extensive first and third-party trackers (cookies, fingerprinting, etc.) without explicit user consent, primarily for behavioral advertising and cross-site profiling."
+            },
+            {
+                "score": 0,
+                "description": "Trackers are used for analytics and some advertising, but the service provides a cookie policy and rudimentary opt-out mechanisms, though they may be difficult to navigate."
+            },
+            {
+                "score": 1,
+                "description": "The service strictly limits the use of trackers to essential functionality, does not use third-party tracking for advertising, explicitly asks for opt-in consent, and respects 'Do Not Track' signals."
+            }
+        ]
+    },
+    {
+        "id": 41,
+        "title": "Personal Data",
+        "subtitle": "Can you control your privacy? Once a service has your personal data, how much control do you have over how it will be used and how long?",
+        "description": ".",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The service collects excessive personal data, shares it with numerous third parties or data brokers without clear consent, and provides users with little to no control over their information."
+            },
+            {
+                "score": 0,
+                "description": "Data collection is tied to service functionality and some marketing, with standard privacy controls available, but the extent of data sharing or retention may not be entirely transparent."
+            },
+            {
+                "score": 1,
+                "description": "The service practices strict data minimization, explicitly asks for opt-in consent before collecting or sharing data, and provides users with granular, easy-to-use controls to access or delete their data."
+            }
+        ]
+    },
+    {
+        "id": 55,
+        "title": "[Deprecated]",
+        "subtitle": "Vague/ill-defined or otherwise deprecated cases",
+        "description": "These cases have unclear scope or are vague. Rather than deleting them, they are added to this topic.",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The clause contains vague or ill-defined terms that obscure the service's obligations or the user's rights, creating significant legal uncertainty that favors the service."
+            },
+            {
+                "score": 0,
+                "description": "The clause relies on outdated language or concepts that are ambiguous but do not present an immediate, severe risk to user rights, though they require clarification."
+            },
+            {
+                "score": 1,
+                "description": "Despite being categorized as deprecated, the clause includes protective or neutral language that does not unfairly disadvantage the user or create harmful ambiguity."
+            }
+        ]
+    },
+    {
+        "id": 26,
+        "title": "Anonymity",
+        "subtitle": "Can you use the service anonymously?",
+        "description": "The terms sometimes describe the level of logging and the level of data collection and which kinds of data the service is processing. Anonymity or the right to use a pseudonym can be very important for freedom of expression (e.g. for people exercising a certain profession, or people living in authoritarian regimes).",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The service strictly prohibits anonymity or pseudonymity, requiring real names and extensive identity verification, and heavily logs user activity tied to this identity."
+            },
+            {
+                "score": 0,
+                "description": "The service allows pseudonyms but still collects significant identifying information (like phone numbers or IP addresses) behind the scenes, reducing practical anonymity."
+            },
+            {
+                "score": 1,
+                "description": "The service explicitly supports and protects anonymity and pseudonymity, requiring no real-name registration and employing data minimization to prevent de-anonymization."
+            }
+        ]
+    },
+    {
+        "id": 56,
+        "title": "Types of Information Collected",
+        "subtitle": "Information the service receives from you",
+        "description": "What kind of information, whether voluntary or automatically, does this service collect from you? ",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The service collects a vast array of information, including sensitive data, device identifiers, and location, far beyond what is necessary to provide the core functionality of the service."
+            },
+            {
+                "score": 0,
+                "description": "The service collects a moderate amount of information necessary for functionality and basic analytics, but may occasionally collect peripheral data that users might not expect."
+            },
+            {
+                "score": 1,
+                "description": "The service strictly adheres to data minimization, collecting only the absolute minimum information required to operate, and explicitly lists exactly what data points are collected and why."
+            }
+        ]
+    },
+    {
+        "id": 34,
+        "title": "User Choice",
+        "subtitle": "How much can YOU decide?",
+        "description": "The level of choice that is left to the user.",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The service offers a 'take it or leave it' approach, forcing users to accept all terms, data collection practices, and features without any granular options or opt-outs."
+            },
+            {
+                "score": 0,
+                "description": "The service provides some basic choices, such as email preferences or limited privacy settings, but core data practices or targeted advertising are largely mandatory."
+            },
+            {
+                "score": 1,
+                "description": "The service empowers users with extensive, granular controls over their experience, allowing them to opt-in or opt-out of specific features, data collection, and algorithmic recommendations."
+            }
+        ]
+    },
+    {
+        "id": 48,
+        "title": "Third Parties",
+        "subtitle": "\"Data Processors\", \"Social Media Services\", \"Ad Services\"...",
+        "description": "How much data is processed by external companies? What do these third parties do with a Service? How intrusively is your data handled? This topic summarizes it.",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The service broadly shares user data with unspecified third parties, data brokers, or advertisers for their own independent uses without explicit, informed consent."
+            },
+            {
+                "score": 0,
+                "description": "Data is shared with third parties primarily for processing or providing the service, but the list of third parties may not be fully transparent, or they may have some leeway in usage."
+            },
+            {
+                "score": 1,
+                "description": "The service explicitly lists all third-party processors, ensures they are bound by strict confidentiality agreements, and explicitly forbids them from using user data for their own independent purposes."
+            }
+        ]
+    },
+    {
+        "id": 45,
+        "title": "Right to Leave The Service",
+        "subtitle": "To avoid lock-in and stay in control.",
+        "description": "Once you subscribe to the service, will you have the right to leave it and remove your data?",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The service makes it exceedingly difficult to delete an account or retrieve user data, employing dark patterns, or refusing to delete data entirely after an account closure."
+            },
+            {
+                "score": 0,
+                "description": "Users can delete their accounts, but the process may be cumbersome, or the service may retain certain data for extended periods for 'legal or operational reasons' that are broadly defined."
+            },
+            {
+                "score": 1,
+                "description": "Users can easily and instantly close their accounts, with a guarantee that all personal data will be completely and permanently deleted within a short timeframe, alongside clear data portability options."
+            }
+        ]
+    },
+    {
+        "id": 28,
+        "title": "Law and Government Requests",
+        "subtitle": "How do services deal with government requests?",
+        "description": "no text here",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The service readily hands over user data to law enforcement or government agencies upon request without requiring a valid warrant or subpoena, and does not notify users."
+            },
+            {
+                "score": 0,
+                "description": "The service complies with valid legal processes but may not challenge overbroad requests or consistently publish transparency reports. User notification policies may be vague."
+            },
+            {
+                "score": 1,
+                "description": "The service strictly requires a valid warrant or subpoena before disclosing data, actively challenges overbroad requests, publishes transparency reports, and notifies users of requests unless legally gagged."
+            }
+        ]
+    },
+    {
+        "id": 57,
+        "title": "Advertising",
+        "subtitle": "The ads you see everywhere.",
+        "description": "How does the service manage your data regarding advertising? How strongly are third parties involved regarding advertising? How much choice do you have on advertising? This topic specifies those kinds of disclosures.",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The service subjects users to pervasive, highly targeted advertising based on extensive tracking and profiling, without offering a meaningful way to opt-out of behavioral targeting."
+            },
+            {
+                "score": 0,
+                "description": "The service includes targeted advertising but provides standard industry opt-outs or allows users to disable personalized ads, though non-personalized ads and tracking may remain."
+            },
+            {
+                "score": 1,
+                "description": "The service is either ad-free or strictly limits advertising to context-based ads that do not rely on tracking or profiling user behavior, strongly respecting user privacy."
+            }
+        ]
+    },
+    {
+        "id": 36,
+        "title": "Transparency",
+        "subtitle": "Transparency and Education",
+        "description": "The level of information provided by the \u202aservice that is beneficial (or otherwise) to the user.",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The service operates opaquely, using complex legal jargon in its terms, hiding its data practices, and providing no clear channels for users to understand how their information is used."
+            },
+            {
+                "score": 0,
+                "description": "The service provides standard privacy policies and terms of service, but they may be long and difficult for a layperson to fully grasp. Some educational resources exist but are limited."
+            },
+            {
+                "score": 1,
+                "description": "The service prioritizes plain language in its terms, provides clear, accessible summaries of its data practices, and offers comprehensive educational resources to help users understand their rights."
+            }
+        ]
+    },
+    {
+        "id": 37,
+        "title": "Waivers",
+        "subtitle": "The Rights You Give Up",
+        "description": "These are generally rights for the consumer that you have under law, but which your agreement with the service takes away from you.",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The terms force users to waive fundamental consumer rights, such as the right to a trial by jury, the right to participate in a class action lawsuit, or the right to seek certain types of damages."
+            },
+            {
+                "score": 0,
+                "description": "The terms include standard commercial waivers that limit some liability, but do not completely strip users of their fundamental legal recourses or rights under mandatory consumer protection laws."
+            },
+            {
+                "score": 1,
+                "description": "The terms do not contain broad waivers of consumer rights; users retain their full legal ability to hold the service accountable through standard legal channels, including courts and class actions."
+            }
+        ]
+    },
+    {
+        "id": 42,
+        "title": "Dispute Resolution",
+        "subtitle": "How can be resolved the disputes between you and the service you're using?",
+        "description": "If a party does something illegal or harms either on a physical or financial way another party, they may start a dispute. The terms of most services set some rules related to dispute resolution, which may negatively affect your rights. Therefore, it is essential to understand what they imply.",
+        "scores": [
+            {
+                "score": -1,
+                "description": "The terms mandate binding arbitration in a forum chosen by the service, forcing users to waive their right to go to court or participate in class actions, significantly hindering their ability to seek redress."
+            },
+            {
+                "score": 0,
+                "description": "Dispute resolution involves some mandatory steps like informal negotiation or mediation before allowing formal legal action, but arbitration is not strictly mandatory for all claims."
+            },
+            {
+                "score": 1,
+                "description": "The terms provide fair and accessible dispute resolution mechanisms, allowing users to pursue claims in small claims court or local jurisdictions without mandatory arbitration or class-action waivers."
+            }
+        ]
+    }
+]
