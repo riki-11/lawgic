@@ -1,0 +1,4 @@
+batch_size,num_rows,num_batches,batch_calls,fallback_calls,total_llm_calls,batch_parse_failures,missing_predictions,baseline_macro_f1,batch_macro_f1,agreement_with_baseline,agreement_rows_compared
+5,100,29,29,0,29,0,0,0.4287878787878788,0.45852222549308214,0.83,100
+10,100,22,22,0,22,0,0,0.4287878787878788,0.45925925925925926,0.77,100
+20,100,20,20,0,20,0,0,0.4287878787878788,0.4598659570274,0.82,100

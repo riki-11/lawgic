@@ -1,0 +1,2 @@
+batch_size,num_rows,num_batches,batch_calls,fallback_calls,total_llm_calls,batch_parse_failures,missing_predictions,baseline_macro_f1,batch_macro_f1,agreement_with_baseline,agreement_rows_compared,validation_start_row,validation_end_row,single_row_calls,call_reduction_pct
+20,1000,60,60,0,60,0,0,0.44389009813846014,0.46828403194540863,0.8388388388388388,999,5000,6000,1000,0.94
