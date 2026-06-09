@@ -1,10 +1,10 @@
 {
   "name": "lawgic_classifier_tosdr_topics",
-  "source_data": "generated_files/tos_dr/tos_dr_points.csv",
-  "source_topic_metadata": "generated_files/tos_dr/tosdr_topics.json",
+  "source_data": "generated_files\\tos_dr\\tos_dr_points.csv",
+  "source_topic_metadata": "generated_files\\tos_dr\\tosdr_topics.json",
   "model_name": "nlpaueb/legal-bert-base-uncased",
   "num_labels": 25,
-  "generated_at": "2026-06-09T12:55:51.614375+00:00",
+  "generated_at": "2026-06-09T14:33:51.372554+00:00",
   "labels": [
     {
       "classifier_id": 0,
