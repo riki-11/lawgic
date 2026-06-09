@@ -1,0 +1,264 @@
+{
+  "name": "lawgic_classifier_tosdr_topics",
+  "source_data": "generated_files/tos_dr/tos_dr_points.csv",
+  "source_topic_metadata": "generated_files/tos_dr/tosdr_topics.json",
+  "model_name": "nlpaueb/legal-bert-base-uncased",
+  "num_labels": 25,
+  "generated_at": "2026-06-09T12:55:51.614375+00:00",
+  "labels": [
+    {
+      "classifier_id": 0,
+      "title": "Advertising",
+      "tosdr_topic_id": 57,
+      "subtitle": "The ads you see everywhere.",
+      "description": "How does the service manage your data regarding advertising? How strongly are third parties involved regarding advertising? How much choice do you have on advertising? This topic specifies those kinds of disclosures.",
+      "positive_count": 663
+    },
+    {
+      "classifier_id": 1,
+      "title": "Anonymity",
+      "tosdr_topic_id": 26,
+      "subtitle": "Can you use the service anonymously?",
+      "description": "The terms sometimes describe the level of logging and the level of data collection and which kinds of data the service is processing. Anonymity or the right to use a pseudonym can be very important for freedom of expression (e.g. for people exercising a certain profession, or people living in authoritarian regimes).",
+      "positive_count": 352
+    },
+    {
+      "classifier_id": 2,
+      "title": "Business Transfers",
+      "tosdr_topic_id": 39,
+      "subtitle": "Is your data a business asset?",
+      "description": "When you give your data to a company, you need to keep in mind that this company can get acquired by another company, with different policies. What happens in that case?",
+      "positive_count": 300
+    },
+    {
+      "classifier_id": 3,
+      "title": "Changes",
+      "tosdr_topic_id": 38,
+      "subtitle": "Changes to the Terms",
+      "description": "Contracts on the web are dynamic and continuously evolving documents. This covers the provider's legal boundaries regarding contract text modifications, including if they can alter provisions at their sole discretion without renegotiation.",
+      "positive_count": 910
+    },
+    {
+      "classifier_id": 4,
+      "title": "Content",
+      "tosdr_topic_id": 52,
+      "subtitle": "What (not) to post.",
+      "description": "This topic contains all the cases which define what an user is allowed or disallowed to post, publish and discuss.",
+      "positive_count": 1231
+    },
+    {
+      "classifier_id": 5,
+      "title": "Copyright License",
+      "tosdr_topic_id": 30,
+      "subtitle": "How many rights do you have over your content?",
+      "description": "Copyright law gives you control over how your content (texts, photos, videos, etc.) can be used, by whom they can be distributed, modified, etc. Sometimes, online services need your permission to perform certain tasks with your content. That's why they ask you to grant them a copyright license. But sometimes, the copyright license is so broad, that your content can be exploited by others without asking you.",
+      "positive_count": 557
+    },
+    {
+      "classifier_id": 6,
+      "title": "Dispute Resolution",
+      "tosdr_topic_id": 42,
+      "subtitle": "How can be resolved the disputes between you and the service you're using?",
+      "description": "If a party does something illegal or harms either on a physical or financial way another party, they may start a dispute. The terms of most services set some rules related to dispute resolution, which may negatively affect your rights. Therefore, it is essential to understand what they imply.",
+      "positive_count": 377
+    },
+    {
+      "classifier_id": 7,
+      "title": "Governance",
+      "tosdr_topic_id": 31,
+      "subtitle": "Your relationship with the service and the community",
+      "description": "How the service regulates community interactions, addresses policy compliance, and handles disputes. It outlines the foundational framework governing the operational relationship between the provider, individual users, and the wider platform community.",
+      "positive_count": 2476
+    },
+    {
+      "classifier_id": 8,
+      "title": "Guarantee",
+      "tosdr_topic_id": 32,
+      "subtitle": "Some services will guarantee you certain features, or explicitly reject any guarantee.",
+      "description": "Online platforms frequently provide software on an \"as is\" and \"as available\" basis, stripping away statutory legal warranties. This determines whether the company guarantees specific feature configurations, or completely rejects liability for technical issues and unexpected downtime.",
+      "positive_count": 1603
+    },
+    {
+      "classifier_id": 9,
+      "title": "Jurisdiction and governing laws",
+      "tosdr_topic_id": 44,
+      "subtitle": "Where can you sue, or be sued, for breaching of the rules?",
+      "description": "What is the jurisdiction, what laws govern the terms?",
+      "positive_count": 883
+    },
+    {
+      "classifier_id": 10,
+      "title": "Law and Government Requests",
+      "tosdr_topic_id": 28,
+      "subtitle": "How do services deal with government requests?",
+      "description": "Legal processing structures detailing how the corporation reacts when state or law enforcement agencies request your info. This covers whether they verify legal search warrants or voluntarily surrender personal information without notice.",
+      "positive_count": 348
+    },
+    {
+      "classifier_id": 11,
+      "title": "Logs",
+      "tosdr_topic_id": 40,
+      "subtitle": "How long do they keep them?",
+      "description": "When you navigate a platform, server systems store technical diagnostic indicators such as your IP address, browser fingerprints, and transaction histories. This details the exact retention windows used before metadata is permanently purged or anonymized.",
+      "positive_count": 191
+    },
+    {
+      "classifier_id": 12,
+      "title": "Notice of Changing Terms",
+      "tosdr_topic_id": 46,
+      "subtitle": "Are users notified when terms change? Are they given enough time to find out what changed and discuss this with each other before deciding whether to continue to use the service under the new terms?",
+      "description": "Services need to evolve. But it is important that updating the service does not break the consentment with the user. Updates and changes to terms of service and privacy policy need to be properly noticed to users and to sollicit their agreement again.",
+      "positive_count": 979
+    },
+    {
+      "classifier_id": 13,
+      "title": "Ownership",
+      "tosdr_topic_id": 27,
+      "subtitle": "What happens with the content you generate on the service?",
+      "description": "The content and the data you generate on services online is usually subject to copyright law. When your data are collected by services, they can be considered personal data.  It means that it is <strong>your content, your data</strong>: you can decide.",
+      "positive_count": 411
+    },
+    {
+      "classifier_id": 14,
+      "title": "Payments",
+      "tosdr_topic_id": 54,
+      "subtitle": "What kind of payment arrangements you will commit to?",
+      "description": "When you accept the ToS, will you commit to re-occurring payments or automatic credit card charges, does the service require your credit card number, and what kind of privacy implications the payments terms have?",
+      "positive_count": 303
+    },
+    {
+      "classifier_id": 15,
+      "title": "Personal Data",
+      "tosdr_topic_id": 41,
+      "subtitle": "Can you control your privacy? Once a service has your personal data, how much control do you have over how it will be used and how long?",
+      "description": "Your explicit rights concerning user privacy and identity. It determines the measure of systemic control you maintain over corporate data practices, specifically tracking your ability to view, alter, export, or permanently enforce data deletion.",
+      "positive_count": 1575
+    },
+    {
+      "classifier_id": 16,
+      "title": "Right to Leave The Service",
+      "tosdr_topic_id": 45,
+      "subtitle": "To avoid lock-in and stay in control.",
+      "description": "Once you subscribe to the service, will you have the right to leave it and remove your data?",
+      "positive_count": 759
+    },
+    {
+      "classifier_id": 17,
+      "title": "Security",
+      "tosdr_topic_id": 50,
+      "subtitle": "Protecting your account",
+      "description": "This topic contains all cases which describe the effort of the service to protect your account from unauthorized access.",
+      "positive_count": 728
+    },
+    {
+      "classifier_id": 18,
+      "title": "Suspension and Censorship",
+      "tosdr_topic_id": 47,
+      "subtitle": "Can they end your use of the service at any time?",
+      "description": "Your account and your data are on their servers, so they control them. Which guarantee do you have that lawful content and lawful activity will not be censored or suspended?",
+      "positive_count": 1149
+    },
+    {
+      "classifier_id": 19,
+      "title": "Third Parties",
+      "tosdr_topic_id": 48,
+      "subtitle": "\"Data Processors\", \"Social Media Services\", \"Ad Services\"...",
+      "description": "How much data is processed by external companies? What do these third parties do with a Service? How intrusively is your data handled? This topic summarizes it.",
+      "positive_count": 1154
+    },
+    {
+      "classifier_id": 20,
+      "title": "Trackers",
+      "tosdr_topic_id": 25,
+      "subtitle": "How are you tracked?",
+      "description": "Covers any technology that allows services to track (identify over time, place, and between devices) a user. These technologies include but are not limited to:\r\n\r\n- HTTP Cookies\r\n- IP geolocation\r\n- Browser Session Storage\r\n- iOS Advertising IDs\r\n- Device Fingerprinting\r\n- Data de-anonymization/Data re-identification\r\n- Tracking pixels",
+      "positive_count": 2524
+    },
+    {
+      "classifier_id": 21,
+      "title": "Transparency",
+      "tosdr_topic_id": 36,
+      "subtitle": "Transparency and Education",
+      "description": "The level of information provided by the ‪service that is beneficial (or otherwise) to the user.",
+      "positive_count": 1381
+    },
+    {
+      "classifier_id": 22,
+      "title": "Types of Information Collected",
+      "tosdr_topic_id": 56,
+      "subtitle": "Information the service receives from you",
+      "description": "What kind of information, whether voluntary or automatically, does this service collect from you? ",
+      "positive_count": 620
+    },
+    {
+      "classifier_id": 23,
+      "title": "User Choice",
+      "tosdr_topic_id": 34,
+      "subtitle": "How much can YOU decide?",
+      "description": "The level of choice that is left to the user.",
+      "positive_count": 886
+    },
+    {
+      "classifier_id": 24,
+      "title": "User Involvement in Changing Terms",
+      "tosdr_topic_id": 35,
+      "subtitle": "Are changes proposed as a request for feedback, or imposed unilaterally as a take-it-or-leave-it deal?",
+      "description": "The terms are a contract between two parties, and it should not be changed unilaterally without consultation of the other party. Services should listen to what their users say and care about, and give them a vote in each substantial change.",
+      "positive_count": 44
+    }
+  ],
+  "label2id": {
+    "Advertising": 0,
+    "Anonymity": 1,
+    "Business Transfers": 2,
+    "Changes": 3,
+    "Content": 4,
+    "Copyright License": 5,
+    "Dispute Resolution": 6,
+    "Governance": 7,
+    "Guarantee": 8,
+    "Jurisdiction and governing laws": 9,
+    "Law and Government Requests": 10,
+    "Logs": 11,
+    "Notice of Changing Terms": 12,
+    "Ownership": 13,
+    "Payments": 14,
+    "Personal Data": 15,
+    "Right to Leave The Service": 16,
+    "Security": 17,
+    "Suspension and Censorship": 18,
+    "Third Parties": 19,
+    "Trackers": 20,
+    "Transparency": 21,
+    "Types of Information Collected": 22,
+    "User Choice": 23,
+    "User Involvement in Changing Terms": 24
+  },
+  "id2label": {
+    "0": "Advertising",
+    "1": "Anonymity",
+    "2": "Business Transfers",
+    "3": "Changes",
+    "4": "Content",
+    "5": "Copyright License",
+    "6": "Dispute Resolution",
+    "7": "Governance",
+    "8": "Guarantee",
+    "9": "Jurisdiction and governing laws",
+    "10": "Law and Government Requests",
+    "11": "Logs",
+    "12": "Notice of Changing Terms",
+    "13": "Ownership",
+    "14": "Payments",
+    "15": "Personal Data",
+    "16": "Right to Leave The Service",
+    "17": "Security",
+    "18": "Suspension and Censorship",
+    "19": "Third Parties",
+    "20": "Trackers",
+    "21": "Transparency",
+    "22": "Types of Information Collected",
+    "23": "User Choice",
+    "24": "User Involvement in Changing Terms"
+  }
+}
