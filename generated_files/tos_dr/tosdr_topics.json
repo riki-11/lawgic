@@ -9,13 +9,13 @@
         "id": 31,
         "title": "Governance",
         "subtitle": "Your relationship with the service and the community",
-        "description": "description"
+        "description": "How the service regulates community interactions, addresses policy compliance, and handles disputes. It outlines the foundational framework governing the operational relationship between the provider, individual users, and the wider platform community."
     },
     {
         "id": 32,
         "title": "Guarantee",
         "subtitle": "Some services will guarantee you certain features, or explicitly reject any guarantee.",
-        "description": "description"
+        "description": "Online platforms frequently provide software on an \"as is\" and \"as available\" basis, stripping away statutory legal warranties. This determines whether the company guarantees specific feature configurations, or completely rejects liability for technical issues and unexpected downtime."
     },
     {
         "id": 35,
@@ -27,7 +27,7 @@
         "id": 38,
         "title": "Changes",
         "subtitle": "Changes to the Terms",
-        "description": "description"
+        "description": "Contracts on the web are dynamic and continuously evolving documents. This covers the provider's legal boundaries regarding contract text modifications, including if they can alter provisions at their sole discretion without renegotiation."
     },
     {
         "id": 53,
@@ -63,7 +63,7 @@
         "id": 40,
         "title": "Logs",
         "subtitle": "How long do they keep them?",
-        "description": "description"
+        "description": "When you navigate a platform, server systems store technical diagnostic indicators such as your IP address, browser fingerprints, and transaction histories. This details the exact retention windows used before metadata is permanently purged or anonymized."
     },
     {
         "id": 50,
@@ -99,7 +99,7 @@
         "id": 41,
         "title": "Personal Data",
         "subtitle": "Can you control your privacy? Once a service has your personal data, how much control do you have over how it will be used and how long?",
-        "description": "."
+        "description": "Your explicit rights concerning user privacy and identity. It determines the measure of systemic control you maintain over corporate data practices, specifically tracking your ability to view, alter, export, or permanently enforce data deletion."
     },
     {
         "id": 55,
@@ -141,7 +141,7 @@
         "id": 28,
         "title": "Law and Government Requests",
         "subtitle": "How do services deal with government requests?",
-        "description": "no text here"
+        "description": "Legal processing structures detailing how the corporation reacts when state or law enforcement agencies request your info. This covers whether they verify legal search warrants or voluntarily surrender personal information without notice."
     },
     {
         "id": 57,
