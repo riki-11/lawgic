@@ -220,3 +220,5 @@ collections/
 
 # Big files
 generated_files/tos_dr/tos_dr_points.csv
+/generated_files/tos_dr/batchv2_experiment/
+/generated_files/tos_dr/eval_results/
