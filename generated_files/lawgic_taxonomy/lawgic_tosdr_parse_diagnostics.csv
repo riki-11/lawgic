@@ -1,0 +1,1465 @@
+row_index,point_id,service_name,native_topic,native_class,reason
+6,8168,Telegram,User Choice,good,empty_point_quote_text
+41,16746,RiseUp.net,Anonymity,good,empty_point_quote_text
+157,2463,Credit Karma,Trackers,bad,empty_point_quote_text
+171,4434,Credit Karma,Transparency,good,empty_point_quote_text
+212,6411,Airbnb,Right to Leave The Service,blocker,empty_point_quote_text
+320,19963,Apple Services,Personal Data,bad,empty_point_quote_text
+401,25345,Le Soir,User Choice,good,empty_point_quote_text
+402,25330,Le Soir,Trackers,bad,empty_point_quote_text
+403,25331,Le Soir,Trackers,bad,empty_point_quote_text
+404,25334,Le Soir,Trackers,bad,empty_point_quote_text
+405,25332,Le Soir,Trackers,neutral,empty_point_quote_text
+406,25333,Le Soir,Personal Data,bad,empty_point_quote_text
+407,25335,Le Soir,Personal Data,neutral,empty_point_quote_text
+408,25344,Le Soir,User Choice,good,empty_point_quote_text
+409,25350,Le Soir,Types of Information Collected,neutral,empty_point_quote_text
+410,25346,Le Soir,Right to Leave The Service,good,empty_point_quote_text
+411,25336,Le Soir,Advertising,bad,empty_point_quote_text
+412,25341,Le Soir,Third Parties,bad,empty_point_quote_text
+413,25343,Le Soir,User Choice,good,empty_point_quote_text
+414,25337,Le Soir,Advertising,bad,empty_point_quote_text
+415,25338,Le Soir,Advertising,bad,empty_point_quote_text
+416,25339,Le Soir,Third Parties,bad,empty_point_quote_text
+417,25340,Le Soir,Third Parties,bad,empty_point_quote_text
+418,25352,Le Soir,Payments,bad,empty_point_quote_text
+419,25358,Le Soir,Trackers,bad,empty_point_quote_text
+420,25347,Le Soir,Notice of Changing Terms,neutral,empty_point_quote_text
+421,25355,Le Soir,Payments,neutral,empty_point_quote_text
+422,25357,Le Soir,Changes,neutral,empty_point_quote_text
+423,25342,Le Soir,Jurisdiction and governing laws,good,empty_point_quote_text
+424,25348,Le Soir,Transparency,good,empty_point_quote_text
+425,25349,Le Soir,Transparency,good,empty_point_quote_text
+426,25351,Le Soir,Jurisdiction and governing laws,good,empty_point_quote_text
+427,25329,Le Soir,Trackers,bad,empty_point_quote_text
+428,25359,Le Soir,Personal Data,bad,empty_point_quote_text
+497,573,SeenThis,User Choice,good,empty_point_quote_text
+520,29208,CollegeBoard,Dispute Resolution,bad,empty_point_quote_text
+585,1082,Spotify,Transparency,neutral,empty_point_quote_text
+735,8190,Ali Reza Hayati's Personal Page,Law and Government Requests,good,empty_point_quote_text
+736,8191,Ali Reza Hayati's Personal Page,Governance,neutral,empty_point_quote_text
+737,8192,Ali Reza Hayati's Personal Page,Transparency,good,empty_point_quote_text
+738,8193,Ali Reza Hayati's Personal Page,Notice of Changing Terms,neutral,empty_point_quote_text
+739,8194,Ali Reza Hayati's Personal Page,Right to Leave The Service,good,empty_point_quote_text
+740,8195,Ali Reza Hayati's Personal Page,Logs,good,empty_point_quote_text
+747,20010,Feedbin,Transparency,good,empty_point_quote_text
+821,9381,Moscow information cluster,Third Parties,bad,empty_point_quote_text
+822,9382,Moscow information cluster,Personal Data,bad,empty_point_quote_text
+823,9389,Moscow information cluster,Advertising,bad,empty_point_quote_text
+824,9380,Moscow information cluster,Personal Data,bad,empty_point_quote_text
+958,5190,Nexon,Transparency,good,empty_point_quote_text
+969,28979,Betty Crocker,Advertising,bad,empty_point_quote_text
+1007,4659,Open Book Publishers,Transparency,good,empty_point_quote_text
+1035,10211,Fandango,Personal Data,bad,empty_point_quote_text
+1118,17823,Marco Polo,Trackers,good,empty_point_quote_text
+1297,9834,3DHYPE,Anonymity,good,empty_point_quote_text
+1376,22262,Rofkin,Governance,neutral,empty_point_quote_text
+1377,22263,Rofkin,Governance,neutral,empty_point_quote_text
+1378,22268,Rofkin,Security,neutral,empty_point_quote_text
+1379,22266,Rofkin,Governance,neutral,empty_point_quote_text
+1380,22267,Rofkin,Anonymity,good,empty_point_quote_text
+1381,22265,Rofkin,Content,neutral,empty_point_quote_text
+1382,22269,Rofkin,Security,neutral,empty_point_quote_text
+1383,22271,Rofkin,Payments,neutral,empty_point_quote_text
+1384,22272,Rofkin,Right to Leave The Service,good,empty_point_quote_text
+1385,22273,Rofkin,Suspension and Censorship,neutral,empty_point_quote_text
+1386,22274,Rofkin,Suspension and Censorship,neutral,empty_point_quote_text
+1387,22275,Rofkin,Governance,bad,empty_point_quote_text
+1388,22276,Rofkin,Ownership,good,empty_point_quote_text
+1389,22277,Rofkin,Copyright License,good,empty_point_quote_text
+1390,22278,Rofkin,Copyright License,neutral,empty_point_quote_text
+1391,22280,Rofkin,Copyright License,neutral,empty_point_quote_text
+1392,22281,Rofkin,Governance,neutral,empty_point_quote_text
+1393,22282,Rofkin,Governance,bad,empty_point_quote_text
+1394,22283,Rofkin,Jurisdiction and governing laws,bad,empty_point_quote_text
+1395,22270,Rofkin,Payments,good,empty_point_quote_text
+1396,22284,Rofkin,Dispute Resolution,good,empty_point_quote_text
+1397,22285,Rofkin,Personal Data,good,empty_point_quote_text
+1398,22286,Rofkin,Third Parties,bad,empty_point_quote_text
+1399,22287,Rofkin,Third Parties,good,empty_point_quote_text
+1400,22288,Rofkin,Law and Government Requests,good,empty_point_quote_text
+1401,22289,Rofkin,Law and Government Requests,good,empty_point_quote_text
+1402,22290,Rofkin,Business Transfers,good,empty_point_quote_text
+1403,22293,Rofkin,Trackers,neutral,empty_point_quote_text
+1404,22291,Rofkin,Trackers,bad,empty_point_quote_text
+1405,22264,Rofkin,Content,neutral,empty_point_quote_text
+1406,22279,Rofkin,Governance,neutral,empty_point_quote_text
+1407,22376,Rofkin,Suspension and Censorship,neutral,empty_point_quote_text
+1453,30721,Talking Tom and Friends,Trackers,neutral,empty_point_quote_text
+1454,30722,Talking Tom and Friends,Trackers,bad,empty_point_quote_text
+1455,30720,Talking Tom and Friends,Trackers,bad,empty_point_quote_text
+1483,31149,TCRF | The Cutting Room Floor,Third Parties,good,empty_point_quote_text
+1568,28562,VRchat,Advertising,bad,empty_point_quote_text
+1569,26741,VRchat,Copyright License,neutral,empty_point_quote_text
+1570,28667,VRchat,Copyright License,neutral,empty_point_quote_text
+1571,28561,VRchat,Transparency,good,empty_point_quote_text
+1572,28563,VRchat,Advertising,bad,empty_point_quote_text
+1573,28559,VRchat,Transparency,neutral,empty_point_quote_text
+1574,28564,VRchat,Content,neutral,empty_point_quote_text
+1575,29928,VRchat,Content,neutral,empty_point_quote_text
+1576,29929,VRchat,Suspension and Censorship,bad,empty_point_quote_text
+1577,31760,VRchat,Security,neutral,empty_point_quote_text
+1578,31763,VRchat,Types of Information Collected,neutral,empty_point_quote_text
+1579,31759,VRchat,Trackers,bad,empty_point_quote_text
+1580,31761,VRchat,Trackers,bad,empty_point_quote_text
+1581,31762,VRchat,Suspension and Censorship,blocker,empty_point_quote_text
+1582,31758,VRchat,Ownership,good,empty_point_quote_text
+1583,31757,VRchat,Personal Data,bad,empty_point_quote_text
+1602,20136,Wikimedia,Law and Government Requests,good,empty_point_quote_text
+1707,8959,LauraKalbag,Trackers,good,empty_point_quote_text
+1738,19194,El Mundo (Spain),Trackers,bad,empty_point_quote_text
+1739,19193,El Mundo (Spain),Trackers,bad,empty_point_quote_text
+1740,19192,El Mundo (Spain),Trackers,neutral,empty_point_quote_text
+2153,4745,SpigotMC,Changes,neutral,empty_point_quote_text
+2157,4442,SpigotMC,Transparency,good,empty_point_quote_text
+2160,4741,SpigotMC,Transparency,good,empty_point_quote_text
+2161,4744,SpigotMC,User Involvement in Changing Terms,good,empty_point_quote_text
+2165,4743,SpigotMC,User Choice,good,empty_point_quote_text
+2336,26263,Icedrive,Security,good,empty_point_quote_text
+2340,28385,Icedrive,Content,good,empty_point_quote_text
+2356,27811,SCP Wiki,Transparency,good,empty_point_quote_text
+2412,25019,Binance,Suspension and Censorship,bad,empty_point_quote_text
+2686,1504,eBay,Personal Data,bad,empty_point_quote_text
+2773,20519,Duolingo,Transparency,neutral,empty_point_quote_text
+2828,27405,Yewtu.be,Transparency,good,empty_point_quote_text
+2849,31927,CounterMail,Transparency,good,empty_point_quote_text
+2952,33750,mail.ch,Anonymity,bad,empty_point_quote_text
+3064,22137,APK Pure,Content,bad,empty_point_quote_text
+3065,22136,APK Pure,Third Parties,neutral,empty_point_quote_text
+3066,22135,APK Pure,Changes,neutral,empty_point_quote_text
+3067,22710,APK Pure,Changes,neutral,empty_point_quote_text
+3068,22138,APK Pure,Governance,neutral,empty_point_quote_text
+3069,22139,APK Pure,Governance,neutral,empty_point_quote_text
+3070,22698,APK Pure,Advertising,bad,empty_point_quote_text
+3071,22697,APK Pure,Advertising,bad,empty_point_quote_text
+3072,22700,APK Pure,Trackers,bad,empty_point_quote_text
+3073,22707,APK Pure,Notice of Changing Terms,neutral,empty_point_quote_text
+3074,22708,APK Pure,Governance,neutral,empty_point_quote_text
+3075,22709,APK Pure,Jurisdiction and governing laws,bad,empty_point_quote_text
+3076,22699,APK Pure,Trackers,neutral,empty_point_quote_text
+3077,22703,APK Pure,Trackers,bad,empty_point_quote_text
+3078,22701,APK Pure,Trackers,bad,empty_point_quote_text
+3079,22702,APK Pure,Trackers,blocker,empty_point_quote_text
+3080,22704,APK Pure,Trackers,bad,empty_point_quote_text
+3081,22705,APK Pure,Personal Data,bad,empty_point_quote_text
+3082,22706,APK Pure,Logs,bad,empty_point_quote_text
+3083,22711,APK Pure,Suspension and Censorship,bad,empty_point_quote_text
+3084,22712,APK Pure,Transparency,good,empty_point_quote_text
+3085,22715,APK Pure,User Choice,good,empty_point_quote_text
+3086,22714,APK Pure,Trackers,neutral,empty_point_quote_text
+3087,22713,APK Pure,Transparency,good,empty_point_quote_text
+3088,22716,APK Pure,User Choice,good,empty_point_quote_text
+3147,29826,StartMail,User Involvement in Changing Terms,good,empty_point_quote_text
+3148,29825,StartMail,Ownership,good,empty_point_quote_text
+3150,9101,Poker-Engine,Personal Data,good,empty_point_quote_text
+3423,5651,Indiegogo,Advertising,bad,empty_point_quote_text
+3450,26641,PlanetMinecraft,Logs,good,empty_point_quote_text
+3451,26638,PlanetMinecraft,Content,neutral,empty_point_quote_text
+3540,29731,The Markup,Anonymity,good,empty_point_quote_text
+3558,25272,Pillowfort,User Choice,good,empty_point_quote_text
+3566,9118,Pillowfort,Trackers,good,empty_point_quote_text
+3568,9119,Pillowfort,Personal Data,bad,empty_point_quote_text
+3625,18332,Wish,Changes,neutral,empty_point_quote_text
+3626,18333,Wish,Content,neutral,empty_point_quote_text
+3627,18989,Wish,Personal Data,good,empty_point_quote_text
+3628,18964,Wish,Types of Information Collected,neutral,empty_point_quote_text
+3629,18585,Wish,Suspension and Censorship,blocker,empty_point_quote_text
+3630,18592,Wish,Suspension and Censorship,bad,empty_point_quote_text
+3631,18594,Wish,Notice of Changing Terms,bad,empty_point_quote_text
+3632,18334,Wish,Governance,neutral,empty_point_quote_text
+3633,18335,Wish,Suspension and Censorship,neutral,empty_point_quote_text
+3634,18587,Wish,Suspension and Censorship,neutral,empty_point_quote_text
+3635,18980,Wish,Transparency,good,empty_point_quote_text
+3636,18591,Wish,Right to Leave The Service,good,empty_point_quote_text
+3637,18596,Wish,Guarantee,neutral,empty_point_quote_text
+3638,18597,Wish,Governance,neutral,empty_point_quote_text
+3639,18593,Wish,Notice of Changing Terms,neutral,empty_point_quote_text
+3640,18598,Wish,Governance,bad,empty_point_quote_text
+3641,18582,Wish,Copyright License,good,empty_point_quote_text
+3642,18590,Wish,Payments,good,empty_point_quote_text
+3643,18583,Wish,Copyright License,bad,empty_point_quote_text
+3644,18584,Wish,Copyright License,bad,empty_point_quote_text
+3645,18600,Wish,Governance,bad,empty_point_quote_text
+3646,18588,Wish,Suspension and Censorship,good,empty_point_quote_text
+3647,18589,Wish,Governance,neutral,empty_point_quote_text
+3648,18599,Wish,Jurisdiction and governing laws,neutral,empty_point_quote_text
+3649,18595,Wish,Guarantee,neutral,empty_point_quote_text
+3650,18985,Wish,User Choice,good,empty_point_quote_text
+3651,18972,Wish,Trackers,neutral,empty_point_quote_text
+3652,18987,Wish,User Choice,good,empty_point_quote_text
+3653,18978,Wish,Right to Leave The Service,bad,empty_point_quote_text
+3654,18986,Wish,User Choice,good,empty_point_quote_text
+3655,18968,Wish,Trackers,bad,empty_point_quote_text
+3656,18965,Wish,Types of Information Collected,bad,empty_point_quote_text
+3657,18970,Wish,Trackers,bad,empty_point_quote_text
+3658,18967,Wish,Trackers,bad,empty_point_quote_text
+3659,18984,Wish,Law and Government Requests,good,empty_point_quote_text
+3660,18976,Wish,Advertising,bad,empty_point_quote_text
+3661,18975,Wish,Advertising,bad,empty_point_quote_text
+3662,18973,Wish,Third Parties,bad,empty_point_quote_text
+3663,18974,Wish,Transparency,good,empty_point_quote_text
+3664,18979,Wish,Third Parties,bad,empty_point_quote_text
+3665,18971,Wish,Trackers,bad,empty_point_quote_text
+3666,18983,Wish,Law and Government Requests,bad,empty_point_quote_text
+3667,18966,Wish,Trackers,bad,empty_point_quote_text
+3668,18977,Wish,Personal Data,bad,empty_point_quote_text
+3669,18969,Wish,Trackers,bad,empty_point_quote_text
+3670,18982,Wish,Business Transfers,bad,empty_point_quote_text
+3671,18981,Wish,Third Parties,bad,empty_point_quote_text
+3672,18988,Wish,User Choice,good,empty_point_quote_text
+3673,18586,Wish,Suspension and Censorship,blocker,empty_point_quote_text
+3674,18963,Wish,Transparency,good,empty_point_quote_text
+3744,32662,HBO,Personal Data,bad,empty_point_quote_text
+3762,24562,Tampermonkey,Trackers,good,empty_point_quote_text
+4023,31196,Adblock,Logs,good,empty_point_quote_text
+4024,31200,Adblock,Third Parties,good,empty_point_quote_text
+4025,31197,Adblock,Third Parties,neutral,empty_point_quote_text
+4026,31201,Adblock,Personal Data,good,empty_point_quote_text
+4027,31206,Adblock,Jurisdiction and governing laws,good,empty_point_quote_text
+4028,31199,Adblock,Third Parties,bad,empty_point_quote_text
+4029,24651,SpeedsterOwners.com,User Choice,good,empty_point_quote_text
+4030,24646,SpeedsterOwners.com,Governance,good,empty_point_quote_text
+4097,21822,AirVPN,Anonymity,good,empty_point_quote_text
+4227,29882,BBC,Anonymity,good,empty_point_quote_text
+4454,1332,Travelzoo,Payments,good,empty_point_quote_text
+4489,8724,Fur Affinity,Changes,neutral,empty_point_quote_text
+4658,4847,Virgin,Advertising,bad,empty_point_quote_text
+4659,4849,Virgin,Transparency,good,empty_point_quote_text
+4758,609,SoundCloud,Transparency,good,empty_point_quote_text
+4826,639,Netflix,Transparency,good,empty_point_quote_text
+4906,9161,phpBB,Trackers,good,empty_point_quote_text
+4933,20237,Gravatar,Trackers,bad,empty_point_quote_text
+5002,1580,Uber,Governance,good,empty_point_quote_text
+5250,21220,wix,Guarantee,neutral,empty_point_quote_text
+5251,21222,wix,Guarantee,neutral,empty_point_quote_text
+5252,21221,wix,Guarantee,neutral,empty_point_quote_text
+5309,31678,NPR,Advertising,bad,empty_point_quote_text
+5310,31676,NPR,Types of Information Collected,neutral,empty_point_quote_text
+5311,31696,NPR,Trackers,bad,empty_point_quote_text
+5312,31694,NPR,Trackers,bad,empty_point_quote_text
+5313,31693,NPR,Advertising,bad,empty_point_quote_text
+5314,31692,NPR,Trackers,bad,empty_point_quote_text
+5315,31691,NPR,Trackers,bad,empty_point_quote_text
+5316,31705,NPR,Suspension and Censorship,blocker,empty_point_quote_text
+5317,31703,NPR,Suspension and Censorship,blocker,empty_point_quote_text
+5318,31699,NPR,Notice of Changing Terms,bad,empty_point_quote_text
+5319,31707,NPR,Copyright License,good,empty_point_quote_text
+5320,31701,NPR,Third Parties,bad,empty_point_quote_text
+5321,31704,NPR,Suspension and Censorship,bad,empty_point_quote_text
+5322,31702,NPR,Personal Data,bad,empty_point_quote_text
+5323,31706,NPR,Content,neutral,empty_point_quote_text
+5324,31710,NPR,Content,neutral,empty_point_quote_text
+5325,31711,NPR,Content,neutral,empty_point_quote_text
+5326,31712,NPR,Content,neutral,empty_point_quote_text
+5327,31713,NPR,Governance,neutral,empty_point_quote_text
+5328,31715,NPR,Governance,neutral,empty_point_quote_text
+5329,31717,NPR,Content,neutral,empty_point_quote_text
+5330,31718,NPR,Governance,neutral,empty_point_quote_text
+5331,31714,NPR,Content,neutral,empty_point_quote_text
+5332,31719,NPR,Content,neutral,empty_point_quote_text
+5333,31708,NPR,Copyright License,bad,empty_point_quote_text
+5334,31698,NPR,Trackers,bad,empty_point_quote_text
+5335,31697,NPR,Third Parties,bad,empty_point_quote_text
+5336,31679,NPR,Advertising,bad,empty_point_quote_text
+5337,31677,NPR,Personal Data,bad,empty_point_quote_text
+5338,31720,NPR,Governance,neutral,empty_point_quote_text
+5339,31816,NPR,Transparency,good,empty_point_quote_text
+5340,31821,NPR,Jurisdiction and governing laws,good,empty_point_quote_text
+5341,31820,NPR,Jurisdiction and governing laws,good,empty_point_quote_text
+5342,31819,NPR,Advertising,good,empty_point_quote_text
+5343,31817,NPR,Transparency,good,empty_point_quote_text
+5344,31818,NPR,User Choice,good,empty_point_quote_text
+5345,31822,NPR,User Choice,good,empty_point_quote_text
+5602,9109,Krunker.io,Suspension and Censorship,bad,empty_point_quote_text
+5603,9110,Krunker.io,Third Parties,good,empty_point_quote_text
+5604,9111,Krunker.io,Personal Data,good,empty_point_quote_text
+5667,29019,Threema,Transparency,good,empty_point_quote_text
+5676,33336,Threema,Jurisdiction and governing laws,neutral,empty_point_quote_text
+5677,33337,Threema,Payments,neutral,empty_point_quote_text
+5678,33338,Threema,Content,neutral,empty_point_quote_text
+5679,33339,Threema,Content,neutral,empty_point_quote_text
+5717,4280,Qwant,Transparency,good,empty_point_quote_text
+5765,31015,Fedora,Transparency,good,empty_point_quote_text
+5891,26683,AccuWeather,Trackers,bad,empty_point_quote_text
+5892,31765,AccuWeather,Types of Information Collected,neutral,empty_point_quote_text
+5893,31766,AccuWeather,Personal Data,bad,empty_point_quote_text
+5894,31768,AccuWeather,Advertising,bad,empty_point_quote_text
+5895,31769,AccuWeather,Trackers,bad,empty_point_quote_text
+5896,31771,AccuWeather,Right to Leave The Service,bad,empty_point_quote_text
+5897,31788,AccuWeather,Trackers,neutral,empty_point_quote_text
+5898,31790,AccuWeather,Suspension and Censorship,blocker,empty_point_quote_text
+5899,31767,AccuWeather,Third Parties,bad,empty_point_quote_text
+5900,31789,AccuWeather,Advertising,bad,empty_point_quote_text
+5901,33432,AccuWeather,Notice of Changing Terms,bad,empty_point_quote_text
+5902,33431,AccuWeather,Governance,bad,empty_point_quote_text
+5903,33430,AccuWeather,Governance,bad,empty_point_quote_text
+5904,33441,AccuWeather,Content,neutral,empty_point_quote_text
+5905,33440,AccuWeather,Content,neutral,empty_point_quote_text
+5906,33438,AccuWeather,Governance,neutral,empty_point_quote_text
+5907,33435,AccuWeather,Content,neutral,empty_point_quote_text
+5908,33434,AccuWeather,Governance,neutral,empty_point_quote_text
+5909,33437,AccuWeather,Content,good,empty_point_quote_text
+5910,33429,AccuWeather,Advertising,good,empty_point_quote_text
+5911,33442,AccuWeather,Content,neutral,empty_point_quote_text
+5912,33444,AccuWeather,Jurisdiction and governing laws,neutral,empty_point_quote_text
+5913,33443,AccuWeather,Guarantee,neutral,empty_point_quote_text
+5914,33436,AccuWeather,Content,neutral,empty_point_quote_text
+5915,33439,AccuWeather,Content,neutral,empty_point_quote_text
+5926,4364,FWG 1240,Types of Information Collected,good,empty_point_quote_text
+5927,4369,FWG 1240,Transparency,good,empty_point_quote_text
+5928,4370,FWG 1240,Transparency,good,empty_point_quote_text
+5944,4358,GitLab,User Choice,good,empty_point_quote_text
+5969,23923,canary,Transparency,good,empty_point_quote_text
+6021,4259,CloudSight,Personal Data,bad,empty_point_quote_text
+6039,15721,LibreOffice,Transparency,good,empty_point_quote_text
+6118,4375,Slither.io,Transparency,good,empty_point_quote_text
+6192,7449,Gemotest,Advertising,bad,empty_point_quote_text
+6193,7448,Gemotest,Personal Data,bad,empty_point_quote_text
+6234,8374,MRichard333,Ownership,good,empty_point_quote_text
+6235,29990,MRichard333,Changes,neutral,empty_point_quote_text
+6236,29991,MRichard333,Logs,good,empty_point_quote_text
+6237,29970,MRichard333,Notice of Changing Terms,neutral,empty_point_quote_text
+6238,29997,MRichard333,Security,good,empty_point_quote_text
+6241,29971,MRichard333,Jurisdiction and governing laws,good,empty_point_quote_text
+6243,30131,MRichard333,Trackers,bad,empty_point_quote_text
+6244,6870,Wugtodon,Personal Data,good,empty_point_quote_text
+6245,7265,TunnelBear,Transparency,good,empty_point_quote_text
+6246,7266,TunnelBear,Transparency,good,empty_point_quote_text
+6247,8099,Ockom (DEPRECATED Expired or Suspended),Personal Data,good,empty_point_quote_text
+6248,8098,Ockom (DEPRECATED Expired or Suspended),Third Parties,good,empty_point_quote_text
+6283,5982,Amnesty International Limited (UK),User Involvement in Changing Terms,neutral,empty_point_quote_text
+6297,4542,Amnesty International Limited (UK),Transparency,good,empty_point_quote_text
+6423,17052,PortableApps,Trackers,bad,empty_point_quote_text
+6431,26687,Posteo,Security,good,empty_point_quote_text
+6432,26690,Posteo,Transparency,neutral,empty_point_quote_text
+6435,26688,Posteo,Payments,good,empty_point_quote_text
+6441,26689,Posteo,Transparency,good,empty_point_quote_text
+6526,27607,Bumble,Dispute Resolution,bad,empty_point_quote_text
+6625,4296,The Hello World Collection,Transparency,good,empty_point_quote_text
+7020,33921,JSTOR,User Choice,good,empty_point_quote_text
+7021,33922,JSTOR,User Choice,good,empty_point_quote_text
+7022,33925,JSTOR,Personal Data,good,empty_point_quote_text
+7023,33923,JSTOR,Right to Leave The Service,bad,empty_point_quote_text
+7024,33926,JSTOR,Trackers,bad,empty_point_quote_text
+7025,33931,JSTOR,Types of Information Collected,neutral,empty_point_quote_text
+7026,33933,JSTOR,Trackers,neutral,empty_point_quote_text
+7027,33934,JSTOR,Trackers,neutral,empty_point_quote_text
+7028,33928,JSTOR,Third Parties,bad,empty_point_quote_text
+7029,33935,JSTOR,Logs,bad,empty_point_quote_text
+7030,33936,JSTOR,Trackers,bad,empty_point_quote_text
+7031,33937,JSTOR,Trackers,bad,empty_point_quote_text
+7032,33951,JSTOR,Content,neutral,empty_point_quote_text
+7033,33950,JSTOR,Content,neutral,empty_point_quote_text
+7034,33953,JSTOR,Content,good,empty_point_quote_text
+7035,33963,JSTOR,User Choice,good,empty_point_quote_text
+7036,33952,JSTOR,Content,neutral,empty_point_quote_text
+7037,33957,JSTOR,Guarantee,neutral,empty_point_quote_text
+7038,33958,JSTOR,Content,neutral,empty_point_quote_text
+7039,33959,JSTOR,Governance,neutral,empty_point_quote_text
+7040,33960,JSTOR,Content,neutral,empty_point_quote_text
+7041,33961,JSTOR,Copyright License,neutral,empty_point_quote_text
+7042,33962,JSTOR,Suspension and Censorship,neutral,empty_point_quote_text
+7043,33929,JSTOR,Trackers,bad,empty_point_quote_text
+7044,33954,JSTOR,Suspension and Censorship,blocker,empty_point_quote_text
+7045,33955,JSTOR,Suspension and Censorship,blocker,empty_point_quote_text
+7046,33930,JSTOR,Transparency,good,empty_point_quote_text
+7047,33927,JSTOR,Third Parties,good,empty_point_quote_text
+7048,33956,JSTOR,Copyright License,good,empty_point_quote_text
+7049,4614,RationalWiki,Transparency,good,empty_point_quote_text
+7081,5000,FrontendMasters,Notice of Changing Terms,neutral,empty_point_quote_text
+7082,5001,FrontendMasters,Transparency,good,empty_point_quote_text
+7083,5002,FrontendMasters,Transparency,good,empty_point_quote_text
+7100,4931,Todoist,Transparency,good,empty_point_quote_text
+7158,5052,getrentback,Transparency,good,empty_point_quote_text
+7159,5057,getrentback,Third Parties,good,empty_point_quote_text
+7160,5056,getrentback,Personal Data,good,empty_point_quote_text
+7161,5058,getrentback,User Choice,good,empty_point_quote_text
+7162,5055,getrentback,User Choice,good,empty_point_quote_text
+7163,5051,getrentback,Trackers,good,empty_point_quote_text
+7164,5054,getrentback,Personal Data,good,empty_point_quote_text
+7166,7158,HP-67,Transparency,good,empty_point_quote_text
+7167,7159,HP-67,Transparency,good,empty_point_quote_text
+7168,7180,HP-67,Types of Information Collected,good,empty_point_quote_text
+7169,7156,HP-67,Types of Information Collected,good,empty_point_quote_text
+7170,7184,HP-67,Right to Leave The Service,good,empty_point_quote_text
+7187,8977,Bethesda,Trackers,bad,empty_point_quote_text
+7263,31242,Crunchyroll,Personal Data,bad,empty_point_quote_text
+7287,31246,Crunchyroll,Personal Data,bad,empty_point_quote_text
+7320,21362,10minutemail,Right to Leave The Service,good,empty_point_quote_text
+7344,9658,Scratch,Personal Data,good,empty_point_quote_text
+7345,9657,Scratch,Trackers,bad,empty_point_quote_text
+7362,11269,AliExpress,Transparency,neutral,empty_point_quote_text
+7363,11283,AliExpress,Trackers,bad,empty_point_quote_text
+7364,11271,AliExpress,Personal Data,bad,empty_point_quote_text
+7365,11280,AliExpress,Third Parties,bad,empty_point_quote_text
+7366,11282,AliExpress,Right to Leave The Service,bad,empty_point_quote_text
+7367,11268,AliExpress,Changes,neutral,empty_point_quote_text
+7371,11333,AliExpress,Transparency,good,empty_point_quote_text
+7372,11332,AliExpress,Security,good,empty_point_quote_text
+7373,11331,AliExpress,Law and Government Requests,good,empty_point_quote_text
+7374,11315,AliExpress,Trackers,bad,empty_point_quote_text
+7375,11321,AliExpress,Trackers,bad,empty_point_quote_text
+7376,11318,AliExpress,Trackers,neutral,empty_point_quote_text
+7377,11323,AliExpress,Trackers,bad,empty_point_quote_text
+7378,11322,AliExpress,Personal Data,good,empty_point_quote_text
+7379,11320,AliExpress,Trackers,bad,empty_point_quote_text
+7380,11319,AliExpress,Trackers,bad,empty_point_quote_text
+7381,10903,AliExpress,Types of Information Collected,bad,empty_point_quote_text
+7453,21711,FileFactory,Suspension and Censorship,blocker,empty_point_quote_text
+7493,8079,Upakka,Governance,neutral,empty_point_quote_text
+7494,8078,Upakka,Transparency,neutral,empty_point_quote_text
+7726,25017,gmx,Jurisdiction and governing laws,good,empty_point_quote_text
+7727,25016,gmx,Jurisdiction and governing laws,good,empty_point_quote_text
+7884,6074,Observable,Dispute Resolution,good,empty_point_quote_text
+7997,5504,Minds,Personal Data,good,empty_point_quote_text
+7998,5531,Minds,Guarantee,neutral,empty_point_quote_text
+7999,5533,Minds,Dispute Resolution,bad,empty_point_quote_text
+8000,5526,Minds,Payments,neutral,empty_point_quote_text
+8001,5518,Minds,Governance,neutral,empty_point_quote_text
+8002,5534,Minds,Jurisdiction and governing laws,neutral,empty_point_quote_text
+8003,5529,Minds,Guarantee,neutral,empty_point_quote_text
+8017,5506,Minds,Security,good,empty_point_quote_text
+8071,5754,Upcloud,Dispute Resolution,good,empty_point_quote_text
+8202,17700,Roblox,Types of Information Collected,neutral,empty_point_quote_text
+8203,17701,Roblox,Trackers,neutral,empty_point_quote_text
+8204,17702,Roblox,Personal Data,good,empty_point_quote_text
+8206,17693,Roblox,Suspension and Censorship,blocker,empty_point_quote_text
+8207,17691,Roblox,Notice of Changing Terms,bad,empty_point_quote_text
+8208,17694,Roblox,Suspension and Censorship,neutral,empty_point_quote_text
+8209,25138,Roblox,Suspension and Censorship,neutral,empty_point_quote_text
+8210,17692,Roblox,Notice of Changing Terms,neutral,empty_point_quote_text
+8211,17703,Roblox,Third Parties,bad,empty_point_quote_text
+8212,17706,Roblox,Personal Data,neutral,empty_point_quote_text
+8213,17867,Roblox,Right to Leave The Service,good,empty_point_quote_text
+8214,17866,Roblox,Copyright License,good,empty_point_quote_text
+8215,21280,Roblox,Content,bad,empty_point_quote_text
+8216,21285,Roblox,Governance,neutral,empty_point_quote_text
+8217,21284,Roblox,Content,neutral,empty_point_quote_text
+8218,21282,Roblox,User Choice,good,empty_point_quote_text
+8219,21276,Roblox,Personal Data,bad,empty_point_quote_text
+8220,21277,Roblox,Trackers,bad,empty_point_quote_text
+8221,21279,Roblox,Copyright License,good,empty_point_quote_text
+8222,21216,Roblox,Governance,neutral,empty_point_quote_text
+8223,24742,Roblox,Personal Data,neutral,empty_point_quote_text
+8224,24740,Roblox,Content,good,empty_point_quote_text
+8225,24739,Roblox,User Choice,good,empty_point_quote_text
+8226,25135,Roblox,Jurisdiction and governing laws,good,empty_point_quote_text
+8227,25137,Roblox,Suspension and Censorship,bad,empty_point_quote_text
+8228,25136,Roblox,Suspension and Censorship,neutral,empty_point_quote_text
+8229,26713,Roblox,Trackers,bad,empty_point_quote_text
+8230,17704,Roblox,Advertising,bad,empty_point_quote_text
+8231,17705,Roblox,Business Transfers,bad,empty_point_quote_text
+8258,6770,CCleaner,Trackers,bad,empty_point_quote_text
+8268,6913,SourceHut,Transparency,good,empty_point_quote_text
+8269,6906,SourceHut,User Choice,good,empty_point_quote_text
+8270,6904,SourceHut,Transparency,good,empty_point_quote_text
+8271,6926,SourceHut,Right to Leave The Service,good,empty_point_quote_text
+8322,8876,Standard Notes,Transparency,good,empty_point_quote_text
+8444,7357,Отзовик,Content,neutral,empty_point_quote_text
+8445,7354,Отзовик,Suspension and Censorship,neutral,empty_point_quote_text
+8446,7359,Отзовик,Copyright License,bad,empty_point_quote_text
+8447,7353,Отзовик,Anonymity,neutral,empty_point_quote_text
+8448,7356,Отзовик,Law and Government Requests,neutral,empty_point_quote_text
+8449,7352,Отзовик,Notice of Changing Terms,bad,empty_point_quote_text
+8450,7360,Отзовик,Content,neutral,empty_point_quote_text
+8451,7355,Отзовик,Security,neutral,empty_point_quote_text
+8452,7358,Отзовик,Content,neutral,empty_point_quote_text
+8537,28781,Create A Forum,Personal Data,good,empty_point_quote_text
+8538,28782,Create A Forum,Trackers,bad,empty_point_quote_text
+8539,28953,Create A Forum,Trackers,bad,empty_point_quote_text
+8540,28954,Create A Forum,Personal Data,good,empty_point_quote_text
+8562,6210,PrivacyTools,Third Parties,neutral,empty_point_quote_text
+8629,32944,Miraheze,Transparency,good,empty_point_quote_text
+8641,8802,DeepL,Transparency,neutral,empty_point_quote_text
+8710,7949,Social Blade,Content,neutral,empty_point_quote_text
+8844,8638,Flight Rising,Governance,neutral,empty_point_quote_text
+8914,21315,zmudzinski.me Personal Blog (DEPRECATED),Personal Data,good,empty_point_quote_text
+8915,21318,zmudzinski.me Personal Blog (DEPRECATED),Third Parties,neutral,empty_point_quote_text
+8916,21317,zmudzinski.me Personal Blog (DEPRECATED),Third Parties,good,empty_point_quote_text
+8917,21311,zmudzinski.me Personal Blog (DEPRECATED),Governance,neutral,empty_point_quote_text
+8918,21313,zmudzinski.me Personal Blog (DEPRECATED),Trackers,good,empty_point_quote_text
+8919,21312,zmudzinski.me Personal Blog (DEPRECATED),Right to Leave The Service,good,empty_point_quote_text
+8920,21314,zmudzinski.me Personal Blog (DEPRECATED),Right to Leave The Service,good,empty_point_quote_text
+9245,9342,Internet Archive,Transparency,good,empty_point_quote_text
+9249,9340,Internet Archive,Anonymity,good,empty_point_quote_text
+9484,8792,Mozilla.org,Transparency,neutral,empty_point_quote_text
+9485,9125,Mozilla.org,Changes,neutral,empty_point_quote_text
+9486,9127,Mozilla.org,Transparency,good,empty_point_quote_text
+9489,9124,Mozilla.org,User Involvement in Changing Terms,good,empty_point_quote_text
+9490,9126,Mozilla.org,Transparency,good,empty_point_quote_text
+9499,9123,Mozilla.org,Transparency,good,empty_point_quote_text
+9500,6434,Free Steam Keys,Transparency,good,empty_point_quote_text
+9575,28843,Wolt,Anonymity,neutral,empty_point_quote_text
+9576,30726,Wolt,Changes,neutral,empty_point_quote_text
+9580,28842,Wolt,Transparency,neutral,empty_point_quote_text
+9581,28840,Wolt,Guarantee,neutral,empty_point_quote_text
+9582,28841,Wolt,Governance,neutral,empty_point_quote_text
+9583,28844,Wolt,Security,neutral,empty_point_quote_text
+9584,28845,Wolt,Security,neutral,empty_point_quote_text
+9585,28839,Wolt,Third Parties,neutral,empty_point_quote_text
+9586,28838,Wolt,Third Parties,neutral,empty_point_quote_text
+9587,30727,Wolt,Governance,neutral,empty_point_quote_text
+9588,30728,Wolt,Suspension and Censorship,neutral,empty_point_quote_text
+9589,30730,Wolt,Right to Leave The Service,good,empty_point_quote_text
+9590,30734,Wolt,Guarantee,neutral,empty_point_quote_text
+9591,30736,Wolt,Anonymity,bad,empty_point_quote_text
+9592,30729,Wolt,Jurisdiction and governing laws,bad,empty_point_quote_text
+9594,30733,Wolt,Jurisdiction and governing laws,neutral,empty_point_quote_text
+9595,30732,Wolt,Guarantee,neutral,empty_point_quote_text
+9596,30731,Wolt,Suspension and Censorship,neutral,empty_point_quote_text
+9597,30735,Wolt,Ownership,good,empty_point_quote_text
+9620,30796,Wolt,Payments,good,empty_point_quote_text
+9625,30797,Wolt,Content,neutral,empty_point_quote_text
+9626,30795,Wolt,Notice of Changing Terms,neutral,empty_point_quote_text
+9627,30794,Wolt,Guarantee,neutral,empty_point_quote_text
+9628,30803,Wolt,Transparency,good,empty_point_quote_text
+9633,31054,Wolt,Copyright License,good,empty_point_quote_text
+9634,31055,Wolt,Anonymity,bad,empty_point_quote_text
+9715,11626,Proton AG,Security,good,empty_point_quote_text
+9735,16744,Proton AG,Anonymity,good,empty_point_quote_text
+9844,797,500px,Transparency,good,empty_point_quote_text
+9846,11117,Avast,Notice of Changing Terms,neutral,empty_point_quote_text
+9847,11105,Avast,Third Parties,bad,empty_point_quote_text
+9848,11106,Avast,User Choice,good,empty_point_quote_text
+9849,11107,Avast,Third Parties,neutral,empty_point_quote_text
+9850,11113,Avast,Governance,neutral,empty_point_quote_text
+9851,11109,Avast,Trackers,neutral,empty_point_quote_text
+9852,11110,Avast,Trackers,bad,empty_point_quote_text
+9853,11111,Avast,Trackers,bad,empty_point_quote_text
+9854,11112,Avast,Personal Data,bad,empty_point_quote_text
+9855,11108,Avast,Advertising,bad,empty_point_quote_text
+9856,11114,Avast,User Choice,good,empty_point_quote_text
+9905,4243,Visible,Transparency,good,empty_point_quote_text
+9970,21027,GoDaddy,Advertising,good,empty_point_quote_text
+10048,9201,bol-d-air.net,Personal Data,good,empty_point_quote_text
+10175,33367,Course Hero,Trackers,bad,empty_point_quote_text
+10176,33365,Course Hero,User Choice,good,empty_point_quote_text
+10177,33368,Course Hero,Trackers,bad,empty_point_quote_text
+10178,33366,Course Hero,Right to Leave The Service,bad,empty_point_quote_text
+10179,33364,Course Hero,Personal Data,neutral,empty_point_quote_text
+10183,9121,CockFile,Transparency,good,empty_point_quote_text
+10184,9120,CockFile,Logs,good,empty_point_quote_text
+10205,9250,Cracker's Creed,Transparency,good,empty_point_quote_text
+10538,9252,SoloLearn,Notice of Changing Terms,neutral,empty_point_quote_text
+10539,9251,SoloLearn,Notice of Changing Terms,neutral,empty_point_quote_text
+10581,9295,Timac,Logs,good,empty_point_quote_text
+10582,9291,Timac,Transparency,good,empty_point_quote_text
+10583,9290,Timac,Guarantee,neutral,empty_point_quote_text
+10607,10623,Ruqqus,Law and Government Requests,good,empty_point_quote_text
+10613,10186,Deleted Service 2317 by user 1764,Transparency,good,empty_point_quote_text
+10682,17182,Genshin Impact,Guarantee,neutral,empty_point_quote_text
+10683,17180,Genshin Impact,Ownership,neutral,empty_point_quote_text
+10684,9784,nikitin.photo,Personal Data,good,empty_point_quote_text
+10865,34194,Neurohr Bytes Software,Security,good,empty_point_quote_text
+10866,34196,Neurohr Bytes Software,Third Parties,good,empty_point_quote_text
+10867,34193,Neurohr Bytes Software,Trackers,good,empty_point_quote_text
+10868,34192,Neurohr Bytes Software,Logs,good,empty_point_quote_text
+10982,22327,Mullvad,Anonymity,good,empty_point_quote_text
+10989,4473,Mullvad,Transparency,good,empty_point_quote_text
+10995,25394,Mojeek,Right to Leave The Service,good,empty_point_quote_text
+11208,11157,DeviantArt,Trackers,good,empty_point_quote_text
+11376,4943,Do C's Get Degrees (discontinued?),Transparency,good,empty_point_quote_text
+11452,21798,LBRY,Guarantee,neutral,empty_point_quote_text
+11532,15308,Incog.host,Transparency,good,empty_point_quote_text
+11739,29046,The Guardian,Anonymity,good,empty_point_quote_text
+11785,5583,Wattpad,Transparency,good,empty_point_quote_text
+11792,23278,Wattpad,Jurisdiction and governing laws,good,empty_point_quote_text
+11875,5162,Brainly,Guarantee,neutral,empty_point_quote_text
+11879,5251,Brainly,Copyright License,bad,empty_point_quote_text
+11880,5249,Brainly,Anonymity,good,empty_point_quote_text
+11883,5250,Brainly,Copyright License,bad,empty_point_quote_text
+11884,5184,Brainly,Content,neutral,empty_point_quote_text
+11979,16865,Authy (Twilio),Transparency,good,empty_point_quote_text
+11993,16866,Authy (Twilio),Transparency,good,empty_point_quote_text
+11995,16872,Authy (Twilio),Third Parties,neutral,empty_point_quote_text
+11996,16877,Authy (Twilio),User Choice,good,empty_point_quote_text
+11997,16868,Authy (Twilio),User Choice,good,empty_point_quote_text
+11998,16870,Authy (Twilio),Personal Data,good,empty_point_quote_text
+12009,16876,Authy (Twilio),Personal Data,good,empty_point_quote_text
+12016,16867,Authy (Twilio),Transparency,good,empty_point_quote_text
+12017,16869,Authy (Twilio),Right to Leave The Service,bad,empty_point_quote_text
+12018,16875,Authy (Twilio),Security,good,empty_point_quote_text
+12019,16871,Authy (Twilio),Third Parties,bad,empty_point_quote_text
+12020,16874,Authy (Twilio),Business Transfers,bad,empty_point_quote_text
+12035,16873,Authy (Twilio),Third Parties,good,empty_point_quote_text
+12038,17748,NewPipe,User Choice,good,empty_point_quote_text
+12040,17746,NewPipe,Third Parties,good,empty_point_quote_text
+12135,16978,Lucidia Learning,Content,neutral,empty_point_quote_text
+12282,24495,EBSCO,Trackers,neutral,empty_point_quote_text
+12283,24494,EBSCO,Trackers,neutral,empty_point_quote_text
+12284,24493,EBSCO,Trackers,bad,empty_point_quote_text
+12285,24492,EBSCO,Trackers,bad,empty_point_quote_text
+12286,24490,EBSCO,Trackers,bad,empty_point_quote_text
+12287,24500,EBSCO,Types of Information Collected,neutral,empty_point_quote_text
+12288,24499,EBSCO,Personal Data,bad,empty_point_quote_text
+12289,24497,EBSCO,Personal Data,good,empty_point_quote_text
+12290,24491,EBSCO,Trackers,good,empty_point_quote_text
+12291,24501,EBSCO,User Choice,good,empty_point_quote_text
+12292,24498,EBSCO,Personal Data,good,empty_point_quote_text
+12387,16742,Metager,Anonymity,good,empty_point_quote_text
+12402,24994,Windscribe,Transparency,good,empty_point_quote_text
+12614,33460,AppValley,Transparency,good,empty_point_quote_text
+12798,26622,Danbooru,Changes,neutral,empty_point_quote_text
+12799,26617,Danbooru,Suspension and Censorship,blocker,empty_point_quote_text
+12800,26618,Danbooru,Personal Data,blocker,empty_point_quote_text
+12801,26620,Danbooru,Types of Information Collected,neutral,empty_point_quote_text
+12802,26621,Danbooru,Notice of Changing Terms,bad,empty_point_quote_text
+12803,26624,Danbooru,Copyright License,neutral,empty_point_quote_text
+12804,26619,Danbooru,Copyright License,bad,empty_point_quote_text
+12805,26623,Danbooru,Law and Government Requests,bad,empty_point_quote_text
+12979,16031,ToSBack,Trackers,good,empty_point_quote_text
+12980,16032,ToSBack,Trackers,good,empty_point_quote_text
+12981,19399,ToSBack,Anonymity,good,empty_point_quote_text
+12982,16033,ToSBack,Logs,good,empty_point_quote_text
+12983,16030,ToSBack,Right to Leave The Service,good,empty_point_quote_text
+13149,15139,Alan Thomson Simulation,Notice of Changing Terms,bad,empty_point_quote_text
+13156,15166,Alan Thomson Simulation,Transparency,neutral,empty_point_quote_text
+13164,26471,Alan Thomson Simulation,Suspension and Censorship,blocker,empty_point_quote_text
+13303,19347,IVPN,Transparency,good,empty_point_quote_text
+13398,24267,Poki,Guarantee,neutral,empty_point_quote_text
+13499,26743,GNOME,Transparency,good,empty_point_quote_text
+13512,29173,AdGuard Software Limited,Trackers,good,empty_point_quote_text
+13809,20834,BlueMail,Transparency,neutral,empty_point_quote_text
+13856,25030,The Church Factory,Transparency,good,empty_point_quote_text
+13889,18052,Le Bon Coin,Advertising,good,empty_point_quote_text
+13890,18026,Le Bon Coin,Changes,neutral,empty_point_quote_text
+13891,18033,Le Bon Coin,Suspension and Censorship,neutral,empty_point_quote_text
+13892,18032,Le Bon Coin,Suspension and Censorship,neutral,empty_point_quote_text
+13893,18042,Le Bon Coin,Jurisdiction and governing laws,neutral,empty_point_quote_text
+13894,18037,Le Bon Coin,Copyright License,good,empty_point_quote_text
+13895,18040,Le Bon Coin,Suspension and Censorship,neutral,empty_point_quote_text
+13896,18030,Le Bon Coin,Content,neutral,empty_point_quote_text
+13897,18036,Le Bon Coin,Governance,neutral,empty_point_quote_text
+13898,18041,Le Bon Coin,Notice of Changing Terms,bad,empty_point_quote_text
+13899,18044,Le Bon Coin,Anonymity,good,empty_point_quote_text
+13900,18046,Le Bon Coin,Third Parties,bad,empty_point_quote_text
+13901,18029,Le Bon Coin,Content,neutral,empty_point_quote_text
+13902,18038,Le Bon Coin,Copyright License,bad,empty_point_quote_text
+13903,18039,Le Bon Coin,Copyright License,neutral,empty_point_quote_text
+13904,18043,Le Bon Coin,Dispute Resolution,bad,empty_point_quote_text
+13905,18055,Le Bon Coin,Personal Data,good,empty_point_quote_text
+13906,18054,Le Bon Coin,Advertising,bad,empty_point_quote_text
+13907,18053,Le Bon Coin,Third Parties,bad,empty_point_quote_text
+13908,18051,Le Bon Coin,Trackers,bad,empty_point_quote_text
+13909,18049,Le Bon Coin,Third Parties,bad,empty_point_quote_text
+13910,18048,Le Bon Coin,Trackers,bad,empty_point_quote_text
+13911,18047,Le Bon Coin,Trackers,bad,empty_point_quote_text
+13912,18045,Le Bon Coin,Personal Data,bad,empty_point_quote_text
+13913,18034,Le Bon Coin,Governance,neutral,empty_point_quote_text
+13914,18028,Le Bon Coin,Content,neutral,empty_point_quote_text
+13915,18035,Le Bon Coin,Guarantee,neutral,empty_point_quote_text
+13916,18031,Le Bon Coin,Governance,bad,empty_point_quote_text
+13917,18050,Le Bon Coin,Advertising,bad,empty_point_quote_text
+13918,18056,Le Bon Coin,Law and Government Requests,bad,empty_point_quote_text
+13951,33986,SolarWinds,Governance,neutral,empty_point_quote_text
+13952,33983,SolarWinds,Changes,neutral,empty_point_quote_text
+13953,33984,SolarWinds,Jurisdiction and governing laws,neutral,empty_point_quote_text
+13954,33985,SolarWinds,Governance,neutral,empty_point_quote_text
+13994,20348,ShareX,Transparency,good,empty_point_quote_text
+13995,20347,ShareX,Transparency,good,empty_point_quote_text
+14021,9112,Anonfiles,Transparency,good,empty_point_quote_text
+14044,25870,Scranton Pocono Amateur Radio Klub (SPARK) and N3UVR's Backyard Weather Station,Personal Data,good,empty_point_quote_text
+14045,25873,Scranton Pocono Amateur Radio Klub (SPARK) and N3UVR's Backyard Weather Station,Guarantee,neutral,empty_point_quote_text
+14046,25872,Scranton Pocono Amateur Radio Klub (SPARK) and N3UVR's Backyard Weather Station,Trackers,bad,empty_point_quote_text
+14047,25871,Scranton Pocono Amateur Radio Klub (SPARK) and N3UVR's Backyard Weather Station,Notice of Changing Terms,neutral,empty_point_quote_text
+14093,23768,Wickr Me,Transparency,neutral,empty_point_quote_text
+14104,20191,SchildiChat,Transparency,good,empty_point_quote_text
+14107,19525,Mozilla Thunderbird,Transparency,good,empty_point_quote_text
+14176,5010,Netsyms Technologies,Content,neutral,empty_point_quote_text
+14178,5011,Netsyms Technologies,User Choice,good,empty_point_quote_text
+14180,5009,Netsyms Technologies,Transparency,good,empty_point_quote_text
+14217,28381,Open Source Initiative,Copyright License,good,empty_point_quote_text
+14255,24583,Yleisradio,Trackers,neutral,empty_point_quote_text
+14256,24581,Yleisradio,Personal Data,bad,empty_point_quote_text
+14257,24582,Yleisradio,Trackers,bad,empty_point_quote_text
+14258,24585,Yleisradio,Trackers,good,empty_point_quote_text
+14259,24584,Yleisradio,Anonymity,good,empty_point_quote_text
+14264,31260,Yleisradio,Personal Data,good,empty_point_quote_text
+14266,31257,Yleisradio,Personal Data,bad,empty_point_quote_text
+14286,32216,Yleisradio,Personal Data,neutral,empty_point_quote_text
+14377,20524,Signal Stickers,Guarantee,neutral,empty_point_quote_text
+14378,20532,Signal Stickers,Personal Data,good,empty_point_quote_text
+14379,20530,Signal Stickers,Transparency,good,empty_point_quote_text
+14380,20531,Signal Stickers,Logs,good,empty_point_quote_text
+14381,20529,Signal Stickers,Third Parties,good,empty_point_quote_text
+14382,20526,Signal Stickers,Personal Data,good,empty_point_quote_text
+14383,20525,Signal Stickers,Types of Information Collected,good,empty_point_quote_text
+14384,20527,Signal Stickers,Third Parties,neutral,empty_point_quote_text
+14385,20528,Signal Stickers,Trackers,good,empty_point_quote_text
+14386,20523,Signal Stickers,Guarantee,neutral,empty_point_quote_text
+14388,19804,Однокла́ссники (Ok.ru),Third Parties,bad,empty_point_quote_text
+14389,19779,Однокла́ссники (Ok.ru),Anonymity,bad,empty_point_quote_text
+14390,19773,Однокла́ссники (Ok.ru),Content,neutral,empty_point_quote_text
+14391,19778,Однокла́ссники (Ok.ru),Governance,neutral,empty_point_quote_text
+14392,19777,Однокла́ссники (Ok.ru),Suspension and Censorship,neutral,empty_point_quote_text
+14393,19771,Однокла́ссники (Ok.ru),Guarantee,neutral,empty_point_quote_text
+14394,19774,Однокла́ссники (Ok.ru),Suspension and Censorship,blocker,empty_point_quote_text
+14395,19776,Однокла́ссники (Ok.ru),Suspension and Censorship,bad,empty_point_quote_text
+14396,19775,Однокла́ссники (Ok.ru),Guarantee,bad,empty_point_quote_text
+14397,19772,Однокла́ссники (Ok.ru),Guarantee,neutral,empty_point_quote_text
+14398,19780,Однокла́ссники (Ok.ru),Content,neutral,empty_point_quote_text
+14399,19793,Однокла́ссники (Ok.ru),Transparency,good,empty_point_quote_text
+14400,19796,Однокла́ссники (Ok.ru),Types of Information Collected,neutral,empty_point_quote_text
+14401,19790,Однокла́ссники (Ok.ru),Jurisdiction and governing laws,bad,empty_point_quote_text
+14402,19792,Однокла́ссники (Ok.ru),Changes,neutral,empty_point_quote_text
+14403,19798,Однокла́ссники (Ok.ru),Personal Data,bad,empty_point_quote_text
+14404,19791,Однокла́ссники (Ok.ru),Dispute Resolution,good,empty_point_quote_text
+14405,19785,Однокла́ссники (Ok.ru),Governance,neutral,empty_point_quote_text
+14406,19787,Однокла́ссники (Ok.ru),Right to Leave The Service,good,empty_point_quote_text
+14407,19788,Однокла́ссники (Ok.ru),Notice of Changing Terms,bad,empty_point_quote_text
+14408,19797,Однокла́ссники (Ok.ru),Personal Data,bad,empty_point_quote_text
+14409,19786,Однокла́ссники (Ok.ru),Suspension and Censorship,neutral,empty_point_quote_text
+14410,19795,Однокла́ссники (Ok.ru),Advertising,bad,empty_point_quote_text
+14411,19812,Однокла́ссники (Ok.ru),Trackers,bad,empty_point_quote_text
+14412,19808,Однокла́ссники (Ok.ru),User Choice,good,empty_point_quote_text
+14413,19813,Однокла́ссники (Ok.ru),Trackers,good,empty_point_quote_text
+14414,19807,Однокла́ссники (Ok.ru),Third Parties,bad,empty_point_quote_text
+14415,19811,Однокла́ссники (Ok.ru),Personal Data,good,empty_point_quote_text
+14416,19810,Однокла́ссники (Ok.ru),User Choice,good,empty_point_quote_text
+14417,19770,Однокла́ссники (Ok.ru),Guarantee,neutral,empty_point_quote_text
+14418,19784,Однокла́ссники (Ok.ru),Content,good,empty_point_quote_text
+14419,19806,Однокла́ссники (Ok.ru),User Choice,good,empty_point_quote_text
+14420,19782,Однокла́ссники (Ok.ru),Content,good,empty_point_quote_text
+14421,19805,Однокла́ссники (Ok.ru),Right to Leave The Service,bad,empty_point_quote_text
+14422,19789,Однокла́ссники (Ok.ru),Jurisdiction and governing laws,neutral,empty_point_quote_text
+14423,19794,Однокла́ссники (Ok.ru),Personal Data,bad,empty_point_quote_text
+14424,19809,Однокла́ссники (Ok.ru),User Choice,good,empty_point_quote_text
+14425,19781,Однокла́ссники (Ok.ru),Content,neutral,empty_point_quote_text
+14426,19783,Однокла́ссники (Ok.ru),Anonymity,neutral,empty_point_quote_text
+14522,20951,VPN Hamster,Types of Information Collected,bad,empty_point_quote_text
+14523,20950,VPN Hamster,Content,neutral,empty_point_quote_text
+14524,20952,VPN Hamster,Types of Information Collected,neutral,empty_point_quote_text
+14525,21037,VPN Hamster,Advertising,bad,empty_point_quote_text
+14526,21042,VPN Hamster,Law and Government Requests,good,empty_point_quote_text
+14527,21041,VPN Hamster,Third Parties,bad,empty_point_quote_text
+14528,21038,VPN Hamster,Advertising,bad,empty_point_quote_text
+14529,21039,VPN Hamster,Personal Data,bad,empty_point_quote_text
+14530,21040,VPN Hamster,Third Parties,neutral,empty_point_quote_text
+14531,21055,VPN Hamster,Business Transfers,bad,empty_point_quote_text
+14532,21056,VPN Hamster,Third Parties,bad,empty_point_quote_text
+14533,21058,VPN Hamster,Guarantee,bad,empty_point_quote_text
+14534,21045,VPN Hamster,Advertising,good,empty_point_quote_text
+14535,21052,VPN Hamster,User Choice,good,empty_point_quote_text
+14536,21059,VPN Hamster,Suspension and Censorship,good,empty_point_quote_text
+14537,21054,VPN Hamster,User Choice,good,empty_point_quote_text
+14538,21049,VPN Hamster,Trackers,bad,empty_point_quote_text
+14539,21048,VPN Hamster,Trackers,bad,empty_point_quote_text
+14540,21047,VPN Hamster,Trackers,bad,empty_point_quote_text
+14541,21046,VPN Hamster,Trackers,bad,empty_point_quote_text
+14542,21044,VPN Hamster,Advertising,bad,empty_point_quote_text
+14543,21050,VPN Hamster,Trackers,neutral,empty_point_quote_text
+14544,21043,VPN Hamster,Third Parties,bad,empty_point_quote_text
+14545,21053,VPN Hamster,User Choice,good,empty_point_quote_text
+14546,21051,VPN Hamster,Right to Leave The Service,bad,empty_point_quote_text
+14547,21057,VPN Hamster,Personal Data,bad,empty_point_quote_text
+14581,5415,ASKfm,Transparency,good,empty_point_quote_text
+14606,8599,e621/e926,Transparency,good,empty_point_quote_text
+14611,8600,e621/e926,Right to Leave The Service,good,empty_point_quote_text
+14612,8598,e621/e926,Transparency,good,empty_point_quote_text
+14620,20571,Swisspass,User Choice,good,empty_point_quote_text
+14621,20573,Swisspass,Trackers,neutral,empty_point_quote_text
+14622,20574,Swisspass,Trackers,bad,empty_point_quote_text
+14623,20576,Swisspass,Trackers,bad,empty_point_quote_text
+14624,20568,Swisspass,Governance,neutral,empty_point_quote_text
+14625,20569,Swisspass,Jurisdiction and governing laws,good,empty_point_quote_text
+14626,20570,Swisspass,Personal Data,good,empty_point_quote_text
+14627,20572,Swisspass,User Choice,good,empty_point_quote_text
+14628,20577,Swisspass,Right to Leave The Service,good,empty_point_quote_text
+14629,20578,Swisspass,Personal Data,good,empty_point_quote_text
+14630,20575,Swisspass,Trackers,bad,empty_point_quote_text
+14636,20564,SocialPass,Transparency,neutral,empty_point_quote_text
+14711,23337,Doctolib,Anonymity,bad,empty_point_quote_text
+14722,20853,webmail,Trackers,bad,empty_point_quote_text
+14723,20852,webmail,Anonymity,bad,empty_point_quote_text
+14726,20854,webmail,Trackers,blocker,empty_point_quote_text
+14727,20855,webmail,Personal Data,bad,empty_point_quote_text
+14757,20851,webmail,Anonymity,bad,empty_point_quote_text
+14758,20850,webmail,Advertising,bad,empty_point_quote_text
+14848,20910,Nulled,Suspension and Censorship,neutral,empty_point_quote_text
+14849,20901,Nulled,Trackers,good,empty_point_quote_text
+14850,20902,Nulled,Trackers,good,empty_point_quote_text
+14851,20905,Nulled,Types of Information Collected,neutral,empty_point_quote_text
+14852,20912,Nulled,Guarantee,neutral,empty_point_quote_text
+14853,20906,Nulled,Logs,good,empty_point_quote_text
+14854,20911,Nulled,Suspension and Censorship,neutral,empty_point_quote_text
+14855,20909,Nulled,Governance,neutral,empty_point_quote_text
+14856,20908,Nulled,Guarantee,neutral,empty_point_quote_text
+14857,20907,Nulled,Jurisdiction and governing laws,neutral,empty_point_quote_text
+14858,20904,Nulled,Trackers,good,empty_point_quote_text
+14859,20903,Nulled,Third Parties,good,empty_point_quote_text
+14860,20918,Nulled,Content,good,empty_point_quote_text
+14861,20920,Nulled,Content,neutral,empty_point_quote_text
+14862,20913,Nulled,Guarantee,neutral,empty_point_quote_text
+14863,20914,Nulled,Governance,neutral,empty_point_quote_text
+14864,20915,Nulled,Governance,neutral,empty_point_quote_text
+14865,20916,Nulled,Notice of Changing Terms,bad,empty_point_quote_text
+14866,20919,Nulled,Content,neutral,empty_point_quote_text
+14867,20917,Nulled,Notice of Changing Terms,bad,empty_point_quote_text
+14887,34391,Neurococi,Trackers,good,empty_point_quote_text
+14888,34390,Neurococi,Trackers,good,empty_point_quote_text
+14907,31507,Bright Cellars,Security,good,empty_point_quote_text
+14961,24260,Njalla,Anonymity,good,empty_point_quote_text
+14962,24265,Njalla,Security,good,empty_point_quote_text
+14963,24262,Njalla,Right to Leave The Service,good,empty_point_quote_text
+15052,23120,KeePassXC,Transparency,good,empty_point_quote_text
+15053,23121,KeePassXC,Transparency,good,empty_point_quote_text
+15055,21310,Monzo,Right to Leave The Service,bad,empty_point_quote_text
+15056,21308,Monzo,User Choice,good,empty_point_quote_text
+15058,21309,Monzo,User Choice,good,empty_point_quote_text
+15065,22524,Monzo,Notice of Changing Terms,good,empty_point_quote_text
+15215,31627,Coinloan,Trackers,neutral,empty_point_quote_text
+15235,27204,Toggl Track,Jurisdiction and governing laws,good,empty_point_quote_text
+15236,27203,Toggl Track,Jurisdiction and governing laws,good,empty_point_quote_text
+15237,27205,Toggl Track,Trackers,bad,empty_point_quote_text
+15238,27221,Toggl Track,Suspension and Censorship,neutral,empty_point_quote_text
+15246,27219,Toggl Track,Security,neutral,empty_point_quote_text
+15247,27225,Toggl Track,Guarantee,neutral,empty_point_quote_text
+15248,27218,Toggl Track,Governance,neutral,empty_point_quote_text
+15253,27216,Toggl Track,Jurisdiction and governing laws,good,empty_point_quote_text
+15254,27206,Toggl Track,Governance,neutral,empty_point_quote_text
+15481,11638,TikTok,Guarantee,neutral,empty_point_quote_text
+15546,9314,Ubisoft,Transparency,neutral,empty_point_quote_text
+15616,22193,FreeTube,Transparency,good,empty_point_quote_text
+15617,22192,FreeTube,Transparency,good,empty_point_quote_text
+15634,28649,GamerHash,Right to Leave The Service,bad,empty_point_quote_text
+15635,28651,GamerHash,User Choice,good,empty_point_quote_text
+15642,25921,Notion,Security,good,empty_point_quote_text
+15643,25925,Notion,Notice of Changing Terms,neutral,empty_point_quote_text
+15644,25922,Notion,Security,good,empty_point_quote_text
+15645,25924,Notion,Changes,neutral,empty_point_quote_text
+15646,25926,Notion,Notice of Changing Terms,bad,empty_point_quote_text
+15647,25928,Notion,Personal Data,neutral,empty_point_quote_text
+15652,25927,Notion,Personal Data,bad,empty_point_quote_text
+15673,33808,Kodi,Transparency,good,empty_point_quote_text
+15689,24717,Astronomer,Advertising,bad,empty_point_quote_text
+15782,22453,Aegis Authenticator,Transparency,good,empty_point_quote_text
+15783,22452,Aegis Authenticator,Transparency,good,empty_point_quote_text
+15790,22464,Fritter,Right to Leave The Service,good,empty_point_quote_text
+15792,22463,Fritter,Transparency,good,empty_point_quote_text
+15793,22462,Fritter,Transparency,good,empty_point_quote_text
+16095,10249,DuckDuckGo,Right to Leave The Service,good,empty_point_quote_text
+16096,6172,DuckDuckGo,User Involvement in Changing Terms,neutral,empty_point_quote_text
+16098,25636,DuckDuckGo,Anonymity,good,empty_point_quote_text
+16099,33462,DuckDuckGo,Right to Leave The Service,good,empty_point_quote_text
+16106,7202,Lichess,Anonymity,good,empty_point_quote_text
+16107,7201,Lichess,Transparency,good,empty_point_quote_text
+16160,30589,Represent,Third Parties,bad,empty_point_quote_text
+16177,20418,Startpage,Transparency,good,empty_point_quote_text
+16221,23226,Synonymo,Trackers,bad,empty_point_quote_text
+16222,23225,Synonymo,Transparency,good,empty_point_quote_text
+16223,23213,Synonymo,Security,blocker,empty_point_quote_text
+16224,23227,Synonymo,Trackers,bad,empty_point_quote_text
+16225,23228,Synonymo,Third Parties,bad,empty_point_quote_text
+16226,23214,Synonymo,Right to Leave The Service,good,empty_point_quote_text
+16227,23216,Synonymo,Law and Government Requests,good,empty_point_quote_text
+16228,23217,Synonymo,Right to Leave The Service,good,empty_point_quote_text
+16229,23219,Synonymo,Guarantee,neutral,empty_point_quote_text
+16230,23220,Synonymo,Guarantee,neutral,empty_point_quote_text
+16231,23221,Synonymo,Guarantee,neutral,empty_point_quote_text
+16232,23222,Synonymo,Jurisdiction and governing laws,neutral,empty_point_quote_text
+16233,23223,Synonymo,Dispute Resolution,good,empty_point_quote_text
+16234,23224,Synonymo,Trackers,bad,empty_point_quote_text
+16235,23215,Synonymo,Third Parties,good,empty_point_quote_text
+16236,23218,Synonymo,User Choice,good,empty_point_quote_text
+16241,26064,U.S. News & World Report,User Choice,good,empty_point_quote_text
+16242,26058,U.S. News & World Report,Governance,neutral,empty_point_quote_text
+16243,26065,U.S. News & World Report,Trackers,bad,empty_point_quote_text
+16244,26057,U.S. News & World Report,Notice of Changing Terms,bad,empty_point_quote_text
+16245,26062,U.S. News & World Report,Trackers,bad,empty_point_quote_text
+16246,26059,U.S. News & World Report,Guarantee,neutral,empty_point_quote_text
+16247,26060,U.S. News & World Report,Guarantee,neutral,empty_point_quote_text
+16248,26063,U.S. News & World Report,Business Transfers,bad,empty_point_quote_text
+16249,26056,U.S. News & World Report,Changes,neutral,empty_point_quote_text
+16250,26061,U.S. News & World Report,Jurisdiction and governing laws,neutral,empty_point_quote_text
+16304,27725,Audiotool,Ownership,good,empty_point_quote_text
+16318,21094,Briar,Transparency,good,empty_point_quote_text
+16324,26738,Scribd,Notice of Changing Terms,bad,empty_point_quote_text
+16345,24785,Jeuxvideo.com,Trackers,blocker,empty_point_quote_text
+16346,24786,Jeuxvideo.com,Trackers,bad,empty_point_quote_text
+16347,24787,Jeuxvideo.com,Trackers,bad,empty_point_quote_text
+16348,24788,Jeuxvideo.com,Types of Information Collected,neutral,empty_point_quote_text
+16349,24789,Jeuxvideo.com,Trackers,bad,empty_point_quote_text
+16350,24794,Jeuxvideo.com,Trackers,bad,empty_point_quote_text
+16351,24793,Jeuxvideo.com,Personal Data,bad,empty_point_quote_text
+16352,24814,Jeuxvideo.com,Changes,neutral,empty_point_quote_text
+16353,24795,Jeuxvideo.com,Advertising,bad,empty_point_quote_text
+16354,24796,Jeuxvideo.com,Third Parties,bad,empty_point_quote_text
+16355,24800,Jeuxvideo.com,Third Parties,bad,empty_point_quote_text
+16356,24801,Jeuxvideo.com,Third Parties,neutral,empty_point_quote_text
+16357,24804,Jeuxvideo.com,Notice of Changing Terms,neutral,empty_point_quote_text
+16358,24808,Jeuxvideo.com,Guarantee,neutral,empty_point_quote_text
+16359,24811,Jeuxvideo.com,Jurisdiction and governing laws,neutral,empty_point_quote_text
+16360,24797,Jeuxvideo.com,User Choice,good,empty_point_quote_text
+16361,24799,Jeuxvideo.com,User Choice,good,empty_point_quote_text
+16362,24803,Jeuxvideo.com,Jurisdiction and governing laws,good,empty_point_quote_text
+16363,24805,Jeuxvideo.com,Right to Leave The Service,good,empty_point_quote_text
+16364,24809,Jeuxvideo.com,Governance,neutral,empty_point_quote_text
+16365,24806,Jeuxvideo.com,Content,neutral,empty_point_quote_text
+16366,24807,Jeuxvideo.com,Content,neutral,empty_point_quote_text
+16367,24810,Jeuxvideo.com,Suspension and Censorship,neutral,empty_point_quote_text
+16368,24813,Jeuxvideo.com,Payments,neutral,empty_point_quote_text
+16369,24798,Jeuxvideo.com,User Choice,good,empty_point_quote_text
+16370,24812,Jeuxvideo.com,Dispute Resolution,good,empty_point_quote_text
+16371,24790,Jeuxvideo.com,Advertising,bad,empty_point_quote_text
+16372,24802,Jeuxvideo.com,Personal Data,bad,empty_point_quote_text
+16373,24791,Jeuxvideo.com,Transparency,good,empty_point_quote_text
+16374,24792,Jeuxvideo.com,Transparency,good,empty_point_quote_text
+16375,26682,Hypixel,Payments,neutral,empty_point_quote_text
+16376,26681,Hypixel,Personal Data,bad,empty_point_quote_text
+16377,26679,Hypixel,Ownership,blocker,empty_point_quote_text
+16378,26680,Hypixel,Trackers,bad,empty_point_quote_text
+16379,26678,Hypixel,Notice of Changing Terms,bad,empty_point_quote_text
+16380,26677,Hypixel,Ownership,neutral,empty_point_quote_text
+16381,28472,Hypixel,Advertising,bad,empty_point_quote_text
+16382,28471,Hypixel,Trackers,bad,empty_point_quote_text
+16395,29465,Novel Updates Forums,Transparency,neutral,empty_point_quote_text
+16401,26176,Gojek,Changes,neutral,empty_point_quote_text
+16402,26177,Gojek,Security,neutral,empty_point_quote_text
+16403,23484,Mental Floss,Changes,neutral,empty_point_quote_text
+16404,23485,Mental Floss,Jurisdiction and governing laws,neutral,empty_point_quote_text
+16405,29898,Webnode,Content,neutral,empty_point_quote_text
+16406,26580,Codecademy,Governance,neutral,empty_point_quote_text
+16407,28287,NovelAI,Ownership,good,empty_point_quote_text
+16409,28286,NovelAI,Governance,neutral,empty_point_quote_text
+16410,28289,NovelAI,Jurisdiction and governing laws,neutral,empty_point_quote_text
+16411,28294,NovelAI,User Choice,good,empty_point_quote_text
+16412,28291,NovelAI,Security,good,empty_point_quote_text
+16413,28292,NovelAI,Payments,neutral,empty_point_quote_text
+16414,28293,NovelAI,Transparency,neutral,empty_point_quote_text
+16415,28295,NovelAI,Personal Data,good,empty_point_quote_text
+16416,28296,NovelAI,Trackers,good,empty_point_quote_text
+16417,28302,NovelAI,Transparency,neutral,empty_point_quote_text
+16418,28301,NovelAI,Guarantee,neutral,empty_point_quote_text
+16420,28290,NovelAI,Content,good,empty_point_quote_text
+16422,28297,NovelAI,Third Parties,good,empty_point_quote_text
+16463,25013,Universal Music Group,Jurisdiction and governing laws,neutral,empty_point_quote_text
+16464,25015,Universal Music Group,Guarantee,neutral,empty_point_quote_text
+16465,25012,Universal Music Group,Ownership,bad,empty_point_quote_text
+16466,25014,Universal Music Group,Changes,neutral,empty_point_quote_text
+16599,24134,Gandi,Anonymity,good,empty_point_quote_text
+16600,24136,Gandi,Jurisdiction and governing laws,neutral,empty_point_quote_text
+16601,24135,Gandi,Transparency,neutral,empty_point_quote_text
+16609,23502,TechByte Net,Changes,neutral,empty_point_quote_text
+16610,23505,TechByte Net,Transparency,neutral,empty_point_quote_text
+16611,23503,TechByte Net,Notice of Changing Terms,neutral,empty_point_quote_text
+16612,23499,TechByte Net,Security,blocker,empty_point_quote_text
+16613,23501,TechByte Net,Logs,good,empty_point_quote_text
+16614,23500,TechByte Net,Personal Data,good,empty_point_quote_text
+16615,23504,TechByte Net,Governance,neutral,empty_point_quote_text
+16626,26124,ClustrMaps.com,Types of Information Collected,neutral,empty_point_quote_text
+16627,26129,ClustrMaps.com,Notice of Changing Terms,bad,empty_point_quote_text
+16628,26133,ClustrMaps.com,Guarantee,neutral,empty_point_quote_text
+16629,26134,ClustrMaps.com,Guarantee,neutral,empty_point_quote_text
+16630,26126,ClustrMaps.com,User Choice,good,empty_point_quote_text
+16631,26128,ClustrMaps.com,Notice of Changing Terms,neutral,empty_point_quote_text
+16632,26130,ClustrMaps.com,Governance,neutral,empty_point_quote_text
+16633,26131,ClustrMaps.com,Guarantee,neutral,empty_point_quote_text
+16634,26132,ClustrMaps.com,Guarantee,neutral,empty_point_quote_text
+16635,26135,ClustrMaps.com,Guarantee,bad,empty_point_quote_text
+16636,26137,ClustrMaps.com,Governance,neutral,empty_point_quote_text
+16637,26136,ClustrMaps.com,Guarantee,neutral,empty_point_quote_text
+16638,26125,ClustrMaps.com,Trackers,bad,empty_point_quote_text
+16639,26127,ClustrMaps.com,Right to Leave The Service,good,empty_point_quote_text
+16904,8518,Keybase,Transparency,good,empty_point_quote_text
+16954,23905,Brilliant,Right to Leave The Service,good,empty_point_quote_text
+16965,23904,Brilliant,User Choice,good,empty_point_quote_text
+17075,24255,Porton Private Cloudstorage,Guarantee,good,empty_point_quote_text
+17076,24256,Porton Private Cloudstorage,Security,neutral,empty_point_quote_text
+17077,24253,Porton Private Cloudstorage,Content,neutral,empty_point_quote_text
+17078,24251,Porton Private Cloudstorage,Third Parties,neutral,empty_point_quote_text
+17079,24259,Porton Private Cloudstorage,Jurisdiction and governing laws,good,empty_point_quote_text
+17080,24258,Porton Private Cloudstorage,Governance,neutral,empty_point_quote_text
+17081,24257,Porton Private Cloudstorage,Security,neutral,empty_point_quote_text
+17082,24254,Porton Private Cloudstorage,Guarantee,neutral,empty_point_quote_text
+17083,24485,Porton Private Cloudstorage,Personal Data,good,empty_point_quote_text
+17084,24453,Porton Private Cloudstorage,User Choice,good,empty_point_quote_text
+17085,24461,Porton Private Cloudstorage,Jurisdiction and governing laws,good,empty_point_quote_text
+17086,24456,Porton Private Cloudstorage,Right to Leave The Service,good,empty_point_quote_text
+17087,24458,Porton Private Cloudstorage,Transparency,neutral,empty_point_quote_text
+17088,24460,Porton Private Cloudstorage,Governance,neutral,empty_point_quote_text
+17089,24472,Porton Private Cloudstorage,Suspension and Censorship,good,empty_point_quote_text
+17090,24471,Porton Private Cloudstorage,Suspension and Censorship,neutral,empty_point_quote_text
+17091,24467,Porton Private Cloudstorage,Governance,neutral,empty_point_quote_text
+17092,24478,Porton Private Cloudstorage,Content,good,empty_point_quote_text
+17093,24477,Porton Private Cloudstorage,Security,good,empty_point_quote_text
+17094,24476,Porton Private Cloudstorage,Suspension and Censorship,good,empty_point_quote_text
+17095,24483,Porton Private Cloudstorage,Personal Data,good,empty_point_quote_text
+17096,24481,Porton Private Cloudstorage,Personal Data,good,empty_point_quote_text
+17097,24480,Porton Private Cloudstorage,Trackers,bad,empty_point_quote_text
+17098,24463,Porton Private Cloudstorage,Jurisdiction and governing laws,neutral,empty_point_quote_text
+17099,24484,Porton Private Cloudstorage,Personal Data,good,empty_point_quote_text
+17100,24543,Porton Private Cloudstorage,Anonymity,bad,empty_point_quote_text
+17101,24544,Porton Private Cloudstorage,User Choice,good,empty_point_quote_text
+17102,24551,Porton Private Cloudstorage,Transparency,neutral,empty_point_quote_text
+17103,24547,Porton Private Cloudstorage,Right to Leave The Service,good,empty_point_quote_text
+17104,24552,Porton Private Cloudstorage,Transparency,good,empty_point_quote_text
+17105,24549,Porton Private Cloudstorage,Law and Government Requests,good,empty_point_quote_text
+17106,24550,Porton Private Cloudstorage,Transparency,good,empty_point_quote_text
+17107,24546,Porton Private Cloudstorage,Third Parties,good,empty_point_quote_text
+17108,24545,Porton Private Cloudstorage,Third Parties,good,empty_point_quote_text
+17109,24548,Porton Private Cloudstorage,Law and Government Requests,neutral,empty_point_quote_text
+17110,24553,Porton Private Cloudstorage,Transparency,good,empty_point_quote_text
+17111,24482,Porton Private Cloudstorage,Types of Information Collected,neutral,empty_point_quote_text
+17113,24062,Flatmates,Transparency,good,empty_point_quote_text
+17114,24056,Flatmates,Trackers,bad,empty_point_quote_text
+17116,24049,Flatmates,Jurisdiction and governing laws,good,empty_point_quote_text
+17117,24051,Flatmates,Transparency,good,empty_point_quote_text
+17118,24050,Flatmates,Advertising,good,empty_point_quote_text
+17123,24052,Flatmates,Third Parties,bad,empty_point_quote_text
+17124,24053,Flatmates,Advertising,bad,empty_point_quote_text
+17125,24054,Flatmates,Advertising,bad,empty_point_quote_text
+17126,24059,Flatmates,Trackers,neutral,empty_point_quote_text
+17127,24061,Flatmates,Third Parties,bad,empty_point_quote_text
+17128,24060,Flatmates,Business Transfers,bad,empty_point_quote_text
+17129,24058,Flatmates,Trackers,bad,empty_point_quote_text
+17130,24057,Flatmates,Trackers,bad,empty_point_quote_text
+17132,24055,Flatmates,Personal Data,bad,empty_point_quote_text
+17135,23916,King Digital Entertainment (Candy Crush),Anonymity,bad,empty_point_quote_text
+17167,23573,Météo France,Trackers,bad,empty_point_quote_text
+17212,25306,NOS,Personal Data,good,empty_point_quote_text
+17287,24219,Diario AS,Trackers,bad,empty_point_quote_text
+17357,24439,JulMan,Logs,good,empty_point_quote_text
+17377,29171,RethinkDNS,Trackers,good,empty_point_quote_text
+17410,25253,Silicone Forum,Types of Information Collected,neutral,empty_point_quote_text
+17515,25917,Craft,Ownership,good,empty_point_quote_text
+17516,25918,Craft,Logs,bad,empty_point_quote_text
+17517,25919,Craft,Security,good,empty_point_quote_text
+17518,25920,Craft,Personal Data,neutral,empty_point_quote_text
+17574,25463,Simitless,User Choice,good,empty_point_quote_text
+17575,25450,Simitless,Notice of Changing Terms,neutral,empty_point_quote_text
+17576,25462,Simitless,Security,good,empty_point_quote_text
+17577,25452,Simitless,Security,good,empty_point_quote_text
+17578,25451,Simitless,Business Transfers,good,empty_point_quote_text
+17579,25449,Simitless,Jurisdiction and governing laws,good,empty_point_quote_text
+17580,25445,Simitless,Ownership,good,empty_point_quote_text
+17581,25448,Simitless,Governance,neutral,empty_point_quote_text
+17582,25447,Simitless,Governance,neutral,empty_point_quote_text
+17583,25446,Simitless,Changes,neutral,empty_point_quote_text
+17584,25464,Simitless,User Choice,good,empty_point_quote_text
+17585,25460,Simitless,Jurisdiction and governing laws,good,empty_point_quote_text
+17586,25457,Simitless,Guarantee,good,empty_point_quote_text
+17587,25456,Simitless,Dispute Resolution,good,empty_point_quote_text
+17588,25454,Simitless,Right to Leave The Service,good,empty_point_quote_text
+17589,25458,Simitless,Guarantee,neutral,empty_point_quote_text
+17590,25455,Simitless,Transparency,neutral,empty_point_quote_text
+17591,25453,Simitless,Content,neutral,empty_point_quote_text
+17592,25465,Simitless,Third Parties,bad,empty_point_quote_text
+17593,25466,Simitless,Trackers,good,empty_point_quote_text
+17594,25459,Simitless,User Choice,good,empty_point_quote_text
+17595,25461,Simitless,Suspension and Censorship,neutral,empty_point_quote_text
+17596,25467,Simitless,Jurisdiction and governing laws,neutral,empty_point_quote_text
+17701,24891,Data Secrets,Changes,neutral,empty_point_quote_text
+17702,24893,Data Secrets,Ownership,blocker,empty_point_quote_text
+17703,24892,Data Secrets,Trackers,neutral,empty_point_quote_text
+17704,24894,Data Secrets,Ownership,bad,empty_point_quote_text
+17705,24940,Data Secrets,Jurisdiction and governing laws,neutral,empty_point_quote_text
+17706,24943,Data Secrets,User Choice,good,empty_point_quote_text
+17707,24942,Data Secrets,Governance,neutral,empty_point_quote_text
+17708,24941,Data Secrets,Governance,neutral,empty_point_quote_text
+17735,25260,SHOPX,Changes,neutral,empty_point_quote_text
+17867,26504,Nilly,Changes,neutral,empty_point_quote_text
+17868,26507,Nilly,Types of Information Collected,good,empty_point_quote_text
+17897,26868,Privacy Guides,Right to Leave The Service,good,empty_point_quote_text
+18123,28019,Turbowarp,Third Parties,neutral,empty_point_quote_text
+18237,25622,Monkeytype,Transparency,good,empty_point_quote_text
+18238,25621,Monkeytype,Transparency,good,empty_point_quote_text
+18250,28775,ArtStation ,Jurisdiction and governing laws,neutral,empty_point_quote_text
+18251,28765,ArtStation ,Ownership,good,empty_point_quote_text
+18252,28768,ArtStation ,Trackers,neutral,empty_point_quote_text
+18253,28769,ArtStation ,Personal Data,bad,empty_point_quote_text
+18254,28771,ArtStation ,Content,neutral,empty_point_quote_text
+18255,28767,ArtStation ,Ownership,blocker,empty_point_quote_text
+18256,28772,ArtStation ,Personal Data,bad,empty_point_quote_text
+18257,28770,ArtStation ,Trackers,good,empty_point_quote_text
+18258,28773,ArtStation ,Governance,neutral,empty_point_quote_text
+18259,28778,ArtStation ,Personal Data,bad,empty_point_quote_text
+18260,28776,ArtStation ,Suspension and Censorship,blocker,empty_point_quote_text
+18261,28777,ArtStation ,Content,neutral,empty_point_quote_text
+18262,28766,ArtStation ,Ownership,neutral,empty_point_quote_text
+18263,28774,ArtStation ,Guarantee,neutral,empty_point_quote_text
+18302,29093,Moodle,Transparency,good,empty_point_quote_text
+18303,29089,Moodle,Transparency,neutral,empty_point_quote_text
+18311,29197,Moodle,Personal Data,good,empty_point_quote_text
+18313,29215,Moodle,Payments,good,empty_point_quote_text
+18317,29223,Moodle,Transparency,good,empty_point_quote_text
+18368,26572,avoidthehack!,Types of Information Collected,good,empty_point_quote_text
+18369,26571,avoidthehack!,Governance,neutral,empty_point_quote_text
+18370,26570,avoidthehack!,Trackers,good,empty_point_quote_text
+18371,26569,avoidthehack!,Trackers,good,empty_point_quote_text
+18384,25709,Zones,Transparency,neutral,empty_point_quote_text
+18391,25708,Zones,Transparency,good,empty_point_quote_text
+18452,29053,Opera,Third Parties,good,empty_point_quote_text
+18540,26391,IRChelp Brasil,Trackers,good,empty_point_quote_text
+18734,32730,LingQ,Guarantee,bad,empty_point_quote_text
+18735,32731,LingQ,Governance,bad,empty_point_quote_text
+18738,32728,LingQ,Suspension and Censorship,neutral,empty_point_quote_text
+18739,32732,LingQ,Governance,neutral,empty_point_quote_text
+18740,32727,LingQ,Suspension and Censorship,bad,empty_point_quote_text
+18741,32726,LingQ,Anonymity,bad,empty_point_quote_text
+18742,32729,LingQ,Ownership,good,empty_point_quote_text
+18775,6207,Signal,Personal Data,neutral,empty_point_quote_text
+18898,26635,ConnorCode,Anonymity,good,empty_point_quote_text
+18903,34191,Aurora Store,Notice of Changing Terms,bad,empty_point_quote_text
+18908,26654,Wurst Client,Transparency,good,empty_point_quote_text
+18909,26655,Wurst Client,Transparency,neutral,empty_point_quote_text
+18910,26653,Wurst Client,Payments,good,empty_point_quote_text
+18921,26810,Pantip.com,Right to Leave The Service,blocker,empty_point_quote_text
+18922,26807,Pantip.com,Transparency,good,empty_point_quote_text
+18934,26871,Pantip.com,Anonymity,bad,empty_point_quote_text
+18969,31307,pronounDB,Notice of Changing Terms,bad,empty_point_quote_text
+19005,27022,Similar Worlds,Transparency,good,empty_point_quote_text
+19144,27757,Helena Express,Transparency,good,empty_point_quote_text
+19209,28306,I-Consult & Services,Types of Information Collected,good,empty_point_quote_text
+19246,1120,Facebook,Advertising,bad,empty_point_quote_text
+19273,16745,Facebook,Anonymity,good,empty_point_quote_text
+19325,4685,weebly,Jurisdiction and governing laws,bad,empty_point_quote_text
+19333,27895,LVFS,Governance,good,empty_point_quote_text
+19334,27897,LVFS,Trackers,good,empty_point_quote_text
+19335,27893,LVFS,Transparency,good,empty_point_quote_text
+19363,29925,The MUGEN Archive,Changes,neutral,empty_point_quote_text
+19364,29922,The MUGEN Archive,Types of Information Collected,neutral,empty_point_quote_text
+19365,29924,The MUGEN Archive,Right to Leave The Service,good,empty_point_quote_text
+19366,29921,The MUGEN Archive,Content,neutral,empty_point_quote_text
+19441,28825,Allstar Gaming Inc.,Notice of Changing Terms,neutral,empty_point_quote_text
+19442,28823,Allstar Gaming Inc.,Trackers,bad,empty_point_quote_text
+19443,28822,Allstar Gaming Inc.,Governance,neutral,empty_point_quote_text
+19444,28828,Allstar Gaming Inc.,Security,neutral,empty_point_quote_text
+19445,28826,Allstar Gaming Inc.,Security,neutral,empty_point_quote_text
+19446,28824,Allstar Gaming Inc.,Business Transfers,bad,empty_point_quote_text
+19646,28927,Filen,Payments,good,empty_point_quote_text
+19647,28925,Filen,Jurisdiction and governing laws,good,empty_point_quote_text
+19650,28928,Filen,Third Parties,good,empty_point_quote_text
+19822,29394,yuh,Transparency,good,empty_point_quote_text
+19823,29392,yuh,Transparency,good,empty_point_quote_text
+19824,29393,yuh,Jurisdiction and governing laws,good,empty_point_quote_text
+19825,29390,yuh,Governance,neutral,empty_point_quote_text
+19826,29391,yuh,Security,neutral,empty_point_quote_text
+19842,19397,ToS;DR,Anonymity,good,empty_point_quote_text
+19850,4523,ToS;DR,Transparency,good,empty_point_quote_text
+19872,16550,Pragmatic Blog (DEPRECATED),Governance,neutral,empty_point_quote_text
+19873,16549,Pragmatic Blog (DEPRECATED),Types of Information Collected,good,empty_point_quote_text
+19874,16548,Pragmatic Blog (DEPRECATED),Trackers,good,empty_point_quote_text
+19875,16551,Pragmatic Blog (DEPRECATED),Personal Data,good,empty_point_quote_text
+19876,16552,Pragmatic Blog (DEPRECATED),Third Parties,good,empty_point_quote_text
+19877,16553,Pragmatic Blog (DEPRECATED),Third Parties,good,empty_point_quote_text
+19878,16554,Pragmatic Blog (DEPRECATED),Right to Leave The Service,good,empty_point_quote_text
+19879,16555,Pragmatic Blog (DEPRECATED),Personal Data,good,empty_point_quote_text
+19927,30565,PokeTube,Transparency,good,empty_point_quote_text
+19930,29598,PokeTube,Right to Leave The Service,good,empty_point_quote_text
+19937,23889,JMServices,Changes,neutral,empty_point_quote_text
+19938,23888,JMServices,Guarantee,good,empty_point_quote_text
+19939,23890,JMServices,Jurisdiction and governing laws,good,empty_point_quote_text
+19940,23912,JMServices,Content,neutral,empty_point_quote_text
+19941,23913,JMServices,Trackers,good,empty_point_quote_text
+19942,23915,JMServices,Personal Data,good,empty_point_quote_text
+19943,24167,JMServices,Right to Leave The Service,good,empty_point_quote_text
+19944,24169,JMServices,Right to Leave The Service,good,empty_point_quote_text
+19945,24179,JMServices,Advertising,good,empty_point_quote_text
+19946,24571,JMServices,Jurisdiction and governing laws,good,empty_point_quote_text
+19947,29767,JMServices,Suspension and Censorship,good,empty_point_quote_text
+19948,29766,JMServices,Ownership,good,empty_point_quote_text
+19978,24272,mail.com,Trackers,good,empty_point_quote_text
+19979,24270,mail.com,Advertising,bad,empty_point_quote_text
+19980,24273,mail.com,Trackers,bad,empty_point_quote_text
+19981,24271,mail.com,Logs,bad,empty_point_quote_text
+20018,4998,Famileo,Personal Data,good,empty_point_quote_text
+20024,8453,Sip Read Repeat (discontinued?),Transparency,neutral,empty_point_quote_text
+20025,8452,Sip Read Repeat (discontinued?),Transparency,good,empty_point_quote_text
+20026,8454,Sip Read Repeat (discontinued?),Right to Leave The Service,good,empty_point_quote_text
+20032,8980,wes.today blog (DEPRECATED Page not found tos),Transparency,good,empty_point_quote_text
+20124,28848,Rec Room,Dispute Resolution,bad,empty_point_quote_text
+20125,28849,Rec Room,Trackers,bad,empty_point_quote_text
+20126,28850,Rec Room,Ownership,good,empty_point_quote_text
+20127,28846,Rec Room,Notice of Changing Terms,bad,empty_point_quote_text
+20128,28847,Rec Room,Dispute Resolution,bad,empty_point_quote_text
+20129,28851,Rec Room,Suspension and Censorship,bad,empty_point_quote_text
+20130,28855,Rec Room,Personal Data,bad,empty_point_quote_text
+20131,28853,Rec Room,Transparency,good,empty_point_quote_text
+20132,28852,Rec Room,Personal Data,bad,empty_point_quote_text
+20138,27892,AVG Security,Governance,neutral,empty_point_quote_text
+20139,33179,AVG Security,Transparency,neutral,empty_point_quote_text
+20270,29291,Activision Publishing,Personal Data,bad,empty_point_quote_text
+20271,29292,Activision Publishing,Jurisdiction and governing laws,good,empty_point_quote_text
+20272,29716,Activision Publishing,Transparency,neutral,empty_point_quote_text
+20324,29329,TopLogger,Transparency,good,empty_point_quote_text
+20351,8184,PsychonautWiki,Transparency,good,empty_point_quote_text
+20432,29850,Cakey Bot,Transparency,good,empty_point_quote_text
+20441,28009,DigitalOcean,Ownership,good,empty_point_quote_text
+20442,28012,DigitalOcean,Changes,neutral,empty_point_quote_text
+20443,28010,DigitalOcean,Governance,neutral,empty_point_quote_text
+20444,28015,DigitalOcean,Governance,neutral,empty_point_quote_text
+20445,28014,DigitalOcean,Governance,neutral,empty_point_quote_text
+20446,28017,DigitalOcean,Third Parties,bad,empty_point_quote_text
+20447,28013,DigitalOcean,Suspension and Censorship,bad,empty_point_quote_text
+20448,28011,DigitalOcean,Governance,neutral,empty_point_quote_text
+20489,27769,Oceanhero,Changes,neutral,empty_point_quote_text
+20490,27777,Oceanhero,Trackers,bad,empty_point_quote_text
+20491,27776,Oceanhero,Types of Information Collected,bad,empty_point_quote_text
+20492,27771,Oceanhero,Personal Data,bad,empty_point_quote_text
+20493,27774,Oceanhero,Notice of Changing Terms,neutral,empty_point_quote_text
+20494,27770,Oceanhero,Personal Data,bad,empty_point_quote_text
+20495,27773,Oceanhero,Personal Data,neutral,empty_point_quote_text
+20655,29018,Brave,Anonymity,good,empty_point_quote_text
+20741,29867,Meower,Changes,neutral,empty_point_quote_text
+20854,20739,Codeberg,Changes,neutral,empty_point_quote_text
+20926,30528,Elk.zone,Changes,neutral,empty_point_quote_text
+20927,30529,Elk.zone,Personal Data,good,empty_point_quote_text
+20928,30530,Elk.zone,Trackers,good,empty_point_quote_text
+20929,30531,Elk.zone,Third Parties,neutral,empty_point_quote_text
+20930,30532,Elk.zone,Notice of Changing Terms,neutral,empty_point_quote_text
+20931,30812,Elk.zone,Transparency,good,empty_point_quote_text
+20932,30813,Elk.zone,Transparency,neutral,empty_point_quote_text
+21018,29869,SimpleLogin,Transparency,neutral,empty_point_quote_text
+21019,29953,Paysafecard,Personal Data,bad,empty_point_quote_text
+21020,29951,Paysafecard,Transparency,good,empty_point_quote_text
+21021,29950,Paysafecard,Jurisdiction and governing laws,good,empty_point_quote_text
+21022,29954,Paysafecard,Trackers,bad,empty_point_quote_text
+21023,29952,Paysafecard,Personal Data,bad,empty_point_quote_text
+21024,29957,Paysafecard,Types of Information Collected,bad,empty_point_quote_text
+21067,28854,FACEIT,Security,good,empty_point_quote_text
+21076,28006,Pixabay,Personal Data,good,empty_point_quote_text
+21077,28005,Pixabay,Content,neutral,empty_point_quote_text
+21201,29773,Mstdn,Anonymity,good,empty_point_quote_text
+21246,33042,Braintrust,Governance,neutral,empty_point_quote_text
+21247,33040,Braintrust,Suspension and Censorship,blocker,empty_point_quote_text
+21248,33041,Braintrust,Content,neutral,empty_point_quote_text
+21249,33043,Braintrust,Content,neutral,empty_point_quote_text
+21250,30580,E3 SPARK PLUGS,Security,good,empty_point_quote_text
+21251,30581,E3 SPARK PLUGS,User Choice,good,empty_point_quote_text
+21254,30697,Home Title Lock,Trackers,neutral,empty_point_quote_text
+21258,30698,Home Title Lock,User Choice,good,empty_point_quote_text
+21275,30709,The Poster Database,Guarantee,neutral,empty_point_quote_text
+21276,30703,The Poster Database,Governance,neutral,empty_point_quote_text
+21277,30708,The Poster Database,Guarantee,neutral,empty_point_quote_text
+21278,30713,The Poster Database,Governance,neutral,empty_point_quote_text
+21279,30712,The Poster Database,Governance,bad,empty_point_quote_text
+21280,30715,The Poster Database,Trackers,bad,empty_point_quote_text
+21281,30706,The Poster Database,Right to Leave The Service,good,empty_point_quote_text
+21282,30701,The Poster Database,Jurisdiction and governing laws,neutral,empty_point_quote_text
+21283,30705,The Poster Database,Governance,neutral,empty_point_quote_text
+21284,30704,The Poster Database,Dispute Resolution,bad,empty_point_quote_text
+21285,30711,The Poster Database,Guarantee,bad,empty_point_quote_text
+21286,30710,The Poster Database,Guarantee,neutral,empty_point_quote_text
+21287,30700,The Poster Database,Changes,neutral,empty_point_quote_text
+21288,30702,The Poster Database,Governance,neutral,empty_point_quote_text
+21289,30707,The Poster Database,Transparency,neutral,empty_point_quote_text
+21382,21775,GitHub,Transparency,neutral,empty_point_quote_text
+21470,31086,Monarch Money,Changes,neutral,empty_point_quote_text
+21608,26085,VIZ,Governance,neutral,empty_point_quote_text
+21609,26081,VIZ,Governance,neutral,empty_point_quote_text
+21610,26083,VIZ,Guarantee,neutral,empty_point_quote_text
+21611,26084,VIZ,Governance,neutral,empty_point_quote_text
+21612,26082,VIZ,Changes,neutral,empty_point_quote_text
+21615,30574,c-span,Changes,neutral,empty_point_quote_text
+21616,30576,c-span,Governance,neutral,empty_point_quote_text
+21617,30577,c-span,Jurisdiction and governing laws,neutral,empty_point_quote_text
+21618,30575,c-span,Notice of Changing Terms,neutral,empty_point_quote_text
+21619,30793,Funimation,Trackers,bad,empty_point_quote_text
+21819,4241,Atlassian,Governance,neutral,empty_point_quote_text
+21853,4693,New York Times,Changes,neutral,empty_point_quote_text
+21869,29045,New York Times,Anonymity,good,empty_point_quote_text
+21901,32361,Webtoon (Naver/Line),Right to Leave The Service,bad,empty_point_quote_text
+21902,32350,Webtoon (Naver/Line),Advertising,bad,empty_point_quote_text
+21903,32354,Webtoon (Naver/Line),Third Parties,bad,empty_point_quote_text
+21904,32351,Webtoon (Naver/Line),Anonymity,good,empty_point_quote_text
+21905,32349,Webtoon (Naver/Line),Transparency,good,empty_point_quote_text
+21906,32357,Webtoon (Naver/Line),Third Parties,good,empty_point_quote_text
+21907,32352,Webtoon (Naver/Line),Types of Information Collected,neutral,empty_point_quote_text
+21908,32356,Webtoon (Naver/Line),Third Parties,neutral,empty_point_quote_text
+21910,32363,Webtoon (Naver/Line),User Choice,good,empty_point_quote_text
+21911,32365,Webtoon (Naver/Line),Personal Data,good,empty_point_quote_text
+21912,32366,Webtoon (Naver/Line),Changes,neutral,empty_point_quote_text
+21920,33638,Webtoon (Naver/Line),Right to Leave The Service,good,empty_point_quote_text
+21921,32348,Webtoon (Naver/Line),Transparency,good,empty_point_quote_text
+21923,32362,Webtoon (Naver/Line),User Choice,good,empty_point_quote_text
+21931,31565,Eaze,Governance,neutral,empty_point_quote_text
+21932,31563,Eaze,Changes,neutral,empty_point_quote_text
+21933,31564,Eaze,Governance,neutral,empty_point_quote_text
+21934,31566,Eaze,Jurisdiction and governing laws,neutral,empty_point_quote_text
+21935,31567,Eaze,Guarantee,neutral,empty_point_quote_text
+21936,31568,Eaze,User Choice,good,empty_point_quote_text
+21937,31569,Eaze,Governance,neutral,empty_point_quote_text
+21948,31527,U.S. Privacy and Civil Liberties Oversight Board,Changes,neutral,empty_point_quote_text
+21949,31528,U.S. Privacy and Civil Liberties Oversight Board,Trackers,good,empty_point_quote_text
+21950,31526,U.S. Privacy and Civil Liberties Oversight Board,Governance,neutral,empty_point_quote_text
+22040,32166,Linux Hint,Governance,neutral,empty_point_quote_text
+22041,32163,Linux Hint,Governance,neutral,empty_point_quote_text
+22042,32164,Linux Hint,Governance,neutral,empty_point_quote_text
+22043,32165,Linux Hint,Changes,neutral,empty_point_quote_text
+22044,32168,Linux Hint,Governance,neutral,empty_point_quote_text
+22045,32169,Linux Hint,Governance,neutral,empty_point_quote_text
+22046,32167,Linux Hint,Jurisdiction and governing laws,neutral,empty_point_quote_text
+22047,32178,Linux Hint,Jurisdiction and governing laws,good,empty_point_quote_text
+22048,32170,Linux Hint,Trackers,neutral,empty_point_quote_text
+22049,32171,Linux Hint,Trackers,bad,empty_point_quote_text
+22050,32172,Linux Hint,Business Transfers,bad,empty_point_quote_text
+22051,32175,Linux Hint,Dispute Resolution,bad,empty_point_quote_text
+22052,32177,Linux Hint,Dispute Resolution,bad,empty_point_quote_text
+22053,32173,Linux Hint,Trackers,bad,empty_point_quote_text
+22054,32174,Linux Hint,Trackers,bad,empty_point_quote_text
+22055,31792,Loop Homes,Changes,neutral,empty_point_quote_text
+22056,31791,Loop Homes,Jurisdiction and governing laws,neutral,empty_point_quote_text
+22057,31794,Loop Homes,Governance,neutral,empty_point_quote_text
+22058,31795,Loop Homes,Transparency,neutral,empty_point_quote_text
+22059,31793,Loop Homes,Notice of Changing Terms,neutral,empty_point_quote_text
+22060,31581,Collins Dictionary,Advertising,bad,empty_point_quote_text
+22061,31580,Collins Dictionary,Trackers,bad,empty_point_quote_text
+22062,31601,Collins Dictionary,Suspension and Censorship,neutral,empty_point_quote_text
+22063,31595,Collins Dictionary,Types of Information Collected,bad,empty_point_quote_text
+22064,31602,Collins Dictionary,Transparency,good,empty_point_quote_text
+22065,31620,Collins Dictionary,Content,neutral,empty_point_quote_text
+22066,31625,Collins Dictionary,Types of Information Collected,neutral,empty_point_quote_text
+22067,31622,Collins Dictionary,Trackers,bad,empty_point_quote_text
+22068,31623,Collins Dictionary,Trackers,bad,empty_point_quote_text
+22069,31626,Collins Dictionary,Personal Data,bad,empty_point_quote_text
+22070,31614,Collins Dictionary,Suspension and Censorship,blocker,empty_point_quote_text
+22071,31621,Collins Dictionary,Content,neutral,empty_point_quote_text
+22072,31624,Collins Dictionary,Logs,bad,empty_point_quote_text
+22073,31628,Collins Dictionary,Advertising,bad,empty_point_quote_text
+22074,31634,Collins Dictionary,Content,neutral,empty_point_quote_text
+22075,31635,Collins Dictionary,Security,neutral,empty_point_quote_text
+22076,31629,Collins Dictionary,Trackers,bad,empty_point_quote_text
+22077,31630,Collins Dictionary,Trackers,bad,empty_point_quote_text
+22078,31631,Collins Dictionary,Trackers,bad,empty_point_quote_text
+22079,31636,Collins Dictionary,Copyright License,good,empty_point_quote_text
+22080,31632,Collins Dictionary,Third Parties,bad,empty_point_quote_text
+22081,31637,Collins Dictionary,Personal Data,bad,empty_point_quote_text
+22082,31878,Collins Dictionary,Transparency,good,empty_point_quote_text
+22083,31880,Collins Dictionary,User Choice,good,empty_point_quote_text
+22084,31882,Collins Dictionary,User Choice,good,empty_point_quote_text
+22085,31604,Collins Dictionary,Personal Data,neutral,empty_point_quote_text
+22086,31591,Collins Dictionary,Advertising,good,empty_point_quote_text
+22087,31603,Collins Dictionary,Notice of Changing Terms,neutral,empty_point_quote_text
+22088,31619,Collins Dictionary,Ownership,neutral,empty_point_quote_text
+22089,31675,Collins Dictionary,Copyright License,neutral,empty_point_quote_text
+22090,31881,Collins Dictionary,Jurisdiction and governing laws,good,empty_point_quote_text
+22091,31823,LoopCV,Jurisdiction and governing laws,neutral,empty_point_quote_text
+22092,31825,LoopCV,Guarantee,neutral,empty_point_quote_text
+22093,31826,LoopCV,Guarantee,neutral,empty_point_quote_text
+22094,31827,LoopCV,Governance,neutral,empty_point_quote_text
+22095,31824,LoopCV,Notice of Changing Terms,bad,empty_point_quote_text
+22096,31828,LoopCV,Third Parties,bad,empty_point_quote_text
+22275,33265,Supercell,Transparency,good,empty_point_quote_text
+22276,33269,Supercell,Right to Leave The Service,good,empty_point_quote_text
+22277,33262,Supercell,Types of Information Collected,neutral,empty_point_quote_text
+22278,33266,Supercell,Suspension and Censorship,neutral,empty_point_quote_text
+22279,33267,Supercell,Security,neutral,empty_point_quote_text
+22280,33268,Supercell,Suspension and Censorship,neutral,empty_point_quote_text
+22281,33263,Supercell,Personal Data,bad,empty_point_quote_text
+22282,33271,Supercell,Personal Data,blocker,empty_point_quote_text
+22283,33274,Supercell,Payments,neutral,empty_point_quote_text
+22284,33272,Supercell,Ownership,blocker,empty_point_quote_text
+22285,33273,Supercell,Copyright License,good,empty_point_quote_text
+22286,33275,Supercell,Governance,neutral,empty_point_quote_text
+22287,33276,Supercell,Dispute Resolution,bad,empty_point_quote_text
+22288,33264,Supercell,User Choice,good,empty_point_quote_text
+22289,33270,Supercell,Suspension and Censorship,blocker,empty_point_quote_text
+22334,33398,Blackle,Changes,neutral,empty_point_quote_text
+22341,33610,privacypolicies.com,Transparency,good,empty_point_quote_text
+22342,33616,privacypolicies.com,Transparency,good,empty_point_quote_text
+22343,33618,privacypolicies.com,Transparency,good,empty_point_quote_text
+22344,33612,privacypolicies.com,Types of Information Collected,neutral,empty_point_quote_text
+22345,33615,privacypolicies.com,Trackers,neutral,empty_point_quote_text
+22346,33623,privacypolicies.com,Trackers,bad,empty_point_quote_text
+22347,33621,privacypolicies.com,Third Parties,bad,empty_point_quote_text
+22348,33620,privacypolicies.com,Business Transfers,bad,empty_point_quote_text
+22349,33613,privacypolicies.com,Trackers,bad,empty_point_quote_text
+22350,33617,privacypolicies.com,Transparency,good,empty_point_quote_text
+22351,33614,privacypolicies.com,Trackers,neutral,empty_point_quote_text
+22352,33624,privacypolicies.com,User Choice,good,empty_point_quote_text
+22353,33630,privacypolicies.com,Right to Leave The Service,bad,empty_point_quote_text
+22354,33628,privacypolicies.com,Trackers,bad,empty_point_quote_text
+22355,33627,privacypolicies.com,Advertising,bad,empty_point_quote_text
+22356,33626,privacypolicies.com,Advertising,bad,empty_point_quote_text
+22357,33625,privacypolicies.com,Trackers,bad,empty_point_quote_text
+22358,33622,privacypolicies.com,Trackers,bad,empty_point_quote_text
+22359,33629,privacypolicies.com,User Choice,good,empty_point_quote_text
+22360,33632,privacypolicies.com,Jurisdiction and governing laws,good,empty_point_quote_text
+22361,33633,privacypolicies.com,Jurisdiction and governing laws,good,empty_point_quote_text
+22362,33634,privacypolicies.com,Advertising,good,empty_point_quote_text
+22363,33636,privacypolicies.com,Transparency,good,empty_point_quote_text
+22364,33637,privacypolicies.com,Guarantee,neutral,empty_point_quote_text
+22365,33635,privacypolicies.com,Notice of Changing Terms,good,empty_point_quote_text
+22366,33631,privacypolicies.com,Trackers,bad,empty_point_quote_text
+22367,33619,privacypolicies.com,Personal Data,bad,empty_point_quote_text
+22368,33696,privacypolicies.com,Content,neutral,empty_point_quote_text
+22369,33703,privacypolicies.com,Right to Leave The Service,blocker,empty_point_quote_text
+22370,33692,privacypolicies.com,Ownership,good,empty_point_quote_text
+22371,33693,privacypolicies.com,Content,neutral,empty_point_quote_text
+22372,33694,privacypolicies.com,Content,neutral,empty_point_quote_text
+22373,33695,privacypolicies.com,Content,neutral,empty_point_quote_text
+22374,33701,privacypolicies.com,Governance,neutral,empty_point_quote_text
+22375,33700,privacypolicies.com,Ownership,bad,empty_point_quote_text
+22376,33702,privacypolicies.com,Suspension and Censorship,bad,empty_point_quote_text
+22377,33699,privacypolicies.com,Suspension and Censorship,blocker,empty_point_quote_text
+22378,33698,privacypolicies.com,Suspension and Censorship,neutral,empty_point_quote_text
+22379,33705,privacypolicies.com,Transparency,neutral,empty_point_quote_text
+22380,33706,privacypolicies.com,Governance,neutral,empty_point_quote_text
+22381,33708,privacypolicies.com,Law and Government Requests,neutral,empty_point_quote_text
+22382,33709,privacypolicies.com,Jurisdiction and governing laws,neutral,empty_point_quote_text
+22383,33707,privacypolicies.com,Jurisdiction and governing laws,bad,empty_point_quote_text
+22384,33704,privacypolicies.com,Governance,bad,empty_point_quote_text
+22399,33781,GeeksforGeeks,Transparency,good,empty_point_quote_text
+22400,33782,GeeksforGeeks,Jurisdiction and governing laws,good,empty_point_quote_text
+22401,33785,GeeksforGeeks,Third Parties,good,empty_point_quote_text
+22402,33755,GeeksforGeeks,Trackers,neutral,empty_point_quote_text
+22403,33753,GeeksforGeeks,Types of Information Collected,neutral,empty_point_quote_text
+22404,33751,GeeksforGeeks,User Choice,good,empty_point_quote_text
+22405,33774,GeeksforGeeks,Third Parties,bad,empty_point_quote_text
+22406,33773,GeeksforGeeks,Advertising,bad,empty_point_quote_text
+22407,33772,GeeksforGeeks,Advertising,bad,empty_point_quote_text
+22408,33770,GeeksforGeeks,Trackers,bad,empty_point_quote_text
+22409,33769,GeeksforGeeks,Personal Data,bad,empty_point_quote_text
+22410,33767,GeeksforGeeks,Trackers,bad,empty_point_quote_text
+22411,33763,GeeksforGeeks,Third Parties,bad,empty_point_quote_text
+22412,33762,GeeksforGeeks,Types of Information Collected,bad,empty_point_quote_text
+22413,33765,GeeksforGeeks,Trackers,bad,empty_point_quote_text
+22414,33761,GeeksforGeeks,Third Parties,bad,empty_point_quote_text
+22415,33760,GeeksforGeeks,Logs,bad,empty_point_quote_text
+22416,33757,GeeksforGeeks,Personal Data,bad,empty_point_quote_text
+22417,33771,GeeksforGeeks,Transparency,good,empty_point_quote_text
+22418,33768,GeeksforGeeks,Jurisdiction and governing laws,good,empty_point_quote_text
+22419,33766,GeeksforGeeks,User Choice,good,empty_point_quote_text
+22420,33758,GeeksforGeeks,Transparency,good,empty_point_quote_text
+22421,33783,GeeksforGeeks,Personal Data,bad,empty_point_quote_text
+22422,33778,GeeksforGeeks,Notice of Changing Terms,bad,empty_point_quote_text
+22423,33777,GeeksforGeeks,Changes,neutral,empty_point_quote_text
+22424,33776,GeeksforGeeks,Governance,neutral,empty_point_quote_text
+22425,33775,GeeksforGeeks,Governance,neutral,empty_point_quote_text
+22426,33779,GeeksforGeeks,Transparency,good,empty_point_quote_text
+22427,33787,GeeksforGeeks,Governance,neutral,empty_point_quote_text
+22428,33764,GeeksforGeeks,Trackers,bad,empty_point_quote_text
+22429,33759,GeeksforGeeks,Personal Data,bad,empty_point_quote_text
+22430,33754,GeeksforGeeks,Trackers,bad,empty_point_quote_text
+22431,33786,GeeksforGeeks,Transparency,neutral,empty_point_quote_text
+22432,33784,GeeksforGeeks,User Choice,good,empty_point_quote_text
+22433,33780,GeeksforGeeks,Transparency,good,empty_point_quote_text
+22434,33752,GeeksforGeeks,Personal Data,bad,empty_point_quote_text
+22435,33788,GeeksforGeeks,Guarantee,neutral,empty_point_quote_text
+22436,33756,GeeksforGeeks,Trackers,neutral,empty_point_quote_text
+22440,5767,Akamai,Changes,neutral,empty_point_quote_text
+22441,5766,Akamai,Trackers,bad,empty_point_quote_text
+22477,34043,Conjuguemos,Transparency,good,empty_point_quote_text
+22521,11310,Kaspersky,Transparency,neutral,empty_point_quote_text
+22676,6778,Cengage,Trackers,bad,empty_point_quote_text
+22678,6780,Cengage,Trackers,bad,empty_point_quote_text
+22679,6782,Cengage,Third Parties,bad,empty_point_quote_text
+22681,8978,Tolino,Trackers,good,empty_point_quote_text
+22946,15307,BlackBoard,Transparency,neutral,empty_point_quote_text
+22954,18926,Swiss Government,Jurisdiction and governing laws,neutral,empty_point_quote_text
+23077,22987,SC Johnson,Copyright License,good,empty_point_quote_text
+23258,34190,Studocu,Governance,bad,empty_point_quote_text
+23259,34188,Studocu,Jurisdiction and governing laws,neutral,empty_point_quote_text
+23260,34189,Studocu,Governance,neutral,empty_point_quote_text
+23291,34272,Kick,Personal Data,bad,empty_point_quote_text
+23314,9114,VirusTotal,Third Parties,bad,empty_point_quote_text
+23315,9113,VirusTotal,Law and Government Requests,neutral,empty_point_quote_text
+23316,9115,VirusTotal,Third Parties,bad,empty_point_quote_text
+23573,29044,Twitter,Anonymity,good,empty_point_quote_text
+23626,32389,Autodesk,Third Parties,neutral,empty_point_quote_text
+23627,32384,Autodesk,Changes,neutral,empty_point_quote_text
+23628,32406,Autodesk,Advertising,bad,empty_point_quote_text
+23629,32408,Autodesk,Right to Leave The Service,bad,empty_point_quote_text
+23630,32398,Autodesk,User Choice,good,empty_point_quote_text
+23631,32414,Autodesk,Trackers,neutral,empty_point_quote_text
+23714,950,Google,Transparency,good,empty_point_quote_text
