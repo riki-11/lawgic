@@ -227,3 +227,6 @@ generated_files/lawgic_taxonomy/lawgic_combined_wide.csv
 
 # LLM Stuff
 saved_models/
+
+# Syncthing
+.stfolder/
