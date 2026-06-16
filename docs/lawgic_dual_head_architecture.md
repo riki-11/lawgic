@@ -2,7 +2,10 @@
 
 This document describes the dual-head Legal-BERT model used by Lawgic to predict both
 topic presence and consumer harm from Terms of Service clauses. It is a companion to
-`notebooks/model_finetuning/legal_bert_finetuning_dual_head.ipynb`.
+`notebooks/model_finetuning/legal_bert_finetuning_dual_head.ipynb` (generated from
+`notebooks/model_finetuning/create_dual_head_notebook.py`).
+
+Training data: `generated_files/lawgic_taxonomy/lawgic_multihead_wide.csv`.
 
 ## Motivation: The Degenerate Positive-Only Trap
 
@@ -86,6 +89,14 @@ Predicts the overall consumer-harm posture of the clause as one of three classes
 | 2           | +1         | Fair / Good    |
 
 Uses softmax activation at inference and standard cross-entropy during training.
+
+### Why a Custom `nn.Module`?
+
+`AutoModelForSequenceClassification` supports only a single classification head with one
+loss function. The dual-head setup needs two independent linear layers on the shared
+`[CLS]` pooler output, each with a different loss (masked BCE vs cross-entropy). The
+notebook therefore wraps `AutoModel` in `LawgicDualHeadModel` rather than using the
+sequence-classification wrapper.
 
 ## Joint Multi-Objective Loss Function
 
@@ -221,42 +232,112 @@ This ensures both topic distribution and harm-class distribution are balanced ac
 train, validation, and test sets. An exact-text leakage check raises an error if any
 `text` string appears in more than one split.
 
+## PyTorch Implementation
+
+### `LawgicDualHeadDataset` and `LawgicDualHeadCollator`
+
+Each training example exposes:
+
+| Field          | Shape / type   | Role                                      |
+| -------------- | -------------- | ----------------------------------------- |
+| `input_ids`    | `[seq_len]`    | Tokenised clause text                     |
+| `attention_mask` | `[seq_len]`  | Padding mask                              |
+| `labels`       | `[44]` float   | Topic presence targets (0/1)              |
+| `label_mask`   | `[44]` float   | Topic supervision mask (1 = observed)     |
+| `harm_label`   | scalar int64   | Harm class index {0, 1, 2}              |
+| `harm_mask`    | scalar float   | Harm supervision mask (1 = valid label)   |
+
+The collator pads token sequences with the HuggingFace tokenizer and stacks the
+fixed-size label tensors into batch tensors.
+
+### `DualHeadTrainer`
+
+A HuggingFace `Trainer` subclass wires the custom model into the training loop.
+
+**`compute_loss`** pops `label_mask`, `labels`, `harm_label`, and `harm_mask` from
+each batch (so they are not passed to `forward`), runs the encoder and both heads,
+and returns the equally weighted sum of masked BCE (topic) and masked CE (harm).
+
+**`prediction_step`** (required for evaluation) addresses two HuggingFace
+constraints:
+
+1. `LawgicDualHeadModel.forward` has no `labels` parameter, so the Trainer does
+   not auto-detect `label_names` and the default `prediction_step` returns
+   `labels=None`.
+2. The evaluation loop only calls `compute_metrics` when **both** gathered
+   predictions and labels are non-null.
+
+The override runs `compute_loss(..., return_outputs=True)`, returns
+`(topic_logits, harm_logits)` as predictions, and explicitly returns batch
+`labels` so mask-aware metrics are computed. Without this override, evaluation
+produces an empty metrics dict and checkpoint selection on `eval_macro_f1` fails.
+
+### Metric Context
+
+Topic and harm masks are not part of the Trainer's default prediction payload.
+Before training, the validation set's full `labels`, `label_masks`, `harm_labels`,
+and `harm_masks` arrays are stored in a module-level `metric_context` dict.
+`compute_metrics` unpacks the dual-head logit tuple from `EvalPrediction` and
+joins predictions with these pre-stored masks for mask-aware scoring.
+
 ## Evaluation Metrics
+
+Logged metric names are prefixed with `eval_` by the Trainer (e.g. `macro_f1` →
+`eval_macro_f1`).
 
 ### Topic Head Metrics (Mask-Aware)
 
 All topic metrics operate only on `(mask=1)` positions:
 
-- **Masked Macro F1** (primary checkpoint metric): Per-topic F1 over observed
-  positions, averaged across topics.
-- **Masked Micro F1**: Global binary F1 over all observed topic positions.
-- **Masked Weighted F1**: Per-topic F1 weighted by positive support.
-- **Predicted Positive Rate**: Share of supervised positions predicted positive.
+- **Masked Macro F1** (`eval_macro_f1`, primary checkpoint metric): Per-topic F1
+  over observed positions, averaged across topics.
+- **Masked Micro F1** (`eval_micro_f1`): Global binary F1 over all observed topic
+  positions.
+- **Masked Weighted F1** (`eval_weighted_f1`): Per-topic F1 weighted by positive
+  support.
+- **Predicted Positive Rate** (`eval_predicted_positive_rate`): Share of
+  supervised positions predicted positive.
+- **Masked Positions** (`eval_masked_positions`): Count of supervised topic cells.
 
 ### Harm Head Metrics (Multi-Class)
 
 Computed only on rows where `harm_mask = 1`:
 
-- **Harm Accuracy**: Fraction of correctly classified samples.
-- **Harm Weighted F1**: Weighted F1 across the three classes.
-- **Per-Class Precision / Recall**: Breakdown by Harmful, Neutral, Fair.
+- **Harm Accuracy** (`eval_harm_accuracy`): Fraction of correctly classified samples.
+- **Harm Weighted F1** (`eval_harm_weighted_f1`): Weighted F1 across the three classes.
+- **Harm Macro F1** (`eval_harm_macro_f1`): Unweighted mean F1 across classes.
+- **Harm Valid Samples** (`eval_harm_valid_samples`): Row count with valid harm labels.
+- **Per-Class Precision / Recall**: Breakdown by Harmful, Neutral, Fair (test-set
+  classification report only).
 
 ## Training Configuration
 
 The dual-head model inherits baseline hyperparameters from the single-head experiment:
 
-| Parameter          | Value                              |
-| ------------------ | ---------------------------------- |
-| Base model         | `nlpaueb/legal-bert-base-uncased`  |
-| Max sequence length| 256 tokens                         |
-| Learning rate      | 3 × 10⁻⁵                          |
-| Batch size         | 8                                  |
-| Max epochs         | 20                                 |
-| Early stopping     | Patience 3 (on `eval_macro_f1`)    |
-| Weight decay       | 0.01                               |
-| Warmup ratio       | 0.06                               |
-| Decision threshold | 0.50 (topic head, at inference)    |
-| Loss weighting     | Equal (λ = 1.0 for both heads)     |
+| Parameter               | Value                                      |
+| ----------------------- | ------------------------------------------ |
+| Base model              | `nlpaueb/legal-bert-base-uncased`          |
+| Max sequence length     | 256 tokens                                 |
+| Learning rate           | 3 × 10⁻⁵                                  |
+| Train batch size        | 8 per device                               |
+| Eval batch size         | 16 per device (`BATCH_SIZE × 2`)           |
+| Max epochs              | 20                                         |
+| Early stopping          | Patience 3 (on `eval_macro_f1`)            |
+| Weight decay            | 0.01                                       |
+| Warmup ratio            | 0.06                                       |
+| Decision threshold      | 0.50 (topic head, at inference)            |
+| Loss weighting          | Equal (λ = 1.0 for both heads)             |
+| FP16                    | Enabled on CUDA only; disabled on MPS/CPU  |
+| Checkpoint retention    | `save_total_limit=2`, best by `macro_f1`     |
+| `remove_unused_columns` | `False` (required for custom mask fields)  |
+| Eval / save strategy    | Every epoch                                |
+
+Device detection prefers CUDA, then Apple MPS, then CPU. CUDA memory is read via
+`total_memory` with a fallback to the legacy `total_mem` attribute for older PyTorch
+builds.
+
+`build_training_arguments()` inspects the installed `transformers` version and sets
+`eval_strategy` or `evaluation_strategy` accordingly.
 
 ## Resolved Harm Score Distribution
 
@@ -271,17 +352,24 @@ After pessimistic conflict resolution across all 26,479 wide rows:
 
 ## Output Artefacts
 
-The trained model and metadata are saved under:
+The trained model and metadata are saved under
+`saved_models/lawgic_classifier_legal-bert_v3/`:
 
 ```
 saved_models/lawgic_classifier_legal-bert_v3/
-├── config.json
-├── model.safetensors          # Full dual-head model weights
+├── model_state_dict.pt        # Full dual-head state dict (encoder + both heads)
+├── topic_head_weights.pt      # Topic head Linear weights only
+├── harm_head_weights.pt       # Harm head Linear weights only
+├── config.json                # Encoder config (from save_pretrained)
+├── model.safetensors          # Encoder weights (from save_pretrained)
 ├── tokenizer files
-├── lawgic_topics_44.json      # Compact taxonomy (no unclassified)
+├── lawgic_topics_44.json      # Compact 44-topic classifier mapping
 ├── lawgic_topics_original_45.json
-├── test_metrics_topic.json    # Topic head test results
-├── test_metrics_harm.json     # Harm head test results
-├── training_metadata.json     # Hyperparameters, split sizes, timing
-└── checkpoints/
+├── test_metrics_topic.json    # Test metrics + per-topic report
+├── test_metrics_harm.json     # Harm head test metrics
+├── training_metadata.json     # Hyperparameters, split sizes, best metric, timing
+└── checkpoints/               # HuggingFace Trainer epoch checkpoints
 ```
+
+`training_metadata.json` records `architecture: "dual_head"`, split row counts,
+device, FP16 flag, and the best validation `macro_f1` observed during training.

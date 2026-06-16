@@ -1,11 +1,6 @@
 # TODO
 
-
-### Taxonomy
-- Combine all the rows from ToS;DR, 100 ToS, and Claudette into one big thing (but how do we deal with the dataset having overlapping topics? hmmm.... do we evaluate on each differently but bring them back together?)
-
-
-### Finetuning
-- Try classifying statements from a random ToS PDF / Markdown via Jupyter notebook.
-- Try classifying statements via Lawgic Web App
-- actually merge the dataset so i dont have to do this cross-dataset sanity check bla bla
+### Testing the Finetuned Models
+- (For topic classification) Literally just copy-paste a sentence from a ToS from a service that isn't on the dataset. Then just check it for myself... That's it.
+    - I can test on AI services! Like OpenAI
+- (For harm score) then ask it it to give a rating as well... then compare it with what I would personally give as a rating.
