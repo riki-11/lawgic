@@ -7,3 +7,6 @@
 - (For harm score) then ask it it to give a rating as well... then compare it with what I would personally give as a rating.
     - It seems like LEGAL-BERT's harm scoring might not be the best...? So I might still need to use a decoder model to be a double check... but the classifier seems alright.
     - (Well, it's not ALL bad... it it jsut not 100% accurate, which is to be expected I guess.)
+
+## API 
+    - Maybe can turn transformer inference into lawgic package soon.
