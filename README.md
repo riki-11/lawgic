@@ -20,7 +20,8 @@ The core classifier is a **dual-head model**: one head predicts which Lawgic top
 
 The API pre-loads the dual-head model and exposes:
 - `GET /api/test-analyze` — integration test against hardcoded Apollo.io ToS
-- `POST /api/analyze_tos` — real `.txt` upload with dynamic `service_name`
+- `POST /api/analyze_tos` — real `.txt` upload with dynamic `service_name` (BERT-only)
+- `POST /api/explain_tos_scores` — plain-language titles/descriptions for harm-filtered clauses (Ollama)
 
 **Prerequisites:** `thesis-env` conda environment and local weights at `saved_models/lawgic_classifier_legal-bert_v3/`.
 
