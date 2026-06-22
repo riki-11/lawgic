@@ -18,7 +18,9 @@ The core classifier is a **dual-head model**: one head predicts which Lawgic top
 
 ## Running the Lawgic API
 
-The API pre-loads the dual-head model and exposes a test endpoint that analyzes a hardcoded Apollo.io ToS file.
+The API pre-loads the dual-head model and exposes:
+- `GET /api/test-analyze` — integration test against hardcoded Apollo.io ToS
+- `POST /api/analyze_tos` — real `.txt` upload with dynamic `service_name`
 
 **Prerequisites:** `thesis-env` conda environment and local weights at `saved_models/lawgic_classifier_legal-bert_v3/`.
 

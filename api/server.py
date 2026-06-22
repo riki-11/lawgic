@@ -1,8 +1,9 @@
 """
 Lawgic Inference API — lightweight FastAPI server for local Legal-BERT dual-head inference.
 
-Pre-loads the model and document processor at import time, then exposes a single test
-endpoint that reads a hardcoded .txt file and returns flat JSON for the React frontend.
+Pre-loads the model and document processor at import time, then exposes:
+  - GET  /api/test-analyze  — hardcoded apollo_io.txt fixture (dev/integration test)
+  - POST /api/analyze_tos   — real multipart .txt upload with dynamic service_name
 
 Run from repo root (use the thesis-env conda env that powers the notebooks):
     /Users/riki/anaconda3/envs/thesis-env/bin/python3 -m uvicorn api.server:app --host 0.0.0.0 --port 8000 --reload
@@ -17,7 +18,7 @@ from pathlib import Path
 import nltk
 import torch
 import torch.nn as nn
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from transformers import AutoModel, AutoTokenizer
 
@@ -157,17 +158,22 @@ def load_model_and_tokenizer(device: torch.device) -> tuple[LawgicDualHeadModel,
 # Document pipeline — Steps A through D (copied from inference notebook)
 # =============================================================================
 
+def normalize_document_text(raw_text: str) -> str:
+    """Normalize line endings and strip outer whitespace."""
+    return raw_text.replace("\r\n", "\n").strip()
+
+
 def read_document(file_path: Path) -> str:
     """Read a .txt file, normalize line endings, return stripped UTF-8 text."""
     file_path = Path(file_path)
 
     if not file_path.exists():
         raise FileNotFoundError(f"Document not found: {file_path}")
-    if file_path.suffix != ".txt":
+    if file_path.suffix.lower() != ".txt":
         raise ValueError(f"Expected .txt file, got: {file_path.suffix}")
 
     raw_text = file_path.read_text(encoding="utf-8", errors="replace")
-    normalized = raw_text.replace("\r\n", "\n").strip()
+    normalized = normalize_document_text(raw_text)
 
     logger.info(
         "Document read: %s | %d characters",
@@ -390,15 +396,20 @@ class LawgicDocumentProcessor:
         self.batch_size = batch_size
         self.topic_threshold = topic_threshold
 
-    def analyze_tos(self, file_path: Path) -> list[dict]:
+    def analyze_text(self, text: str, source_label: str = "upload") -> list[dict]:
         """
-        Run the full ingestion-to-inference pipeline on a .txt ToS file.
+        Run the full ingestion-to-inference pipeline on raw ToS text.
 
         Returns raw per-chunk inference dicts from run_batch_inference.
         Skipped paragraphs (headers, short fragments) are excluded.
         """
-        text = read_document(file_path)
-        paragraphs = segment_paragraphs(text)
+        normalized = normalize_document_text(text)
+        if not normalized:
+            raise ValueError("Document is empty")
+
+        logger.info("Analyzing text: %s | %d characters", source_label, len(normalized))
+
+        paragraphs = segment_paragraphs(normalized)
         chunks = prepare_chunks(paragraphs, self.tokenizer, self.token_threshold)
         return run_batch_inference(
             chunks,
@@ -409,6 +420,11 @@ class LawgicDocumentProcessor:
             batch_size=self.batch_size,
             topic_threshold=self.topic_threshold,
         )
+
+    def analyze_tos(self, file_path: Path) -> list[dict]:
+        """Run the full pipeline on a .txt ToS file on disk."""
+        text = read_document(file_path)
+        return self.analyze_text(text, source_label=file_path.name)
 
 
 # =============================================================================
@@ -448,11 +464,16 @@ app.add_middleware(
 )
 
 
-def format_api_response(results: list[dict]) -> dict:
+def format_api_response(
+    results: list[dict],
+    *,
+    service_name: str,
+    is_dynamic_upload: bool,
+) -> dict:
     """Map raw inference results to the flat JSON schema expected by the frontend."""
     return {
-        "service_name": "Apollo.io (Test Upload)",
-        "is_dynamic_upload": True,
+        "service_name": service_name,
+        "is_dynamic_upload": is_dynamic_upload,
         "clauses": [
             {
                 "chunk_id": r["chunk_id"],
@@ -480,4 +501,50 @@ def test_analyze() -> dict:
         )
 
     results = processor.analyze_tos(TEST_TOS_PATH)
-    return format_api_response(results)
+    return format_api_response(
+        results,
+        service_name="Apollo.io (Test Upload)",
+        is_dynamic_upload=True,
+    )
+
+
+@app.post("/api/analyze_tos")
+async def analyze_tos_upload(
+    file: UploadFile = File(...),
+    service_name: str = Form(...),
+) -> dict:
+    """
+    Analyze an uploaded .txt ToS file with Legal-BERT dual-head inference.
+
+    Accepts multipart form data with a plain-text file and a display name for the service.
+    """
+    filename = file.filename or ""
+    if not filename.lower().endswith(".txt"):
+        raise HTTPException(
+            status_code=400,
+            detail="Only .txt files are supported",
+        )
+
+    service_name = service_name.strip()
+    if not service_name:
+        raise HTTPException(
+            status_code=400,
+            detail="service_name is required",
+        )
+
+    raw_bytes = await file.read()
+    if not raw_bytes:
+        raise HTTPException(status_code=400, detail="Uploaded file is empty")
+
+    text = raw_bytes.decode("utf-8", errors="replace")
+
+    try:
+        results = processor.analyze_text(text, source_label=filename)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+    return format_api_response(
+        results,
+        service_name=service_name,
+        is_dynamic_upload=True,
+    )

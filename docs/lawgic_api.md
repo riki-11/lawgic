@@ -8,7 +8,7 @@ This document describes the local FastAPI server that exposes the fine-tuned Leg
 
 The Lawgic classifier was originally validated inside Jupyter notebooks (`document_inference_pipeline.ipynb`). The API bridges that notebook pipeline to a running HTTP service so the frontend can consume real model predictions without re-implementing inference in JavaScript.
 
-**Current scope (v0):** a single test endpoint that reads a hardcoded `.txt` file, runs the full document-to-clause pipeline, and returns a flat JSON response. File upload and dynamic service names are not implemented yet.
+**Current scope (v0):** a test endpoint that reads a hardcoded `.txt` file, plus a production upload route that accepts any `.txt` ToS via multipart form data and returns the same flat JSON response schema.
 
 ---
 
@@ -42,6 +42,7 @@ Everything lives in one server file by design. The notebook pipeline was inlined
 ```mermaid
 flowchart TD
     client[React frontend localhost:5173] -->|GET /api/test-analyze| fastapi[FastAPI api/server.py]
+    client -->|POST /api/analyze_tos multipart| fastapi
     fastapi --> processor[LawgicDocumentProcessor]
     processor --> read[read_document]
     read --> segment[segment_paragraphs]
@@ -125,6 +126,76 @@ Reads the hardcoded test file, runs inference, returns JSON.
 |---|---|
 | `404` | `data/new_tos/apollo_io.txt` missing |
 | `500` (import crash) | `saved_models/lawgic_classifier_legal-bert_v3/` missing — server fails to start |
+
+---
+
+### `POST /api/analyze_tos`
+
+Analyze an uploaded `.txt` ToS file with Legal-BERT dual-head inference. This is the route the React frontend should call for real user uploads.
+
+| Property | Value |
+|---|---|
+| Method | `POST` |
+| Path | `/api/analyze_tos` |
+| Content-Type | `multipart/form-data` |
+
+#### Request fields
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `file` | file | yes | Plain-text `.txt` Terms of Service document |
+| `service_name` | string | yes | Display name for the analyzed service (e.g. `"YouTube"`) |
+
+#### Response schema
+
+Same flat JSON as `GET /api/test-analyze` — `service_name` and `is_dynamic_upload` come from the request instead of hardcoded values.
+
+```json
+{
+  "service_name": "YouTube",
+  "is_dynamic_upload": true,
+  "clauses": [
+    {
+      "chunk_id": 0,
+      "text": "Exact chunk text from the uploaded document...",
+      "predicted_topics": ["Mandatory Arbitration"],
+      "harm_class": "Harmful",
+      "harm_confidence": 0.9998
+    }
+  ]
+}
+```
+
+#### Error responses
+
+| Status | Cause |
+|---|---|
+| `400` | Missing/empty `service_name`, non-`.txt` file, empty upload, or whitespace-only document |
+| `422` | Missing `file` or `service_name` form fields |
+
+#### curl example
+
+```bash
+curl -X POST http://localhost:8000/api/analyze_tos \
+  -F "file=@data/new_tos/apollo_io.txt" \
+  -F "service_name=Apollo.io"
+```
+
+#### Frontend example
+
+```javascript
+const formData = new FormData();
+formData.append("file", selectedFile);       // File object from <input type="file">
+formData.append("service_name", serviceName); // user-provided label
+
+const res = await fetch("http://localhost:8000/api/analyze_tos", {
+  method: "POST",
+  body: formData,
+});
+const data = await res.json();
+```
+
+Do **not** set `Content-Type` manually — the browser sets the multipart boundary automatically.
 
 ---
 
@@ -302,9 +373,9 @@ Do not move to 3000 or 8080 without updating frontend fetch URLs. Port 8000 was 
 
 Unlike a 404 at request time, a missing model directory raises at import and prevents the server from starting at all. Check logs for `Model directory not found`.
 
-### `is_dynamic_upload` and `service_name` are hardcoded
+### `is_dynamic_upload` and `service_name` on the test endpoint
 
-The test endpoint always returns `"Apollo.io (Test Upload)"` and `is_dynamic_upload: true`. A future upload route will need to accept these from the client or derive them from the uploaded file metadata.
+`GET /api/test-analyze` still returns hardcoded `"Apollo.io (Test Upload)"` and `is_dynamic_upload: true`. The upload route accepts `service_name` from the client.
 
 ---
 
@@ -320,7 +391,6 @@ The test endpoint always returns `"Apollo.io (Test Upload)"` and `is_dynamic_upl
 
 ## 11. Future Work (not yet implemented)
 
-- **File upload route** — `POST` with multipart `.txt` upload and dynamic `service_name`
 - **Shared Python package** — extract `LawgicDocumentProcessor` and `LawgicDualHeadModel` from notebook + API into `lawgic/` to eliminate duplication
 - **Health check endpoint** — `GET /health` returning model load status and device
 - **Configurable CORS** — environment variable for allowed origins in production
