@@ -2,8 +2,9 @@
 Lawgic Inference API — lightweight FastAPI server for local Legal-BERT dual-head inference.
 
 Pre-loads the model and document processor at import time, then exposes:
-  - GET  /api/test-analyze  — hardcoded apollo_io.txt fixture (dev/integration test)
-  - POST /api/analyze_tos   — real multipart .txt upload with dynamic service_name
+  - GET  /api/test-analyze       — hardcoded apollo_io.txt fixture (dev/integration test)
+  - POST /api/analyze_tos        — real multipart .txt upload with dynamic service_name (BERT-only)
+  - POST /api/explain_tos_scores — plain-language titles/descriptions for classified clauses
 
 Run from repo root (use the thesis-env conda env that powers the notebooks):
     /Users/riki/anaconda3/envs/thesis-env/bin/python3 -m uvicorn api.server:app --host 0.0.0.0 --port 8000 --reload
@@ -14,13 +15,22 @@ from __future__ import annotations
 import json
 import logging
 from pathlib import Path
+from typing import Literal
 
 import nltk
 import torch
 import torch.nn as nn
+from dotenv import load_dotenv
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel, Field
 from transformers import AutoModel, AutoTokenizer
+
+from api.llm_interpreter import (
+    ClauseExplainError,
+    OllamaExplainError,
+    explain_clauses,
+)
 
 # ── Logging (replaces notebook print statements) ─────────────────────────────
 logging.basicConfig(level=logging.INFO)
@@ -28,6 +38,9 @@ logger = logging.getLogger(__name__)
 
 # ── Repo-root paths (resolved relative to this file, not cwd) ────────────────
 REPO_ROOT = Path(__file__).resolve().parents[1]
+
+# Load .env from repo root (Ollama URL/model for /api/explain_tos_scores)
+load_dotenv(REPO_ROOT / ".env")
 MODEL_DIR = REPO_ROOT / "saved_models" / "lawgic_classifier_legal-bert_v3"
 TEST_TOS_PATH = REPO_ROOT / "data" / "new_tos" / "apollo_io.txt"
 
@@ -547,4 +560,125 @@ async def analyze_tos_upload(
         results,
         service_name=service_name,
         is_dynamic_upload=True,
+    )
+
+
+# =============================================================================
+# Score explanation route — plain-language point titles via Ollama
+# Route name intentionally omits "llm" so the public API hides implementation.
+# =============================================================================
+
+
+class AnalyzeClauseInput(BaseModel):
+    """One BERT-classified clause from POST /api/analyze_tos."""
+
+    chunk_id: int = Field(description="Sequential chunk index from analyze_tos")
+    text: str = Field(description="Verbatim clause text passed to Legal-BERT")
+    predicted_topics: list[str] = Field(
+        default_factory=list,
+        description="Topic names with sigmoid probability >= 0.5",
+    )
+    harm_class: Literal["Harmful", "Neutral", "Fair"] = Field(
+        description="Predicted consumer harm class from the harm head",
+    )
+    harm_confidence: float = Field(
+        ge=0.0,
+        le=1.0,
+        description="Softmax probability of the predicted harm class",
+    )
+
+
+class ExplainTosScoresRequest(BaseModel):
+    """Request body for POST /api/explain_tos_scores."""
+
+    service_name: str = Field(
+        min_length=1,
+        description="Display name of the analyzed service (echoed in response)",
+    )
+    clauses: list[AnalyzeClauseInput] = Field(
+        min_length=1,
+        description="clauses[] from a prior POST /api/analyze_tos response",
+    )
+    harm_filter: list[str] = Field(
+        default_factory=lambda: ["harmful"],
+        description=(
+            "Which harm classes to explain and return. "
+            "Aliases: bad/harmful/-1, neutral/0, good/fair/+1. Default: harmful only."
+        ),
+    )
+
+
+class ExplainedPoint(BaseModel):
+    """One harm-filtered clause enriched with a plain-language title and description."""
+
+    chunk_id: int
+    primary_topic: str = Field(description="First predicted topic, or General")
+    predicted_topics: list[str]
+    harm_class: Literal["Harmful", "Neutral", "Fair"]
+    harm_label: Literal["bad", "neutral", "good"] = Field(
+        description="ToS;DR-style UI label derived from harm_class",
+    )
+    harm_confidence: float
+    point_title: str = Field(description="Short plain-language takeaway for the UI card title")
+    description: str = Field(description="1–3 sentence elaboration for the UI description block")
+    quoted_text: str = Field(description="Verbatim clause text for the quoted-from-ToS block")
+
+
+class ExplainTosScoresResponse(BaseModel):
+    """Response from POST /api/explain_tos_scores."""
+
+    service_name: str
+    harm_filter: list[str] = Field(
+        description="Canonical harm classes applied (Harmful, Neutral, Fair)",
+    )
+    llm_model: str = Field(description="Ollama model used for explanations")
+    point_count: int
+    points: list[ExplainedPoint]
+
+
+@app.post("/api/explain_tos_scores", response_model=ExplainTosScoresResponse)
+def explain_tos_scores(request: ExplainTosScoresRequest) -> ExplainTosScoresResponse:
+    """
+    Generate plain-language point titles and descriptions for classified clauses.
+
+    Call **after** POST /api/analyze_tos. Only clauses matching harm_filter are
+    enriched and returned (default: Harmful / bad only).
+
+    Requires Ollama running locally with the model from VITE_OLLAMA_MODEL (.env).
+
+    Errors:
+        400 — invalid harm_filter token
+        502 — Ollama returned unparseable output for a clause
+        503 — Ollama unreachable
+    """
+    service_name = request.service_name.strip()
+    if not service_name:
+        raise HTTPException(status_code=400, detail="service_name is required")
+
+    clause_dicts = [c.model_dump() for c in request.clauses]
+
+    try:
+        points, model_name, normalized_filter = explain_clauses(
+            clause_dicts,
+            request.harm_filter,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except OllamaExplainError as exc:
+        raise HTTPException(
+            status_code=503,
+            detail=f"{exc}. Ensure Ollama is running and the model is pulled.",
+        ) from exc
+    except ClauseExplainError as exc:
+        raise HTTPException(
+            status_code=502,
+            detail=str(exc),
+        ) from exc
+
+    return ExplainTosScoresResponse(
+        service_name=service_name,
+        harm_filter=normalized_filter,
+        llm_model=model_name,
+        point_count=len(points),
+        points=points,
     )

@@ -8,7 +8,12 @@ This document describes the local FastAPI server that exposes the fine-tuned Leg
 
 The Lawgic classifier was originally validated inside Jupyter notebooks (`document_inference_pipeline.ipynb`). The API bridges that notebook pipeline to a running HTTP service so the frontend can consume real model predictions without re-implementing inference in JavaScript.
 
-**Current scope (v0):** a test endpoint that reads a hardcoded `.txt` file, plus a production upload route that accepts any `.txt` ToS via multipart form data and returns the same flat JSON response schema.
+**Current scope:** a two-step pipeline for the React frontend:
+
+1. **Classify** — `POST /api/analyze_tos` runs Legal-BERT on an uploaded `.txt` ToS and returns per-clause topic + harm scores.
+2. **Explain** — `POST /api/explain_tos_scores` enriches harm-filtered clauses with plain-language point titles and descriptions (via local Ollama).
+
+A legacy test endpoint (`GET /api/test-analyze`) reads a hardcoded fixture file for integration testing.
 
 ---
 
@@ -16,10 +21,12 @@ The Lawgic classifier was originally validated inside Jupyter notebooks (`docume
 
 | File | Role |
 |---|---|
-| [`api/server.py`](../api/server.py) | Self-contained FastAPI app: model, processor, pipeline, routes |
+| [`api/server.py`](../api/server.py) | FastAPI app: Legal-BERT pipeline, routes, Pydantic schemas |
+| [`api/llm_interpreter.py`](../api/llm_interpreter.py) | Ollama client, harm-filter logic, prompt + JSON parsing for explanations |
 | [`api/__init__.py`](../api/__init__.py) | Package marker so `uvicorn api.server:app` resolves correctly |
+| [`.env.example`](../.env.example) | Ollama URL and model template (copy to `.env`) |
 
-Everything lives in one server file by design. The notebook pipeline was inlined rather than extracted into a separate `lawgic/` Python package. This keeps the first integration small and mirrors the notebook logic directly.
+The Legal-BERT pipeline lives in `api/server.py` (inlined from the notebook). Score explanations are delegated to `api/llm_interpreter.py` so the Ollama integration stays isolated from the classifier code.
 
 ### Components inside `api/server.py`
 
@@ -33,7 +40,13 @@ Everything lives in one server file by design. The notebook pipeline was inlined
 
 3. **`LawgicDocumentProcessor`** — thin wrapper exposing `analyze_tos(file_path)` that chains the pipeline steps and returns raw per-chunk inference dicts.
 
-4. **FastAPI app** — CORS middleware, global model pre-load, and the test route.
+4. **FastAPI app** — CORS middleware, global model pre-load, classify + explain routes.
+
+### Components inside `api/llm_interpreter.py`
+
+1. **`normalize_harm_filter()`** — resolves user aliases (`bad`, `harmful`, `-1`, etc.) to canonical harm classes.
+2. **`explain_clause()`** — single-clause Ollama call with JSON schema output and one retry on parse failure.
+3. **`explain_clauses()`** — filters clauses, runs sequential Ollama enrichment, returns `points[]`.
 
 ---
 
@@ -41,17 +54,23 @@ Everything lives in one server file by design. The notebook pipeline was inlined
 
 ```mermaid
 flowchart TD
-    client[React frontend localhost:5173] -->|GET /api/test-analyze| fastapi[FastAPI api/server.py]
-    client -->|POST /api/analyze_tos multipart| fastapi
-    fastapi --> processor[LawgicDocumentProcessor]
-    processor --> read[read_document]
-    read --> segment[segment_paragraphs]
-    segment --> chunks[prepare_chunks]
-    chunks --> infer[run_batch_inference]
-    infer --> model[LawgicDualHeadModel]
-    model --> format[format_api_response]
-    format --> json[Flat JSON response]
+    client[React frontend localhost:5173]
+    client -->|POST /api/analyze_tos| classify[Legal-BERT classify]
+    classify --> clauses["clauses[] topics + harm scores"]
+    clauses -->|POST /api/explain_tos_scores| explain[explain_tos_scores]
+    explain --> filter[harm_filter]
+    filter --> ollama[Ollama gemma4:e4b]
+    ollama --> points["points[] title + description"]
+    client -->|GET /api/test-analyze| test[Test fixture only]
+    test --> classify
 ```
+
+### Two-step frontend flow
+
+1. Upload `.txt` → `POST /api/analyze_tos` → receive all classified `clauses[]`.
+2. Send `clauses[]` + `harm_filter` → `POST /api/explain_tos_scores` → receive enriched `points[]` for UI cards.
+
+Only clauses matching `harm_filter` are explained and returned (default: **Harmful** only). The explain route name intentionally omits implementation details (no `llm` in the path).
 
 ### Startup lifecycle
 
@@ -199,6 +218,154 @@ Do **not** set `Content-Type` manually — the browser sets the multipart bounda
 
 ---
 
+### `POST /api/explain_tos_scores`
+
+Generate plain-language point titles and descriptions for harm-filtered clauses. Call **after** `POST /api/analyze_tos`. Uses local Ollama (model from `.env`); the route name does not expose the LLM pipeline to end users.
+
+| Property | Value |
+|---|---|
+| Method | `POST` |
+| Path | `/api/explain_tos_scores` |
+| Content-Type | `application/json` |
+
+#### Request body
+
+```json
+{
+  "service_name": "Apollo.io",
+  "harm_filter": ["harmful"],
+  "clauses": [
+    {
+      "chunk_id": 12,
+      "text": "Verbatim clause text...",
+      "predicted_topics": ["Ownership"],
+      "harm_class": "Harmful",
+      "harm_confidence": 0.9999
+    }
+  ]
+}
+```
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `service_name` | string | required | Display name (echoed in response) |
+| `clauses` | array | required | `clauses[]` from `/api/analyze_tos` (min 1) |
+| `harm_filter` | string[] | `["harmful"]` | Which harm classes to explain **and** return |
+
+#### `harm_filter` aliases
+
+| User input | Maps to `harm_class` |
+|---|---|
+| `bad`, `harmful`, `-1` | `Harmful` |
+| `neutral`, `0` | `Neutral` |
+| `good`, `fair`, `+1` | `Fair` |
+
+Only matching clauses are sent to Ollama and included in the response.
+
+#### Response schema
+
+```json
+{
+  "service_name": "Apollo.io",
+  "harm_filter": ["Harmful"],
+  "llm_model": "gemma4:e4b",
+  "point_count": 3,
+  "points": [
+    {
+      "chunk_id": 12,
+      "primary_topic": "Ownership",
+      "predicted_topics": ["Ownership"],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.9999,
+      "point_title": "This service claims exclusive rights to your feedback",
+      "description": "Any suggestions you submit become the service's property.",
+      "quoted_text": "Verbatim clause text..."
+    }
+  ]
+}
+```
+
+#### UI field mapping
+
+| UI section | API field |
+|---|---|
+| Category label (e.g. OWNERSHIP) | `primary_topic` |
+| Card title | `point_title` |
+| BAD / NEUTRAL / GOOD badge | `harm_label` |
+| DESCRIPTION block | `description` |
+| QUOTED FROM TOS block | `quoted_text` |
+| Confidence / ANALYSIS | `harm_confidence` |
+
+#### Error responses
+
+| Status | Cause |
+|---|---|
+| `400` | Invalid `harm_filter` token or empty `service_name` |
+| `422` | Missing/invalid request body fields |
+| `502` | Ollama returned unparseable JSON for a clause after retry |
+| `503` | Ollama unreachable — start Ollama and pull the model |
+
+#### curl example (chained)
+
+```bash
+# Step 1: classify (save to /tmp/analyze.json)
+curl -s -X POST http://localhost:8000/api/analyze_tos \
+  -F "file=@data/new_tos/apollo_io.txt" \
+  -F "service_name=Apollo.io" \
+  -o /tmp/analyze.json
+
+# Step 2: explain harmful clauses only
+python3 -c "
+import json, urllib.request
+with open('/tmp/analyze.json') as f:
+    d = json.load(f)
+body = json.dumps({
+    'service_name': d['service_name'],
+    'harm_filter': ['harmful'],
+    'clauses': d['clauses'],
+}).encode()
+req = urllib.request.Request(
+    'http://localhost:8000/api/explain_tos_scores',
+    data=body,
+    headers={'Content-Type': 'application/json'},
+)
+print(urllib.request.urlopen(req).read().decode())
+"
+```
+
+#### Frontend example (two-step)
+
+```javascript
+// Step 1: classify
+const formData = new FormData();
+formData.append("file", selectedFile);
+formData.append("service_name", serviceName);
+const analyzeRes = await fetch("http://localhost:8000/api/analyze_tos", {
+  method: "POST",
+  body: formData,
+});
+const { clauses, service_name } = await analyzeRes.json();
+
+// Step 2: explain harmful clauses only
+const explainRes = await fetch("http://localhost:8000/api/explain_tos_scores", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    service_name,
+    harm_filter: ["harmful"],
+    clauses,
+  }),
+});
+const { points } = await explainRes.json();
+```
+
+#### Latency
+
+Each filtered clause triggers one sequential Ollama call (~2–5 s each). Apollo.io (~75 BERT chunks) may yield ~5–15 Harmful clauses → **10–75 s** for the explain step. Show a loading state in the UI.
+
+---
+
 ## 5. Prerequisites
 
 ### Python environment
@@ -211,7 +378,25 @@ Kernel path (reference):
 /Users/riki/anaconda3/envs/thesis-env/bin/python3
 ```
 
-Dependencies are listed in [`notebooks/requirements.txt`](../notebooks/requirements.txt). Key packages: `torch`, `transformers`, `nltk`, `fastapi`, `uvicorn`.
+Dependencies are listed in [`notebooks/requirements.txt`](../notebooks/requirements.txt). Key packages: `torch`, `transformers`, `nltk`, `fastapi`, `uvicorn`, `ollama`, `python-dotenv`.
+
+### Ollama (for `/api/explain_tos_scores`)
+
+Ollama must be running locally with the configured model pulled:
+
+```bash
+ollama serve          # if not already running
+ollama pull gemma4:e4b
+```
+
+Copy [`.env.example`](../.env.example) to `.env` at the repo root:
+
+```
+VITE_OLLAMA_BASE_URL=http://localhost:11434
+VITE_OLLAMA_MODEL=gemma4:e4b
+```
+
+These variable names match `lawgic-web-app` so one `.env` can be shared. The API loads them at startup via `python-dotenv`.
 
 ### Model weights (local only)
 
@@ -280,6 +465,16 @@ Interactive API docs (auto-generated by FastAPI):
 ---
 
 ## 7. How to Test
+
+### Test script (classify + explain)
+
+From repo root, with API and Ollama running:
+
+```bash
+/Users/riki/anaconda3/envs/thesis-env/bin/python3 notebooks/lawgic_pipeline/test_llm_inference.py
+```
+
+Options: `--api-url`, `--file`, `--service-name`, `--harm-filter` (default: `harmful`).
 
 ### curl (terminal)
 
@@ -394,6 +589,7 @@ Unlike a 404 at request time, a missing model directory raises at import and pre
 - **Shared Python package** — extract `LawgicDocumentProcessor` and `LawgicDualHeadModel` from notebook + API into `lawgic/` to eliminate duplication
 - **Health check endpoint** — `GET /health` returning model load status and device
 - **Configurable CORS** — environment variable for allowed origins in production
+- **Batch Ollama calls** — explain multiple clauses per request to reduce latency
 - **Alignment with full `lawgic_tos_schema.md`** — if the frontend needs `notable_clauses`, `analysis`, etc.
 
 ---
@@ -408,3 +604,7 @@ Unlike a 404 at request time, a missing model directory raises at import and pre
 | `404` on `/api/test-analyze` | Confirm `data/new_tos/apollo_io.txt` exists |
 | Very slow first request | Normal — model already loaded; inference on long docs takes seconds |
 | Empty `predicted_topics` on many chunks | Lower `TOPIC_THRESHOLD` in `api/server.py` (default 0.5) |
+| `503` on `/api/explain_tos_scores` | Start Ollama (`ollama serve`), pull model (`ollama pull gemma4:e4b`), check `.env` |
+| `502` on `/api/explain_tos_scores` | Ollama returned invalid JSON — check logs for clause `chunk_id`; retry |
+| Empty `points[]` | No clauses matched `harm_filter` — widen filter (e.g. `harmful,neutral`) or check BERT harm classes |
+| Explain step very slow | Expected — one Ollama call per filtered clause; default `harmful` limits count |
