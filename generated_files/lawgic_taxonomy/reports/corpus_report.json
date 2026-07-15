@@ -1,0 +1,30 @@
+{
+  "total_rows": 26479,
+  "multi_source_rows": 109,
+  "multi_source_breakdown": {
+    "claudette + tos_dr": 51,
+    "100_tos + claudette": 36,
+    "100_tos + tos_dr": 19,
+    "100_tos + claudette + tos_dr": 3
+  },
+  "topics_with_zero_positives": [
+    "indemnification"
+  ],
+  "topics_under_50_positives": [
+    "indemnification",
+    "limitation_period",
+    "user_participation_in_changes"
+  ],
+  "topics_with_zero_negatives": [],
+  "harm_mask_resolved": 26479,
+  "harm_mask_unresolved": 0,
+  "token_lengths": {
+    "median": 38.0,
+    "p90": 101.0,
+    "p95": 137.0,
+    "p99": 268.0,
+    "max": 3579,
+    "over_max_length": 298,
+    "over_max_length_pct": 1.13
+  }
+}
