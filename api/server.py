@@ -612,7 +612,7 @@ class ExplainedPoint(BaseModel):
     """One harm-filtered clause enriched with a plain-language title and description."""
 
     chunk_id: int
-    primary_topic: str = Field(description="First predicted topic, or General")
+    primary_topic: str = Field(description="First predicted topic, or unclassified")
     predicted_topics: list[str]
     harm_class: Literal["Harmful", "Neutral", "Fair"]
     harm_label: Literal["bad", "neutral", "good"] = Field(

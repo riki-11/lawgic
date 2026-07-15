@@ -129,7 +129,7 @@ def build_explain_prompt(
     Intent: ToS;DR-style plain-language point. Guidelines are embedded in the
     system message; this message supplies only the clause context.
     """
-    topics_str = ", ".join(predicted_topics) if predicted_topics else "General"
+    topics_str = ", ".join(predicted_topics) if predicted_topics else "unclassified"
     return (
         f"Topics: {topics_str}\n"
         f"Harm rating: {harm_class}\n"
@@ -229,7 +229,7 @@ def explain_clause(
 
 
 def _primary_topic(predicted_topics: list[str]) -> str:
-    return predicted_topics[0] if predicted_topics else "General"
+    return predicted_topics[0] if predicted_topics else "unclassified"
 
 
 def explain_clauses(
