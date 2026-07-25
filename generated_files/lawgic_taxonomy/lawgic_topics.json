@@ -1,0 +1,784 @@
+{
+  "$schema_version": "1.0.0",
+  "topics": [
+    {
+      "id": "choice_of_law",
+      "name": "Choice of Law",
+      "parent_topic": "dispute_resolution",
+      "description": "Clauses selecting which jurisdiction's substantive law governs disputes or the interpretation of the terms.",
+      "source_mappings": {
+        "100_tos": ["c_law"],
+        "tos_dr": ["Jurisdiction and governing laws"],
+        "claudette": ["law"]
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The ToS provides that a law other than the law of the user's habitual residence will apply to disputes arising in connection with the contract."},
+        {"num_score": 0, "label": "neutral", "explanation": "The ToS applies another law only to businesses, or expressly preserves the mandatory consumer protections of the user's habitual residence."},
+        {"num_score": 1, "label": "good", "explanation": "No foreign choice-of-law clause is imposed, or the governing law is the law of the user's habitual residence."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "choice_of_forum",
+      "name": "Choice of Forum",
+      "parent_topic": "dispute_resolution",
+      "description": "Clauses selecting the court, venue, or jurisdiction where disputes must be brought.",
+      "source_mappings": {
+        "100_tos": ["c_forum"],
+        "tos_dr": ["Jurisdiction and governing laws"],
+        "claudette": ["j"]
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The ToS requires disputes to be resolved in courts outside the user's place of permanent residence or domicile."},
+        {"num_score": 0, "label": "neutral", "explanation": "A foreign forum is imposed only on businesses, or the clause is ambiguous but preserves mandatory consumer forum protections."},
+        {"num_score": 1, "label": "good", "explanation": "No foreign forum is imposed, or the user may bring claims in the courts of their domicile."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "mandatory_arbitration",
+      "name": "Mandatory Arbitration",
+      "parent_topic": "dispute_resolution",
+      "description": "Clauses requiring disputes to be filed in arbitration rather than ordinary courts.",
+      "source_mappings": {
+        "100_tos": ["arb"],
+        "tos_dr": ["Dispute Resolution", "Waivers"],
+        "claudette": ["a"]
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The user must bring claims before an arbitration tribunal specified in the ToS instead of filing a traditional court lawsuit."},
+        {"num_score": 0, "label": "neutral", "explanation": "Arbitration is mandatory only for businesses or only in limited jurisdictions while preserving consumers' access to court."},
+        {"num_score": 1, "label": "good", "explanation": "The ToS does not impose mandatory arbitration, or arbitration is offered only as a voluntary option."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "class_action_waiver",
+      "name": "Class Action Waiver",
+      "parent_topic": "dispute_resolution",
+      "description": "Clauses preventing users from bringing or joining collective, representative, or class proceedings.",
+      "source_mappings": {
+        "100_tos": ["class"],
+        "tos_dr": ["Dispute Resolution", "Waivers"],
+        "claudette": ["a"]
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The ToS forbids the user from participating in a group or class of people collectively filing a civil claim."},
+        {"num_score": 0, "label": "neutral", "explanation": "The waiver is limited to businesses, specific jurisdictions, or only applies to the extent permitted by law."},
+        {"num_score": 1, "label": "good", "explanation": "The ToS contains no class action waiver and does not restrict collective redress."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "limitation_of_liability",
+      "name": "Limitation of Liability",
+      "parent_topic": "limitation_of_remedies",
+      "description": "Clauses limiting or excluding the company's liability for damages connected with use of the service.",
+      "source_mappings": {
+        "100_tos": ["ltd"],
+        "tos_dr": ["Guarantee", "Waivers"],
+        "claudette": ["ltd"]
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The company unlawfully limits liability for personal injury, non-performance against consumers, intentionally caused damage, or other mandatory liability."},
+        {"num_score": 0, "label": "neutral", "explanation": "The limitation appears lawful, for example excluding losses not caused by the company's breach or limiting liability only where permitted by law."},
+        {"num_score": 1, "label": "good", "explanation": "The ToS does not limit the company's liability or expressly preserves mandatory liability."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "liability_cap",
+      "name": "Liability Cap",
+      "parent_topic": "limitation_of_remedies",
+      "description": "Clauses setting a maximum amount recoverable from the company for damages.",
+      "source_mappings": {
+        "100_tos": ["ltd_cap"],
+        "tos_dr": ["Guarantee", "Waivers"],
+        "claudette": ["ltd"]
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "All users entitled to damages connected with using the service may claim damages only up to a fixed amount."},
+        {"num_score": 0, "label": "neutral", "explanation": "Only businesses, or only non-consumer claims, are subject to a fixed damages cap."},
+        {"num_score": 1, "label": "good", "explanation": "There is no maximum damages amount, or mandatory consumer remedies are expressly uncapped."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "warranty_disclaimer",
+      "name": "Warranty Disclaimer",
+      "parent_topic": "limitation_of_remedies",
+      "description": "Clauses providing the service on an as-is basis or disclaiming warranties, guarantees, service quality, availability, or fitness for purpose.",
+      "source_mappings": {
+        "100_tos": ["as_is"],
+        "tos_dr": ["Guarantee", "Waivers"],
+        "claudette": ["ltd"]
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The service is provided as-is and all warranties or guarantees are disclaimed, including mandatory consumer conformity rights."},
+        {"num_score": 0, "label": "neutral", "explanation": "Warranties are limited only to the extent permitted by law, or the clause is qualified while preserving mandatory statutory guarantees."},
+        {"num_score": 1, "label": "good", "explanation": "The ToS lacks an as-is disclaimer or expressly guarantees defined service features, quality, availability, or statutory conformity rights."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "indemnification",
+      "name": "Indemnification",
+      "parent_topic": "limitation_of_remedies",
+      "description": "Clauses requiring the user to compensate, defend, or hold the company harmless from claims, losses, damages, or expenses.",
+      "source_mappings": {
+        "100_tos": ["indemn"],
+        "tos_dr": ["Waivers"],
+        "claudette": ["ltd"]
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The user must broadly indemnify the company for claims or losses beyond the user's fault, unlawful conduct, or clear breach of the terms."},
+        {"num_score": 0, "label": "neutral", "explanation": "An indemnification clause is present but limited to third-party claims or direct claims caused by the user's unlawful conduct or clear breach."},
+        {"num_score": 1, "label": "good", "explanation": "The ToS imposes no indemnification obligation on the user."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "limitation_period",
+      "name": "Limitation Period",
+      "parent_topic": "limitation_of_remedies",
+      "description": "Clauses shortening or setting a time limit for bringing claims against the company.",
+      "source_mappings": {
+        "100_tos": ["period"],
+        "tos_dr": [],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The ToS sets a contractual time limit for bringing a claim to court and bars claims after that period."},
+        {"num_score": 0, "label": "neutral", "explanation": "The ToS does not contain a contractual limitation period or only restates generally applicable statutory limitation rules."},
+        {"num_score": 1, "label": "good", "explanation": "The ToS expressly preserves the user's full statutory limitation period or gives the user a longer period than applicable law requires."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "contract_changes",
+      "name": "Contract Changes",
+      "parent_topic": "unilateral_modification",
+      "description": "Clauses allowing the company to amend the Terms of Service or contractual obligations.",
+      "source_mappings": {
+        "100_tos": ["contr_chg"],
+        "tos_dr": ["Changes"],
+        "claudette": ["ch"]
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The company reserves the right to change the contract at any time without a valid reason stated in the contract."},
+        {"num_score": 0, "label": "neutral", "explanation": "The company may change the contract for stated reasons, but the reasons are vague, incomplete, or leave broad discretion."},
+        {"num_score": 1, "label": "good", "explanation": "Contract changes require valid reasons specified in the contract, genuine user agreement, or the company reserves no unilateral change right."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "service_changes",
+      "name": "Service Changes",
+      "parent_topic": "unilateral_modification",
+      "description": "Clauses allowing the company to modify the service, features, design, availability, or functionality.",
+      "source_mappings": {
+        "100_tos": ["serv_chg"],
+        "tos_dr": ["Changes"],
+        "claudette": ["ch"]
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The company may change the service without valid reasons or without any stated requirements, including adding, removing, or modifying features at will."},
+        {"num_score": 0, "label": "neutral", "explanation": "The company may change the service for vague or broadly stated reasons that are hard for consumers to evaluate."},
+        {"num_score": 1, "label": "good", "explanation": "Service changes are limited to valid reasons specified in the contract, require appropriate notice or consent, or no unilateral change right is reserved."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "price_changes",
+      "name": "Price Changes",
+      "parent_topic": "unilateral_modification",
+      "description": "Clauses allowing unilateral changes to prices, fees, subscription charges, or other payment terms.",
+      "source_mappings": {
+        "100_tos": ["price_chg"],
+        "tos_dr": ["Changes"],
+        "claudette": ["ch"]
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The company may change prices for existing or future services without valid reasons, advance notice, or a meaningful right to cancel before the change applies."},
+        {"num_score": 0, "label": "neutral", "explanation": "The company reserves the right to change future prices for services not yet supplied or enabled, but the user's cancellation or notice rights are limited."},
+        {"num_score": 1, "label": "good", "explanation": "The company does not reserve unilateral future price changes, or price changes require clear advance notice and a meaningful right to reject or terminate."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "notice_of_changes",
+      "name": "Notice of Changes",
+      "parent_topic": "unilateral_modification",
+      "description": "Clauses describing whether users receive clear and advance notice before changes to terms or policies take effect.",
+      "source_mappings": {
+        "100_tos": [],
+        "tos_dr": ["Notice of Changing Terms"],
+        "claudette": ["ch"]
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "Terms may change without prior notice, take effect immediately, or be accepted automatically through continued use."},
+        {"num_score": 0, "label": "neutral", "explanation": "Users are notified of changes, but without enough lead time or without a meaningful opportunity to review and decide before they take effect."},
+        {"num_score": 1, "label": "good", "explanation": "Users receive clear advance notice, a reasonable review period, and the ability to terminate before changed terms apply."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "user_participation_in_changes",
+      "name": "User Participation in Changes",
+      "parent_topic": "unilateral_modification",
+      "description": "Clauses indicating whether users can participate, provide meaningful feedback, or consent before substantial changes are imposed.",
+      "source_mappings": {
+        "100_tos": [],
+        "tos_dr": ["User Involvement in Changing Terms"],
+        "claudette": ["ch"]
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "Changes are imposed unilaterally on a take-it-or-leave-it basis, with continued use deemed acceptance and no user consultation."},
+        {"num_score": 0, "label": "neutral", "explanation": "Users may provide feedback or are consulted on some changes, but the company retains final unilateral discretion."},
+        {"num_score": 1, "label": "good", "explanation": "Substantial changes require genuine user agreement or meaningful consultation, giving users a real role in the change process."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "account_termination",
+      "name": "Account Termination",
+      "parent_topic": "enforcement_actions",
+      "description": "Clauses allowing the company to delete an account or terminate the contract unilaterally.",
+      "source_mappings": {
+        "100_tos": ["acc_del"],
+        "tos_dr": ["Suspension and Censorship"],
+        "claudette": ["ter"]
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The company may delete the user's account or terminate the contract without serious grounds or a reasonable notice period."},
+        {"num_score": 0, "label": "neutral", "explanation": "Termination requires either serious grounds without notice or notice without serious grounds, but not both."},
+        {"num_score": 1, "label": "good", "explanation": "Termination is limited to serious grounds with reasonable notice, or the company reserves no unilateral termination right."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "account_suspension",
+      "name": "Account Suspension",
+      "parent_topic": "enforcement_actions",
+      "description": "Clauses allowing the company to suspend, restrict, or disable the user's account or access to the service.",
+      "source_mappings": {
+        "100_tos": ["acc_sus"],
+        "tos_dr": ["Suspension and Censorship"],
+        "claudette": ["ter"]
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The company may suspend the user's account without serious grounds, prior notice, or an appeal or redress mechanism."},
+        {"num_score": 0, "label": "neutral", "explanation": "Suspension is tied to stated grounds but lacks notice or appeal, or includes notice but relies on broad or vague grounds."},
+        {"num_score": 1, "label": "good", "explanation": "Suspension is limited to serious specified grounds with notice, reasons, and appeal rights, or no suspension right is reserved."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "content_removal",
+      "name": "Content Removal",
+      "parent_topic": "enforcement_actions",
+      "description": "Clauses allowing the company to remove, delete, censor, restrict, or moderate user content.",
+      "source_mappings": {
+        "100_tos": ["cnt_del"],
+        "tos_dr": ["Suspension and Censorship", "Content"],
+        "claudette": ["cr"]
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The company may delete or censor all user content without restrictions, serious grounds, notice, or appeal."},
+        {"num_score": 0, "label": "neutral", "explanation": "The company may remove content only for illegality or Terms violations, but the grounds or procedure remain broad or incomplete."},
+        {"num_score": 1, "label": "good", "explanation": "The company does not reserve a content-removal right, or removal is limited to serious specified grounds with reasons, notice, and redress."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "contract_by_use",
+      "name": "Contract Formed Through Use",
+      "parent_topic": "consent_contract_formation",
+      "description": "Clauses stating that visiting, downloading, accessing, browsing, or using the service constitutes acceptance of the Terms.",
+      "source_mappings": {
+        "100_tos": [],
+        "tos_dr": ["Governance", "User Choice"],
+        "claudette": ["use"]
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The user is deemed bound merely by visiting, browsing, downloading, or continuing to use the service, without clear presentation of the terms or an affirmative act of acceptance."},
+        {"num_score": 0, "label": "neutral", "explanation": "Use of the service may constitute acceptance, but the terms are reasonably available and the user receives some notice before or during sign-up."},
+        {"num_score": 1, "label": "good", "explanation": "The user is bound only after clear notice of the terms and an affirmative, informed acceptance action."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "privacy_incorporation",
+      "name": "Privacy Policy Incorporation",
+      "parent_topic": "consent_contract_formation",
+      "description": "Clauses incorporating the privacy policy into the terms, or stating that use of the service also means consent to privacy practices.",
+      "source_mappings": {
+        "100_tos": [],
+        "tos_dr": ["Personal Data", "User Choice"],
+        "claudette": ["pinc"]
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The ToS treats privacy-policy consent as automatic through use of the service, without separate, informed, specific, and freely given consent where required."},
+        {"num_score": 0, "label": "neutral", "explanation": "The privacy policy is incorporated by reference and linked, but the relationship between contractual acceptance and privacy consent is not fully clear."},
+        {"num_score": 1, "label": "good", "explanation": "The ToS clearly distinguishes contractual acceptance from privacy choices and preserves separate consent or lawful-basis requirements for data processing."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "copyright_license",
+      "name": "Copyright License",
+      "parent_topic": "user_content_ip",
+      "description": "Clauses granting the company a license to use, host, reproduce, modify, distribute, sublicense, or exploit user content.",
+      "source_mappings": {
+        "100_tos": ["IP"],
+        "tos_dr": ["Copyright License"],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The user grants a broad, perpetual, irrevocable, sublicensable, or commercially exploitable license beyond what is necessary to provide the service."},
+        {"num_score": 0, "label": "neutral", "explanation": "The license is broader than strictly necessary, but its purposes are listed and explained, or necessity is uncertain."},
+        {"num_score": 1, "label": "good", "explanation": "Any license is limited to what is necessary to operate and provide the service, or no user-content license is required."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "ownership",
+      "name": "Ownership",
+      "parent_topic": "user_content_ip",
+      "description": "Clauses describing ownership of content, data, or other material generated or uploaded by the user.",
+      "source_mappings": {
+        "100_tos": ["IP", "cnt_retr"],
+        "tos_dr": ["Ownership"],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The ToS claims ownership of, or assigns title in, user-generated content or personal data to the company."},
+        {"num_score": 0, "label": "neutral", "explanation": "The user nominally retains ownership, but the clause is ambiguous or grants such broad company rights that practical control is reduced."},
+        {"num_score": 1, "label": "good", "explanation": "The ToS expressly confirms that users retain full ownership of and title to their generated content and personal data."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "content_retrieval",
+      "name": "Content Retrieval",
+      "parent_topic": "user_content_ip",
+      "description": "Clauses describing whether users may retrieve, export, download, or recover their digital content after termination or account closure.",
+      "source_mappings": {
+        "100_tos": ["cnt_retr"],
+        "tos_dr": ["Right to Leave The Service", "Ownership"],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The ToS lacks a clause ensuring the user's right to retrieve their digital content after termination."},
+        {"num_score": 0, "label": "neutral", "explanation": "The user may retrieve only some digital content, or retrieval is limited, unclear, or burdensome."},
+        {"num_score": 1, "label": "good", "explanation": "The user can retrieve all of their digital content after termination in a practical and accessible manner."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "feedback_reuse",
+      "name": "Feedback Reuse",
+      "parent_topic": "user_content_ip",
+      "description": "Clauses allowing the company to use, incorporate, exploit, or commercialize user feedback, ideas, or suggestions without compensation.",
+      "source_mappings": {
+        "100_tos": ["suggest"],
+        "tos_dr": ["Ownership", "Copyright License"],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The company obtains broad ownership or an irrevocable license over user feedback or suggestions without compensation and without meaningful limits."},
+        {"num_score": 0, "label": "neutral", "explanation": "The company may incorporate user feedback or suggestions without compensation, but the permission is limited to improving or operating the service."},
+        {"num_score": 1, "label": "good", "explanation": "The company does not claim a right to use user feedback without compensation, or use requires separate permission."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "transfer_of_contract",
+      "name": "Transfer of Contract",
+      "parent_topic": "assignment_corporate_changes",
+      "description": "Clauses allowing contractual rights or obligations to be assigned, transferred, or delegated to another entity.",
+      "source_mappings": {
+        "100_tos": ["transfer"],
+        "tos_dr": ["Business Transfers"],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The ToS allows the company to transfer contractual rights or obligations to another entity without the user's consent."},
+        {"num_score": 0, "label": "neutral", "explanation": "The company may transfer rights with user consent or notice, but the user lacks equivalent transfer rights."},
+        {"num_score": 1, "label": "good", "explanation": "Transfers require user consent and reciprocal fairness, or the ToS contains no company transfer right."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "business_transfer",
+      "name": "Business Transfer",
+      "parent_topic": "assignment_corporate_changes",
+      "description": "Clauses describing transfers of user data, accounts, or rights in connection with mergers, acquisitions, reorganizations, or asset sales.",
+      "source_mappings": {
+        "100_tos": ["transfer"],
+        "tos_dr": ["Business Transfers"],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "User data or accounts may be transferred in a merger, acquisition, or asset sale without notice, consent, or an ability to object."},
+        {"num_score": 0, "label": "neutral", "explanation": "Business-transfer data sharing is disclosed and subject to notice or existing commitments, but the user has limited control."},
+        {"num_score": 1, "label": "good", "explanation": "Any business-transfer data sharing requires advance notice and a meaningful ability to object, withdraw, delete, or export data."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "personal_data",
+      "name": "Personal Data",
+      "parent_topic": "privacy_data_governance",
+      "description": "Clauses describing collection, use, retention, control, and rights over personal data.",
+      "source_mappings": {
+        "100_tos": [],
+        "tos_dr": ["Personal Data"],
+        "claudette": ["pinc"]
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The user has no meaningful control over how personal data is used or retained, and data may be processed for incompatible purposes."},
+        {"num_score": 0, "label": "neutral", "explanation": "Some data subject rights or controls are provided, but they are limited, burdensome, or paired with vague purposes or retention rules."},
+        {"num_score": 1, "label": "good", "explanation": "The user has meaningful control consistent with rights of access, rectification, erasure, restriction, objection, portability, purpose limitation, and storage limitation."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "trackers",
+      "name": "Trackers",
+      "parent_topic": "privacy_data_governance",
+      "description": "Clauses describing cookies, pixels, device identifiers, fingerprinting, geolocation, session storage, advertising IDs, and other tracking technologies.",
+      "source_mappings": {
+        "100_tos": [],
+        "tos_dr": ["Trackers"],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The service uses extensive tracking without adequate disclosure, lawful basis, or an easy ability to refuse non-essential tracking."},
+        {"num_score": 0, "label": "neutral", "explanation": "Trackers are disclosed and some consent or opt-out is offered, but non-essential tracking is enabled by default or hard to refuse."},
+        {"num_score": 1, "label": "good", "explanation": "Only strictly necessary trackers are used, or non-essential tracking requires informed opt-in consent that is as easy to refuse as to give."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "anonymity",
+      "name": "Anonymity",
+      "parent_topic": "privacy_data_governance",
+      "description": "Clauses describing whether users may use the service anonymously or pseudonymously and what identifying information is required.",
+      "source_mappings": {
+        "100_tos": [],
+        "tos_dr": ["Anonymity"],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The service requires verified real-identity registration, prohibits pseudonymous use, and collects extensive identifying information."},
+        {"num_score": 0, "label": "neutral", "explanation": "Pseudonymous use is allowed, but some real-identity verification is required or collection exceeds what is necessary."},
+        {"num_score": 1, "label": "good", "explanation": "The service can be used anonymously or pseudonymously with only minimal identifying data."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "information_collected",
+      "name": "Types of Information Collected",
+      "parent_topic": "privacy_data_governance",
+      "description": "Clauses describing categories of information collected from users voluntarily, automatically, or from third parties.",
+      "source_mappings": {
+        "100_tos": [],
+        "tos_dr": ["Types of Information Collected"],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The categories of information collected are undisclosed, open-ended, or excessive relative to what the service requires."},
+        {"num_score": 0, "label": "neutral", "explanation": "Categories of information are disclosed but only broadly or vaguely, or collection exceeds what is necessary."},
+        {"num_score": 1, "label": "good", "explanation": "Categories of information collected are clear, specific, and limited to what is necessary to provide the service."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "third_parties",
+      "name": "Third Parties",
+      "parent_topic": "privacy_data_governance",
+      "description": "Clauses describing sharing, sale, disclosure, processing, or transfer of user data by third parties such as processors, partners, social networks, advertisers, or analytics providers.",
+      "source_mappings": {
+        "100_tos": [],
+        "tos_dr": ["Third Parties"],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "Personal data is shared with or sold to third parties without disclosure, lawful basis, or user control."},
+        {"num_score": 0, "label": "neutral", "explanation": "Third-party sharing is disclosed and limited to stated purposes, but user control is limited."},
+        {"num_score": 1, "label": "good", "explanation": "Third-party sharing is minimal, transparent, purpose-bound, and subject to user control or consent, with no sale of personal data."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "advertising",
+      "name": "Advertising",
+      "parent_topic": "privacy_data_governance",
+      "description": "Clauses describing advertising practices, ad targeting, profiling, ad partners, and user controls over advertising.",
+      "source_mappings": {
+        "100_tos": [],
+        "tos_dr": ["Advertising"],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "Personal data is used for advertising, profiling, or targeting without disclosure, lawful basis, opt-out, or limits on third-party involvement."},
+        {"num_score": 0, "label": "neutral", "explanation": "Targeted advertising is disclosed and some opt-out exists, but it is enabled by default or relies on extensive personal-data sharing."},
+        {"num_score": 1, "label": "good", "explanation": "Advertising is non-targeted, or uses personal data only with informed opt-in consent, easy opt-out, and minimal third-party involvement."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "government_requests",
+      "name": "Government Requests",
+      "parent_topic": "privacy_data_governance",
+      "description": "Clauses describing disclosure of user data to governments, courts, regulators, law enforcement, or other public authorities.",
+      "source_mappings": {
+        "100_tos": [],
+        "tos_dr": ["Law and Government Requests"],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The service may disclose user data to governments or law enforcement without valid legal process, user notice, or transparency reporting."},
+        {"num_score": 0, "label": "neutral", "explanation": "Disclosure is limited to valid legal requests, but the service provides no user notice or transparency reporting."},
+        {"num_score": 1, "label": "good", "explanation": "Disclosure is limited to valid legal process with notice where lawful, transparency reporting, and a commitment to challenge overbroad requests."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "logs",
+      "name": "Logs",
+      "parent_topic": "privacy_data_governance",
+      "description": "Clauses describing collection and retention of logs, connection data, access records, IP addresses, or similar technical records.",
+      "source_mappings": {
+        "100_tos": [],
+        "tos_dr": ["Logs"],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "Log or connection-data retention is undisclosed or indefinite."},
+        {"num_score": 0, "label": "neutral", "explanation": "A retention period is disclosed but is lengthy, vague, or not clearly tied to a specified purpose."},
+        {"num_score": 1, "label": "good", "explanation": "Logs are retained only for a clearly stated, limited, purpose-bound period, or are not retained and are promptly deleted or anonymized."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "right_to_leave",
+      "name": "Right to Leave the Service",
+      "parent_topic": "user_rights_consumer_protection",
+      "description": "Clauses describing whether the user can terminate, leave, delete data, export content, avoid lock-in, or close an account.",
+      "source_mappings": {
+        "100_tos": ["cnt_retr"],
+        "tos_dr": ["Right to Leave The Service"],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The user cannot freely terminate, delete data, or retrieve content, creating lock-in."},
+        {"num_score": 0, "label": "neutral", "explanation": "The user may leave and delete or retrieve some data or content, but the process is partial, burdensome, or unclear."},
+        {"num_score": 1, "label": "good", "explanation": "The user may freely terminate and retrieve or delete their data and content, with practical portability support."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "complaint_system",
+      "name": "Complaint Handling System",
+      "parent_topic": "user_rights_consumer_protection",
+      "description": "Clauses describing an internal complaint-handling, appeal, or redress system for company decisions affecting users.",
+      "source_mappings": {
+        "100_tos": ["com_sys"],
+        "tos_dr": ["Governance", "Suspension and Censorship"],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "There is no internal complaint-handling system for company decisions affecting the user's contractual rights before going to court or another institution."},
+        {"num_score": 0, "label": "neutral", "explanation": "A complaint-handling system exists but does not meet all requirements for accessibility, precision, substantiation, timeliness, or usability."},
+        {"num_score": 1, "label": "good", "explanation": "A free, electronic, easy-to-access, user-friendly complaint-handling system is available for a sufficient period and enables precise, substantiated complaints."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "recommender_transparency",
+      "name": "Recommender System Transparency",
+      "parent_topic": "user_rights_consumer_protection",
+      "description": "Clauses explaining the main parameters of automated or partially automated recommender systems and user options to influence them.",
+      "source_mappings": {
+        "100_tos": ["recom"],
+        "tos_dr": ["Transparency"],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The ToS does not set out the main parameters used by recommender systems to suggest or prioritize information."},
+        {"num_score": 0, "label": "neutral", "explanation": "The ToS sets out recommender parameters, but not in a clear, accessible, and easily comprehensible manner."},
+        {"num_score": 1, "label": "good", "explanation": "The ToS clearly explains recommender parameters and any user options to modify or influence them, including at least one option not based on profiling where applicable."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "discretionary_interpretation",
+      "name": "Discretionary Interpretation",
+      "parent_topic": "interpretation_legal_structure",
+      "description": "Clauses reserving exclusive or unilateral power for the company to interpret the Terms.",
+      "source_mappings": {
+        "100_tos": ["discret"],
+        "tos_dr": ["Governance"],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The company reserves the exclusive right to interpret any term of the contract by itself."},
+        {"num_score": 0, "label": "neutral", "explanation": "The ToS lacks a discretionary interpretation clause, or interpretation authority is ambiguous but not expressly exclusive to the company."},
+        {"num_score": 1, "label": "good", "explanation": "Interpretation is not controlled unilaterally by the company and consumer-protective or mutual interpretation principles are preserved."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "interpretation_clause",
+      "name": "Interpretation Clause",
+      "parent_topic": "interpretation_legal_structure",
+      "description": "Clauses describing how ambiguous or disputed terms should be interpreted.",
+      "source_mappings": {
+        "100_tos": ["interpret"],
+        "tos_dr": ["Transparency"],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The ToS states that the contract must be interpreted in favor of the company's intent."},
+        {"num_score": 0, "label": "neutral", "explanation": "The ToS states that interpretation should reflect both parties' intent, or provides a balanced general interpretation rule."},
+        {"num_score": 1, "label": "good", "explanation": "The ToS states that ambiguity or interpretation should favor the consumer or user."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "severability",
+      "name": "Severability",
+      "parent_topic": "interpretation_legal_structure",
+      "description": "Clauses stating what happens if one or more provisions are unconstitutional, void, invalid, or unenforceable.",
+      "source_mappings": {
+        "100_tos": ["sever"],
+        "tos_dr": [],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The severability clause lets the company unilaterally replace, rewrite, or preserve the economic effect of invalid or unfair terms."},
+        {"num_score": 0, "label": "neutral", "explanation": "The ToS keeps the remaining contract in force if a court declares one or more provisions void, invalid, unconstitutional, or unenforceable."},
+        {"num_score": 1, "label": "good", "explanation": "The ToS lacks a severability clause or expressly provides that invalid consumer-unfair terms will not be replaced to the user's detriment."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "content_rules",
+      "name": "Content Rules",
+      "parent_topic": "service_governance",
+      "description": "Clauses defining what users are allowed or prohibited to post, publish, upload, share, or discuss.",
+      "source_mappings": {
+        "100_tos": ["cnt_del"],
+        "tos_dr": ["Content"],
+        "claudette": ["cr"]
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "Content restrictions are broad, vague, or discretionary enough to unduly restrict lawful expression or permit arbitrary enforcement."},
+        {"num_score": 0, "label": "neutral", "explanation": "Content rules are defined but remain broad, leaving significant interpretive discretion to the company."},
+        {"num_score": 1, "label": "good", "explanation": "Content rules are clear, specific, limited to unlawful or genuinely harmful content, and predictably enforced."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "governance",
+      "name": "Service Governance",
+      "parent_topic": "service_governance",
+      "description": "Clauses describing how the service, community, moderation, rules, decisions, and accountability structures are governed.",
+      "source_mappings": {
+        "100_tos": [],
+        "tos_dr": ["Governance", "User Choice"],
+        "claudette": ["use"]
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The company retains wholly unilateral and discretionary governance with no user participation, published decision-making criteria, or accountability mechanisms."},
+        {"num_score": 0, "label": "neutral", "explanation": "Some governance structures exist, such as guidelines or moderation rules, but users have no meaningful voice and enforcement remains discretionary."},
+        {"num_score": 1, "label": "good", "explanation": "The service provides transparent governance with meaningful participation, published criteria, and accessible appeal or redress procedures."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "transparency",
+      "name": "Transparency",
+      "parent_topic": "service_governance",
+      "description": "Clauses and policy language affecting whether users receive clear, plain, accessible, and comprehensible information about terms and practices.",
+      "source_mappings": {
+        "100_tos": ["recom"],
+        "tos_dr": ["Transparency"],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "Terms or policies are inaccessible, unclear, hidden, or not drafted in plain and intelligible language."},
+        {"num_score": 0, "label": "neutral", "explanation": "Information is provided but incomplete, dense, hard to navigate, or insufficient for informed user understanding."},
+        {"num_score": 1, "label": "good", "explanation": "Terms and practices are presented in clear, plain, accessible, and easily comprehensible language."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "security",
+      "name": "Security",
+      "parent_topic": "service_governance",
+      "description": "Clauses describing technical, organizational, account, and breach-related security measures.",
+      "source_mappings": {
+        "100_tos": [],
+        "tos_dr": ["Security"],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The ToS describes no security measures or disclaims responsibility for protecting the user's account and data against unauthorized access."},
+        {"num_score": 0, "label": "neutral", "explanation": "Basic security measures are mentioned, but commitments are vague or place most responsibility on the user."},
+        {"num_score": 1, "label": "good", "explanation": "The service commits to appropriate technical and organizational security measures, including breach handling and notification where required."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "payments",
+      "name": "Payments",
+      "parent_topic": "service_governance",
+      "description": "Clauses describing payment obligations, recurring charges, automatic renewal, payment credentials, cancellation, and refunds.",
+      "source_mappings": {
+        "100_tos": ["price_chg"],
+        "tos_dr": ["Payments"],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The ToS imposes recurring charges, auto-renewal, or payment credential storage without clear consent, accessible cancellation, or refund rights."},
+        {"num_score": 0, "label": "neutral", "explanation": "Recurring payments or auto-renewal are disclosed, but cancellation or refund rights are limited or burdensome."},
+        {"num_score": 1, "label": "good", "explanation": "Payment terms are transparent, recurring charges require explicit consent, cancellation and refund rights are accessible, or no payment obligation is imposed."}
+      ],
+      "examples": []
+    },
+    {
+      "id": "unclassified",
+      "name": "Unclassified",
+      "parent_topic": "unclassified",
+      "description": "Fallback topic for clauses that must be retained during exhaustive annotation but do not fit any curated Lawgic topic. Prefer omitting unmatched clauses from notable_clauses when the pipeline does not require exhaustive classification.",
+      "source_mappings": {
+        "100_tos": [],
+        "tos_dr": [],
+        "claudette": []
+      },
+      "scores": [
+        {"num_score": -1, "label": "bad", "explanation": "The clause appears materially harmful to the user, but it does not fit any curated Lawgic topic."},
+        {"num_score": 0, "label": "neutral", "explanation": "The clause is relevant to the terms but does not clearly create either a user-harmful or user-beneficial rule within the curated taxonomy."},
+        {"num_score": 1, "label": "good", "explanation": "The clause appears materially beneficial to the user, but it does not fit any curated Lawgic topic."}
+      ],
+      "examples": []
+    }
+  ],
+  "parent_topics": [
+    {"id": "dispute_resolution", "name": "Dispute Resolution"},
+    {"id": "limitation_of_remedies", "name": "Limitation of Remedies"},
+    {"id": "unilateral_modification", "name": "Unilateral Modification"},
+    {"id": "enforcement_actions", "name": "Enforcement Actions"},
+    {"id": "consent_contract_formation", "name": "Consent and Contract Formation"},
+    {"id": "user_content_ip", "name": "User Content and IP"},
+    {"id": "assignment_corporate_changes", "name": "Assignment and Corporate Changes"},
+    {"id": "privacy_data_governance", "name": "Privacy and Data Governance"},
+    {"id": "user_rights_consumer_protection", "name": "User Rights and Consumer Protection"},
+    {"id": "interpretation_legal_structure", "name": "Interpretation and Legal Structure"},
+    {"id": "service_governance", "name": "Service Governance"},
+    {"id": "unclassified", "name": "Unclassified"}
+  ]
+}

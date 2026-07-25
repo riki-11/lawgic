@@ -1,0 +1,450 @@
+
+--- Point 1 (chunk_id=4, bad) ---
+Topic:       Mandatory Arbitration
+Title:       Disputes must be handled through mandatory private arbitration.
+Description: You agree that any legal disputes involving this service cannot be resolved in court. Instead, these issues must be settled through a binding process of private arbitration.
+Confidence:  0.9998
+
+--- Point 2 (chunk_id=6, bad) ---
+Topic:       Notice of Changes
+Title:       We can change these rules at any time.
+Description: The service provider can update these terms whenever they choose. Changes will become effective when they are posted online or when you receive notification.
+Confidence:  0.9997
+
+--- Point 3 (chunk_id=8, bad) ---
+Topic:       Privacy Policy Incorporation
+Title:       Your professional data is part of our service.
+Description: The platform includes proprietary databases containing professional contact information and business details. Any content you provide to us for processing, such as files or text, is considered your customer data.
+Confidence:  0.9996
+
+... and 27 more points
+
+Full explain response (JSON):
+{
+  "service_name": "Apollo.io",
+  "harm_filter": [
+    "Harmful"
+  ],
+  "llm_model": "gemma4:e4b",
+  "point_count": 30,
+  "points": [
+    {
+      "chunk_id": 4,
+      "primary_topic": "Mandatory Arbitration",
+      "predicted_topics": [
+        "Mandatory Arbitration",
+        "Class Action Waiver"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.9998,
+      "point_title": "Disputes must be handled through mandatory private arbitration.",
+      "description": "You agree that any legal disputes involving this service cannot be resolved in court. Instead, these issues must be settled through a binding process of private arbitration.",
+      "quoted_text": "Important: Please note Sections 6 and 12 of these Terms which include important information regarding Personal Information you provide to us or receive from us. Please also note Section 7, which contains arbitration provisions that impact certain rights you might otherwise have regarding disputes."
+    },
+    {
+      "chunk_id": 6,
+      "primary_topic": "Notice of Changes",
+      "predicted_topics": [
+        "Notice of Changes"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.9997,
+      "point_title": "We can change these rules at any time.",
+      "description": "The service provider can update these terms whenever they choose. Changes will become effective when they are posted online or when you receive notification.",
+      "quoted_text": "We may modify these Terms of Service (except for Section 7) in our sole discretion by posting updated versions of these Terms of Service on the Website or otherwise providing notice to you. All such changes shall become effective upon the posting of the revised Terms of Service on the Website or upon notice to you, as applicable."
+    },
+    {
+      "chunk_id": 8,
+      "primary_topic": "Privacy Policy Incorporation",
+      "predicted_topics": [
+        "Privacy Policy Incorporation",
+        "Personal Data"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.9996,
+      "point_title": "Your professional data is part of our service.",
+      "description": "The platform includes proprietary databases containing professional contact information and business details. Any content you provide to us for processing, such as files or text, is considered your customer data.",
+      "quoted_text": "\u201cBusiness Contact Information\u201d means information about a natural person in a professional context, including but not limited to, name, job title, employer, and contact information (such as email address and phone number), that is viewable in the Platform or made available to you as part of any of the Services. \u201cContributor Database\u201d means Apollo's proprietary database of Business Contact Information and other business information that Apollo makes available to you and other Apollo customers through the Platform. \u201cCustomer Data\u201d means all data, graphics, images, files, information, text, voice content, recordings, and other content and materials that are provided by you in any way to Apollo for processing in connection with your use of the Services. Customer Data does not include Usage Data."
+    },
+    {
+      "chunk_id": 10,
+      "primary_topic": "Third Parties",
+      "predicted_topics": [
+        "Third Parties"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.9977,
+      "point_title": "What information is covered by this service",
+      "description": "This service covers all types of personal data and usage information collected through its technology. It also includes any related software, tools, or updates provided to you.",
+      "quoted_text": "\u201cPersonal Information\u201d includes any substantially similar terms to \u201cpersonal information\u201d such as \u201cpersonal data\u201d or \u201cpersonally identifiable information\u201d and as to each, will have the meaning given to such terms under applicable law. \u201cPlatform\u201d means the software or other technology provided by or through Apollo to you pursuant to these Terms, and all other software, systems, applications, interfaces, application programming interfaces (APIs), tools, software development kits (SDKs), programs, and any accompanying or related infrastructure, functionality, technology, or analytics made available by or through Apollo in connection therewith and/or which are otherwise required to access or utilize the Platform including, without limitation, all updates and derivative works thereof, the Usage Data, the Contributor Database, and any add-ons described in an Order Form. The Platform does not include Customer Third-Party Systems."
+    },
+    {
+      "chunk_id": 11,
+      "primary_topic": "Third Parties",
+      "predicted_topics": [
+        "Third Parties"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 1.0,
+      "point_title": "You own the data created using this service.",
+      "description": "Any information or reports generated by you while using this service belong to you. This includes customized lists, analyses, and any other business intelligence outputs.",
+      "quoted_text": "\"Platform Generated Information\" or \u201cPGI\u201d means outputs created by you through use of the Services, including for example: (i) customized prospect lists; (ii) segmentation analyses; (iii) campaign performance reports; and (iv) other customer-specific analytics. Platform Generated Information includes, without limitation, any modified, enhanced, filtered, analyzed, segmented, organized, structured, or combined information derived from the Platform, Contributor Database, or Services, as well as any reports, visualizations, contact lists, prospect lists, market analyses, or other business intelligence outputs resulting from your use of the Services. \u201cServices\u201d means the lead generation services and related offerings provided by Apollo to you through or in connection with the Platform. The Services include all access, updates, enhancements, modifications, and derivative works to the foregoing."
+    },
+    {
+      "chunk_id": 15,
+      "primary_topic": "Third Parties",
+      "predicted_topics": [
+        "Third Parties"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.9759,
+      "point_title": "We can use your data for improvements, but we won't name you.",
+      "description": "You give us a permanent right to analyze your data using AI to improve our services. We promise not to link this analysis back to you personally.",
+      "quoted_text": "Under no circumstances will Apollo publicly refer to or associate you with any such data in the Contributor Database, except that, to the extent required by applicable law (including, without limitation, data protection laws such as the GDPR), Apollo may disclose your identity as the source of such data to a data subject, but only if, in Apollo\u2019s reasonable judgment, such disclosure is necessary to comply with a lawful data subject request and no less specific response would satisfy Apollo\u2019s legal obligations. Perpetual License. You grant Apollo an irrevocable, perpetual, worldwide, transferable, sublicensable, and royalty-free license to analyze Customer Data using artificial intelligence to improve the Platform; and to test, develop, improve, or enhance Apollo\u2019s products and services provided that Apollo will not refer to or associate Customer Data with any such analytics. Ownership. Platform and PGI."
+    },
+    {
+      "chunk_id": 16,
+      "primary_topic": "Ownership",
+      "predicted_topics": [
+        "Ownership",
+        "Content Retrieval",
+        "Feedback Reuse"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.9415,
+      "point_title": "You do not own the platform itself.",
+      "description": "All intellectual property rights related to this service, including its design and features, belong to the company. Users receive no ownership rights in the Platform or any of its components.",
+      "quoted_text": "As between you and Apollo, all rights, title, and interests in and to the Platform and PGI, including without limitation patents, copyrights, trademarks, trade names, service marks, trade secrets, derivatives, and other intellectual property rights, and any goodwill associated therewith, are owned by Apollo. For instance, Apollo owns any design, compilation, analytics, or product features inherent in the Platform, such as the way that data is organized, curated, presented, and delivered, and any know-how or other intellectual property inherent in the way Apollo creates, provides, displays, or makes available the Platform. These Terms do not grant you any ownership right, title, or interest in the Platform or any of the above."
+    },
+    {
+      "chunk_id": 17,
+      "primary_topic": "Ownership",
+      "predicted_topics": [
+        "Ownership",
+        "Content Retrieval",
+        "Feedback Reuse"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.9999,
+      "point_title": "We own ideas you give us and protect our brand name.",
+      "description": "Any suggestions, feedback, or ideas you provide to this service are owned by the company, even if they are incorporated into the platform. You retain ownership of your personal data, but you are responsible for any third-party systems you connect.",
+      "quoted_text": "You agree that any and all feedback, suggestions, ideas, enhancement requests, and recommendations made by you or your Authorized Users relating to the Platform that are incorporated into the Platform are owned exclusively by Apollo, and you hereby assign to Apollo all of your right, title, and interest in and to such incorporated items. Customer Data. As between you and Apollo, all right, title, and interest in and to Customer Data is owned by you. For avoidance of doubt, notwithstanding Section 2(c)(i) above, you own all Customer Data that may be embedded in, or combined with, PGI. Apollo\u2019s Marks. The Apollo names and logos are trademarks of Apollo, and may not be copied, imitated, or used, in whole or in part, without Apollo\u2019s prior written permission. Customer Third-Party Systems. You may integrate Customer Third-Party Systems at your own risk."
+    },
+    {
+      "chunk_id": 31,
+      "primary_topic": "General",
+      "predicted_topics": [],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.9927,
+      "point_title": "Service units and licenses must follow the terms in your agreement.",
+      "description": "All service components, including user seats and credits, are governed by these Terms and your specific Order Form. Each licensed seat is for one authorized user only; sharing or time-sharing of accounts is prohibited. The number of purchased seats cannot be reduced during a contract term.",
+      "quoted_text": "The Services may include various units of Service, including but not limited to \"seats\" (user licenses) and \"credits\" (consumable units for specific functionality). All units of service are subject to these Terms and any applicable Order Form. your specific entitlements, including the types and quantities of service units, will be specified in the applicable Order Form. User Seats are sold on a per-user basis and are for the number of Authorized Users indicated in the Order Form. You may only permit one license seat per Authorized User at any given time and may not seat-share or time-share. The number of seats may not be decreased during a Term. All credits purchased or otherwise obtained by you in connection with your use of the Service are subject to (i) the rules and restrictions hereunder, and (ii) the credit conversion policies found at apollo.io/pricing/about-credits, if applicable."
+    },
+    {
+      "chunk_id": 37,
+      "primary_topic": "Third Parties",
+      "predicted_topics": [
+        "Third Parties"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.8834,
+      "point_title": "Using third-party data is restricted to specific uses.",
+      "description": "This service may include data from other sources, such as the Contributor Database. Users must only use this information for the purposes explicitly allowed in the terms.",
+      "quoted_text": "In addition to any other representation or warranty in these Terms, each Party represents and warrants to the other that: (i) it is duly organized and validly existing and authorized to do business in the jurisdictions where it operates; (ii) it has the requisite power and authority to enter these Terms and entering and complying with its obligations under these Terms does not violate any legal obligation by which such party is bound; and (iii) it will comply with all applicable laws in connection with its rights and obligations under these Terms. Platform Generated Information. You understand that PGI may contain data derived from Apollo's Contributor Database and agree to use such information solely for the permitted purposes set forth in Section 2(a) of these Terms. Notice and Consent."
+    },
+    {
+      "chunk_id": 41,
+      "primary_topic": "Mandatory Arbitration",
+      "predicted_topics": [
+        "Mandatory Arbitration",
+        "Class Action Waiver"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 1.0,
+      "point_title": "Legal disputes must be settled through private arbitration.",
+      "description": "You agree to resolve any legal claims or disputes with this service through binding arbitration instead of court litigation. This agreement also prevents you from participating in class-action lawsuits.",
+      "quoted_text": "ARBITRATION AGREEMENT, CLASS ACTION WAIVER AND APPLICABLE LAW\nPLEASE READ THIS SECTION CAREFULLY. IT MAY SIGNIFICANTLY AFFECT YOUR LEGAL RIGHTS."
+    },
+    {
+      "chunk_id": 42,
+      "primary_topic": "Mandatory Arbitration",
+      "predicted_topics": [
+        "Mandatory Arbitration",
+        "Class Action Waiver"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.9994,
+      "point_title": "You must use arbitration instead of court lawsuits.",
+      "description": "Any disputes you have must be resolved through binding arbitration rather than in a traditional courtroom with a judge or jury. You also give up the right to participate in class action lawsuits or any other group legal actions.",
+      "quoted_text": "You agree to resolve certain disputes with Apollo through binding arbitration. Arbitration means that an arbitrator, and not a judge or a jury, will decide the dispute. The parties expressly waive the right to bring or participate in any kind of class, collective, or mass action, private attorney general action, or any other representative action. This Arbitration Agreement supersedes all prior versions."
+    },
+    {
+      "chunk_id": 44,
+      "primary_topic": "Mandatory Arbitration",
+      "predicted_topics": [
+        "Mandatory Arbitration",
+        "Class Action Waiver"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.9994,
+      "point_title": "You must follow specific steps before starting an arbitration claim.",
+      "description": "To start an arbitration, you must first submit a detailed demand that includes your contact information and a description of the dispute. If this initial process is not completed within sixty days, the right to file for arbitration may be lost.",
+      "quoted_text": "The Pre-Arbitration Demand must include: (i) your name, telephone number, and email address associated with your account; (ii) the name, telephone number, and email address of your counsel, if any; (iii) a description of your Dispute; and (iv) your signature, signed under penalty of perjury. If the Dispute is not resolved within sixty (60) calendar days after you submit a Pre-Arbitration Demand, an arbitration can be brought. You agree that compliance with this section is a condition precedent to commencing arbitration, and that the arbitrator shall dismiss any arbitration filed without fully and completely complying with these informal dispute resolution procedures. Applicable statutes of limitation and due dates for arbitration filing fees or other deadlines will be tolled upon receipt of the Pre-Arbitration while the parties attempt information resolution."
+    },
+    {
+      "chunk_id": 45,
+      "primary_topic": "Mandatory Arbitration",
+      "predicted_topics": [
+        "Mandatory Arbitration",
+        "Class Action Waiver"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.9743,
+      "point_title": "Disputes must be settled through mandatory private arbitration.",
+      "description": "Any dispute you have with this service cannot be taken to court. Instead, it must be resolved using the rules of JAMS, a specific arbitration service.",
+      "quoted_text": "Arbitration Procedures.If we do not reach an informal resolution, as required above, you may initiate a demand for arbitration by filing an arbitration demand with JAMS (as of October 2025, forms are available at www.jamsadr.com and electronic filing can be completed at https://www.jamsadr.com/submit/). You must also serve Apollo with a demand for arbitration via email to legal@apollo.io and a hard copy to us at 440 N Barranca Ave #4750, Covina, CA 91723. Except as modified, JAMS will administer the arbitration in accordance with the JAMS Comprehensive Arbitration Rules and Procedures, Streamlined Arbitration Rules and Procedures, Mass Arbitration Rules and Guidelines in effect at the time your arbitration demand is filed with JAMS, excluding any rules and procedures governing or permitting class or representative actions."
+    },
+    {
+      "chunk_id": 47,
+      "primary_topic": "Mandatory Arbitration",
+      "predicted_topics": [
+        "Mandatory Arbitration",
+        "Class Action Waiver"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.9998,
+      "point_title": "All disputes must be resolved through mandatory private arbitration.",
+      "description": "Disputes regarding these terms or service use must be settled by an arbitrator, typically via video conference. This process is binding and can include motions that would normally occur in court.",
+      "quoted_text": "Arbitration hearings will take place through videoconferencing by default, unless you and Apollo agree upon another location in writing. You and Apollo agree that the arbitrator has exclusive authority to resolve disputes regarding interpretation, applicability, enforceability, or formation of these Terms, including whether claims are subject to arbitration, except only courts may determine validity of the Class Action Waiver in Section 7(A)(v). You and Apollo agree that dispositive motions will be allowed in the arbitration and awards shall be written, binding, and enforceable as court judgments. Both parties submit to San Francisco County jurisdiction for arbitration enforcement proceedings."
+    },
+    {
+      "chunk_id": 48,
+      "primary_topic": "Third Parties",
+      "predicted_topics": [
+        "Third Parties"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.4651,
+      "point_title": "Confidentiality of Arbitration Materials",
+      "description": "All documents and materials exchanged during this service's dispute resolution process must remain private. Only legal counsel representing the parties may view or share these items.",
+      "quoted_text": "You and Apollo agree that all materials and documents exchanged during the arbitration proceedings shall be kept confidential and shall not be shared with anyone except the parties\u2019 attorneys (or other representatives assisting in the prosecution or defense of the arbitration on a confidential basis)."
+    },
+    {
+      "chunk_id": 49,
+      "primary_topic": "Mandatory Arbitration",
+      "predicted_topics": [
+        "Mandatory Arbitration",
+        "Class Action Waiver"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.9985,
+      "point_title": "You pay your legal costs unless the arbitrator says otherwise.",
+      "description": "If you file an arbitration claim, you are responsible for paying your own attorney's fees and filing costs. The arbitrator may award fees to the winning party if local law allows it.",
+      "quoted_text": "If the arbitrator finds the arbitration to be non-frivolous, Apollo will pay all the actual filing and arbitrator fees for the arbitration, provided your claim does not seek more than $75,000. Unless the arbitration rules and/or applicable law provide otherwise, each party is responsible for its own attorneys\u2019 fees, provided that the arbitrator may award attorneys\u2019 fees to the prevailing party if permitted under applicable law."
+    },
+    {
+      "chunk_id": 50,
+      "primary_topic": "Mandatory Arbitration",
+      "predicted_topics": [
+        "Mandatory Arbitration",
+        "Class Action Waiver"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.9999,
+      "point_title": "You must resolve disputes individually through arbitration.",
+      "description": "This service requires that any dispute between you and the company must be handled in individual arbitration, not as part of a class action or group lawsuit. You are giving up your right to participate in class actions related to this service.",
+      "quoted_text": "Class Action Waiver. The parties agree that arbitration shall be conducted in individual capacities only and not as a class action or other representative action, and the parties expressly waive their right to file a class action or seek relief on a class basis. YOU AND APOLLO AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY IN YOUR OR OUR INDIVIDUAL CAPACITY AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS OR REPRESENTATIVE PROCEEDING. NOTWITHSTANDING THIS ACKNOWLEDGEMENT, YOU AGREE THAT ANY ARBITRATION INVOLVING YOU MAY PROCEED ON A CONSOLIDATED BASIS IF AND ONLY IF APOLLO PROVIDES ITS CONSENT TO CONSOLIDATE IT IN WRITING. If for any reason this waiver is determined void or unenforceable, then this entire Arbitration Agreement shall be deemed null and void in their entirety and the parties shall be deemed to have not agreed to arbitrate disputes. 45-Day Right to Opt Out."
+    },
+    {
+      "chunk_id": 51,
+      "primary_topic": "Contract Changes",
+      "predicted_topics": [
+        "Contract Changes",
+        "Notice of Changes"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.9979,
+      "point_title": "How and when this service can change its rules",
+      "description": "This service must give 30 days' notice of any major changes to the arbitration agreement. Continued use after a change takes effect means you agree to those new terms, even for claims not yet filed.",
+      "quoted_text": "You may opt out of this arbitration agreement by sending written notice to legal@apollo.io with subject line \"ARBITRATION OPT-OUT\" within forty-five (45) days of first agreeing to these Terms. The notice must include your name, email address, and account information. Changes to this Section: Apollo will provide 30 days\u2019 notice of the date of any material changes to this Arbitration Agreement. Changes will become effective on the 30th day and apply to all claims not yet filed, regardless of when they accrued. If you consent to these terms on or before the 30th day or continue to use the Services after the 30th day, you agree that your continued use of the Services will be deemed acceptance of those changes and any unfiled claims of which Apollo does not have actual notice under the Pre-Arbitration Demand process are subject to the revised clause."
+    },
+    {
+      "chunk_id": 52,
+      "primary_topic": "Mandatory Arbitration",
+      "predicted_topics": [
+        "Mandatory Arbitration",
+        "Class Action Waiver"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.9637,
+      "point_title": "You must use mandatory private arbitration instead of court.",
+      "description": "This service requires that any disputes be resolved through binding arbitration, not in a traditional courtroom. This agreement remains in effect even if you stop using the service.",
+      "quoted_text": "If you do not agree to such change, you may opt out of this Arbitration Agreement by emailing an opt-out notice to legal@apollo.io with the subject line \u201cARBITRATION OPT-OUT\u201d before the 30-day period expires. Survival. This Arbitration Agreement shall survive any termination of these Terms. Bellwether Arbitrations: To promote efficient resolution of similar arbitration demands, if twenty-five (25) or more individual arbitration demands of a substantially similar nature are filed against Apollo by or with the assistance of the same law firm, group of law firms, or organizations within a one hundred and eighty (180) day period (\"Mass Filing\"), the parties shall each select up to eight (8) individual arbitration demands from the Mass Filing to proceed as \"Bellwether Arbitrations,\" for a total of sixteen (16) Bellwether Arbitrations. Only the Bellwether Arbitrations will be filed and administered with the arbitration provider at this stage."
+    },
+    {
+      "chunk_id": 53,
+      "primary_topic": "Mandatory Arbitration",
+      "predicted_topics": [
+        "Mandatory Arbitration",
+        "Class Action Waiver"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.9984,
+      "point_title": "Disputes must be resolved through individual arbitration.",
+      "description": "You cannot file claims as a group or participate in class action lawsuits. All disputes are handled individually through an appointed arbitration service, and this service pays the associated costs.",
+      "quoted_text": "All other demands in the Mass Filing will be held in abeyance and not filed or administered, and no filing or administrative fees for those claims will be due. The statute of limitations and any deadlines to file or pay fees for the non-Bellwether claims will be tolled while those claims are held in abeyance. The Bellwether Arbitrations will proceed individually before the arbitration provider, and Apollo will pay the arbitration provider's costs for these Bellwether Arbitrations. Any party may request that the arbitration provider appoint a sole administrative arbitrator to resolve threshold questions regarding the applicability or enforceability of this Bellwether process, whether demands are part of a Mass Filing, or whether demands were filed in accordance with this agreement. Apollo will pay the administrative arbitrator's fees for these determinations."
+    },
+    {
+      "chunk_id": 54,
+      "primary_topic": "Mandatory Arbitration",
+      "predicted_topics": [
+        "Mandatory Arbitration",
+        "Class Action Waiver"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.9998,
+      "point_title": "Disputes must be settled through mandatory private arbitration.",
+      "description": "You cannot file a lawsuit in court; all disputes must be resolved through binding arbitration. The process involves multiple stages, including global mediation and potential individual arbitration if the claims are not resolved quickly.",
+      "quoted_text": "Following resolution of the Bellwether Arbitrations, the parties will participate in a global mediation, administered by a JAMS mediator, to attempt to resolve the remaining claims in the Mass Filing. JAMS will provide a group of five mediators from which Apollo and claimants will be able to strike one mediator each and then rank the remaining mediators. If the parties are unable to resolve the remaining claims within thirty (30) days following the global mediation, the remaining claims may then be filed and administered individually with the arbitration provider, unless the parties mutually agree otherwise in writing. Any party may request that the arbitration provider appoint an administrative arbitrator to resolve threshold questions regarding the newly filed demands."
+    },
+    {
+      "chunk_id": 55,
+      "primary_topic": "Mandatory Arbitration",
+      "predicted_topics": [
+        "Mandatory Arbitration",
+        "Class Action Waiver"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 1.0,
+      "point_title": "You must settle disputes individually, without class actions.",
+      "description": "Any legal dispute you have with this service must be handled through individual arbitration. You are prohibited from joining a group lawsuit or participating in mass claims.",
+      "quoted_text": "This Bellwether Arbitration provision does not authorize class, collective, or mass action of any kind, or arbitration involving joint or consolidated claims, except as expressly set forth in this provision. Each claim remains individual. The outcome of any Bellwether Arbitration will apply only to the parties in that arbitration and will not have preclusive or precedential effect on any other claim or arbitration."
+    },
+    {
+      "chunk_id": 56,
+      "primary_topic": "Mandatory Arbitration",
+      "predicted_topics": [
+        "Mandatory Arbitration",
+        "Class Action Waiver"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.9999,
+      "point_title": "You must settle disputes through private arbitration.",
+      "description": "Most legal claims you have against this service cannot be handled in a group lawsuit or class action. Instead, these disputes must be resolved privately through binding arbitration.",
+      "quoted_text": "Limitations to this agreement to arbitrate. This section (Arbitration and Class Action Waiver) shall be limited as follows:\nIntellectual Property Claims. Either Party may bring an action on an individual (not class or representative action) basis in state or federal court or in the U.S. Patent and Trademark Office to protect its patents, copyrights, moral rights, trademarks, and trade secrets, but not privacy or publicity rights. Small Claims Court. Either Party may seek relief in a small claims court on an individual (not class or representative action) basis for disputes or claims within the scope of that court\u2019s jurisdiction. INDEMNIFICATION. Indemnification."
+    },
+    {
+      "chunk_id": 61,
+      "primary_topic": "Liability Cap",
+      "predicted_topics": [
+        "Liability Cap",
+        "Contract Formed Through Use",
+        "Service Governance"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 1.0,
+      "point_title": "Your claim payout is capped at your last 12 months' payments.",
+      "description": "If this service causes damages or issues, any financial compensation you receive cannot exceed the total amount of money you paid to us in the preceding year. This limitation may not apply if local laws prohibit it.",
+      "quoted_text": "Direct Damages. IN NO EVENT SHALL OUR AGGREGATE LIABILITY FOR ANY CLAIM UNDER OR RELATING TO THESE TERMS OF THE SERVICE EXCEED THE TOTAL OF THE AMOUNT PAID BY YOU TO US DURING THE 12 MONTHS PRIOR TO THE DATE ON WHICH THE CLAIM AROSE. Some jurisdictions restrict or do not allow some of the foregoing limitations of liability in contracts, and as a result, the contents of this section may not apply. In cases where such laws apply, the liability of Apollo will be limited to the fullest extent permitted by law."
+    },
+    {
+      "chunk_id": 66,
+      "primary_topic": "Contract Changes",
+      "predicted_topics": [
+        "Contract Changes",
+        "Service Changes",
+        "Price Changes",
+        "Notice of Changes"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.6714,
+      "point_title": "We can change how this service works and what it costs.",
+      "description": "The company reserves the right to modify features, functionality, or access provided by this service at any time. These changes may include altering fees for existing or new aspects of the service. The terms apply regardless of any modifications made.",
+      "quoted_text": "The provisions of this Section 10 supersede and replace in whole any previous confidentiality, non-disclosure, or similar agreement between the Parties. CHANGES TO THE SERVICE. We may change the features and functionality of the Service at any time. This may include adding, modifying or removing any features or functionality of the Service or altering the amount of Platform Generated Information or other access we provide. The Terms of Service will apply to any changed version of the Service. We may also suspend or stop the Service altogether. In addition, we may impose or alter fees for new or existing aspects of the Service, including updating our credit conversion policies at any time. Data Privacy and Security\nData Processing Addendum. The Apollo DPA is hereby incorporated by reference into these Terms. The parties shall comply with the terms of the Apollo DPA as it relates to all processing of Personal Information in connection with these Terms. Privacy Policy."
+    },
+    {
+      "chunk_id": 70,
+      "primary_topic": "Contract Changes",
+      "predicted_topics": [
+        "Contract Changes",
+        "Notice of Changes"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.9957,
+      "point_title": "We can change our rules and fees at any time.",
+      "description": "The terms for this service apply even if they are updated. We may also suspend or stop the service entirely, and we can change fees or policies whenever necessary. Continued use of the service after changes means you agree to them.",
+      "quoted_text": "The Terms will apply to any changed version of the Service. We may also suspend or stop the Service altogether. In addition, we may impose or alter fees for new or existing aspects of the Service, including updating our credit conversion policies at any time. Apollo will notify you of the modifications through such means as it deems appropriate, including but not limited to email, notifications, or posts on the Website, but receipt of such notification shall not limit enforceability of such modification or amendment. Your continued use of the Services following the posting of revised Terms means you accept and agree to the changes. In addition, Apollo may inform you in writing (including by email) of any additional, reasonable policies that Apollo deems necessary to comply with legal or contractual obligations. Such policies will become effective within thirty (30) days of Apollo\u2019s delivery of such policies to the last known or provided email address that you have provided to Apollo. Order of Precedence."
+    },
+    {
+      "chunk_id": 71,
+      "primary_topic": "Limitation of Liability",
+      "predicted_topics": [
+        "Limitation of Liability",
+        "Contract Changes",
+        "Service Changes",
+        "Notice of Changes"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.7685,
+      "point_title": "Beta Services are provided as-is and may change or end at any time.",
+      "description": "The service provider offers optional Beta Services which are provided without warranties. The company can terminate or discontinue these services at its sole discretion.",
+      "quoted_text": "In the event of any direct conflict between the terms of these Terms and the terms of any Order Form, Addendum, or any other document incorporated by reference (including but not limited to, policies, terms of service, or other linked documents), the following will apply in descending order of precedence: (1) Apollo DPA; (2) Order Form, if any; (3) Other Addenda, if any; (4) Terms; (5) Linked policies. Beta Services. Apollo may offer optional Beta Services. Beta Services may be subject to additional terms which may supplement, but not supersede the terms of these Terms of Service. BETA SERVICES ARE PROVIDED \"AS IS\" WITHOUT WARRANTIES AND APOLLO HAS NO LIABILITY FOR BETA SERVICES AND MAY TERMINATE OR DISCONTINUE BETA SERVICES AT ANY TIME IN ITS SOLE DISCRETION. Export Restrictions."
+    },
+    {
+      "chunk_id": 72,
+      "primary_topic": "Choice of Law",
+      "predicted_topics": [
+        "Choice of Law",
+        "Choice of Forum"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 0.9994,
+      "point_title": "You cannot use this service in sanctioned countries or for restricted parties.",
+      "description": "This service must not be accessed from a country under economic sanctions imposed by major governments. Furthermore, the service cannot be used by individuals or entities listed on government sanctions lists.",
+      "quoted_text": "You must not access or use the Service: (i) in or relating to any country or territory that is the subject or target of comprehensive trade or economic sanctions imposed by the U.S. government or other applicable governmental authorities, including the European Union, United Kingdom, or United Nations (\u201cSanctions\u201d); (ii) for the benefit or on behalf of any person listed in any Sanctions-related list of designated persons maintained by the Office of Foreign Assets Control of the U.S. Department of the Treasury (\u201cOFAC\u201d), the U.S. Department of State (including OFAC\u2019s List of Specially Designated Nationals and Blocked Persons), or equivalent sanctions authorities, or any person owned 50 percent or more by such person; or (iii) otherwise in violation of any applicable Sanction, embargo, prohibition or restriction."
+    },
+    {
+      "chunk_id": 74,
+      "primary_topic": "Mandatory Arbitration",
+      "predicted_topics": [
+        "Mandatory Arbitration",
+        "Class Action Waiver"
+      ],
+      "harm_class": "Harmful",
+      "harm_label": "bad",
+      "harm_confidence": 1.0,
+      "point_title": "Disputes must be resolved in San Francisco, California courts.",
+      "description": "If a legal dispute arises, it must be heard by a court located in San Francisco County, California. This means users agree that this location is where any non-arbitrated lawsuit will take place.",
+      "quoted_text": "Any claim or dispute either of us may have against the other that is not subject to arbitration must be resolved by a court located in San Francisco County, California (or by a small claims court located elsewhere in the United States when Section 7(b)(ii) applies). We both agree to submit to the personal jurisdiction of the courts located within San Francisco County, California (or a small claims court located elsewhere in the United States when Section 7(b)(ii) applies), for the purpose of litigating all such claims or disputes that are not subject to arbitration."
+    }
+  ]
+}
