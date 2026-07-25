@@ -1,5 +1,5 @@
 """
-Plain-language ToS clause explanations via local Ollama.
+Plain-language ToS clause explanations via Ollama (local or cloud-routed).
 
 Called by POST /api/explain_tos_scores after Legal-BERT classification. Filters
 clauses by harm class, then generates a ToS;DR-style point title and description
@@ -7,7 +7,8 @@ for each matching clause.
 
 Environment (loaded by api/server.py from repo-root .env):
     VITE_OLLAMA_BASE_URL  — default http://localhost:11434
-    VITE_OLLAMA_MODEL     — default gemma4:e4b
+    VITE_OLLAMA_MODEL     — default gemma4:31b-cloud
+                            offline fallback: gemma4:e4b (local, ~30x slower)
 
 Public API:
     normalize_harm_filter()  — resolve user aliases to canonical harm classes
@@ -56,7 +57,9 @@ HARM_FILTER_ALIASES: dict[str, str] = {
 }
 
 DEFAULT_OLLAMA_BASE_URL = "http://localhost:11434"
-DEFAULT_OLLAMA_MODEL = "gemma4:e4b"
+DEFAULT_OLLAMA_MODEL = "gemma4:31b-cloud"
+# Offline fallback: set VITE_OLLAMA_MODEL=gemma4:e4b to run fully local.
+FALLBACK_OLLAMA_MODEL = "gemma4:e4b"
 
 EXPLAIN_JSON_SCHEMA: dict[str, Any] = {
     "type": "object",
@@ -151,10 +154,28 @@ def build_explain_system_prompt() -> str:
     )
 
 
+def _strip_code_fence(raw: str) -> str:
+    """Remove a ```json ... ``` wrapper if the model added one.
+
+    Ollama's `format` schema constraint is only enforced for locally served
+    models. Cloud-routed models (gemma4:31b-cloud and friends) are proxied
+    upstream with the constraint dropped, so they return the JSON wrapped in a
+    markdown fence. Models that honour `format` emit no fence and pass through
+    this function unchanged.
+    """
+    text = raw.strip()
+    if not text.startswith("```"):
+        return text
+    text = text[3:]
+    if text[:4].lower() == "json":
+        text = text[4:]
+    return text.strip().removesuffix("```").strip()
+
+
 def _parse_explain_response(raw: str) -> dict[str, str]:
     """Parse and validate Ollama JSON output for title + description."""
     try:
-        data = json.loads(raw)
+        data = json.loads(_strip_code_fence(raw))
     except json.JSONDecodeError as exc:
         raise ValueError(f"Invalid JSON from model: {exc}") from exc
 
@@ -292,3 +313,24 @@ def explain_clauses(
         })
 
     return points, model, normalized_filter
+
+
+if __name__ == "__main__":
+    # Offline check that both model families parse. Run: python -m api.llm_interpreter
+    expected = {"title": "a", "description": "b"}
+    payloads = [
+        '{"title": "a", "description": "b"}',                 # local, format honoured
+        '```json\n{"title": "a", "description": "b"}\n```',   # cloud-routed, fenced
+        '```\n{"title": "a", "description": "b"}\n```',       # fenced, no language tag
+    ]
+    for payload in payloads:
+        assert _parse_explain_response(payload) == expected, payload
+
+    for bad in ("not json at all", '{"title": "", "description": "b"}'):
+        try:
+            _parse_explain_response(bad)
+        except ValueError:
+            continue
+        raise AssertionError(f"expected ValueError for {bad!r}")
+
+    print("llm_interpreter self-check: fence stripping + validation ✓")

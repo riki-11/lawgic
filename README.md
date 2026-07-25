@@ -1,6 +1,13 @@
 # Lawgic
 
-Lawgic is a thesis research project for analyzing Terms of Service (ToS) documents. It fuses annotations from multiple legal corpora into a unified 44-topic taxonomy, fine-tunes Legal-BERT for clause-level topic detection and consumer harm scoring, and exposes local inference to a React frontend via a FastAPI server.
+Lawgic is a thesis research project for analyzing Terms of Service (ToS) documents. It fuses annotations from multiple legal corpora into a unified 44-topic taxonomy, fine-tunes Legal-BERT for clause-level topic detection and consumer harm scoring, and exposes local inference to a web frontend via a FastAPI server.
+
+## Frontends
+
+| App | Status | Role |
+|---|---|---|
+| [`lawgic-tos-changes`](../lawgic-tos-changes) (Next.js) | **Active — the thesis artifact** | ToS version-diff flow. Calls `POST /api/analyze_tos` for classification and runs its own Ollama prompts (`lib/ollama-diff.js`, `gemma4:31b-cloud`) for plain-language change explanations. All experiments and the defense demo use this app. |
+| [`lawgic-web-app`](../lawgic-web-app) (Vite/React) | **⚠️ Deprecated** | Original clause-card UI. The only consumer of `POST /api/explain_tos_scores`. Kept for provenance; do not measure or cite it. |
 
 The core classifier is a **dual-head model**: one head predicts which Lawgic topics appear in a clause (multi-label), the other predicts harm level — Harmful, Neutral, or Fair (multi-class).
 
@@ -21,7 +28,7 @@ The core classifier is a **dual-head model**: one head predicts which Lawgic top
 The API pre-loads the dual-head model and exposes:
 - `GET /api/test-analyze` — integration test against hardcoded Apollo.io ToS
 - `POST /api/analyze_tos` — real `.txt` upload with dynamic `service_name` (BERT-only)
-- `POST /api/explain_tos_scores` — plain-language titles/descriptions for harm-filtered clauses (Ollama)
+- `POST /api/explain_tos_scores` — plain-language titles/descriptions for harm-filtered clauses (Ollama). **Legacy:** only the deprecated `lawgic-web-app` called this. `lawgic-tos-changes` generates its explanations in-app and uses this server for classification only.
 
 **Prerequisites:** `thesis-env` conda environment and local weights at `saved_models/lawgic_classifier_legal-bert_v3/`.
 
