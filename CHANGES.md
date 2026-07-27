@@ -521,3 +521,106 @@ the real counts.
 **Still open:** if N or the library-scorable subset is too small for a defensible paired
 test, the fix is more ToS version pairs dropped into `tos_case_studies/`. The notebook globs
 `CASE_STUDY_SERVICES`, so adding pairs needs a list entry and a re-run, no code change.
+
+---
+
+## 9. Manuscript corrections applied to `chapter_4.tex`
+
+Four numeric/conceptual errors were found while checking Chapter 4 against the corpus and
+the Phase 1 output, and corrected in
+`/Users/riki/Coding Projects/Thesis/6a26daf36240f4b0d9c1e884/chapter_4.tex`. That file is
+git-tracked, so all four are revertible.
+
+### 9.1 Supervision-mask semantics (the load-bearing one)
+
+**A source's coverage is the set of topics its annotation scheme can express, fixed by the
+mapping table — it is NOT narrowed to the topics that happen to receive a positive in this
+corpus snapshot.** Author-confirmed. The implementation was correct; the prose was not.
+
+The two quantities had been conflated because they are close together:
+
+| Source | Mask coverage (what the code does) | Topics ever positive |
+| --- | --- | --- |
+| ToS;DR | **42** of 44, constant per row | 37 |
+| 100 ToS | **30** of 44, constant per row | 26 |
+| CLAUDETTE | 1–4, per row, driven by the native label | 10 (union) |
+
+So 5 ToS;DR topics and 4 100-ToS topics are inside coverage but never receive a positive.
+Under the confirmed reading these still contribute legitimate **observed negatives**: the
+questionnaire asked about the topic, no annotator flagged it, that is real negative evidence.
+
+CLAUDETTE is the exception by design — its mask is per-row rather than coverage-wide,
+because a missing CLAUDETTE annotation genuinely says nothing about topics that source never
+evaluates. Widening it would manufacture false negatives.
+
+**Line 219 corrected:** "all 37 topics … 36 observed negatives … the 26 within its coverage
+… the 35 topics that source never evaluates" → **42 / 41 / 30 / 34**, with a new leading
+sentence stating the coverage definition explicitly so the two quantities cannot be confused
+again. (The 35 → 34 change also moves the sentence into the 44-topic training space, which
+is what the rest of the paragraph uses: "one supervised cell and 43 unknown ones".)
+
+**Reproduce:**
+```python
+import sys; sys.path.insert(0, "scripts")
+import numpy as np, lawgic_eval_core as core, lawgic_train_matrix as tm
+df = core.load_corpus()
+mask = np.vstack(df["label_mask"].to_numpy()); lab = np.vstack(df["labels"].to_numpy())
+single = df["sources"].map(len).to_numpy() == 1
+for s in ("tos_dr", "100_tos", "claudette"):
+    m = tm.source_row_mask(df, s) & single
+    print(s, "coverage:", int((mask[m] == 1).any(axis=0).sum()),
+          "| ever positive:", int((lab[m] == 1).any(axis=0).sum()))
+```
+
+### 9.2 Source-trace paragraph (line 387)
+
+Same conflation, downstream. "a ToS;DR row is marked as observed for 37 topics while a
+CLAUDETTE row is marked for only one or two" → now gives all three signatures (42 / 30 /
+1–4) and states that they do not overlap.
+
+This **strengthens** the motivation for the Phase 3 probe: the mask is not merely suggestive
+of provenance, it is a perfect identifier — three disjoint constants. A model can read source
+identity off the mask alone, with no reference to the clause text.
+
+### 9.3 Held-out probe percentages (line 390)
+
+Stated as fractions of the **training split** (21,183 rows), which is what the sentence
+claims, not of the full corpus:
+
+| Claim in text | Was | Now |
+| --- | --- | --- |
+| CLAUDETTE holdout | "under 8\%" | **11.9\%** (2,528 rows) |
+| 100 ToS holdout | "under 8\%" | **5.6\%** (1,175 rows) |
+| ToS;DR holdout | "88\%" | **82.9\%** (17,559 rows) |
+
+The single "under 8\%" could not cover both small sources, so they are now stated
+separately. The old 88\% figure was the corpus-wide **annotation** share (44,317 / 50,086 =
+88.5\%), not the training-row share — an easy slip, since both numbers are real and describe
+ToS;DR dominance. Typo `exluded` → `excluded` fixed in the same sentence.
+
+The argument survives: 11.9\% is still small enough that a collapse on held-out CLAUDETTE
+indicates trace matching rather than data starvation, which is the point the sentence makes.
+
+### 9.4 Readability paragraph (line 396)
+
+Rewritten for the `lawgic-tos-changes` design (§8). Three substantive changes:
+
+1. **Unit.** "the proportion of clauses whose readability improves" → *changes*. The app has
+   no per-clause explain flow; the pair is a quoted ToS excerpt against
+   `what_changed` + `impact_for_user`.
+2. **"by risk class" removed.** Chapter 4 uses "risk class" for the 3-class classifier head
+   everywhere else, so that phrasing told readers the breakdown came from the classifier. It
+   does not — `harm_label` is assigned by the explanation model, with Legal-BERT entering the
+   prompt as context only. The new text says so explicitly rather than leaving it inferable.
+3. **Instrument limits stated up front.** Both Flesch Reading Ease and Flesch-Kincaid Grade
+   Level are named, and the 100-word minimum of `py-readability-metrics` is pre-registered
+   along with a commitment to report the excluded count — rather than discovering the
+   exclusion in the results and explaining it after the fact.
+
+### Verified as still correct
+
+- Headline table (lines 376–380): 0.75 / 0.83 / 0.83 / 0.83. Phase 1 recomputed
+  0.754 / 0.834 / 0.829 / 0.825 from the checkpoint.
+- Line 385's ablation design matches the Phase 2 matrix (dual vs single-head; Legal-BERT vs
+  BERT, XLNet, RoBERTa).
+- Line 400's "three document pairs" matches the case studies shipped with the app.
