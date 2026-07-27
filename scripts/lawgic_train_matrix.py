@@ -268,6 +268,12 @@ def make_compute_metrics(metric_context: dict):
     def compute_metrics(eval_prediction) -> dict[str, float]:
         predictions = eval_prediction.predictions
         topic_logits, harm_logits = predictions if isinstance(predictions, tuple) else (predictions, None)
+        # ``metric_context`` holds the validation arrays. ``trainer.predict`` on a
+        # differently sized set (the Phase 3 held-out test frame) would broadcast
+        # them against the wrong logits; test metrics are computed separately in
+        # ``run_config`` anyway, so skip rather than mis-score.
+        if len(topic_logits) != len(metric_context["labels"]):
+            return {}
         out = topic_metrics(
             topic_logits, metric_context["labels"], metric_context["label_masks"]
         )
