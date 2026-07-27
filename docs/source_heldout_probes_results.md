@@ -5,6 +5,14 @@
 **Companion:** `docs/multiseed_evaluation_results.md` (Phases 1–2). Read Part I of that document first — the mental model there (seeds, bootstrap, pairing) applies unchanged here.
 **Artifacts:** `generated_files/lawgic_taxonomy/evaluation/phase3_source_holdout.{csv,tex}`, `runs/legal-bert-base-uncased__seed42__dual__holdout-{claudette,100_tos}/`
 
+> ### ⏸ Manuscript status (2026-07-27): deferred until after the proposal defense
+>
+> **Part V of this document is on hold. Do not apply it yet.** The probe has been removed from the manuscript in its entirety — the experiment, the results, and the motivation — on the grounds that the finding cannot be understood, written, and defended in the time remaining before the proposal defense. Reinstatement is planned for after it.
+>
+> What that means for this document: Parts I–IV and Part VI stand as the analysis of record. **Part V is the reinstatement plan, not a to-do list for now.** The removal is recorded, with the exact edits and a reinstatement checklist, in the Appendix of `misc/das_defense_prep.md` in the manuscript repository. Two `TODO (post-defense)` blocks in `chapter_4.tex` mark where the text comes back.
+>
+> Nothing in the code was reverted: the notebook, both trained probe runs, and the persisted logits all remain, so reinstatement is a writing task.
+
 ---
 
 ## 0. The one-paragraph version

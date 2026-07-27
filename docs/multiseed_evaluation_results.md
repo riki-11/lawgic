@@ -387,7 +387,11 @@ This is the positive-only-corpus degeneracy of §4.2 reappearing one layer up in
 | §4.3 caption `tab:trainingprotocol` | "Random seed 42" | Add: three seeds (42, 1337, 2024) per configuration for the evaluation matrix; seed 42 for the shipped checkpoint. |
 | §4.2 "The Lawgic Taxonomy" / "Final Corpus" | 44 substantive topics, each an independent label | Add the duplicate-supervision disclosure: two topic pairs (`transfer_of_contract`/`business_transfer`, `transparency`/`recommender_transparency`) draw from identical source mappings and are supervised identically, so the effective label set is 42. Report macro-F1 both ways (0.770 / 0.766). |
 
-## IV.1b Phase 3 changes the manuscript needs now
+## IV.1b Phase 3 changes the manuscript needs — ⏸ **deferred until after the proposal defense (2026-07-27)**
+
+**Do not apply this table yet.** The probe has been removed from the manuscript in full — experiment, results, and motivation — because the finding cannot be defended at the standard it needs in the time before the proposal defense. The table below becomes the reinstatement plan for afterwards. The removal, the exact edits, and a reinstatement checklist are recorded in the Appendix of `misc/das_defense_prep.md` in the manuscript repository; two `TODO (post-defense)` blocks in `chapter_4.tex` mark the sites.
+
+Three items in the table are worth pulling out and doing **now**, because they are Phase 1–2 findings that stand on their own and carry no source-probe framing: the **majority-class risk floor of 0.469** for §4.4.1, the **per-source risk-head breakdown** of IIIb.3(b), and the **single-supplier topics** disclosure for §4.2. Whether the last two read as probe-adjacent is a judgement call — the risk breakdown in particular invites "so how does it do on unfamiliar sources?", so it may be cleaner to hold both until reinstatement and transfer only the 0.469 floor.
 
 | Location | Current state | Required change |
 |---|---|---|
