@@ -222,6 +222,8 @@ collections/
 generated_files/tos_dr/tos_dr_points.csv
 /generated_files/tos_dr/batchv2_experiment/
 /generated_files/tos_dr/eval_results/
+
+/generated_files
 generated_files/lawgic_taxonomy/lawgic_combined_long.csv
 generated_files/lawgic_taxonomy/lawgic_combined_wide.csv
 generated_files/lawgic_taxonomy/lawgic_multihead_wide.csv
