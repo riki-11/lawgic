@@ -1,8 +1,9 @@
 # Multi-Seed Evaluation Results — Interpretation and Manuscript Guidance
 
 **Date:** 2026-07-27
-**Scope:** Phases 1 and 2 of the statistical-rigor upgrade (`CHANGES.md`). Phases 3 and 4 are written but not yet executed.
+**Scope:** Phases 1, 2 and 3 of the statistical-rigor upgrade (`CHANGES.md`). Phase 4 is written but not yet executed.
 **Audience:** you, and anyone who asks "how did you conduct your methodology? I want to replicate it."
+**Companion:** Phase 3 has its own document, `docs/source_heldout_probes_results.md`, with the full per-topic analysis, the corrected evaluation surface, and manuscript-ready prose. This document carries the summary and the protocol step.
 
 ---
 
@@ -12,12 +13,12 @@
 |---|---|---|---|
 | 1 — Decontaminated re-scoring | Re-scores the shipped checkpoint on the full test split and on the near-duplicate-free subset, with bootstrap CIs | **Done** | `phase1_decontaminated.{csv,tex}`, `phase1_contamination_flags.csv`, `phase1_test_logits.npz` |
 | 2 — Multi-seed / multi-encoder matrix | 18 training runs: 4 encoders × 3 seeds (dual-head) + Legal-BERT × 3 seeds × {topic-only, risk-only} | **Done** | `phase2_runs.csv`, `phase2_aggregate.csv`, `phase2_bootstrap_ci.csv`, `phase2_significance.csv`, `phase2_headline.{csv,tex}`, `phase2_per_topic.{csv,tex}`, `runs/<run_id>/` |
-| 3 — Source-held-out probes | Retrain excluding CLAUDETTE / 100 ToS, evaluate on the withheld source only | **Not run** (notebook has zero executed cells) | — |
+| 3 — Source-held-out probes | Retrain excluding CLAUDETTE / 100 ToS, evaluate on the withheld source only | **Done** | `phase3_source_holdout.{csv,tex}`, `runs/…__holdout-{claudette,100_tos}/` |
 | 4 — Explanation readability | Flesch scores, generated explanation vs source clause | **Not run** (notebook has zero executed cells) | — |
 
-All Phase 1–2 outputs live in `generated_files/lawgic_taxonomy/evaluation/`.
+All Phase 1–3 outputs live in `generated_files/lawgic_taxonomy/evaluation/`.
 
-Total compute already spent on Phase 2: **18.0 GPU-hours** across 18 runs, mean 60.0 min/run (range 19.2–147.9 min), mean 15.3 epochs to early stop.
+Total compute: **18.0 GPU-hours** across the 18 Phase 2 runs, mean 60.0 min/run (range 19.2–147.9 min), mean 15.3 epochs to early stop, plus **1.3 GPU-hours** for the two Phase 3 probes (39.3 and 39.0 min, 14 and 13 epochs, both early-stopped inside the budget).
 
 ---
 
@@ -74,6 +75,19 @@ You then report **both** numbers:
 - the decontaminated subset (similarity < 0.90), because that is the honest estimate of performance on genuinely novel language.
 
 Reporting only the first overstates generalisation. Reporting only the second discards legitimate in-domain repetition. Reporting both, with intervals, is the defensible presentation and is exactly what a reviewer will ask for.
+
+## I.5 Why hold out a whole source
+
+Seeds, bootstrap and pairing all assume the test set is drawn from the same distribution as the training set. That assumption is exactly what a fused corpus makes questionable. Three annotation projects with three registers, three segmentation conventions and three label vocabularies were stitched together, and a model can score well by learning *which project a row came from* and predicting that project's usual labels. A random split cannot detect this, because the test split contains the same three projects in the same proportions.
+
+The only way to test it is to make the traces genuinely absent: remove one source from training entirely, retrain, and evaluate only on that source's clauses. If performance survives, the model learned the clause. If it collapses, it was leaning on the traces.
+
+**The distinction that matters here is between a correlational probe and a counterfactual one.** You already had the correlational version — a linear classifier that decodes source identity from the fine-tuned encoder at 0.872 macro-F1 versus 0.575 from the raw encoder. That shows the representation *contains* source information, which fine-tuning on a fused corpus makes almost inevitable. It cannot show the heads *depend* on it. Only the retrain can. That is why Phase 3 costs GPU time and the linear probe cost minutes, and it is the argument to make if a panelist asks why the cheap probe was not enough.
+
+Two constraints follow immediately, and both are design decisions rather than limitations:
+
+- **You cannot hold out a source that supplies most of the corpus.** Removing ToS;DR leaves ~3,600 training clauses, and a collapse would be indistinguishable from data starvation. The probe is only readable for sources small enough to remove without changing the training regime.
+- **The evaluation surface must be the withheld source's own supervised cells, and the in-distribution reference must be recomputed on exactly those same cells.** Comparing a probe scored on 324 clauses under one source's mask against the headline 0.771 scored on 2,648 clauses under the union mask is comparing two different quantities. See Part IIIb and §I.5 of `source_heldout_probes_results.md` for what goes wrong when the mask is drawn too narrowly.
 
 ---
 
@@ -300,7 +314,65 @@ The consequence you have to state: **the Legal-BERT cell of the matrix is not th
 
 ---
 
+# Part IIIb — Phase 3: does the model read clauses, or recognise datasets?
+
+Full treatment in `docs/source_heldout_probes_results.md`. Summary and the parts that change Phase 1–2 conclusions:
+
+## IIIb.1 The result
+
+Two retrains, seed 42, dual-head Legal-BERT, protocol otherwise identical to Phase 2. CLAUDETTE removed (2,528 train rows, 11.9%) then evaluated on its 324 test clauses; 100 ToS removed (1,175 rows, 5.5%) then evaluated on its 141 test clauses. In-distribution reference = the Phase 2 legal-bert/seed-42 run's persisted logits re-scored on the identical rows and cells, so the two columns differ only in training experience.
+
+| | CLAUDETTE in-dist → held out | 100 ToS in-dist → held out |
+|---|---|---|
+| Topic micro-F1 | 0.877 → **0.624** (retain 0.71) | 0.656 → **0.286** (retain 0.44) |
+| — precision | 0.961 → 0.953 | 0.598 → **0.203** |
+| — recall | 0.806 → 0.464 | 0.727 → 0.483 |
+| Δ micro-F1, 95% CI | [−0.301, −0.207] | [−0.444, −0.304] |
+| Risk accuracy | 0.772 → **0.460** | 0.560 → **0.411** |
+| Majority-class risk floor, same rows | 0.744 | 0.610 |
+
+**The collapse is real and large; every delta CI is far from zero.** A meaningful share of the headline score is conditional on having seen the annotation project during training. That is the honest headline and it should be reported as such.
+
+The two probes fail differently, which is diagnostic: without CLAUDETTE the model goes **silent** (recall halves, precision untouched, false positives drop 13→9); without 100 ToS it goes silent **and noisy** (precision collapses, false positives 100→389).
+
+## IIIb.2 Three mechanisms, not one
+
+The per-topic breakdown is where the defensible finding lives. Joining each topic's probe score against how much training supervision it *retains* after the holdout splits the outcome three ways:
+
+1. **Genuine cross-source generalisation** — formulaic clause families transfer nearly intact with the source absent from training: `account_termination` 0.944, `content_removal` 0.870, `mandatory_arbitration` 0.865, `choice_of_law` 0.842, `choice_of_forum` 0.837, `class_action_waiver` 0.833. Exactly the topics §III.5 already flags as the model's strongest. Good news; do not bury it.
+2. **Supervision withdrawal, not reading failure** — the holdout removed the topic's supplier. `limitation_of_liability` draws 89% of its training positives from CLAUDETTE (recall 0.18); `liability_cap`, `severability`, `service_changes`, `price_changes` and `limitation_period` draw 100% from 100 ToS and have *zero* supervision left. **These must be excluded from any claim about source recognition** — they measure unlearnability. Excluding the five zero-supervision topics raises the 100 ToS probe from macro-F1 0.520 to 0.596. This is the per-topic reappearance of the same data-starvation confound that made a ToS;DR probe uninterpretable.
+3. **Register transfer failure — the actual evidence of source dependence** — topics that keep 92–99% of their supervision and still score F1 0.000 on the withheld source's clauses: `contract_by_use` (2,698 positives retained), `privacy_incorporation` (1,970), `complaint_system` (2,904), `content_rules` (975), `transparency` / `recommender_transparency` (1,110). The model learned what the training source's *phrasing* of the topic looks like, not what the mechanism is.
+
+**This is a corpus finding as much as a model finding:** nine of the 44 topics depend on a single source for most or all of their supervised positives, which belongs in §4.2 alongside the duplicate-supervision disclosure.
+
+## IIIb.3 Two things Phase 3 forces you to add to Phase 1–2 reporting
+
+**(a) The majority-class baseline exists now, and it is 0.469.** Predicting *neutral* for every one of the 2,648 test clauses gives risk accuracy 0.4687 — a property of the labels, so it holds for every run in the matrix. The manuscript's selected checkpoint (0.836, seed 2024) clears it by 0.367; the seed-42 run used as the Phase 3 reference scores 0.841 and clears it by 0.372. That discharges one of the two trivial floors §4.4.1 still promises, at zero GPU cost. (The per-topic prevalence predictor is still outstanding and is equally free.)
+
+**(b) The risk head does not work on the two smaller sources — even in-distribution.** Per-source breakdown of the Phase 2 seed-42 run, each against its own majority-class floor on the same rows:
+
+| Test rows | n | Topic micro-F1 | Risk accuracy | Majority floor | Margin |
+|---|---|---|---|---|---|
+| All | 2,648 | 0.836 | 0.841 | 0.469 | +0.372 |
+| ToS;DR | 2,199 | 0.841 | 0.868 | 0.435 | +0.433 |
+| CLAUDETTE | 324 | 0.877 | 0.772 | 0.744 | **+0.028** |
+| 100 ToS | 141 | 0.656 | 0.560 | 0.610 | **−0.050** |
+
+The headline risk accuracy is carried by the ToS;DR rows that are 83% of the corpus. On CLAUDETTE rows the head barely beats a constant predictor; on 100 ToS rows it loses to one. Uncomfortable, and it should be reported anyway — it also reframes the probe's risk numbers correctly: 0.460 and 0.411 are further degradation of a head that was already marginal on those sources, not a collapse from a working system.
+
+The mechanism is visible in the prediction distributions. The two probes err in **opposite** directions — over-calling harm on CLAUDETTE clauses (162 of 324 predicted harmful where 66 are), under-calling it on 100 ToS clauses (36 of 141 where 86 are). CLAUDETTE's fairness levels resolve to 74% neutral on these rows and 100 ToS's integer scores to 61% harmful, so with the source absent the head reverts toward the intermediate ToS;DR prior. **The risk head is fitting the source's scoring convention alongside the clause's severity** — a finding about the score-mapping layer of §4.2, not only about the model.
+
+## IIIb.4 One methodological defect to know about
+
+`source_supervision_mask()` builds the probe's evaluation surface from `native_annotations`, which records **only asserted (positive) annotations**. The resulting surface therefore contains no observed negatives at all (CLAUDETTE: 375 cells, 375 positive; 100 ToS: 197 cells, 197 positive), false positives are structurally impossible, and micro-precision is exactly 1.000 in every condition including in-distribution. The published `phase3_source_holdout.tex` is therefore a **recall** table, not an F1 table, and it reported precision 1.000 for the 100 ToS probe whose real precision on a proper surface is 0.203 — it concealed the entire second failure mode.
+
+This is the positive-only-corpus degeneracy of §4.2 reappearing one layer up in the evaluation. It costs no GPU time to fix (the probe logits are persisted; re-score under each row's own `label_mask`, which is that source's mask for the 96% of these rows that are single-source). The corrected numbers are the ones in IIIb.1. Details and both surfaces side by side in §I.5 and §II of `source_heldout_probes_results.md`.
+
+---
+
 # Part IV — What this means for the manuscript
+
+**Status note (2026-07-27):** the Phase 1–2 rewrites listed in IV.1 below have since been applied to `chapter_4.tex` — the contamination rates, the encoder matrix, the significance table, the head ablation, the support threshold, the duplicate-topic disclosure and the timing figures are all in the manuscript. IV.1 is retained as the audit trail. The outstanding manuscript work is now Phase 3 (IV.1b) and the items in Part VI.
 
 ## IV.1 Claims that must change
 
@@ -315,11 +387,25 @@ The consequence you have to state: **the Legal-BERT cell of the matrix is not th
 | §4.3 caption `tab:trainingprotocol` | "Random seed 42" | Add: three seeds (42, 1337, 2024) per configuration for the evaluation matrix; seed 42 for the shipped checkpoint. |
 | §4.2 "The Lawgic Taxonomy" / "Final Corpus" | 44 substantive topics, each an independent label | Add the duplicate-supervision disclosure: two topic pairs (`transfer_of_contract`/`business_transfer`, `transparency`/`recommender_transparency`) draw from identical source mappings and are supervised identically, so the effective label set is 42. Report macro-F1 both ways (0.770 / 0.766). |
 
+## IV.1b Phase 3 changes the manuscript needs now
+
+| Location | Current state | Required change |
+|---|---|---|
+| §4.4.7 `sec:committedexperiments` (lines 478–480) | The probe is described as committed future work, in present/future tense | Promote to a results subsection. Recommend a new §4.4.6 `sec:sourceprobes` inserted **between** Per-Topic Performance and Model Selection — it is evidence about the corpus that bears on what the deployed model can be claimed to do. Keep the existing motivating paragraphs (mask shape as a trace, and why ToS;DR is not held out — both are good); change the tense and append the results |
+| Chapter overview (line 16) | "the source-held-out probes and the readability assessment remain committed" | Probes are done; only readability remains |
+| §4.4.1 (line 378) | "a majority-class predictor and a per-topic prevalence predictor… remain committed" | The majority-class floor is now measured: **risk accuracy 0.469**. One of the two is discharged; state it |
+| §4.4.6 Model Selection (line 473) | Justifies Legal-BERT on stability and register adequacy | Add the generalisation caveat. The reported score is partly source-conditional, and the user study's live TikTok / YouTube / X terms are out-of-distribution with respect to all three sources |
+| §4.2 Final Corpus (line 233) | Discloses low-support topics and the indemnification gap | Add single-supplier topics as a distinct corpus limitation: five topics are supplied by 100 ToS alone, and `limitation_of_liability` draws 89% of its supervision from CLAUDETTE. Phase 3 shows these are unlearnable when their supplier is absent |
+| §4.4 risk-head reporting | Reports 0.841 risk accuracy as a single figure | Add the per-source breakdown of IIIb.3(b), or at minimum the sentence that the figure is carried by ToS;DR rows and does not exceed a constant predictor on 100 ToS rows |
+
+Draft prose for the new subsection, a replacement table, and a numbers checklist are in `docs/source_heldout_probes_results.md` Part V. Do not paste `phase3_source_holdout.tex` as generated — see IIIb.4.
+
 ## IV.2 Claims that get *stronger*
 
 - **The multi-task/dual-head design.** Now empirically supported: +0.014 risk macro-F1 in all three seeds, McNemar p = 0.042, no topic-head cost. Move this from "will be tested by ablation" (line 299) to a stated, defended result. It is your best architectural claim.
 - **The near-duplicate audit.** You found a risk, quantified it, and showed it was immaterial (≤0.005 on every metric). Present as diligence rewarded.
 - **The evaluation protocol itself.** Persisted split, 18 runs on identical clause ordering, bootstrap CIs, paired tests. Chapter 3 §3.8 already argues that constant conditions are what make an ablation valid; Chapter 4 can now say the conditions were held constant *and show the artifact that enforces it* (`splits/split_seed42.csv`, loaded by every run).
+- **The corpus-fusion risk was tested, not asserted.** §4.2 names the source-trace risk the fusion introduces. Phase 3 tested it with a counterfactual retrain, found the effect is real, and located it: it holds for formulaic clause families and fails for broad discretionary ones. A limitation that is measured and decomposed is worth more than a limitation that is merely acknowledged — and far more than one a panelist discovers.
 
 ## IV.3 Suggested new tables for Chapter 4
 
@@ -391,6 +477,16 @@ For the macro/micro gap:
 - [ ] Zero-logit degenerate-model guard: 0.0923 macro-F1, verified identically in all 18 runs (currently the manuscript only asserts "< 0.95"; you now have the actual value)
 - [ ] Document-identifier coverage: 100% of 26,479 rows, 2,015 groups
 - [ ] Split artifact: `generated_files/lawgic_taxonomy/splits/split_seed42.csv`, verified 21,183 / 2,648 / 2,648
+
+Phase 3 additions (full list in `source_heldout_probes_results.md` §V.4):
+
+- [ ] Probe topic micro-F1: 0.877 → 0.624 (CLAUDETTE), 0.656 → 0.286 (100 ToS), Δ CIs [−0.301, −0.207] and [−0.444, −0.304]
+- [ ] Probe risk accuracy 0.460 / 0.411 against majority floors 0.744 / 0.610 on the same rows
+- [ ] **Majority-class risk accuracy on the full test split: 0.469** — discharges half the trivial-baseline commitment
+- [ ] Per-source in-distribution risk accuracy: ToS;DR 0.868, CLAUDETTE 0.772, 100 ToS 0.560, against floors 0.435 / 0.744 / 0.610
+- [ ] Topics that transfer intact (F1 0.83–0.94) vs the three-mechanism decomposition
+- [ ] Probe cost: 1.3 GPU-hours, 39.3 and 39.0 min, 14 and 13 epochs
+- [ ] Single-seed and positives-only-surface disclosures
 
 ---
 
@@ -517,13 +613,42 @@ Declare a support threshold in advance and report macro-F1 both ways. Here: 20 t
 
 F1 on a topic with one test positive is not a statistic. Report it, flag it, exclude it from the summary claim.
 
-## Step 10 — Things this protocol does *not* establish
+## Step 10 — Source-held-out probes, if your corpus is fused
+
+Skip this step if your training data comes from one annotation project. If it does not, this is the experiment that decides whether your headline number means what you think it means, and it is the one a panelist is most likely to ask for.
+
+**The procedure.**
+
+1. Pick a source small enough to remove without changing the training regime. Removing 5–15% of training rows is readable; removing 80% is not — a collapse would be indistinguishable from data starvation, and you would have answered neither question. Say in the text which source you did not hold out and why.
+2. Remove that source's rows from **train and validation**. Not just train. Leaving them in validation lets early stopping select a checkpoint on the very distribution you are claiming the model never saw.
+3. Retrain from scratch under the identical protocol. Same seed, same hyperparameters, same losses, same early stopping. If you change anything else, the drop you measure is not attributable to the holdout.
+4. Restrict the test set to that source's rows.
+5. **Recompute the in-distribution reference on exactly those rows and those cells**, from the persisted logits of the run that *did* see the source. Not the headline number — that scores different rows under a different mask, and the comparison would be meaningless. This is where persisting raw logits pays for itself again: the reference costs zero GPU time.
+6. Report the retained ratio *with its denominator*, and bootstrap the CI on the **difference**, paired on rows.
+
+**Mask the evaluation surface to what the withheld source could actually judge — and check that the mask has negatives in it.** Scoring a held-out CLAUDETTE row across all 44 topics grades the shape of the mask rather than comprehension of the clause, because CLAUDETTE's nine labels reach only ten topics. So the surface must be restricted. But restrict it to "the cells this source *asserted*" and you get a positives-only surface, because annotation formats record positives; false positives become structurally impossible, micro-precision comes out at exactly 1.000, and your F1 is a recall proxy wearing an F1 costume. **This is exactly what happened here** (§IIIb.4), and it hid a precision collapse from 0.598 to 0.203 on one of the two probes. Restrict to the source's *coverage* — the topics its scheme can express — not to the topics it happened to mark. Assert `fp > 0` is possible before you trust any number off this surface.
+
+**Then decompose by topic, or the aggregate will mislead you.** For every topic scored, compute the training positives that *survive* the holdout. Three outcomes need separating and only one of them is about generalisation:
+
+- supervision survives and the topic scores well → the concept transferred;
+- supervision survives and the topic scores zero → **source-trace dependence**, the thing you were testing for;
+- supervision was removed with the source → unlearnability, which says nothing about reading and must be excluded from the claim.
+
+Without this column the probe cannot distinguish "the model can't generalise" from "the topic stopped existing," which is its entire purpose. Here, five topics fell in the third class and reporting them as generalisation failures would have been wrong.
+
+**Report a trivial floor on the withheld subset, computed on the withheld subset.** Class priors shift between sources, so the floor moves. Held-out risk accuracy of 0.460 reads as a collapse from 0.841 until you notice the majority-class predictor scores 0.744 on those specific rows — at which point the correct statement is "far below trivial," which is worse and is also true in-distribution for one of the two sources. A metric without its floor is uninterpretable, and a floor computed on the full test set is the wrong floor.
+
+**Measured cost:** 2 runs, 39.3 and 39.0 min, ≈1.3 GPU-hours. The cheapest high-value experiment in the whole programme.
+
+## Step 11 — Things this protocol does *not* establish
 
 Say these out loud before someone else does:
 
 - **No per-encoder hyperparameter tuning.** All encoders ran the BERT recipe (lr 3e-5, warmup 0.06, batch 8). This is a deliberate constant-conditions choice — you cannot attribute a difference to the encoder if you also tuned each differently — but it bounds the claim to "encoders under one protocol," not "encoders at their best." XLNet in particular may be underserved.
 - **Clause-level split, not document-level.** The near-duplicate audit bounds textual leakage; it does not control for document-level style or topic co-occurrence. The CLAUDETTE reference protocol (leave-one-document-out) is stricter. Document identifiers now cover 100% of rows, so this is a runnable experiment rather than an acknowledged impossibility.
-- **Three seeds.** Enough to expose XLNet's instability; not enough for a tight variance estimate. Five would be better.
+- **Three seeds** in the matrix, **one** for each source probe. Three is enough to expose XLNet's instability but not enough for a tight variance estimate; five would be better. The probes carry one draw of training noise each, which is fine for the direction of a 0.25–0.37 effect and not fine for the third decimal of a retained ratio.
+- **Cross-source generalisation is partial, and now measured.** No longer an open risk: Phase 3 shows the effect is real, large, and topic-dependent. What remains unestablished is ToS;DR's own contribution, since the largest source cannot be held out (Step 10), so everything Phase 3 concludes about source dependence is inferred from the 17% of the corpus that is not ToS;DR.
+- **The risk head is not validated on the two smaller sources.** In-distribution it beats a constant predictor by 0.028 on CLAUDETTE rows and loses to one by 0.050 on 100 ToS rows (§IIIb.3). The headline risk accuracy is a ToS;DR result.
 - **Test-set reuse.** The test split has now been scored by 18 models plus the shipped checkpoint. No model was *selected* on it — selection was on validation throughout — but the multiplicity is worth one honest sentence.
 - **Label noise is unmeasured.** The ToS;DR label-noise audit is still an open TODO in `chapter_4.tex` (line ~229). Until it exists, the F1 ceiling imposed by annotation quality is unknown, and it is plausibly lower than the numbers you are reporting against.
 
@@ -531,15 +656,15 @@ Say these out loud before someone else does:
 
 # Part VI — What is left to do
 
-## VI.1 Phase 3 — source-held-out probes (notebook written, not executed)
+## VI.1 Phase 3 — done; follow-up work
 
-`notebooks/evaluation/03_source_heldout_probes.ipynb`, 13 cells, none executed.
+Executed, 1.3 GPU-hours, results in Part IIIb and in `docs/source_heldout_probes_results.md`. What remains:
 
-Two probes on Legal-BERT / seed 42 / dual-head, protocol otherwise identical: hold out CLAUDETTE (3,721 long rows, 11.9% of training), hold out 100 ToS (2,048 rows, 5.6%). Each removes the source from train **and** validation and restricts the test set to that source's rows. Scoring respects the supervision masks — only cells the held-out source actually annotated are scored, otherwise the probe measures mask shape rather than comprehension.
-
-No ToS;DR probe: it would remove ~83% of training rows, and a collapse would be confounded with data starvation. That rationale belongs in the manuscript text, not only in the notebook.
-
-**Estimated cost:** two dual-head runs at roughly 60 min each ≈ 2 GPU-hours. Cheap relative to Phase 2 and it addresses the sharpest live objection to the fused corpus — that the model may be recognising datasets rather than reading clauses. The source-classifier probe you already have (`outputs/source_probe_cache/source_probe_results.csv`) shows a fine-tuned-encoder source classifier at 0.872 macro-F1 versus 0.575 for raw Legal-BERT, which establishes that source identity **is** strongly encoded in the fine-tuned representations. That makes Phase 3 more necessary, not less. **Run it.**
+1. **Re-score both probes on a surface that has observed negatives** (§IIIb.4). No GPU needed — the probe logits are persisted. Then decide which surface the manuscript publishes; recommend the corrected one as headline with the recall-side figures in a footnote.
+2. **Fix `source_supervision_mask()` or its use.** It builds the mask from `native_annotations`, which stores positives only. Either intersect with each source's coverage (derivable from `source_mappings` in `lawgic_topics.json`) or use the row's own `label_mask`, which is that source's mask for the 96% of these rows that are single-source.
+3. **Add the per-topic supervision-survival column** to the probe output, so the three mechanisms of IIIb.2 are visible in the artifact and not only in this document.
+4. **Optional and cheap:** a length-stratified breakdown of the CLAUDETTE probe from the persisted logits. CLAUDETTE annotates single sentences while ToS;DR quotes multi-sentence passages, so the current design cannot separate register failure from segmentation-length failure. This would.
+5. **Consider a ToS;DR probe anyway, framed as a bound rather than a test.** It cannot answer the source-recognition question, but a matched control — retrain on a *random* 17% subsample of the same size as the ToS;DR-removed corpus — would separate data starvation from source loss and would let you say something about the largest source. Two more runs. Only worth it if a panelist presses on ToS;DR specifically.
 
 ## VI.2 Phase 4 — explanation readability (notebook written, not executed)
 
@@ -551,7 +676,7 @@ Three framing statements must appear in the eventual text: (1) which app and mod
 
 ## VI.3 Still uncommitted from the manuscript's own promises
 
-- **Trivial baselines** (§4.4 line 364): majority-class predictor and per-topic prevalence predictor. Only the zero-output floor exists (0.0923). Both remaining baselines are computable from the persisted split and cost **zero GPU time** — pure numpy on the label arrays. Do these; the chapter currently promises three floors and has one.
+- **Trivial baselines** (§4.4 line 364): the zero-output floor exists (0.0923) and the **majority-class risk floor is now measured at 0.469** (IIIb.3a). Only the per-topic prevalence predictor is outstanding, and it is pure numpy on the label arrays at **zero GPU cost**. Finish it; the chapter promises three floors and has two.
 - **ToS;DR label-noise audit** (TODO at line ~229).
 - **Document-grouped re-split** (Phase 1, behind `RUN_DOCUMENT_SPLIT = False`). Coverage is 100%; the only cost is retraining.
 
@@ -559,4 +684,6 @@ Three framing statements must appear in the eventual text: (1) which app and mod
 
 1. **Fix or disclose the two duplicate topic pairs.** Already verified (§III.5): `transfer_of_contract` / `business_transfer` and `transparency` / `recommender_transparency` have byte-identical `source_mappings` in `lawgic_topics.json` and therefore identical supervision on every row. Effective taxonomy is 42 topics, not 44; corrected macro-F1 is 0.766. Decide whether to merge them in the mapping tables (changes the corpus and requires retraining — expensive) or to disclose the redundancy in §4.2 and report both macro-F1 figures (cheap, and sufficient). **Recommend the second.** Also trace why `contract_by_use` / `governance` share mappings yet differ in support.
 2. **Decide about the deployed checkpoint.** `saved_models/lawgic_classifier_legal-bert_phase2/` (seed 2024, first-token pooling) outperforms the shipped v3 by +0.017 topic macro-F1. Either swap it in and re-run Phase 1 against it, or keep v3 and explain in the text why the chapter's headline model is not the deployed one. Do not leave this ambiguous.
-3. **Run the two trivial baselines.** Free, and the chapter already promised them.
+3. **Run the remaining trivial baseline** (per-topic prevalence). Free; the majority-class one is done at 0.469.
+4. **Write up Phase 3 into §4.4.** It is the sharpest live objection to the fused corpus and it now has an answer with a decomposition. Use the corrected surface, not the generated `.tex`. Draft prose and table in `docs/source_heldout_probes_results.md` Part V.
+5. **Add single-supplier topics to §4.2.** Nine of 44 topics depend on one source for most or all of their positives. Phase 3 shows five of them become unlearnable when their supplier is absent. This is a corpus limitation the chapter does not currently state, and it sits naturally beside the duplicate-supervision disclosure already there.
