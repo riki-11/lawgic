@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 from pathlib import Path
 from typing import Literal
 
@@ -41,7 +42,14 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 
 # Load .env from repo root (Ollama URL/model for /api/explain_tos_scores)
 load_dotenv(REPO_ROOT / ".env")
-MODEL_DIR = REPO_ROOT / "saved_models" / "lawgic_classifier_legal-bert_v3"
+# Override with LAWGIC_MODEL_DIR to serve a different checkpoint, e.g. the
+# best-of-3-seeds Phase 2 model: LAWGIC_MODEL_DIR=saved_models/lawgic_classifier_legal-bert_phase2
+MODEL_DIR = Path(
+    os.getenv("LAWGIC_MODEL_DIR")
+    or REPO_ROOT / "saved_models" / "lawgic_classifier_legal-bert_v3"
+)
+if not MODEL_DIR.is_absolute():
+    MODEL_DIR = REPO_ROOT / MODEL_DIR
 TEST_TOS_PATH = REPO_ROOT / "data" / "new_tos" / "apollo_io.txt"
 
 # ── Inference parameters (must match training conditions) ────────────────────
@@ -60,7 +68,11 @@ MIN_CLAUSE_LENGTH = 15
 # =============================================================================
 
 def detect_device() -> torch.device:
-    """Pick best available accelerator for inference."""
+    """Pick best available accelerator for inference. LAWGIC_DEVICE forces a choice."""
+    forced = os.getenv("LAWGIC_DEVICE")
+    if forced:
+        logger.info("Using device: %s (forced via LAWGIC_DEVICE)", forced)
+        return torch.device(forced)
     if torch.cuda.is_available():
         device = torch.device("cuda")
         logger.info("Using device: cuda (%s)", torch.cuda.get_device_name(0))
@@ -497,6 +509,21 @@ def format_api_response(
             }
             for r in results
         ],
+    }
+
+
+@app.get("/api/model-info")
+def model_info() -> dict:
+    """Which checkpoint and device are actually serving. Evaluation notebooks record this."""
+    metadata_path = MODEL_DIR / "training_metadata.json"
+    metadata = json.loads(metadata_path.read_text()) if metadata_path.exists() else {}
+    return {
+        "model_dir": MODEL_DIR.name,
+        "model_path": str(MODEL_DIR),
+        "device": str(device),
+        "num_topics": len(id2name),
+        "num_harm_classes": NUM_HARM_CLASSES,
+        "training_metadata": metadata,
     }
 
 
