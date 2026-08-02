@@ -183,11 +183,26 @@ The taxonomy already encodes each source's coverage in `source_mappings`. The co
 
 | Source | Mask rule | Coverage |
 | --- | --- | --- |
-| **ToS;DR** | `mask[c] = 1` for **all** topics in ToS;DR's taxonomy coverage | 37 topics |
-| **100 ToS** | `mask[c] = 1` for **all** topics in 100 ToS's taxonomy coverage | 26 topics |
-| **CLAUDETTE** | `mask[c] = 1` **only** for the directly mapped topic(s) of the row's native label | 1–2 topics/row |
+| **ToS;DR** | `mask[c] = 1` for **all** topics in ToS;DR's taxonomy coverage | 42 topics |
+| **100 ToS** | `mask[c] = 1` for **all** topics in 100 ToS's taxonomy coverage | 30 topics |
+| **CLAUDETTE** | `mask[c] = 1` **only** for the directly mapped topic(s) of the row's native label | 1–2 topics per annotation, 1–4 per clause |
 
-The reasoning is asymmetric by design. ToS;DR and 100 ToS have broad enough taxonomies that a topic within their coverage, left unannotated on a clause they *did* annotate, is credible evidence of absence — a supervised negative. CLAUDETTE annotates only 9 native labels over ~10 topics; a missing CLAUDETTE annotation tells us nothing about the 35 topics it never evaluates. Applying broad masking to CLAUDETTE would **manufacture false negatives**, the mirror of the false positives §3 avoided. CLAUDETTE therefore keeps a narrow mask (Option A). When multiple sources annotate the same text, the final mask is their element-wise **union**, so supervision from any capable source is retained.
+The reasoning is asymmetric by design. ToS;DR and 100 ToS have broad enough taxonomies that a topic within their coverage, left unannotated on a clause they *did* annotate, is credible evidence of absence — a supervised negative. CLAUDETTE annotates only 9 native labels, which the resolution layer in §3.1 collapses onto 10 topics; a missing CLAUDETTE annotation tells us nothing about the 34 topics it never evaluates. Applying broad masking to CLAUDETTE would **manufacture false negatives**, the mirror of the false positives §3 avoided. CLAUDETTE therefore keeps a narrow mask (Option A). When multiple sources annotate the same text, the final mask is their element-wise **union**, so supervision from any capable source is retained.
+
+> **Correction, 31 July 2026.** Earlier revisions of this table reported 37 and 26. Those
+> figures were never measured; the only committed version of `lawgic_topics.json` yields
+> 42 and 30, and the built corpus confirms it (mask widths of exactly 42 and 30 on
+> single-source rows). The verifying script is `build_source_coverage_mask()` in cell 20
+> of `notebooks/lawgic_taxonomy/lawgic_taxonomy.ipynb`, whose printed output had been
+> cleared before commit.
+>
+> **The 42 and 30 figures describe the mask, not the label space.** The mask is built from
+> raw `source_mappings`, while ToS;DR labels are built from `TOSDR_TOPIC_OVERRIDES`, which
+> is narrower. ToS;DR can only produce positives on **38** of the 42 topics its mask
+> supervises. The four unreachable topics (`limitation_of_liability`, `liability_cap`,
+> `service_changes`, `price_changes`) therefore receive a supervised negative on every
+> ToS;DR row and can never receive a ToS;DR positive. See
+> `docs/lawgic_coverage_discrepancy_report.md` for the counts and the remediation plan.
 
 This single change is what breaks the trap: the mask matrix now contains cells that are supervised (`mask = 1`) yet negative (`label = 0`), giving the classifier the contrast it needs. The pipeline asserts `supervised_negative > 0` and fails loudly if the negative-generation ever regresses.
 
