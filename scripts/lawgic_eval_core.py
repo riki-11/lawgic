@@ -46,9 +46,7 @@ EARLY_STOPPING_PATIENCE = 3
 WEIGHT_DECAY = 0.01
 WARMUP_RATIO = 0.06
 
-TOTAL_TAXONOMY_TOPICS = 45
 EXCLUDED_TOPIC_IDS = {"unclassified"}
-NUM_LAWGIC_TOPICS = 44
 NUM_HARM_CLASSES = 3
 TEXT_COLUMN = "text"
 
@@ -70,6 +68,11 @@ def find_project_root(start: Path | None = None) -> Path:
 
 
 PROJECT_ROOT = find_project_root(Path(__file__).parent)
+# NOTE: this module is the eval harness for the already-trained v3 checkpoint
+# (768->44 topic head). It stays pointed at the 44-topic corpus/taxonomy that
+# checkpoint was trained on -- do not repoint these to the v2 (42-topic)
+# artifacts, that would shape-mismatch every existing evaluation. A future
+# checkpoint trained on v2 gets its own path constants here.
 DATA_PATH = PROJECT_ROOT / "generated_files/lawgic_taxonomy/lawgic_multihead_wide.csv"
 TAXONOMY_PATH = PROJECT_ROOT / "generated_files/lawgic_taxonomy/lawgic_topics.json"
 CHECKPOINT_DIR = PROJECT_ROOT / "saved_models/lawgic_classifier_legal-bert_v3"
@@ -84,15 +87,24 @@ EXPECTED_SPLIT_ROWS = {"train": 21183, "validation": 2648, "test": 2648}
 
 
 def load_taxonomy() -> tuple[list[str], dict[str, str], list[int]]:
-    """Return (topic_ids_44, name_by_topic, keep_indices) — same as notebook cell 6."""
+    """Return (topic_ids, name_by_topic, keep_indices) — same as notebook cell 6."""
     payload = json.loads(TAXONOMY_PATH.read_text(encoding="utf-8"))
     all_ids = [topic["id"] for topic in payload["topics"]]
-    if len(all_ids) != TOTAL_TAXONOMY_TOPICS:
-        raise ValueError(f"Expected {TOTAL_TAXONOMY_TOPICS} topics, found {len(all_ids)}")
+    if len(set(all_ids)) != len(all_ids):
+        raise ValueError("Duplicate Lawgic topic IDs in taxonomy")
+    if "unclassified" not in all_ids:
+        raise ValueError("Taxonomy must define the `unclassified` runtime fallback")
     keep_indices = [i for i, tid in enumerate(all_ids) if tid not in EXCLUDED_TOPIC_IDS]
     topic_ids = [all_ids[i] for i in keep_indices]
     name_by_topic = {t["id"]: t.get("name", t["id"]) for t in payload["topics"]}
     return topic_ids, name_by_topic, keep_indices
+
+
+# Derived from the taxonomy this module points to (see NOTE above), not
+# hardcoded -- this is what let two duplicate topic columns go unnoticed.
+TOPIC_IDS, TOPIC_NAME_BY_ID, KEEP_INDICES = load_taxonomy()
+TOTAL_TAXONOMY_TOPICS = len(KEEP_INDICES) + len(EXCLUDED_TOPIC_IDS)
+NUM_LAWGIC_TOPICS = len(TOPIC_IDS)
 
 
 # ── Corpus ──────────────────────────────────────────────────────────────────
@@ -146,7 +158,7 @@ def load_corpus() -> pd.DataFrame:
 
     df["labels"] = df["labels_presence"].map(lambda v: compact(v, fill_value=0.0))
     df["label_mask"] = df["topic_mask"].map(lambda v: compact(v, fill_value=0.0))
-    df["active_topic_ids_44"] = df["active_topic_ids"].map(
+    df["active_topic_ids_predicted"] = df["active_topic_ids"].map(
         lambda v: [t for t in v if t not in EXCLUDED_TOPIC_IDS]
     )
     df["harm_class"] = df["harm_score_class"].fillna(-1).astype(int)
@@ -178,7 +190,7 @@ def build_split_assignment(df: pd.DataFrame) -> pd.Series:
     """
     frame = df.copy()
     frame["stratify_key"] = frame.apply(
-        lambda row: f"{_primary_stratify_label(row['active_topic_ids_44'])}__harm{int(row['harm_class'])}",
+        lambda row: f"{_primary_stratify_label(row['active_topic_ids_predicted'])}__harm{int(row['harm_class'])}",
         axis=1,
     )
 

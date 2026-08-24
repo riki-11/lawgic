@@ -9,25 +9,29 @@ items B2, B3, B8, C10):
 - C10: Legal-BERT token-length distribution and truncation fraction at 256
 
 Usage:
-    python scripts/corpus_report.py
+    python scripts/corpus_report.py           # v1 (44-topic) corpus
+    python scripts/corpus_report.py v2        # v2 (42-topic) corpus
 
-Outputs:
-    generated_files/lawgic_taxonomy/reports/corpus_report.json
-    generated_files/lawgic_taxonomy/reports/per_topic_supervision.csv
+Outputs (suffixed to match the requested corpus version):
+    generated_files/lawgic_taxonomy/reports/corpus_report[_v2].json
+    generated_files/lawgic_taxonomy/reports/per_topic_supervision[_v2].csv
 """
 
 from __future__ import annotations
 
 import ast
 import json
+import sys
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-WIDE_CSV = REPO_ROOT / "generated_files/lawgic_taxonomy/lawgic_multihead_wide.csv"
-FUSION_SUMMARY = REPO_ROOT / "generated_files/lawgic_taxonomy/lawgic_fusion_summary.json"
+# Pass "v2" on the command line to report on the 42-topic corpus instead.
+ARTIFACT_VERSION = f"_{sys.argv[1]}" if len(sys.argv) > 1 else ""
+WIDE_CSV = REPO_ROOT / f"generated_files/lawgic_taxonomy/lawgic_multihead_wide{ARTIFACT_VERSION}.csv"
+FUSION_SUMMARY = REPO_ROOT / f"generated_files/lawgic_taxonomy/lawgic_fusion_summary{ARTIFACT_VERSION}.json"
 TOKENIZER_JSON = REPO_ROOT / "saved_models/lawgic_classifier_legal-bert_v3/tokenizer.json"
 OUT_DIR = REPO_ROOT / "generated_files/lawgic_taxonomy/reports"
 
@@ -55,14 +59,23 @@ def main() -> None:
     positives = (presence * mask).sum(axis=0).astype(int)
     negatives = ((1 - presence) * mask).sum(axis=0).astype(int)
 
-    # Per-topic source composition of positives.
-    source_lists = sources.tolist()
-    composition: dict[str, dict[str, int]] = {t: {} for t in topic_ids}
-    pos_rows, pos_topics = np.nonzero(presence * mask)
-    for row_idx, topic_idx in zip(pos_rows, pos_topics):
-        topic = topic_ids[topic_idx]
-        for src in source_lists[row_idx]:
-            composition[topic][src] = composition[topic].get(src, 0) + 1
+    # Per-topic source composition of positives. Credit a source for a topic
+    # only where that source's own annotation maps to it (native_annotations),
+    # not merely because the source is present on the row -- `sources` lists
+    # every source on the row, which over-credits the 109 multi-source rows.
+    topic_index = {t: i for i, t in enumerate(topic_ids)}
+    composition_rows: dict[str, dict[str, set[int]]] = {t: {} for t in topic_ids}
+    native_annotations = df["native_annotations"].apply(json.loads)
+    for row_idx, annotations in enumerate(native_annotations):
+        for ann in annotations:
+            topic = ann["lawgic_topic_id"]
+            idx = topic_index.get(topic)
+            if idx is None or mask[row_idx, idx] != 1:
+                continue
+            composition_rows[topic].setdefault(ann["source_dataset"], set()).add(row_idx)
+    composition = {
+        t: {src: len(rows) for src, rows in composition_rows[t].items()} for t in topic_ids
+    }
 
     per_topic = pd.DataFrame(
         {
@@ -72,7 +85,7 @@ def main() -> None:
             "positive_sources": [json.dumps(composition[t]) for t in topic_ids],
         }
     ).sort_values("supervised_positives")
-    per_topic.to_csv(OUT_DIR / "per_topic_supervision.csv", index=False)
+    per_topic.to_csv(OUT_DIR / f"per_topic_supervision{ARTIFACT_VERSION}.csv", index=False)
 
     substantive = per_topic[per_topic["topic"] != "unclassified"]
     report["topics_with_zero_positives"] = substantive[
@@ -111,10 +124,10 @@ def main() -> None:
     except Exception as exc:  # tokenizer unavailable: report and continue
         report["token_lengths"] = f"skipped: {exc}"
 
-    out_path = OUT_DIR / "corpus_report.json"
+    out_path = OUT_DIR / f"corpus_report{ARTIFACT_VERSION}.json"
     out_path.write_text(json.dumps(report, indent=2))
     print(json.dumps(report, indent=2))
-    print(f"\nWrote {out_path} and {OUT_DIR / 'per_topic_supervision.csv'}")
+    print(f"\nWrote {out_path} and {OUT_DIR / f'per_topic_supervision{ARTIFACT_VERSION}.csv'}")
 
 
 if __name__ == "__main__":
