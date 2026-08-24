@@ -57,7 +57,6 @@ MAX_LENGTH = 256
 TOKEN_THRESHOLD = 200
 TOPIC_THRESHOLD = 0.5
 BATCH_SIZE = 16
-NUM_TOPICS = 44
 NUM_HARM_CLASSES = 3
 HARM_CLASS_NAMES = {0: "Harmful", 1: "Neutral", 2: "Fair"}
 MIN_CLAUSE_LENGTH = 15
@@ -95,7 +94,7 @@ class LawgicDualHeadModel(nn.Module):
     def __init__(
         self,
         model_name: str,
-        num_topics: int = NUM_TOPICS,
+        num_topics: int,
         num_harm_classes: int = NUM_HARM_CLASSES,
     ):
         super().__init__()
@@ -142,8 +141,23 @@ def load_model_and_tokenizer(device: torch.device) -> tuple[LawgicDualHeadModel,
     logger.info("Loading tokenizer from %s", MODEL_DIR)
     tokenizer = AutoTokenizer.from_pretrained(MODEL_DIR)
 
+    # Topic count comes from the checkpoint's own label map, not a hardcoded
+    # constant -- accept either filename so a future non-44-topic checkpoint
+    # (e.g. trained on the v2 42-topic corpus) drops in with no code change.
+    topics_json_path = MODEL_DIR / "lawgic_topics_44.json"
+    if not topics_json_path.exists():
+        topics_json_path = MODEL_DIR / "lawgic_topic_order.json"
+    with topics_json_path.open("r", encoding="utf-8") as f:
+        topics_data = json.load(f)
+    id2name = (
+        {t["classifier_id"]: t["name"] for t in topics_data}
+        if topics_data and isinstance(topics_data[0], dict)
+        else dict(enumerate(topics_data))  # lawgic_topic_order.json: a flat id list
+    )
+    num_topics = len(id2name)
+
     logger.info("Loading dual-head model...")
-    model = LawgicDualHeadModel(str(MODEL_DIR))
+    model = LawgicDualHeadModel(str(MODEL_DIR), num_topics=num_topics)
 
     state_dict_path = MODEL_DIR / "model_state_dict.pt"
     if state_dict_path.exists():
@@ -162,12 +176,6 @@ def load_model_and_tokenizer(device: torch.device) -> tuple[LawgicDualHeadModel,
 
     model = model.to(device)
     model.eval()
-
-    topics_json_path = MODEL_DIR / "lawgic_topics_44.json"
-    with topics_json_path.open("r", encoding="utf-8") as f:
-        topics_data = json.load(f)
-
-    id2name = {t["classifier_id"]: t["name"] for t in topics_data}
 
     logger.info(
         "Model loaded on %s | %d topics | %d harm classes",
