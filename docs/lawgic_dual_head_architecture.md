@@ -158,13 +158,25 @@ contributing source's taxonomy coverage**, not just topics that are explicitly p
 
 | Source     | Mask Rule                                                                      | Coverage   |
 | ---------- | ------------------------------------------------------------------------------ | ---------- |
-| ToS;DR     | `mask[c] = 1` for all topics in ToS;DR's `source_mappings` in the taxonomy     | 37 topics  |
-| 100 ToS    | `mask[c] = 1` for all topics in 100 ToS's `source_mappings` in the taxonomy    | 26 topics  |
-| CLAUDETTE  | `mask[c] = 1` **only** for the specific topic(s) mapped by `CLAUDETTE_TOPIC_RULES` | 1–2 topics per row |
+| ToS;DR     | `mask[c] = 1` for all topics in ToS;DR's `source_mappings` in the taxonomy     | 42 topics  |
+| 100 ToS    | `mask[c] = 1` for all topics in 100 ToS's `source_mappings` in the taxonomy    | 30 topics  |
+| CLAUDETTE  | `mask[c] = 1` **only** for the specific topic(s) mapped by `CLAUDETTE_TOPIC_RULES` | 1–2 per annotation, 1–4 per clause |
+
+> **Correction, 31 July 2026.** This table previously reported 37 and 26. Neither figure
+> was ever measured. `build_source_coverage_mask()` (cell 20 of
+> `notebooks/lawgic_taxonomy/lawgic_taxonomy.ipynb`) yields 42, 30, and 21 against the
+> committed taxonomy, and the built corpus shows mask widths of exactly 42 and 30 on
+> single-source rows.
+>
+> Note the asymmetry these numbers hide: the mask reads raw `source_mappings`, but ToS;DR
+> labels are produced through `TOSDR_TOPIC_OVERRIDES`, which is narrower. ToS;DR reaches
+> only 38 topics with positives while its mask supervises 42. See
+> `docs/lawgic_coverage_discrepancy_report.md`.
 
 **Why CLAUDETTE uses Option A (narrow masking):**
 
-CLAUDETTE annotates only 9 native labels mapped to 10 Lawgic topics. Unlike ToS;DR and
+CLAUDETTE annotates only 9 native labels, which `CLAUDETTE_TOPIC_RULES` collapses onto 10
+Lawgic topics. Unlike ToS;DR and
 100 ToS — which have broad enough taxonomies that absence of annotation likely means
 absence of the topic — CLAUDETTE's narrow scope means a missing annotation tells us
 nothing about topics outside its coverage. Setting `mask[c] = 1` for topics CLAUDETTE
