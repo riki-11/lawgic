@@ -624,3 +624,27 @@ Rewritten for the `lawgic-tos-changes` design (§8). Three substantive changes:
 - Line 385's ablation design matches the Phase 2 matrix (dual vs single-head; Legal-BERT vs
   BERT, XLNet, RoBERTa).
 - Line 400's "three document pairs" matches the case studies shipped with the app.
+
+## 10. Taxonomy/corpus fixes — 2026-08-24
+
+Full write-up: **[`docs/lawgic_taxonomy_revisions.md`](docs/lawgic_taxonomy_revisions.md)**.
+
+Four defects from the panel's Recommendation 3 definition audit were fixed, producing a new
+`_v2`-suffixed corpus generation. **No retraining.** The v1 artifacts and the v3 checkpoint's eval
+harness are untouched.
+
+| File | Change |
+| --- | --- |
+| `scripts/corpus_report.py` | `positive_sources` now credits a source per topic only from `native_annotations`, gated on the mask — not from row-level `sources` presence. Accepts an optional `v2` CLI arg to report on the 42-topic corpus. |
+| `notebooks/lawgic_taxonomy/lawgic_taxonomy.ipynb` (cell 4) | Added `"ind": "indemn"` to `HUNDRED_TOS_CODE_ALIASES` (`sugg`/`inter` deliberately excluded, noted in `MAPPING_NOTES`). Topic-count guard now checks for `unclassified` presence instead of a literal `45`. |
+| `notebooks/lawgic_taxonomy/lawgic_taxonomy.ipynb` (cell 2) | Added `ARTIFACT_VERSION = "_v2"`; every output path takes the suffix. |
+| `notebooks/lawgic_taxonomy/lawgic_taxonomy.ipynb` (cell 22) | Added a permanent duplicate-supervision-column guard, and persists `lawgic_topic_order_v2.json` (the 42-topic prediction order). |
+| `generated_files/lawgic_taxonomy/lawgic_topics_v2.json` (new) | `business_transfer` and `recommender_transparency` deleted (45→43 topics). `price_chg` removed from `payments`'s `source_mappings`. |
+| `scripts/lawgic_eval_core.py` | `TOTAL_TAXONOMY_TOPICS`/`NUM_LAWGIC_TOPICS` now derived from `load_taxonomy()` instead of hardcoded. **Still points at the v1 corpus/checkpoint on purpose** — see the module's own NOTE comment. `active_topic_ids_44` renamed `active_topic_ids_predicted`. |
+| `api/server.py` | Removed `NUM_TOPICS = 44`; topic count now read from the serving checkpoint's own label map before model construction. v3 checkpoint behavior unchanged. |
+| `scripts/build_split_v2.py` (new) | Rebuilds the seed-42 stratified split for the v2 corpus, reusing `build_split_assignment()` from `lawgic_eval_core.py`. |
+| `scripts/near_duplicate_split_audit_v2.py` (new) | Same, for the contamination audit, reusing functions from `near_duplicate_split_audit.py`. |
+
+Headline deltas: 45→43 taxonomy topics, 44→42 predicted, 26,479→26,554 clauses,
+21,183/2,648/2,648→21,243/2,655/2,656 split. Full before/after tables and manuscript-transfer list
+in the linked doc.
