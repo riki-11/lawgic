@@ -42,11 +42,11 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 
 # Load .env from repo root (Ollama URL/model for /api/explain_tos_scores)
 load_dotenv(REPO_ROOT / ".env")
-# Override with LAWGIC_MODEL_DIR to serve a different checkpoint, e.g. the
-# best-of-3-seeds Phase 2 model: LAWGIC_MODEL_DIR=saved_models/lawgic_classifier_legal-bert_phase2
+# Override with LAWGIC_MODEL_DIR to serve a different checkpoint, e.g.
+# LAWGIC_MODEL_DIR=saved_models/lawgic_classifier_legal-bert_v3 for the old 44-topic model.
 MODEL_DIR = Path(
     os.getenv("LAWGIC_MODEL_DIR")
-    or REPO_ROOT / "saved_models" / "lawgic_classifier_legal-bert_v3"
+    or REPO_ROOT / "saved_models" / "lawgic_classifier_legal-bert_v4"
 )
 if not MODEL_DIR.is_absolute():
     MODEL_DIR = REPO_ROOT / MODEL_DIR
