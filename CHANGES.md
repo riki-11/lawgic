@@ -648,3 +648,79 @@ harness are untouched.
 Headline deltas: 45→43 taxonomy topics, 44→42 predicted, 26,479→26,554 clauses,
 21,183/2,648/2,648→21,243/2,655/2,656 split. Full before/after tables and manuscript-transfer list
 in the linked doc.
+
+## 11. v4 checkpoint trained — 2026-08-25
+
+The v2 corpus (§10) was used to retrain Legal-BERT dual-head, producing the **v4 checkpoint**
+(`saved_models/lawgic_classifier_legal-bert_v4`). Training protocol identical to v3 — same
+hyperparameters, same seed, same architecture — only the corpus changed (42-topic taxonomy
+instead of 44).
+
+### v3 → v4 test-set comparison
+
+Both models early-stopped at epoch 17 (patience 3 on `macro_f1`).
+
+| Metric | v3 (44 topics) | v4 (42 topics) | Δ |
+| --- | --- | --- | --- |
+| **Topic macro F1** | 0.7542 | **0.7772** | **+0.0230** |
+| Topic micro F1 | 0.8340 | 0.8360 | +0.0020 |
+| Topic weighted F1 | 0.8327 | 0.8370 | +0.0043 |
+| Predicted positive rate | 0.0482 | 0.0509 | +0.0027 |
+| **Harm accuracy** | 0.8285 | **0.8535** | **+0.0250** |
+| Harm macro F1 | 0.8251 | 0.8476 | +0.0225 |
+| Harm weighted F1 | 0.8292 | 0.8534 | +0.0242 |
+| Test loss | 1.3320 | 1.1633 | −0.1687 |
+| Masked positions (test) | 96,838 | 91,863 | −4,975 |
+
+### What drove the topic macro-F1 gain (+2.3 pp)
+
+Three mechanisms, all traceable to §10 fixes:
+
+1. **`indemnification`**: 0.00 → 0.56 F1 (+0.56). The `ind` alias (§10.2) gave it 76
+   supervised positives. Still low-support, but no longer unlearnable. This alone lifts
+   macro F1 by ~0.56/42 ≈ +1.3 pp.
+2. **Duplicate deletion** removed `business_transfer` (0.97 F1) and
+   `recommender_transparency` (0.73 F1) from the average. Their surviving partners
+   (`transfer_of_contract` 0.97, `transparency` 0.77) improved slightly, freed from
+   sharing identical supervision columns.
+3. **`price_chg` decontamination** (§10.3) cleaned the `payments` column, which held
+   at 0.92 F1 while `price_changes` rose from 0.53 to 0.63.
+
+### Per-topic F1 movers (|Δ| ≥ 0.05, both present in v3 and v4)
+
+| Topic | v3 F1 | v4 F1 | Δ | Note |
+| --- | --- | --- | --- | --- |
+| `indemnification` | 0.000 | 0.556 | **+0.556** | alias fix |
+| `user_participation_in_changes` | 0.000 | 0.200 | +0.200 | still very low support (4) |
+| `service_changes` | 0.300 | 0.385 | +0.085 | low support (12) |
+| `feedback_reuse` | 0.833 | 0.902 | +0.069 | |
+| `logs` | 0.485 | 0.550 | +0.065 | low support (19) |
+| `right_to_leave` | 0.699 | 0.762 | +0.063 | |
+| `anonymity` | 0.618 | 0.677 | +0.059 | |
+| `interpretation_clause` | 0.729 | 0.784 | +0.055 | |
+| `severability` | 0.933 | 0.857 | −0.076 | support 8→7, noise |
+
+### Harm head per-class detail
+
+| Class | v3 F1 | v4 F1 | Δ |
+| --- | --- | --- | --- |
+| Harmful (−1) | 0.79 | 0.82 | +0.03 |
+| Neutral (0) | 0.86 | 0.88 | +0.02 |
+| Fair (+1) | 0.83 | 0.84 | +0.01 |
+
+All three classes improved. Neutral gained the most rows (+75) from the corpus rebuild;
+the improvement is proportional.
+
+### Parameters
+
+v3: 109,518,383 trainable. v4: 109,516,845 trainable. Difference: −1,538 (exactly
+`768 × 2 + 2`, the two deleted topic-head outputs).
+
+### What this means for downstream
+
+- **Phase 1–3 evaluation notebooks** still target the v3 checkpoint and v1 corpus by
+  default (`LAWGIC_CORPUS_VERSION` unset). Those results remain valid as the "v1 baseline".
+  Re-running them with `LAWGIC_CORPUS_VERSION=v2` against v4 is a separate task.
+- **`api/server.py`** already defaults to v4 (§10).
+- **`lawgic-tos-changes`** calls `/api/analyze_tos`, so it now uses v4 classification
+  context in the diff prompt. No code change needed.
