@@ -68,19 +68,31 @@ def find_project_root(start: Path | None = None) -> Path:
 
 
 PROJECT_ROOT = find_project_root(Path(__file__).parent)
-# NOTE: this module is the eval harness for the already-trained v3 checkpoint
-# (768->44 topic head). It stays pointed at the 44-topic corpus/taxonomy that
-# checkpoint was trained on -- do not repoint these to the v2 (42-topic)
-# artifacts, that would shape-mismatch every existing evaluation. A future
-# checkpoint trained on v2 gets its own path constants here.
-DATA_PATH = PROJECT_ROOT / "generated_files/lawgic_taxonomy/lawgic_multihead_wide.csv"
-TAXONOMY_PATH = PROJECT_ROOT / "generated_files/lawgic_taxonomy/lawgic_topics.json"
-CHECKPOINT_DIR = PROJECT_ROOT / "saved_models/lawgic_classifier_legal-bert_v3"
-SPLIT_DIR = PROJECT_ROOT / "generated_files/lawgic_taxonomy/splits"
-SPLIT_PATH = SPLIT_DIR / "split_seed42.csv"
-EVAL_OUT_DIR = PROJECT_ROOT / "generated_files/lawgic_taxonomy/evaluation"
 
-EXPECTED_SPLIT_ROWS = {"train": 21183, "validation": 2648, "test": 2648}
+# ── Corpus version selector ───────────────────────────────────────────────────
+# Set LAWGIC_CORPUS_VERSION=v2 (env var or change default here) to point this
+# module at the 42-topic v2 corpus and v4 checkpoint. Default: v1 for backward
+# compatibility with existing evaluation notebooks.
+import os as _os
+_CORPUS_VERSION = _os.environ.get("LAWGIC_CORPUS_VERSION", "v1")
+
+if _CORPUS_VERSION == "v2":
+    DATA_PATH = PROJECT_ROOT / "generated_files/lawgic_taxonomy/lawgic_multihead_wide_v2.csv"
+    TAXONOMY_PATH = PROJECT_ROOT / "generated_files/lawgic_taxonomy/lawgic_topics_v2.json"
+    CHECKPOINT_DIR = PROJECT_ROOT / "saved_models/lawgic_classifier_legal-bert_v4"
+    SPLIT_DIR = PROJECT_ROOT / "generated_files/lawgic_taxonomy/splits"
+    SPLIT_PATH = SPLIT_DIR / "split_seed42_v2.csv"
+    EVAL_OUT_DIR = PROJECT_ROOT / "generated_files/lawgic_taxonomy/evaluation_v2"
+    EXPECTED_SPLIT_ROWS = {"train": 21243, "validation": 2655, "test": 2656}
+else:
+    # v1: the eval harness for the already-trained v3 checkpoint (768->44).
+    DATA_PATH = PROJECT_ROOT / "generated_files/lawgic_taxonomy/lawgic_multihead_wide.csv"
+    TAXONOMY_PATH = PROJECT_ROOT / "generated_files/lawgic_taxonomy/lawgic_topics.json"
+    CHECKPOINT_DIR = PROJECT_ROOT / "saved_models/lawgic_classifier_legal-bert_v3"
+    SPLIT_DIR = PROJECT_ROOT / "generated_files/lawgic_taxonomy/splits"
+    SPLIT_PATH = SPLIT_DIR / "split_seed42.csv"
+    EVAL_OUT_DIR = PROJECT_ROOT / "generated_files/lawgic_taxonomy/evaluation"
+    EXPECTED_SPLIT_ROWS = {"train": 21183, "validation": 2648, "test": 2648}
 
 
 # ── Taxonomy ────────────────────────────────────────────────────────────────

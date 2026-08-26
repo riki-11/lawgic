@@ -47,6 +47,7 @@ from lawgic_eval_core import (  # noqa: E402  (same-directory import)
     BATCH_SIZE,
     DECISION_THRESHOLD,
     EARLY_STOPPING_PATIENCE,
+    EVAL_OUT_DIR,
     LEARNING_RATE,
     MAX_EPOCHS,
     MAX_LENGTH,
@@ -54,8 +55,10 @@ from lawgic_eval_core import (  # noqa: E402  (same-directory import)
     NUM_LAWGIC_TOPICS,
     PROJECT_ROOT,
     TEXT_COLUMN,
+    TOTAL_TAXONOMY_TOPICS,
     WARMUP_RATIO,
     WEIGHT_DECAY,
+    _CORPUS_VERSION,
     all_metrics,
     harm_metrics,
     label_arrays,
@@ -66,7 +69,8 @@ from lawgic_eval_core import (  # noqa: E402  (same-directory import)
     topic_metrics,
 )
 
-RUNS_DIR = PROJECT_ROOT / "generated_files/lawgic_taxonomy/runs"
+# ponytail: version-aware runs dir, matches EVAL_OUT_DIR pattern in lawgic_eval_core
+RUNS_DIR = PROJECT_ROOT / "generated_files/lawgic_taxonomy" / ("runs_v2" if _CORPUS_VERSION == "v2" else "runs")
 
 ENCODERS = [
     "nlpaueb/legal-bert-base-uncased",
