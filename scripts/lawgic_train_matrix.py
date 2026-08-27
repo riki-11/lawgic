@@ -69,8 +69,8 @@ from lawgic_eval_core import (  # noqa: E402  (same-directory import)
     topic_metrics,
 )
 
-# ponytail: version-aware runs dir, matches EVAL_OUT_DIR pattern in lawgic_eval_core
-RUNS_DIR = PROJECT_ROOT / "generated_files/lawgic_taxonomy" / ("runs_v2" if _CORPUS_VERSION == "v2" else "runs")
+# All trained models from the multi-seed / multi-encoder matrix live here.
+RUNS_DIR = PROJECT_ROOT / "saved_models" / "multiseed_encoder_runs_v2"
 
 ENCODERS = [
     "nlpaueb/legal-bert-base-uncased",
