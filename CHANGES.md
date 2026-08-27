@@ -166,9 +166,15 @@ mean ± sd over seeds, bootstrap CIs on the test metrics, and paired significanc
 (McNemar on risk-head item correctness; paired bootstrap for topic macro-F1 deltas) — all
 on identical splits, so a difference is attributable to the varied component.
 
-Outputs: `runs/<run_id>/{metrics.json,test_logits.npz,per_topic.csv}`, `phase2_runs.csv`,
-`phase2_aggregate.csv`, `phase2_bootstrap_ci.csv`, `phase2_significance.csv`,
+Outputs: `saved_models/multiseed_encoder_runs_v2/<run_id>/{metrics.json,test_logits.npz,per_topic.csv}`,
+`phase2_runs.csv`, `phase2_aggregate.csv`, `phase2_bootstrap_ci.csv`, `phase2_significance.csv`,
 `phase2_headline.{csv,tex}`, `phase2_per_topic.{csv,tex}`.
+
+**Runs directory.** The multi-seed / multi-encoder runs now live under
+`saved_models/multiseed_encoder_runs_v2/` (previously
+`generated_files/lawgic_taxonomy/runs_v2/`), so all trained models sit together under
+`saved_models/`. `RUNS_DIR` in `scripts/lawgic_train_matrix.py` is the single source of
+truth; every notebook reads it via `tm.RUNS_DIR`.
 
 ### `notebooks/evaluation/03_source_heldout_probes.ipynb` — Phase 3
 Two probes on legal-bert / seed 42 / dual-head: hold out CLAUDETTE, hold out 100 ToS. Each
@@ -183,7 +189,7 @@ corpus (~88% of training rows after the split); removing it leaves ~2,500 traini
 so a score collapse would be indistinguishable from data starvation and would answer
 neither question.
 
-Outputs: `runs/*__holdout-*/`, `phase3_source_holdout.{csv,tex}`.
+Outputs: `saved_models/multiseed_encoder_runs_v2/*__holdout-*/`, `phase3_source_holdout.{csv,tex}`.
 
 ### `notebooks/evaluation/04_explanation_readability.ipynb` — Phase 4
 **Targets `lawgic-tos-changes`, the active thesis artifact** (see §6 for the app switch and
@@ -259,7 +265,8 @@ table labels use `risk_*`. They are the same head.
 ```
 
 1 and 4 are independent of 2 and 3. 3 hard-depends on 2 (it reads
-`runs/legal-bert-base-uncased__seed42__dual/test_logits.npz`). All notebooks are run
+`saved_models/multiseed_encoder_runs_v2/legal-bert-base-uncased__seed42__dual/test_logits.npz`).
+All notebooks are run
 top-to-bottom; 2, 3 and 4 skip already-completed work on re-run.
 
 **Notebook 4 no longer touches the v3 checkpoint directly** — it drives `lawgic-tos-changes`
@@ -288,7 +295,7 @@ FastAPI server anyway so `lawgicClauses` is non-null.
       `roberta-base` (~440 MB each). Pre-fetch command is in the notebook's manual-step cell.
 - [ ] **(02) `sentencepiece`** importable for the XLNet tokenizer. Already in
       `notebooks/requirements.txt` (`0.2.1`); the notebook verifies rather than installs.
-- [ ] **(02) Disk.** ~10 GB under `generated_files/lawgic_taxonomy/runs/`.
+- [ ] **(02) Disk.** ~10 GB under `saved_models/multiseed_encoder_runs_v2/`.
 - [ ] **(03) Run 02 first**, at least the legal-bert/seed-42/dual config.
 - [ ] **(04) `pip install py-readability-metrics`** — the only new dependency any phase adds.
       Then `python -m nltk.downloader punkt` (the library needs NLTK's sentence tokenizer).
