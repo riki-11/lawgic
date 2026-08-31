@@ -731,3 +731,99 @@ v3: 109,518,383 trainable. v4: 109,516,845 trainable. Difference: −1,538 (exac
 - **`api/server.py`** already defaults to v4 (§10).
 - **`lawgic-tos-changes`** calls `/api/analyze_tos`, so it now uses v4 classification
   context in the diff prompt. No code change needed.
+
+---
+
+## Changelog — 2026-08-31: Generative LLM evaluation pipeline (single-prompt)
+
+New notebook `notebooks/evaluation/05_generative_llm_runs.ipynb`. Evaluates three
+generative LLMs on the **same v2 test split (2,656 clauses), same scoring code
+(`lawgic_eval_core`), same metrics** as the Phase 2 encoder matrix, so the two model
+families are directly comparable. **This is a "test the waters" pass** — it proves the
+end-to-end pipeline (prompt → LLM → parse → pseudo-logits → identical scoring → metrics);
+headline numbers land once the full run is executed. Nothing existing was modified.
+
+### 1. Models
+
+| run_id | tag | host |
+| --- | --- | --- |
+| `gemma4-31b-cloud__single` | `gemma4:31b-cloud` | Ollama Cloud (free tier) |
+| `saul-instruct-v1-q8__single` | `adrienbrault/saul-instruct-v1:Q8_0` | local (M1, 7.7 GB) |
+
+`qwen3.5:cloud` is **deferred this pass** — HTTP 402 (`this model requires a subscription or
+extra usage`) on the current account. Commented out in the config; one line to re-add once
+cloud billing is enabled.
+
+Greedy decoding (`temperature=0.0`), one pass per clause, `format="json"`,
+`num_predict=768`, `.with_structured_output(ClausePrediction)` — same `ChatOllama` path as
+the `tos_dr` / `100_tos` notebooks. **All three route through the local `ollama` daemon**
+(`http://localhost:11434`): the `:cloud` tags proxy to Ollama Cloud via `ollama signin`
+(no API key), Saul runs on-device. (The direct `https://ollama.com` + Bearer path returned
+401 with the current key; the localhost proxy sidesteps it. Note per-account cloud gates
+still apply — `qwen3.5:cloud` returns HTTP 402 until cloud credits are enabled; that failure
+is recorded and retried on the next run.)
+
+### 2. Pseudo-logit scoring trick
+
+An LLM returns a decision, not a score. To reuse `lawgic_eval_core` unchanged, each
+prediction is cast to logits that reproduce the same decision after the module's
+`sigmoid`/`argmax`:
+- Topics → `(N, 42)` filled `-10.0`, set `+10.0` at each predicted topic's column
+  (column order = `core.TOPIC_IDS`). `sigmoid(±10)` crosses the 0.5 threshold.
+- Risk → `(N, 3)` filled `-10.0`, `+10.0` at the predicted class; `argmax` recovers it.
+
+Row order = `test` row order (`row_id`). The source-aware mask applies unchanged, so
+predictions on unannotated cells are ignored automatically. Risk vocabulary
+`harmful|neutral|fair` maps `{harmful:0, neutral:1, fair:2}` to match
+`core.HARM_CLASS_NAMES`. Unknown/hallucinated topic IDs are dropped (accepted by exact id
+OR normalized name) and counted per model (`dropped_label_count`).
+
+### 3. Structure / gotchas baked in
+
+- **Smoke first**: `SMOKE_TEST=True` runs a stratified 10-clause sample per model (one per
+  risk class + random fill over harm-observed rows, fixed seed 42), printing clause / raw
+  JSON / parsed prediction / mini-metrics to a separate `_smoke/` dir. Flip
+  `SMOKE_TEST=False` for the full 2,656.
+- **Resumable + retry**: each clause is appended to `raw_predictions.csv` as it arrives,
+  keyed by `row_id`. A restart skips rows that **succeeded** but **retries failures**
+  (402/401/timeout/bad JSON — `parse_ok=False`); a retried row is re-appended and reads
+  dedupe keep-last. Survives cloud quota drops / kernel restarts.
+- **Generation cap**: `num_predict=768` bounds output — without it a small quantised model
+  (Saul) looped into a repetition runaway (one smoke clause: thousands of garbled topic
+  strings over 725 s). Also bounds worst-case latency over the 2,656-clause pass.
+- **Truncation guard**: the rendered prompt measures ~6.5k tokens (full 42-topic taxonomy
+  inline — larger than the ~4k the plan assumed), so `num_ctx=12288` (not 8192) to clear
+  prompt + JSON on local Saul, which Ollama would otherwise silently truncate. A live
+  preflight asserts `prompt_eval_count < num_ctx`.
+- Parse failures never crash: recorded (`parse_failures`), neutral fallback so arrays stay
+  row-aligned.
+
+### 4. Artifacts (mirror Phase 2)
+
+Under `generated_files/lawgic_taxonomy/evaluation_v2/generative_runs/`:
+
+```
+generative_runs/<run_id>/
+    metrics.json        # config + headline metrics + wall_seconds + dropped_label_count + parse_failures
+    predictions.npz     # topic_logits, harm_logits, row_id (+ full label/mask bundle, test order)
+    raw_predictions.csv # row_id, raw_json, parsed_topics, parsed_risk, parse_ok, latency_s (resume source)
+    per_topic.csv
+generative_runs/_smoke/<run_id>/raw_predictions.csv   # smoke outputs, kept separate
+evaluation_v2/generative_headline.{csv,tex}           # combined headline via core.write_outputs
+```
+
+### 5. Validated structurally (no live LLM calls yet)
+
+Offline self-checks pass against the real v2 corpus: pseudo-logit round-trip
+(gold → logits → scoring gives topic micro-F1 = 1.000, risk accuracy = 1.000), risk-map
+equality with `core.HARM_CLASS_NAMES`, id+name topic lookup with unknown-drop, and the
+prompt token-budget estimate (~6.5k < num_ctx). Live inference (smoke + full) is the user's
+to run.
+
+### 6. Pending
+
+- Full run (2,656 × 3 models) → headline numbers. Run smoke first.
+- Generative-vs-encoder significance (McNemar + paired bootstrap vs best Legal-BERT dual,
+  with the `row_id` equality guard) — deferred (TODO in notebook).
+- Two-stage and retrieval-augmented strategies (out of scope this pass).
+- Manuscript 44→42 / 2,648→2,656 number sync (pre-existing).
