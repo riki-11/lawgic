@@ -743,6 +743,9 @@ families are directly comparable. **This is a "test the waters" pass** — it pr
 end-to-end pipeline (prompt → LLM → parse → pseudo-logits → identical scoring → metrics);
 headline numbers land once the full run is executed. Nothing existing was modified.
 
+**Update 2026-09-02: full run completed for both models — see §7 below for results,
+the Ollama Cloud retry, and the per-model cell split.**
+
 ### 1. Models
 
 | run_id | tag | host |
@@ -820,10 +823,75 @@ equality with `core.HARM_CLASS_NAMES`, id+name topic lookup with unknown-drop, a
 prompt token-budget estimate (~6.5k < num_ctx). Live inference (smoke + full) is the user's
 to run.
 
-### 6. Pending
+### 6. Pending (as of 2026-08-31 — superseded, see §7 below)
 
-- Full run (2,656 × 3 models) → headline numbers. Run smoke first.
+- ~~Full run (2,656 × 2 models) → headline numbers. Run smoke first.~~ **Done — §7.**
 - Generative-vs-encoder significance (McNemar + paired bootstrap vs best Legal-BERT dual,
-  with the `row_id` equality guard) — deferred (TODO in notebook).
+  with the `row_id` equality guard) — still deferred (TODO in notebook).
+- Two-stage and retrieval-augmented strategies (out of scope this pass).
+- Manuscript 44→42 / 2,648→2,656 number sync (pre-existing).
+- `qwen3.5:cloud` still deferred — HTTP 402, needs Ollama cloud credits.
+
+---
+
+## Changelog — 2026-09-02: Generative LLM full run — results, Ollama Cloud retry, cell split
+
+### 7. Full run completed
+
+Both configured models finished all 2,656 test clauses:
+
+| run_id | model | topic_macro_f1 | topic_micro_f1 | risk_accuracy | risk_macro_f1 | dropped_labels | parse_failures | wall_min |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `gemma4-31b-cloud__single` | `gemma4:31b-cloud` (cloud) | 0.485 | 0.449 | 0.523 | 0.535 | 0 | 0 | 41.6 |
+| `saul-instruct-v1-q8__single` | `adrienbrault/saul-instruct-v1:Q8_0` (local) | 0.136 | 0.145 | 0.469 | 0.213 | 7,440 | 0 | 459.5 |
+
+Source: `generative_headline.{csv,tex}`, each run's `metrics.json` / `per_topic.csv` under
+`evaluation_v2/generative_runs/<run_id>/`.
+
+**Reading the numbers:**
+- gemma4:31b-cloud clears the neutral-baseline risk accuracy (Saul's 0.469 ≈ the observed
+  neutral base rate — it is barely discriminating on risk at all); gemma's 0.523 shows real,
+  if weak, signal.
+- Saul's `dropped_labels=7440` (of 91,863 observed topic cells) is the standout number — the
+  quantised 7.7 GB Q8_0 model is frequently emitting topic strings that don't match any taxonomy
+  id or name (hallucinated/garbled labels), on top of already trailing gemma on every headline
+  metric. Corroborates the ChatML/`[INST]` template-mismatch fidelity caveat already on record
+  (§ "Structure / gotchas" above).
+- Both numbers are **floor open-weight models**, not frontier systems — frame accordingly in
+  §4.4/§4.5. `qwen3.5:cloud` is still blocked on cloud credits.
+
+### 8. Ollama Cloud session limit — hit, and how the runner handled it
+
+Partway through gemma's first full pass (1,500/2,656 clauses in ~34 min), Ollama Cloud
+returned HTTP 429 on every subsequent call:
+
+```
+you (lejanoenrique) have reached your session usage limit, upgrade for higher limits:
+https://ollama.com/upgrade (status code: 429)
+```
+
+The remaining 1,156 rows were recorded as `parse_ok=False` (per-clause try/except in
+`predict_clause`, §"Structure / gotchas" above) rather than crashing the run. Because
+`_completed_row_ids()` only counts `parse_ok=True` rows as "done," simply re-running the
+runner after the quota window reset retried exactly those 1,156 failed rows and left the
+1,500 successes untouched — no code change needed, the resumable design already covered this
+failure mode. Second pass: 1,156/1,156 succeeded, gemma's aggregate `parse_failures` is now 0.
+
+### 9. Section 8 split into two independent per-model cells
+
+Per user request, the combined `for cfg in MODELS: ...` full-runner cell (which ran gemma
+then Saul back-to-back in one cell) was split into **8a** (gemma only) and **8b** (Saul
+only). Motivation: after the 429 above, re-running the combined cell to retry gemma would
+also re-invoke Saul's (already-complete, 7.5-hour) pass — resumable, so harmless, but a
+wasted iteration loop and ~8 hours of avoidable wait per retry. Each cell now looks up its
+own `cfg` from `MODELS` by `run_id` and calls the same `run_model`/`_completed_row_ids`
+helpers from §5 — no new logic, same resume/retry semantics, just decoupled so re-running
+one model's cell never touches the other's `raw_predictions.csv`.
+
+### 10. Pending
+
+- Generative-vs-encoder significance (McNemar + paired bootstrap vs best Legal-BERT dual,
+  with the `row_id` equality guard) — TODO in notebook.
+- `qwen3.5:cloud` — re-add once Ollama cloud billing is enabled.
 - Two-stage and retrieval-augmented strategies (out of scope this pass).
 - Manuscript 44→42 / 2,648→2,656 number sync (pre-existing).
