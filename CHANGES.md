@@ -895,3 +895,62 @@ one model's cell never touches the other's `raw_predictions.csv`.
 - `qwen3.5:cloud` — re-add once Ollama cloud billing is enabled.
 - Two-stage and retrieval-augmented strategies (out of scope this pass).
 - Manuscript 44→42 / 2,648→2,656 number sync (pre-existing).
+
+---
+
+## Changelog — 2026-09-06: SaulLM investigation — serving-bug root cause + fixed full run
+
+New notebook `notebooks/evaluation/06_investigate_saullm.ipynb`. The published Saul row
+(0.136 / 0.213, above) was root-caused to a **serving-layer template mismatch**, not weak
+weights, and the corrected pipeline was re-run on the full 2,656-clause test split.
+
+### Root cause
+
+Ollama serves `adrienbrault/saul-instruct-v1:Q8_0` with a **ChatML** template
+(`<|im_start|>`), but Saul-Instruct-v1 is a **Mistral-7B-Instruct** finetune trained on
+`[INST] … [/INST]`. ChatML tokens are not Mistral special tokens, so the model never
+enters instruction-following mode. This produced the four failure modes on record:
+risk frozen to `neutral` on all 2,656 rows, topic carpet-bombing (max 188), 7,440
+hallucinated/dropped labels, and repetition loops surviving the `num_predict=768` cap.
+
+### Cumulative fixes (30-row stratified smoke)
+
+| group | change | topic_macro | risk_macro | risk_classes | topics_max | dropped |
+| --- | --- | --- | --- | --- | --- | --- |
+| baseline | Saul as shipped (ChatML) | 0.102 | 0.222 | 1 | 114 | 50 |
+| A | Mistral `[INST]` template (rebuilt Modelfile) | 0.000 | 0.373 | 3 | 0 | 0 |
+| B | A + enum-grammar schema + `repeat_penalty=1.3` | 0.112 | 0.222 | 1 | 1 | 0 |
+| C | B + two-stage (topics call, then risk call) | 0.116 | 0.332 | 2 | 2 | 0 |
+| D | C + stage-1 topic-recall nudge | 0.141 | 0.298 | 2 | 2 | 0 |
+
+A proves the template is the root cause (risk unfreezes 1→3 classes, carpet-bomb and
+hallucination gone) but empties topics under the loose schema; B recovers topics via the
+grammar but re-freezes risk; C recovers both by shrinking per-call context; D lifts topic
+recall via stage-1 wording. Fix = new Ollama model `saul-instruct-v1-mistral:Q8_0` built
+from a Modelfile overriding `TEMPLATE "[INST] {{ .Prompt }} [/INST]"` + `stop "</s>"`.
+
+### Fixed full run — D vs published 05 baseline (both n=2,656)
+
+| config | topic_macro_f1 | topic_micro_f1 | risk_accuracy | risk_macro_f1 | risk_classes | dropped_labels | wall_min |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| baseline (ChatML single-prompt, 05) | 0.136 | 0.145 | 0.469 | 0.213 | 1 | 7,440 | 459.5 |
+| **D (`[INST]` + grammar + two-stage + recall nudge)** | **0.292** | **0.303** | 0.451 | **0.326** | **3** | **0** | **120.8** |
+
+Correcting the template **doubled topic macro-F1** (0.136 → 0.292, 2.1×), lifted risk
+macro-F1 +53% (0.213 → 0.326), restored all 3 risk classes, eliminated all 7,440 dropped
+labels, and ran 3.8× faster. `topics_max=3` (was 188) — carpet-bombing gone at scale.
+
+**Remaining limitation:** Fair is badly under-predicted — full-run risk distribution is
+neutral 2,030 / harmful 610 / **fair 16**. This caps risk-macro at 0.326 and drags
+raw risk-accuracy below the neutral base rate (0.451 < baseline 0.469). Real model/prompt
+weakness, not a bug — report as a caveat.
+
+### Reporting rule
+
+The template fix is a legitimate **serving-bug** correction; the two-stage design (C/D) is
+a **separate strategy** and must be reported as its own config, **never** as a silent
+replacement of 05's single-prompt Saul row (0.136 / 0.213). Both rows stand.
+
+Outputs under `evaluation_v2/generative_runs/_saul_investigation/`: per-group
+`raw_predictions.csv` + `mini_metrics.json`, plus `saul_investigation_summary.csv` (smoke
+ladder) and `saul_full_run_summary.csv` (05 baseline vs D full).
