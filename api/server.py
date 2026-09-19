@@ -15,8 +15,10 @@ from __future__ import annotations
 import json
 import logging
 import os
+import threading
+from datetime import datetime, timezone
 from pathlib import Path
-from typing import Literal
+from typing import Any, Literal
 
 import nltk
 import torch
@@ -51,6 +53,11 @@ MODEL_DIR = Path(
 if not MODEL_DIR.is_absolute():
     MODEL_DIR = REPO_ROOT / MODEL_DIR
 TEST_TOS_PATH = REPO_ROOT / "data" / "new_tos" / "apollo_io.txt"
+
+# Participant interaction telemetry (user-study exploratory measure). Local
+# JSONL only, never transmitted elsewhere — see chapter_4.tex Ethical Considerations.
+INTERACTION_LOG_PATH = REPO_ROOT / "generated_files" / "interaction_logs" / "events.jsonl"
+_interaction_log_lock = threading.Lock()
 
 # ── Inference parameters (must match training conditions) ────────────────────
 MAX_LENGTH = 256
@@ -717,3 +724,39 @@ def explain_tos_scores(request: ExplainTosScoresRequest) -> ExplainTosScoresResp
         point_count=len(points),
         points=points,
     )
+
+
+# =============================================================================
+# Participant interaction telemetry — user-study exploratory measure
+# =============================================================================
+
+class InteractionEvent(BaseModel):
+    """One client-side interaction event (click, screen dwell time, or navigation)."""
+
+    session_id: str = Field(description="Pseudonymous per-session id, generated client-side")
+    event_type: Literal["session_start", "click", "screen_view"]
+    screen: str | None = Field(default=None, description="Named screen/step the event occurred on")
+    client_ts: str = Field(description="Client-side ISO timestamp")
+    data: dict[str, Any] = Field(default_factory=dict, description="Event-specific fields, e.g. target descriptor or duration_ms")
+
+
+@app.post("/api/track_event")
+def track_event(event: InteractionEvent) -> dict:
+    """
+    Append one participant interaction event to the local telemetry log.
+
+    Best-effort only: never raises on write failure, since a logging hiccup
+    must not interrupt a live study session. Never proxied anywhere else.
+    """
+    record = {
+        "server_ts": datetime.now(timezone.utc).isoformat(),
+        **event.model_dump(),
+    }
+    try:
+        INTERACTION_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+        with _interaction_log_lock, INTERACTION_LOG_PATH.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(record, ensure_ascii=False) + "\n")
+    except OSError as exc:
+        logger.warning("Failed to write interaction event: %s", exc)
+        return {"logged": False}
+    return {"logged": True}
