@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Session control</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f6f6f4; --fg: #1d1d1b; --muted: #5a5a55; --panel: #ffffff; --line: #c9c9c2;
+    --accent: #1f4e79; --accent-fg: #ffffff; --ok: #1d6b3a; --warn-bg: #fff1cf; --warn-line: #8a5a00; --warn-fg: #4a3000;
+    --err: #9b1c1c; --focus: #0b57d0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #17181a; --fg: #e8e8e4; --muted: #a0a09a; --panel: #212326; --line: #3d4044;
+      --accent: #8ab4e8; --accent-fg: #101214; --ok: #6fcf8f; --warn-bg: #3a2c08; --warn-line: #e0a52c; --warn-fg: #ffe2a1;
+      --err: #ff8a8a; --focus: #8ab4e8;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 34rem; margin: 0 auto; padding: 16px; }
+  h1 { font-size: 1.25rem; margin: 0 0 12px; }
+  section { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 16px; margin-bottom: 16px; }
+  label { display: block; font-weight: 600; margin-bottom: 4px; }
+  input, textarea, button { font: inherit; color: inherit; }
+  input, textarea { width: 100%; padding: 8px; background: var(--bg); border: 1px solid var(--line); border-radius: 4px; }
+  textarea { resize: vertical; min-height: 4.5rem; }
+  .field { margin-bottom: 12px; }
+  button { padding: 10px 16px; min-height: 44px; border: 1px solid var(--accent); background: var(--accent); color: var(--accent-fg); border-radius: 4px; cursor: pointer; font-weight: 600; }
+  button.secondary { background: transparent; color: var(--fg); border-color: var(--line); }
+  button.armed { background: var(--warn-bg); color: var(--warn-fg); border-color: var(--warn-line); }
+  button:disabled { opacity: .5; cursor: default; }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .hint { color: var(--muted); font-size: .875rem; margin: 4px 0 0; }
+  .msg { min-height: 1.4em; margin: 8px 0 0; }
+  .msg.error { color: var(--err); font-weight: 600; }
+  .pid { font-size: 3rem; font-weight: 700; line-height: 1.1; }
+  .timer { font-size: 2rem; font-variant-numeric: tabular-nums; }
+  dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; margin: 12px 0; }
+  dt { color: var(--muted); }
+  dd { margin: 0; }
+  .state { padding: 8px 12px; border: 1px solid var(--line); border-radius: 4px; margin: 12px 0; }
+  .state.ok { border-color: var(--ok); }
+  .state.warn { background: var(--warn-bg); color: var(--warn-fg); border: 2px solid var(--warn-line); font-weight: 700; }
+  .state.error { border: 2px solid var(--err); color: var(--err); font-weight: 600; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Session control</h1>
+
+  <section aria-labelledby="conn-h">
+    <div class="field">
+      <label for="token" id="conn-h">Admin token</label>
+      <input id="token" type="password" autocomplete="off" spellcheck="false">
+      <p class="hint">Kept in this tab's memory only. Reloading the page clears it.</p>
+    </div>
+    <div id="state" class="state" aria-live="polite"></div>
+  </section>
+
+  <section id="startPanel" aria-label="Start a session">
+    <form id="startForm" novalidate>
+      <div class="field">
+        <label for="pid">Participant number</label>
+        <input id="pid" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="off">
+        <p class="hint">Digits only, up to 6.</p>
+      </div>
+      <button type="submit" id="startBtn">Start session</button>
+      <p id="startMsg" class="msg" role="status" aria-live="polite"></p>
+    </form>
+    <p id="summary" class="msg" role="status" aria-live="polite"></p>
+  </section>
+
+  <section id="livePanel" aria-label="Active session" hidden>
+    <div>Participant</div>
+    <div class="pid" id="livePid"></div>
+    <div class="timer" id="liveElapsed">00:00</div>
+    <dl>
+      <dt>Events</dt><dd id="liveCount"></dd>
+      <dt>Last event</dt><dd id="liveEvent"></dd>
+      <dt>Last heartbeat</dt><dd id="liveBeat"></dd>
+      <dt>Current screen</dt><dd id="liveScreen"></dd>
+    </dl>
+    <div class="field">
+      <label for="note">Session note (optional)</label>
+      <textarea id="note" maxlength="1000"></textarea>
+    </div>
+    <button type="button" id="endBtn" class="secondary">End session</button>
+    <p id="endMsg" class="msg" role="status" aria-live="polite"></p>
+  </section>
+</main>
+
+<script>
+"use strict";
+var $ = function (id) { return document.getElementById(id); };
+var token = "";            // memory only, never persisted or put in a URL
+var current = null;        // last active status, or null
+var receivedAt = 0;        // performance.now() when `current` arrived
+var pollSeq = 0;
+var armTimer = null;
+var busy = false;
+
+function mmss(ms) {
+  var s = Math.max(0, Math.floor(ms / 1000));
+  var m = Math.floor(s / 60);
+  return String(m).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
+}
+
+// Returns {status, data}; throws on network failure.
+async function api(method, path, body) {
+  var opts = { method: method, headers: { "X-Admin-Token": token } };
+  if (body !== undefined) {
+    opts.headers["Content-Type"] = "application/json";
+    opts.body = JSON.stringify(body);
+  }
+  var r = await fetch(path, opts);
+  var data = null;
+  try { data = await r.json(); } catch (e) { /* non-JSON body */ }
+  return { status: r.status, data: data };
+}
+
+function errText(res) {
+  if (res.status === 401) return "Wrong token";
+  if (res.status === 503) return "Session routes are disabled: LAWGIC_ADMIN_TOKEN is not set on the server";
+  var d = res.data && res.data.detail;
+  if (res.status === 422) return "Invalid participant number: digits only, 1 to 6 characters";
+  if (typeof d === "string") return d;
+  return "Unexpected server response (HTTP " + res.status + ")";
+}
+
+function setState(kind, text) {
+  var el = $("state");
+  if (el.textContent !== text) el.textContent = text;
+  el.className = "state " + kind;
+}
+
+function disarm() {
+  clearTimeout(armTimer);
+  armTimer = null;
+  var b = $("endBtn");
+  b.textContent = "End session";
+  b.className = "secondary";
+}
+
+function render() {
+  var c = current;
+  $("livePanel").hidden = !c;
+  $("startPanel").hidden = !!c;
+  if (!c) { disarm(); return; }
+  var dt = performance.now() - receivedAt;
+  var elapsed = c.elapsed_ms + dt;
+  $("livePid").textContent = "P" + c.participant_id;
+  $("liveElapsed").textContent = mmss(elapsed);
+  $("liveCount").textContent = String(c.event_count);
+  $("liveEvent").textContent = c.last_event_age_s == null
+    ? "waiting for participant activity"
+    : Math.round(c.last_event_age_s + dt / 1000) + " s ago";
+  var beat = c.last_heartbeat_age_s == null ? null : c.last_heartbeat_age_s + dt / 1000;
+  $("liveBeat").textContent = beat == null ? "none yet" : Math.round(beat) + " s ago";
+  $("liveScreen").textContent = c.current_screen == null ? "unknown" : String(c.current_screen);
+  if (!armTimer) $("endBtn").textContent = "End session";
+  var stale = elapsed > 15000 && (beat == null || beat > 15);
+  if (stale) setState("warn", "Warning: No heartbeat from the participant's browser. Tracking may not be working.");
+  else if (beat == null) setState("wait", "Session active. Waiting for the participant's browser (no heartbeat yet).");
+  else setState("ok", "OK: session active, tracking heartbeat received.");
+}
+
+async function poll() {
+  var seq = ++pollSeq;
+  if (!token) {
+    current = null;
+    setState("", "Enter the admin token to connect.");
+    render();
+    return;
+  }
+  var res;
+  try {
+    res = await api("GET", "/api/session/status");
+  } catch (e) {
+    if (seq !== pollSeq) return;
+    current = null;
+    setState("error", "Cannot reach the server. Retrying every 2 s. No live data.");
+    render();
+    return;
+  }
+  if (seq !== pollSeq) return;   // a newer poll (or start/end) superseded this one
+  if (res.status !== 200 || !res.data) {
+    current = null;
+    setState("error", errText(res));
+  } else if (res.data.active) {
+    current = res.data;
+    receivedAt = performance.now();
+  } else {
+    current = null;
+    setState("ok", "Connected. No session active.");
+  }
+  render();
+}
+
+$("token").addEventListener("input", function (e) { token = e.target.value.trim(); $("startMsg").textContent = ""; poll(); });
+
+$("pid").addEventListener("input", function (e) {
+  e.target.value = e.target.value.replace(/\D/g, "").slice(0, 6);
+});
+
+$("startForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+  if (busy) return;
+  var msg = $("startMsg");
+  msg.className = "msg error";
+  var pid = $("pid").value;
+  if (!token) { msg.textContent = "Enter the admin token first."; return; }
+  if (!/^\d{1,6}$/.test(pid)) { msg.textContent = "Enter a participant number (digits only, up to 6)."; return; }
+  busy = true;
+  $("startBtn").disabled = true;
+  msg.textContent = "";
+  $("summary").textContent = "";
+  try {
+    var res = await api("POST", "/api/session/start", { participant_id: pid });
+    if (res.status === 200) {
+      msg.className = "msg";
+      $("pid").value = "";
+      $("note").value = "";
+      pollSeq++;        // discard any in-flight poll from before the start
+      await poll();
+    } else {
+      msg.textContent = errText(res);
+    }
+  } catch (err) {
+    msg.textContent = "Cannot reach the server. The session was not started.";
+  } finally {
+    busy = false;
+    $("startBtn").disabled = false;
+  }
+});
+
+$("endBtn").addEventListener("click", async function () {
+  if (busy || !current) return;
+  var msg = $("endMsg");
+  if (!armTimer) {
+    // First press: arm for 5 s.
+    $("endBtn").textContent = "Confirm end session for P" + current.participant_id;
+    $("endBtn").className = "armed";
+    msg.textContent = "";
+    armTimer = setTimeout(disarm, 5000);
+    return;
+  }
+  disarm();
+  busy = true;
+  $("endBtn").disabled = true;
+  msg.className = "msg error";
+  try {
+    var n = $("note").value;
+    var res = await api("POST", "/api/session/end", { note: n.trim() === "" ? null : n });
+    if (res.status === 200) {
+      var d = res.data;
+      $("summary").textContent = "Session ended. Participant P" + d.participant_id + ", duration " +
+        mmss(d.duration_ms) + ", " + d.event_count + " events.";
+      msg.textContent = "";
+      $("note").value = "";
+      current = null;
+      pollSeq++;
+      render();
+      poll();
+      $("pid").focus();
+    } else if (res.status === 404) {
+      msg.textContent = "No active session (it may already have been ended).";
+      poll();
+    } else {
+      msg.textContent = errText(res);
+    }
+  } catch (err) {
+    msg.textContent = "Cannot reach the server. The session may still be active.";
+  } finally {
+    busy = false;
+    $("endBtn").disabled = false;
+  }
+});
+
+setInterval(poll, 2000);
+setInterval(function () { if (current) render(); }, 1000);
+poll();
+</script>
+</body>
+</html>

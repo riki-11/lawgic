@@ -133,6 +133,11 @@ def main() -> int:
     check(code == 200 and res == {"logged": False, "reason": "no_active_session"}, f"post-end event: {code} {res}")
     check(len(session_lines(sid)) == n_lines, "post-end event added a log line")
 
+    # (k) researcher control page is served as HTML
+    with urllib.request.urlopen(f"{API_BASE}/session", timeout=5) as resp:
+        page = resp.read().decode()
+        check(resp.status == 200 and resp.headers.get_content_type() == "text/html" and "Session control" in page, "GET /session: expected 200 text/html containing 'Session control'")
+
     print("PASS")
     return 0
 

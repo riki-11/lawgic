@@ -28,6 +28,7 @@ import torch.nn as nn
 from dotenv import load_dotenv
 from fastapi import Depends, FastAPI, File, Form, Header, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 from transformers import AutoModel, AutoTokenizer
 
@@ -912,6 +913,12 @@ def session_status() -> dict:
             "last_heartbeat_age_s": age(_session["last_heartbeat"]),
             "current_screen": _session["current_screen"],
         }
+
+
+@app.get("/session", include_in_schema=False)
+def session_page() -> FileResponse:
+    """Researcher session control page. Static, no data; its API calls carry the admin token."""
+    return FileResponse(Path(__file__).parent / "session_page.html", media_type="text/html")
 
 
 @app.post("/api/track_event")
