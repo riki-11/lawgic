@@ -15,7 +15,9 @@ from __future__ import annotations
 import json
 import logging
 import os
+import secrets
 import threading
+import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Literal
@@ -24,7 +26,7 @@ import nltk
 import torch
 import torch.nn as nn
 from dotenv import load_dotenv
-from fastapi import FastAPI, File, Form, HTTPException, UploadFile
+from fastapi import Depends, FastAPI, File, Form, Header, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from transformers import AutoModel, AutoTokenizer
@@ -729,34 +731,216 @@ def explain_tos_scores(request: ExplainTosScoresRequest) -> ExplainTosScoresResp
 # =============================================================================
 # Participant interaction telemetry — user-study exploratory measure
 # =============================================================================
+# The researcher starts/ends a session from their own laptop; the server stamps
+# participant/session onto every client event. The browser has no session UI.
 
 class InteractionEvent(BaseModel):
-    """One client-side interaction event (click, screen dwell time, or navigation)."""
+    """One client-side interaction event. Participant/session ids are stamped server-side."""
 
-    session_id: str = Field(description="Pseudonymous per-session id, generated client-side")
-    event_type: Literal["session_start", "click", "screen_view"]
+    event_type: Literal[
+        "client_hello", "click", "screen_view", "heartbeat", "change_card_expand",
+        "change_card_collapse", "original_clause_open", "category_toggle",
+        "preview_toggle", "ask_ai_open", "ask_ai_message", "analysis_result",
+        "profile_selection",
+    ]
     screen: str | None = Field(default=None, description="Named screen/step the event occurred on")
+    client_id: str = Field(description="Pseudonymous per-browser id, generated client-side")
+    client_seq: int = Field(description="Client-side event counter")
     client_ts: str = Field(description="Client-side ISO timestamp")
+    app_commit: str | None = Field(default=None, description="Web app build commit")
     data: dict[str, Any] = Field(default_factory=dict, description="Event-specific fields, e.g. target descriptor or duration_ms")
+
+
+class SessionStartBody(BaseModel):
+    participant_id: str = Field(pattern=r"^[0-9]{1,6}$")
+
+
+class SessionEndBody(BaseModel):
+    note: str | None = Field(default=None, max_length=1000)
+
+
+MAX_EVENT_DATA_BYTES = 64 * 1024
+ACTIVE_SESSION_PATH = INTERACTION_LOG_PATH.parent / "active_session.json"
+_CLIENT_FIELDS = ("client_id", "client_seq", "client_ts", "app_commit")
+# Active session (or None), guarded by _interaction_log_lock together with the log file.
+_session: dict | None = None
+
+
+def _require_admin(x_admin_token: str | None = Header(default=None)) -> None:
+    # Read at request time; fail closed when unset. Needed because the ngrok
+    # tunnel makes public requests arrive from localhost too.
+    expected = os.getenv("LAWGIC_ADMIN_TOKEN")
+    if not expected:
+        raise HTTPException(status_code=503, detail="Session routes disabled: LAWGIC_ADMIN_TOKEN is not set")
+    # Compare as bytes: str compare_digest raises TypeError on non-ASCII input.
+    if not x_admin_token or not secrets.compare_digest(x_admin_token.encode(), expected.encode()):
+        raise HTTPException(status_code=401, detail="Invalid or missing X-Admin-Token")
+
+
+def _save_session() -> None:
+    # Only what a restart needs. next_seq is rewritten on every event so a
+    # resumed session continues its seq numbering instead of restarting at 0.
+    keys = ("participant_id", "session_id", "started_at", "next_seq")
+    tmp = ACTIVE_SESSION_PATH.with_suffix(".tmp")
+    tmp.write_text(json.dumps({k: _session[k] for k in keys}), encoding="utf-8")
+    os.replace(tmp, ACTIVE_SESSION_PATH)
+
+
+def _load_session() -> None:
+    global _session
+    try:
+        saved = json.loads(ACTIVE_SESSION_PATH.read_text(encoding="utf-8"))
+        _session = {
+            **saved,
+            "started_dt": datetime.fromisoformat(saved["started_at"]),
+            "last_event": None, "last_heartbeat": None, "current_screen": None,
+        }
+        logger.info("Resumed telemetry session %s (participant %s)", saved["session_id"], saved["participant_id"])
+    except FileNotFoundError:
+        pass
+    except (OSError, ValueError, KeyError) as exc:
+        logger.warning("Ignoring unreadable %s: %s", ACTIVE_SESSION_PATH, exc)
+
+
+def _append_line(event_type: str, screen: str | None, data: dict, client: dict | None = None) -> dict:
+    """Stamp and write one JSONL line for the active session. Caller holds the lock; raises OSError."""
+    now = datetime.now(timezone.utc)
+    record = {
+        "server_ts": now.isoformat(),
+        "participant_id": _session["participant_id"],
+        "session_id": _session["session_id"],
+        "seq": _session["next_seq"],
+        "t_ms": int((now - _session["started_dt"]).total_seconds() * 1000),
+        "event_type": event_type,
+        "screen": screen,
+        **(client or dict.fromkeys(_CLIENT_FIELDS)),
+        "data": data,
+    }
+    INTERACTION_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with INTERACTION_LOG_PATH.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(record, ensure_ascii=False) + "\n")
+    _session["next_seq"] += 1
+    return record
+
+
+_load_session()
+
+
+@app.post("/api/session/start", dependencies=[Depends(_require_admin)])
+def session_start(body: SessionStartBody) -> dict:
+    """Researcher starts a session for one participant. One active session at a time."""
+    global _session
+    with _interaction_log_lock:
+        if _session:
+            raise HTTPException(
+                status_code=409,
+                detail=f"Session already active for participant {_session['participant_id']}",
+            )
+        now = datetime.now(timezone.utc)
+        _session = {
+            "participant_id": body.participant_id,
+            "session_id": str(uuid.uuid4()),
+            "started_at": now.isoformat(),
+            "started_dt": now,
+            "next_seq": 0,
+            "last_event": None, "last_heartbeat": None, "current_screen": None,
+        }
+        # Encoder checkpoint only. The generative model and RISK_SCORER live in the
+        # web app's process (OLLAMA_MODEL, RISK_SCORER), so its client_hello reports those.
+        meta = {"model_dir": MODEL_DIR.name}
+        try:
+            _save_session()
+            _append_line("session_start", None, meta)
+            _save_session()
+        except OSError as exc:
+            logger.error("Failed to start telemetry session: %s", exc)
+            _session = None
+            ACTIVE_SESSION_PATH.unlink(missing_ok=True)
+            raise HTTPException(status_code=500, detail="Could not write session log") from exc
+        return {
+            "participant_id": _session["participant_id"],
+            "session_id": _session["session_id"],
+            "started_at": _session["started_at"],
+            **meta,
+        }
+
+
+@app.post("/api/session/end", dependencies=[Depends(_require_admin)])
+def session_end(body: SessionEndBody) -> dict:
+    global _session
+    with _interaction_log_lock:
+        if not _session:
+            raise HTTPException(status_code=404, detail="No active session")
+        duration_ms = int((datetime.now(timezone.utc) - _session["started_dt"]).total_seconds() * 1000)
+        try:
+            _append_line(
+                "session_end", None,
+                {"end_reason": "researcher_ended", "duration_ms": duration_ms, "note": body.note},
+            )
+        except OSError as exc:
+            # Keep the session active so the researcher can retry.
+            logger.error("Failed to write session_end: %s", exc)
+            raise HTTPException(status_code=500, detail="Could not write session log") from exc
+        summary = {
+            "participant_id": _session["participant_id"],
+            "session_id": _session["session_id"],
+            "duration_ms": duration_ms,
+            "event_count": _session["next_seq"] - 2,  # excludes session_start and session_end
+        }
+        _session = None
+        ACTIVE_SESSION_PATH.unlink(missing_ok=True)
+        return summary
+
+
+@app.get("/api/session/status", dependencies=[Depends(_require_admin)])
+def session_status() -> dict:
+    with _interaction_log_lock:
+        if not _session:
+            return {"active": False}
+        now = datetime.now(timezone.utc)
+
+        def age(ts: datetime | None) -> float | None:
+            return None if ts is None else round((now - ts).total_seconds(), 1)
+
+        return {
+            "active": True,
+            "participant_id": _session["participant_id"],
+            "session_id": _session["session_id"],
+            "elapsed_ms": int((now - _session["started_dt"]).total_seconds() * 1000),
+            "event_count": _session["next_seq"] - 1,  # client events; seq 0 is session_start
+            "last_event_age_s": age(_session["last_event"]),
+            "last_heartbeat_age_s": age(_session["last_heartbeat"]),
+            "current_screen": _session["current_screen"],
+        }
 
 
 @app.post("/api/track_event")
 def track_event(event: InteractionEvent) -> dict:
     """
-    Append one participant interaction event to the local telemetry log.
+    Append one participant interaction event to the local telemetry log,
+    stamped with the active session. Dropped when no session is active.
 
     Best-effort only: never raises on write failure, since a logging hiccup
     must not interrupt a live study session. Never proxied anywhere else.
     """
-    record = {
-        "server_ts": datetime.now(timezone.utc).isoformat(),
-        **event.model_dump(),
-    }
-    try:
-        INTERACTION_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
-        with _interaction_log_lock, INTERACTION_LOG_PATH.open("a", encoding="utf-8") as f:
-            f.write(json.dumps(record, ensure_ascii=False) + "\n")
-    except OSError as exc:
-        logger.warning("Failed to write interaction event: %s", exc)
-        return {"logged": False}
+    if len(json.dumps(event.data, ensure_ascii=False).encode("utf-8")) > MAX_EVENT_DATA_BYTES:
+        raise HTTPException(status_code=413, detail="Event data exceeds 64 KB")
+    with _interaction_log_lock:
+        if not _session:
+            return {"logged": False, "reason": "no_active_session"}
+        try:
+            _append_line(
+                event.event_type, event.screen, event.data,
+                event.model_dump(include=set(_CLIENT_FIELDS)),
+            )
+            _save_session()
+        except OSError as exc:
+            logger.warning("Failed to write interaction event: %s", exc)
+            return {"logged": False, "reason": "write_failed"}
+        now = datetime.now(timezone.utc)
+        _session["last_event"] = now
+        if event.event_type == "heartbeat":
+            _session["last_heartbeat"] = now
+        if event.screen is not None:
+            _session["current_screen"] = event.screen
     return {"logged": True}
