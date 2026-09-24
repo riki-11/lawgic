@@ -149,9 +149,23 @@ def session_c() -> Session:
     return c
 
 
+def session_d() -> Session:
+    # The participant's profile page was open 25 s BEFORE the researcher pressed
+    # Start, so its cumulative screen_ms includes time outside the session.
+    d = Session("200", "sD")
+    d.ev(0, "session_start", data={"model_dir": "models/z"})
+    d.ev(300, "client_hello", "profile")
+    d.ev(5000, "heartbeat", "profile", {"screen": "profile", "screen_ms": 30000, "active_ms": 25000, "under": [], "cards": {}})
+    d.ev(10000, "heartbeat", "profile", {"screen": "profile", "screen_ms": 35000, "active_ms": 30000, "under": [], "cards": {}})
+    d.ev(12000, "screen_view", "profile", {"duration_ms": 37000, "active_ms": 32000})
+    d.ev(17000, "heartbeat", "results", {"screen": "results", "screen_ms": 5000, "active_ms": 4000, "under": [], "cards": {}})
+    d.ev(18000, "session_end", data={"end_reason": "researcher_ended", "duration_ms": 18000, "note": None})
+    return d
+
+
 def write_fixture(path: Path) -> None:
     with open(path, "w", encoding="utf-8") as f:
-        for s in (session_a(), session_b(), session_c()):
+        for s in (session_a(), session_b(), session_c(), session_d()):
             for i, line in enumerate(s.lines):
                 f.write(json.dumps(line) + "\n")
                 if s.sid == "sA" and i == 10:
@@ -173,7 +187,13 @@ def verify(out: Path) -> None:
     cds = read_csv(out / "interaction_cards.csv")
     check(list(sess[0].keys()) == S.SESSION_COLS, "session columns")
     check(list(cds[0].keys()) == S.CARD_COLS, "card columns")
-    check([r["participant_id"] for r in sess] == ["9", "101", "102"], "session order (numeric participant)")
+    check([r["participant_id"] for r in sess] == ["9", "101", "102", "200"], "session order (numeric participant)")
+
+    # D: profile was open 25 s before Start; only the in-session 12 s counts (37 s - 25 s).
+    # Active time is capped at in-session wall time (an upper bound for such screens).
+    expect(sess[3], {"session_id": "sD", "duration_ms": "18000", "n_client_events": "5", "n_heartbeats": "3",
+                     "profile_wall_s": "12.0", "profile_active_s": "12.0",
+                     "results_wall_s": "5.0", "results_active_s": "4.0"}, "D")
 
     expect(sess[0], {"session_id": "sC", "ended": "false", "n_client_events": "0", "duration_ms": "0",
                      "model_dir": "models/z", "results_wall_s": "0.0", "time_to_results_s": "",

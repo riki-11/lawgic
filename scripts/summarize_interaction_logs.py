@@ -13,7 +13,11 @@ a screen_view finalizes the entry with max(record, screen_view values); any
 record still open at the end of the session is finalized. Totals are sums over
 entries. screen_view events under 100 ms are strict-mode artifacts and are
 ignored. Per-card visible/expanded ms follow the same rule using results
-entries as the unit.
+entries as the unit. Time before the session started (a screen the participant
+opened before the researcher pressed Start) is not counted: an entry whose
+first event reports more screen_ms than the session's t_ms has the excess
+removed, and its active time and card exposure are capped at the in-session
+wall time (an upper bound for such screens).
 
 Usage:
     python3 scripts/summarize_interaction_logs.py [--log PATH] [--out-dir DIR]
@@ -86,20 +90,28 @@ class ScreenTimes:
         r = self.rec.pop(s, None)
         if r is None:
             return
-        self.tot[s][0] += r["sm"]
-        self.tot[s][1] += r["am"]
+        # Count only time inside the session: a screen the participant opened before
+        # the researcher pressed Start reports a cumulative screen_ms that includes
+        # that earlier time. Active time and card exposure are capped at the
+        # in-session wall time (an upper bound for such screens).
+        inside = max(0.0, r["sm"] - r["pre"])
+        self.tot[s][0] += inside
+        self.tot[s][1] += min(r["am"], inside)
         if s == "results":
             for cid, (v, e) in r["cards"].items():
-                self.cards[cid][0] += v
-                self.cards[cid][1] += e
+                self.cards[cid][0] += min(v, inside)
+                self.cards[cid][1] += min(e, inside)
 
-    def update(self, s: str, sm: float, am: float, cards, new_entry_on_drop: bool = True) -> None:
+    def update(self, s: str, sm: float, am: float, cards, t_ms=None, new_entry_on_drop: bool = True) -> None:
         r = self.rec.get(s)
         if r is not None and new_entry_on_drop and sm < r["sm"]:
             self.finalize(s)
             r = None
         if r is None:
-            r = self.rec[s] = {"sm": 0.0, "am": 0.0, "cards": {}}
+            # t_ms is when this event arrived, so the entry began t_ms earlier at
+            # the latest; anything beyond that predates the session.
+            pre = max(0.0, sm - t_ms) if isinstance(t_ms, (int, float)) else 0.0
+            r = self.rec[s] = {"sm": 0.0, "am": 0.0, "cards": {}, "pre": pre}
         r["sm"] = max(r["sm"], sm)
         r["am"] = max(r["am"], am)
         for cid, v in as_dict(cards).items():
@@ -108,25 +120,25 @@ class ScreenTimes:
             c[0] = max(c[0], num(v.get("visible_ms")))
             c[1] = max(c[1], num(v.get("expanded_ms")))
 
-    def heartbeat(self, ev_screen, d: dict) -> None:
+    def heartbeat(self, ev_screen, d: dict, t_ms=None) -> None:
         top = screen_key(d.get("screen") or ev_screen or "")
         if top:
             self.update(top, num(d.get("screen_ms")), num(d.get("active_ms")),
-                        d.get("cards") if top == "results" else None)
+                        d.get("cards") if top == "results" else None, t_ms)
         for row in d.get("under") or []:
             row = as_dict(row)
             if row.get("screen"):
                 s = screen_key(row["screen"])
                 self.update(s, num(row.get("screen_ms")), num(row.get("active_ms")),
-                            row.get("cards") if s == "results" else None)
+                            row.get("cards") if s == "results" else None, t_ms)
 
-    def screen_view(self, ev_screen, d: dict) -> None:
+    def screen_view(self, ev_screen, d: dict, t_ms=None) -> None:
         s = screen_key(ev_screen or d.get("screen") or "")
         dur = num(d.get("duration_ms"))
         if not s or dur < MIN_REAL_VIEW_MS:
             return  # strict-mode artifact: no-op, never clears a real record
         self.update(s, dur, num(d.get("active_ms")), d.get("cards") if s == "results" else None,
-                    new_entry_on_drop=False)
+                    t_ms, new_entry_on_drop=False)
         self.finalize(s)
 
     def close(self) -> None:
@@ -166,9 +178,9 @@ def summarize_session(pid: str, sid: str, evs: list[dict]):
             t_results = e["t_ms"]
         if et == "heartbeat":
             n_hb += 1
-            st.heartbeat(e.get("screen"), d)
+            st.heartbeat(e.get("screen"), d, e.get("t_ms"))
         elif et == "screen_view":
-            st.screen_view(e.get("screen"), d)
+            st.screen_view(e.get("screen"), d, e.get("t_ms"))
         elif et == "click":
             n_click += 1
         elif et == "profile_selection":
