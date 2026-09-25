@@ -364,6 +364,25 @@ const { points } = await explainRes.json();
 
 Each filtered clause triggers one sequential Ollama call (~2–5 s each). Apollo.io (~75 BERT chunks) may yield ~5–15 Harmful clauses → **10–75 s** for the explain step. Show a loading state in the UI.
 
+### Interaction telemetry (user-study sessions)
+
+Not part of the analysis flow. These routes record participant behaviour for the Lawgic condition of the user study. The researcher starts and ends a session for one participant from their own laptop; the participant's browser has no session controls. Events land in `generated_files/interaction_logs/events.jsonl` (gitignored, flat append-only JSONL). Field meanings are in the vault note `Experiment/Lawgic - Explaining the Interaction Log.md`; `scripts/summarize_interaction_logs.py` rolls the log up to per-participant and per-card CSVs.
+
+| Route | Auth | Purpose |
+|---|---|---|
+| `GET /session` | none (static page) | Researcher control page: token entry, participant number, Start, live status readout, two-step End with a note |
+| `POST /api/session/start` | `X-Admin-Token` | Body `{"participant_id": "<1-6 digits>"}`. `409` if a session is already active |
+| `POST /api/session/end` | `X-Admin-Token` | Body `{"note": "<optional, max 1000>"}`. `404` if none active |
+| `GET /api/session/status` | `X-Admin-Token` | Active flag, participant, elapsed, event count, last-event and last-heartbeat age, current screen |
+| `POST /api/track_event` | none | One client event. Stamped with `participant_id`, `session_id`, `seq`, `t_ms`. **Dropped** (`{"logged": false, "reason": "no_active_session"}`) when no session is active. `413` if `data` exceeds 64 KB |
+
+- **Token.** The three session routes read `LAWGIC_ADMIN_TOKEN` at request time. Unset returns `503` (fail closed); a wrong or missing header returns `401`. A localhost check is not enough because the ngrok tunnel makes public requests arrive from localhost.
+- **One session at a time.** The active session is persisted to `interaction_logs/active_session.json`, so a backend restart resumes it (`last_event`, `last_heartbeat` and `current_screen` reset until the next event).
+- **Order.** Start the session before handing the participant the app; anything sent earlier is dropped.
+- **Backend metadata.** `session_start` records only `model_dir`. The generative model and risk scorer belong to the web app's process, so the web app reports them in `client_hello`.
+- **Event types** (`InteractionEvent.event_type`): `client_hello`, `click`, `screen_view`, `heartbeat`, `change_card_expand`, `change_card_collapse`, `original_clause_open`, `category_toggle`, `preview_toggle`, `ask_ai_open`, `ask_ai_message`, `analysis_result`, `profile_selection`.
+- **Smoke test.** `LAWGIC_ADMIN_TOKEN=... python3 notebooks/lawgic_pipeline/test_track_event.py` against a running server with no active session. It writes participant `9999` rows to the real log, so delete them afterwards.
+
 ---
 
 ## 5. Prerequisites
