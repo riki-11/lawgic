@@ -41,6 +41,13 @@ From the repo root:
   --reload
 ```
 
+Then in another terminal tab:
+
+```bash
+ngrok http --domain=placoid-inez-untumefied.ngrok-free.dev 8000
+```
+
+
 Test it:
 
 ```bash
